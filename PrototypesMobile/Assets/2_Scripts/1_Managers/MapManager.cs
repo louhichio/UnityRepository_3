@@ -36,8 +36,8 @@ namespace TheVandals
 		private List<SceneElement> listSceneElements = new List<SceneElement>();
 		private List<TileEntity> map_tiles = new List<TileEntity>();
 		
-		private int mapWidth;
-		private int mapHeight;
+		private float mapWidth;
+		private float mapHeight;
 		public bool enableEditorMapTilesGeneration = false;
 		#endregion
 
@@ -47,8 +47,8 @@ namespace TheVandals
 			if(enableEditorMapTilesGeneration && transform.childCount == 0)
 			{			
 				transform.position = Vector3.up * (-0.001f);
-				mapWidth = (int)trs_Floor.localScale.x;
-				mapHeight = (int)trs_Floor.localScale.z;
+				mapWidth = trs_Floor.localScale.x;
+				mapHeight = trs_Floor.localScale.z;
 
 				GenerateMapTiles();
 
@@ -93,8 +93,8 @@ namespace TheVandals
 
 		void Start()
 		{
-			mapWidth = (int)trs_Floor.localScale.x;
-			mapHeight = (int)trs_Floor.localScale.z;
+			mapWidth = trs_Floor.localScale.x;
+			mapHeight = trs_Floor.localScale.z;
 
 			if(transform.childCount == 0)
 			{
@@ -180,12 +180,12 @@ namespace TheVandals
 			cross_temp.tile_center = t;
 
 			if((t.index + mapHeight) < map_tiles.Count && 
-			   Mathf.Abs(tile_height - map_tiles[t.index + mapHeight].transform.position.y) < t.size * 2)
-				cross_temp.tile_forward = map_tiles[t.index + mapHeight];
+			   Mathf.Abs(tile_height - map_tiles[t.index + (int)mapHeight].transform.position.y) < t.size * 2)
+				cross_temp.tile_forward = map_tiles[t.index + (int)mapHeight];
 			
 			if((t.index - mapHeight) >= 0 && 
-			   Mathf.Abs(tile_height - map_tiles[t.index - mapHeight].transform.position.y) < t.size * 2)
-				cross_temp.tile_back = map_tiles[t.index - mapHeight];
+			   Mathf.Abs(tile_height - map_tiles[t.index - (int)mapHeight].transform.position.y) < t.size * 2)
+				cross_temp.tile_back = map_tiles[t.index - (int)mapHeight];
 
 			if((t.index + 1) < map_tiles.Count &&
 			   (t.index + 1) % mapHeight != 0 && 
@@ -246,7 +246,7 @@ namespace TheVandals
 				{
 					for(int y = se.yMin; y <= se.yMax; y++)
 					{
-						int index = x *(mapHeight) + y;
+						int index = x *(int)(mapHeight) + y;
 						
 						if(map_tiles[index].transform.position.y < se.height)
 						{
@@ -294,11 +294,11 @@ namespace TheVandals
 				}
 			}
 			
-			float xMin = Mathf.Clamp(Mathf.Floor(se.rect.xMin + (mapWidth / 2)), 0, mapWidth);
-			float yMin = Mathf.Clamp(Mathf.Floor(se.rect.yMin + (mapHeight / 2)), 0, mapWidth);
+			float xMin = Mathf.Clamp(Mathf.Floor(se.rect.xMin + (mapWidth / 2)), 0, mapWidth -1);
+			float yMin = Mathf.Clamp(Mathf.Floor(se.rect.yMin + (mapHeight / 2)), 0, mapWidth -1 );
 			
-			float xMax = Mathf.Clamp(Mathf.Ceil(se.rect.xMax + (mapWidth / 2) - 1), 0, mapWidth);
-			float yMax = Mathf.Clamp(Mathf.Ceil(se.rect.yMax + (mapHeight / 2)- 1), 0, mapWidth);
+			float xMax = Mathf.Clamp(Mathf.Ceil(se.rect.xMax + (mapWidth / 2) - 1), 0, mapWidth -1);
+			float yMax = Mathf.Clamp(Mathf.Ceil(se.rect.yMax + (mapHeight / 2)- 1), 0, mapWidth -1);
 
 			se.xMin = (int)xMin;
 			se.yMin = (int)yMin;

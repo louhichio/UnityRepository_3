@@ -13,8 +13,15 @@
 		{
 			SetCameraAspect();
 		}		
+		
+		void OnPinch(PinchGesture gesture) 
+		{	
+			// Current gap distance between the two fingers
+			float gap = gesture.Gap;
+			gap = Mathf.Clamp(4.80f + gap,5,7);
+			Camera.main.orthographicSize = gap;
+		}
 		#endregion
-
 		#region Private
 		private void SetCameraAspect()
 		{
