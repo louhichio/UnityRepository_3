@@ -35,29 +35,20 @@
 			this.tile_right = cross.tile_right;
 			this.tile_left = cross.tile_left;
 
-			list_tiles.Add(tile_center);
-			list_tiles.Add(tile_forward);
-			list_tiles.Add(tile_back);
-			list_tiles.Add(tile_right);
-			list_tiles.Add(tile_left);
+			this.list_tiles.Add(tile_center);
+			this.list_tiles.Add(tile_forward);
+			this.list_tiles.Add(tile_back);
+			this.list_tiles.Add(tile_right);
+			this.list_tiles.Add(tile_left);
 		}
 
 		public void SetTilesState(TileState tileState)
 		{
-			foreach(TileEntity te in list_tiles)
+			foreach(TileEntity te in this.list_tiles)
 			{
-				if(!TileEntity.ReferenceEquals(te,null))
+				if(!TileEntity.ReferenceEquals(te, null))
 				   te.SetTileState(tileState);
 			}
-		}
-
-		public void Init()
-		{
-			list_tiles.Add(tile_center);
-			list_tiles.Add(tile_forward);
-			list_tiles.Add(tile_back);
-			list_tiles.Add(tile_right);
-			list_tiles.Add(tile_left);
 		}
 
 	}

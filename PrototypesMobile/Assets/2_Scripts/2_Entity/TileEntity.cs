@@ -19,8 +19,7 @@
 
 	public class TileEntity : MonoBehaviour
 	{		
-		public TileType tile_type;
-		
+		public TileType tile_type;		
 		public TileState tile_state;
 
 		public int index;

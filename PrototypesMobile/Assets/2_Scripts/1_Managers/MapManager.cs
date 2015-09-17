@@ -49,7 +49,9 @@ namespace TheVandals
 				transform.position = Vector3.up * (-0.001f);
 				mapWidth = (int)trs_Floor.localScale.x;
 				mapHeight = (int)trs_Floor.localScale.z;
+
 				GenerateMapTiles();
+
 				enableEditorMapTilesGeneration = false;
 				transform.position = Vector3.zero;
 			}
@@ -105,13 +107,13 @@ namespace TheVandals
 					map_tiles.Add(child.GetComponent<TileEntity>());
 				}
 			}
-			GetTileByPosition(PlayerManager.Instance.transform.position);
+			SetPlayerByPosition(PlayerManager.Instance.transform.position);
 		}
 		#endregion
 
 		#region Public
 		//Get RayCasted Tile
-		public void GetTileByPosition(Vector3 position)
+		public void SetPlayerByPosition(Vector3 position)
 		{			
 			foreach(TileEntity t in map_tiles)
 			{				
@@ -119,33 +121,13 @@ namespace TheVandals
 				   position.x <= t.transform.position.x + 0.5f &&
 				   position.z >= t.transform.position.z - 0.5f && 
 				   position.z <= t.transform.position.z + 0.5f)
-				{		
-					Vector3 NavPoint = t.transform.position;
-					NavPoint.y += PlayerManager.Instance.transform.localScale.y / 2;
-
-					CrossEntity cross_temp = new CrossEntity();
-					cross_temp.tile_center = t;
-					if((t.index + mapHeight) < map_tiles.Count)
-						cross_temp.tile_forward = map_tiles[t.index + mapHeight];
-
-					if((t.index - mapHeight) >= 0)
-						cross_temp.tile_back = map_tiles[t.index - mapHeight];
-
-					if((t.index + 1) < map_tiles.Count)
-						cross_temp.tile_left = map_tiles[t.index + 1];
-
-					if((t.index - 1) >= 0)
-						cross_temp.tile_right = map_tiles[t.index - 1];
-
-					PlayerManager.Instance.StopCoroutine("MovePlayer");
-					PlayerManager.Instance.StartCoroutine("MovePlayer", NavPoint);
-					PlayerManager.Instance.SetPlayerPosition(cross_temp);
-
+				{							
+					PlayerManager.Instance.SetPlayerPosition(GenerateCross(t));
 				}
 			}
 		}		
 
-		public void GetTileByCross(Vector3 position, CrossEntity cross)
+		public CrossEntity GetTapTilePosition(Vector3 position, CrossEntity cross)
 		{			
 			foreach(TileEntity t in cross.list_tiles)
 			{
@@ -154,80 +136,68 @@ namespace TheVandals
 				   position.x <= t.transform.position.x + 0.5f &&
 				   position.z >= t.transform.position.z - 0.5f && 
 				   position.z <= t.transform.position.z + 0.5f)
-				{		
-					Vector3 NavPoint = t.transform.position;
-					NavPoint.y += PlayerManager.Instance.transform.localScale.y / 2;
-
-					CrossEntity cross_temp = new CrossEntity();
-					cross_temp.tile_center = t;
-					if((t.index + mapHeight) < map_tiles.Count)
-						cross_temp.tile_forward = map_tiles[t.index + mapHeight];
-					
-					if((t.index - mapHeight) >= 0)
-						cross_temp.tile_back = map_tiles[t.index - mapHeight];
-					
-					if((t.index + 1) < map_tiles.Count)
-						cross_temp.tile_left = map_tiles[t.index + 1];
-					
-					if((t.index - 1) >= 0)
-						cross_temp.tile_right = map_tiles[t.index - 1];
-
-					PlayerManager.Instance.StopCoroutine("MovePlayer");
-					PlayerManager.Instance.StartCoroutine("MovePlayer", NavPoint);
-					PlayerManager.Instance.SetPlayerPosition(cross_temp);
+				{							
+					PlayerManager.Instance.SetPlayerPosition(GenerateCross(t));
 				}
 			}
+			return null;
 		}
 
-		public void GetSwipeTilePosition(int tile_index, FingerGestures.SwipeDirection dir)
+		public CrossEntity GetSwipeTilePosition(CrossEntity cross, FingerGestures.SwipeDirection dir)
 		{
-			int x = (tile_index / mapHeight);
-			int y = (tile_index % mapHeight);
-
+			int index = -1;
 			switch (dir)
 			{
 			case FingerGestures.SwipeDirection.UpperRightDiagonal:
-				x++;
+				if(!TileEntity.ReferenceEquals(cross.tile_forward, null))
+					index = cross.tile_forward.index;
 				break;
 			case FingerGestures.SwipeDirection.LowerRightDiagonal:
-				y--;
+				if(!TileEntity.ReferenceEquals(cross.tile_right, null))
+					index = cross.tile_right.index;
 				break;
 			case FingerGestures.SwipeDirection.UpperLeftDiagonal:
-				y++;
+				if(!TileEntity.ReferenceEquals(cross.tile_left, null))
+					index = cross.tile_left.index;
 				break;
 			case FingerGestures.SwipeDirection.LowerLeftDiagonal:
-				x--;
+				if(!TileEntity.ReferenceEquals(cross.tile_back, null))
+					index = cross.tile_back.index;
 				break;
 			}
-			int index = x *(mapHeight) + y;
 
-			if(index < map_tiles.Count && index >= 0)
+			if(index != -1)
 			{
-				Vector3 NavPoint = map_tiles[index].transform.position;
-				NavPoint.y += PlayerManager.Instance.transform.localScale.y / 2;
-
-				CrossEntity cross_temp = new CrossEntity();
-				TileEntity t = map_tiles[index];
-
-				cross_temp.tile_center = t;
-
-				if((t.index + mapHeight) < map_tiles.Count)
-					cross_temp.tile_forward = map_tiles[t.index + mapHeight];
-				
-				if((t.index - mapHeight) >= 0)
-					cross_temp.tile_back = map_tiles[t.index - mapHeight];
-				
-				if((t.index + 1) < map_tiles.Count)
-					cross_temp.tile_left = map_tiles[t.index + 1];
-				
-				if((t.index - 1) >= 0)
-					cross_temp.tile_right = map_tiles[t.index - 1];
-
-				PlayerManager.Instance.StopCoroutine("MovePlayer");
-				PlayerManager.Instance.StartCoroutine("MovePlayer", NavPoint);
-				PlayerManager.Instance.SetPlayerPosition(cross_temp);
+				return GenerateCross(map_tiles[index]);
 			}
+			return null;
 		}	
+
+		public CrossEntity GenerateCross(TileEntity t)
+		{
+			CrossEntity cross_temp = new CrossEntity();		
+			float tile_height = t.transform.position.y;
+			cross_temp.tile_center = t;
+
+			if((t.index + mapHeight) < map_tiles.Count && 
+			   Mathf.Abs(tile_height - map_tiles[t.index + mapHeight].transform.position.y) < t.size * 2)
+				cross_temp.tile_forward = map_tiles[t.index + mapHeight];
+			
+			if((t.index - mapHeight) >= 0 && 
+			   Mathf.Abs(tile_height - map_tiles[t.index - mapHeight].transform.position.y) < t.size * 2)
+				cross_temp.tile_back = map_tiles[t.index - mapHeight];
+
+			if((t.index + 1) < map_tiles.Count &&
+			   (t.index + 1) % mapHeight != 0 && 
+			   Mathf.Abs(tile_height - map_tiles[t.index + 1].transform.position.y) < t.size * 2)
+				cross_temp.tile_left = map_tiles[t.index + 1];
+
+			if((t.index - 1) >= 0 &&
+			   t.index % mapHeight != 0 && 
+			   Mathf.Abs(tile_height - map_tiles[t.index - 1].transform.position.y) < t.size * 2)
+				cross_temp.tile_right = map_tiles[t.index - 1];
+			return cross_temp;
+		}
 		
 		public NodeEntity[] GeneratePath(TileEntity tile_from, TileEntity tile_to)
 		{
@@ -342,6 +312,43 @@ namespace TheVandals
 		#endregion
 	}
 }
+
+
+#region GetSwipeTilePosition
+//public void GetSwipeTilePosition(int tile_index, FingerGestures.SwipeDirection dir)
+//{
+//	int x = (tile_index / mapHeight);
+//	int y = (tile_index % mapHeight);
+//	
+//	switch (dir)
+//	{
+//	case FingerGestures.SwipeDirection.UpperRightDiagonal:
+//		x++;
+//		break;
+//	case FingerGestures.SwipeDirection.LowerRightDiagonal:
+//		y--;
+//		break;
+//	case FingerGestures.SwipeDirection.UpperLeftDiagonal:
+//		y++;
+//		break;
+//	case FingerGestures.SwipeDirection.LowerLeftDiagonal:
+//		x--;
+//		break;
+//	}
+//	int index = x *(mapHeight) + y;
+//	
+//	if(index < map_tiles.Count && index >= 0)
+//	{
+//		Vector3 NavPoint = map_tiles[index].transform.position;
+//		NavPoint.y += PlayerManager.Instance.transform.localScale.y / 2;
+//		
+//		PlayerManager.Instance.SetPlayerPosition(GenerateCross(map_tiles[index]));
+//		
+//		PlayerManager.Instance.StopCoroutine("MovePlayer");
+//		PlayerManager.Instance.StartCoroutine("MovePlayer", NavPoint);
+//	}
+//}
+#endregion
 
 #region Old code
 //

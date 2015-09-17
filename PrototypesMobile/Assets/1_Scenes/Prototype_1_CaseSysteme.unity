@@ -3114,9 +3114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69dfe429125cbae47a7ee0319632c165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   speed: 1
-  cross_current: {fileID: 0}
   moveState: 0
 --- !u!1 &1165198629
 GameObject:
