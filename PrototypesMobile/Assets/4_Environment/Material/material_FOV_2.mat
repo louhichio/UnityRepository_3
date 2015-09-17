@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: material_Player
-  m_Shader: {fileID: 10707, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: material_FOV_2
+  m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 6fde1212f5c6c4878be571bf1377e429, type: 3}
+          m_Texture: {fileID: 2800000, guid: 1a589cf3372eb467b8a2202918933fe7, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -78,13 +78,6 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _SpecGlossMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -97,7 +90,7 @@ Material:
       data:
         first:
           name: _Cutoff
-        second: .5
+        second: .625999987
       data:
         first:
           name: _Parallax
@@ -133,11 +126,15 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 0
+        second: .0799999982
       data:
         first:
           name: _EmissionScaleUI
         second: 0
+      data:
+        first:
+          name: _InvFade
+        second: 1
     m_Colors:
       data:
         first:
@@ -146,12 +143,12 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .0194636714, g: .213966072, b: .264705896, a: 1}
-      data:
-        first:
-          name: _SpecColor
-        second: {r: .200000003, g: .200000003, b: .200000003, a: 1}
+        second: {r: .375, g: .0441176221, b: .0441176221, a: 1}
       data:
         first:
           name: _EmissionColorUI
         second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: .13333334, g: .713725507, b: .388235331, a: .458999991}
