@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.Collections;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class MeshEditor : MonoBehaviour {
 
@@ -15,11 +17,10 @@ public class MeshEditor : MonoBehaviour {
 		mesh.vertices = newVertices;
 		mesh.uv = newUV;
 		mesh.triangles = newTriangles;
+		#if UNITY_EDITOR
 		AssetDatabase.CreateAsset(mesh, "Assets/mesh.asset");
 		AssetDatabase.SaveAssets();
-		
-		//			gameObject.AddComponent<MeshFilter>();
-		//			gameObject.AddComponent<MeshRenderer>();
+		#endif
 	}
 
 	void Update () {

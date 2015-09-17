@@ -11,34 +11,41 @@
 		VerticalUp,
 		VerticalDown
 	}
+	public enum TileState
+	{
+		Clear,
+		PlayerOn
+	}
 
 	public class TileEntity : MonoBehaviour
 	{		
 		public TileType tile_type;
+		
+		public TileState tile_state;
 
 		public int index;
+		public Vector2 pos;
 		public float size;
 		public Rect rect;
 
+		private SpriteRenderer sr;
+
 		void Start ()
 		{
-			this.size = 1.0f;
+			sr = GetComponent<SpriteRenderer>();
 
-			rect = new Rect(transform.position.x - 0.5f, transform.position.z - 0.5f, 1, 1);
+			this.size = 1.0f;
+			this.rect = new Rect(transform.position.x - 0.5f, transform.position.z - 0.5f, 1, 1);
+			SetTileState(TileState.Clear);
 		}
 
-		public void SetInit(TileType tt)
+		public void SetInit(TileType tt, int index, Vector2 pos)
 		{
 			this.tile_type = tt;
 			this.size = 1.0f;
 			this.rect = new Rect(transform.position.x - 0.5f, transform.position.z - 0.5f, 1, 1);
-		}
-
-		public void DrawTile()
-		{
-			
-			Gizmos.color = Color.black;
-			Gizmos.DrawCube(transform.position, 0.2f * Vector3.one);
+			this.index = index;
+			this.pos = pos;
 		}
 
 		public void SetTileHeight(float height)
@@ -46,6 +53,21 @@
 			Vector3 pos = transform.position;
 			pos.y = height;
 			transform.position = pos;
+		}
+
+		public void SetTileState(TileState tile_state)
+		{
+			switch(tile_state)
+			{
+			case TileState.Clear:
+				sr.color = Color.white;
+				sr.enabled = false;
+				break;
+			case TileState.PlayerOn:
+				sr.color = Color.green;
+				sr.enabled = true;
+				break;
+			}
 		}
 	}
 }

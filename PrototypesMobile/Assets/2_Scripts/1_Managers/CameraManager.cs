@@ -6,6 +6,10 @@
 	{
 		#region Unity
 		void Start()
+		{					
+		}
+
+		void Update()
 		{
 			SetCameraAspect();
 		}		
@@ -14,7 +18,8 @@
 		#region Private
 		private void SetCameraAspect()
 		{
-			float targetaspect = 16.0f / 9.0f;
+			// normalement 16/9
+			float targetaspect = 10.0f / 10.0f;
 			
 			// determine the game window's current aspect ratio
 			float windowaspect = (float)Screen.width / (float)Screen.height;

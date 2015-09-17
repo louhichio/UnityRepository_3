@@ -11,20 +11,35 @@ namespace TheVandals
 
 		void Update()
 		{
-			if(Input.GetMouseButtonDown(0))
-				TouchedScreen();
+			if (Input.GetKeyDown(KeyCode.Escape)) 
+				Application.Quit(); 
+		}		
+		
+		void OnTap(TapGesture gesture) 
+		{
+			if(PlayerManager.Instance.moveState == PlayerManager.MoveState.None)
+			{
+				Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+				RaycastHit hit;
+				
+				if (Physics.Raycast(mouseRay, out hit,Mathf.Infinity))
+				{
+					MapManager.Instance.GetTileByCross(hit.point, PlayerManager.Instance.cross_current);
+				}
+			}
 		}
 
-		private void TouchedScreen()
+		void OnSwipe( SwipeGesture gesture ) 
 		{
-			Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit hit;
-			
-			if (Physics.Raycast(mouseRay, out hit,Mathf.Infinity))
-			{
-				Vector3 NavPoint = MapManager.Instance.GetTilePosition(hit.point);
+			FingerGestures.SwipeDirection direction = gesture.Direction;
 
-				PlayerManager.Instance.MovePlayer(NavPoint);
+			if(direction != FingerGestures.SwipeDirection.Up || 
+			   direction != FingerGestures.SwipeDirection.Down ||
+			   direction != FingerGestures.SwipeDirection.Right || 
+			   direction != FingerGestures.SwipeDirection.Left)
+			{
+				if(PlayerManager.Instance.moveState == PlayerManager.MoveState.None)
+					MapManager.Instance.GetSwipeTilePosition(PlayerManager.Instance.cross_current.tile_center.index, direction);
 			}
 		}
 	}
