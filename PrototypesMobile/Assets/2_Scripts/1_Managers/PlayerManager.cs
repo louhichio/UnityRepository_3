@@ -30,7 +30,7 @@ namespace TheVandals
 			destination.y += transform.localScale.y / 2;
 			moveState = MoveState.Moving;
 			float t = 0;
-			while(t <= 1);
+			while(t <= 1)
 			{
 				t += (Time.deltaTime * speed) / Vector3.Distance(transform.position, destination);
 				transform.position = Vector3.Lerp(transform.position, destination, t);
