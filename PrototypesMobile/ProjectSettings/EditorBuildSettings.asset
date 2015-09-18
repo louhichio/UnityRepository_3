@@ -7,5 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/HelloWorld.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/1_Scenes/Prototype_1_CaseSysteme.unity
+  - enabled: 1
+    path: Assets/1_Scenes/Prototype_1_CaseSysteme 1.unity

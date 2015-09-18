@@ -3441,6 +3441,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ratio: {x: 10, y: 10}
+  screen_Size_Max: 7
+  screen_Size_Min: 5
+  isScreenSizing: 0
+  onPinch: 0
 --- !u!1 &1090115871
 GameObject:
   m_ObjectHideFlags: 0

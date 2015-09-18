@@ -2,29 +2,71 @@
 {
 	using UnityEngine;
 	using System;
+	using System.Collections;
 	
 	public class CameraManager : Singleton<CameraManager>
 	{
+		#region Properties
 		public Vector2 ratio = new Vector2(10.0f, 10.0f);
+
+		public float screen_Size_Max = 7;	
+		public float screen_Size_Min = 5;	
+		private float screen_Size = 5;
+		public bool isScreenSizing = false;
+		private static float Screen_Diagonal;
+		public bool onPinch = false;
+		
+//		CoroutineController LerpScreenSize_controller;
+		#endregion
+
 		#region Unity
 		void Start()
-		{					
+		{		
+			screen_Size = screen_Size_Max;
+			Screen_Diagonal = Mathf.Sqrt(Mathf.Pow(Screen.width,2) + Mathf.Pow(Screen.height,2));
+			Camera.main.orthographicSize = screen_Size;
 		}
 
 		void Update()
 		{
-			SetCameraAspect();
+//			SetCameraAspect();
 		}		
-		
+
 		void OnPinch(PinchGesture gesture) 
 		{	
-			// Current gap distance between the two fingers
-			float gap = gesture.Gap;
-			gap = Mathf.Clamp(4.80f + gap,5,7);
-			Camera.main.orthographicSize = gap;
+			onPinch = true;
+			float delta = gesture.Delta * 10/ Screen_Diagonal;
+			screen_Size = Mathf.Clamp(screen_Size - delta, screen_Size_Min, screen_Size_Max);
+
+			if(!isScreenSizing && screen_Size != Camera.main.orthographicSize)
+			{
+				StopCoroutine("LerpScreenSize");
+				StartCoroutine("LerpScreenSize");
+			}
+			
+			if(gesture.Phase == ContinuousGesturePhase.Ended)
+			{
+				screen_Size = screen_Size_Max;
+				StopCoroutine("LerpScreenSize");
+				StartCoroutine("LerpScreenSize");
+			}
 		}
 		#endregion
+
 		#region Private
+		private IEnumerator LerpScreenSize()
+		{
+			isScreenSizing = true;
+			float t = 0;
+			while(Camera.main.orthographicSize != screen_Size)
+			{
+				t += Time.deltaTime;
+				Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, screen_Size, t);
+				yield return null;
+			}
+			isScreenSizing = false;
+		}
+
 		private void SetCameraAspect()
 		{
 			// normalement 16/9

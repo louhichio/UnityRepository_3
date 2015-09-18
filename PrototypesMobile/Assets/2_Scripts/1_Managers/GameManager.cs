@@ -5,6 +5,8 @@ namespace TheVandals
 	
 	public class GameManager: Singleton<GameManager>
 	{
+		private bool onTap = false;
+		private bool onSwipe = false;
 		void Start()
 		{
 		}
@@ -13,10 +15,14 @@ namespace TheVandals
 		{
 			if (Input.GetKeyDown(KeyCode.Escape)) 
 				Application.Quit(); 
+			onTap = false;
+			onSwipe = false;
+			CameraManager.Instance.onPinch = false;
 		}		
 		
 		void OnTap(TapGesture gesture) 
 		{
+			onTap = true;
 			if(PlayerManager.Instance.moveState == MoveState.None)
 			{
 				Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -33,10 +39,10 @@ namespace TheVandals
 
 		void OnSwipe( SwipeGesture gesture ) 
 		{
-			if(PlayerManager.Instance.moveState == MoveState.None)
+			onSwipe = true;
+			if(PlayerManager.Instance.moveState == MoveState.None && !CameraManager.Instance.isScreenSizing)
 				PlayerManager.Instance.SetPlayerPosition(
 					MapManager.Instance.GetSwipeTilePosition(PlayerManager.Instance.cross_current, gesture.Direction));
-
 		}
 	}
 }

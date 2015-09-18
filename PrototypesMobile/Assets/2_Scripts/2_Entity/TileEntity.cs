@@ -63,7 +63,7 @@
 				sr.enabled = false;
 				break;
 			case TileState.PlayerOn:
-				sr.color = Color.green;
+//				sr.color = Color.green;
 				sr.enabled = true;
 				break;
 			}
