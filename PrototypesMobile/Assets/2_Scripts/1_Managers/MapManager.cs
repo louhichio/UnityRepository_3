@@ -39,6 +39,7 @@ namespace TheVandals
 		private float mapWidth;
 		private float mapHeight;
 		public bool enableEditorMapTilesGeneration = false;
+		public bool eraseTiles = false;
 		#endregion
 
 		#region Unity
@@ -56,6 +57,12 @@ namespace TheVandals
 				transform.position = Vector3.zero;
 			}
 
+			if(eraseTiles)
+			{
+				foreach(Transform child in transform)
+					DestroyImmediate(child.gameObject);
+				eraseTiles = false;
+			}
 			if(Application.isPlaying)
 			{
 				Gizmos.color = Color.blue;
@@ -121,8 +128,9 @@ namespace TheVandals
 				   position.x <= t.transform.position.x + 0.5f &&
 				   position.z >= t.transform.position.z - 0.5f && 
 				   position.z <= t.transform.position.z + 0.5f)
-				{							
+				{					
 					PlayerManager.Instance.SetPlayerPosition(GenerateCross(t));
+					return;
 				}
 			}
 		}		
@@ -136,8 +144,10 @@ namespace TheVandals
 				   position.x <= t.transform.position.x + 0.5f &&
 				   position.z >= t.transform.position.z - 0.5f && 
 				   position.z <= t.transform.position.z + 0.5f)
-				{							
-					PlayerManager.Instance.SetPlayerPosition(GenerateCross(t));
+				{						
+					if(t.index != cross.tile_center.index)			
+						return GenerateCross(t);
+					return null;
 				}
 			}
 			return null;
@@ -146,9 +156,14 @@ namespace TheVandals
 		public CrossEntity GetSwipeTilePosition(CrossEntity cross, FingerGestures.SwipeDirection dir)
 		{
 			int index = -1;
+
 			switch (dir)
 			{
 			case FingerGestures.SwipeDirection.UpperRightDiagonal:
+				if(!TileEntity.ReferenceEquals(cross.tile_forward, null))
+					index = cross.tile_forward.index;
+				break;
+			case FingerGestures.SwipeDirection.Right:
 				if(!TileEntity.ReferenceEquals(cross.tile_forward, null))
 					index = cross.tile_forward.index;
 				break;
@@ -156,7 +171,15 @@ namespace TheVandals
 				if(!TileEntity.ReferenceEquals(cross.tile_right, null))
 					index = cross.tile_right.index;
 				break;
+			case FingerGestures.SwipeDirection.Down:
+				if(!TileEntity.ReferenceEquals(cross.tile_right, null))
+					index = cross.tile_right.index;
+				break;
 			case FingerGestures.SwipeDirection.UpperLeftDiagonal:
+				if(!TileEntity.ReferenceEquals(cross.tile_left, null))
+					index = cross.tile_left.index;
+				break;
+			case FingerGestures.SwipeDirection.Up:
 				if(!TileEntity.ReferenceEquals(cross.tile_left, null))
 					index = cross.tile_left.index;
 				break;
@@ -164,11 +187,17 @@ namespace TheVandals
 				if(!TileEntity.ReferenceEquals(cross.tile_back, null))
 					index = cross.tile_back.index;
 				break;
+			case FingerGestures.SwipeDirection.Left:
+				if(!TileEntity.ReferenceEquals(cross.tile_back, null))
+					index = cross.tile_back.index;
+				break;
 			}
 
 			if(index != -1)
 			{
-				return GenerateCross(map_tiles[index]);
+				if(map_tiles[index].index != cross.tile_center.index)			
+					return GenerateCross(map_tiles[index]);
+				return null;
 			}
 			return null;
 		}	
@@ -247,7 +276,7 @@ namespace TheVandals
 					for(int y = se.yMin; y <= se.yMax; y++)
 					{
 						int index = x *(int)(mapHeight) + y;
-						
+
 						if(map_tiles[index].transform.position.y < se.height)
 						{
 							map_tiles[index].SetTileHeight(se.height);
@@ -295,10 +324,10 @@ namespace TheVandals
 			}
 			
 			float xMin = Mathf.Clamp(Mathf.Floor(se.rect.xMin + (mapWidth / 2)), 0, mapWidth -1);
-			float yMin = Mathf.Clamp(Mathf.Floor(se.rect.yMin + (mapHeight / 2)), 0, mapWidth -1 );
+			float yMin = Mathf.Clamp(Mathf.Floor(se.rect.yMin + (mapHeight / 2)), 0, mapHeight -1 );
 			
 			float xMax = Mathf.Clamp(Mathf.Ceil(se.rect.xMax + (mapWidth / 2) - 1), 0, mapWidth -1);
-			float yMax = Mathf.Clamp(Mathf.Ceil(se.rect.yMax + (mapHeight / 2)- 1), 0, mapWidth -1);
+			float yMax = Mathf.Clamp(Mathf.Ceil(se.rect.yMax + (mapHeight / 2)- 1), 0, mapHeight -1);
 
 			se.xMin = (int)xMin;
 			se.yMin = (int)yMin;

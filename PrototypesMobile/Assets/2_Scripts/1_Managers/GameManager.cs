@@ -33,17 +33,10 @@ namespace TheVandals
 
 		void OnSwipe( SwipeGesture gesture ) 
 		{
-			FingerGestures.SwipeDirection direction = gesture.Direction;
+			if(PlayerManager.Instance.moveState == MoveState.None)
+				PlayerManager.Instance.SetPlayerPosition(
+					MapManager.Instance.GetSwipeTilePosition(PlayerManager.Instance.cross_current, gesture.Direction));
 
-			if(direction != FingerGestures.SwipeDirection.Up || 
-			   direction != FingerGestures.SwipeDirection.Down ||
-			   direction != FingerGestures.SwipeDirection.Right || 
-			   direction != FingerGestures.SwipeDirection.Left)
-			{
-				if(PlayerManager.Instance.moveState == MoveState.None)
-					PlayerManager.Instance.SetPlayerPosition(
-						MapManager.Instance.GetSwipeTilePosition(PlayerManager.Instance.cross_current, direction));
-			}
 		}
 	}
 }

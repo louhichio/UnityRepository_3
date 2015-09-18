@@ -1,9 +1,11 @@
 ﻿namespace TheVandals
 {
 	using UnityEngine;
+	using System;
 	
 	public class CameraManager : Singleton<CameraManager>
 	{
+		public Vector2 ratio = new Vector2(10.0f, 10.0f);
 		#region Unity
 		void Start()
 		{					
@@ -26,7 +28,7 @@
 		private void SetCameraAspect()
 		{
 			// normalement 16/9
-			float targetaspect = 10.0f / 10.0f;
+			float targetaspect = ratio.x / ratio.y;
 			
 			// determine the game window's current aspect ratio
 			float windowaspect = (float)Screen.width / (float)Screen.height;
