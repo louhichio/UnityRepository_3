@@ -14,7 +14,6 @@
 		private float screen_Size = 5;
 		public bool isScreenSizing = false;
 		private static float Screen_Diagonal;
-		public bool onPinch = false;
 		
 //		CoroutineController LerpScreenSize_controller;
 		#endregion
@@ -31,26 +30,6 @@
 		{
 //			SetCameraAspect();
 		}		
-
-		void OnPinch(PinchGesture gesture) 
-		{	
-			onPinch = true;
-			float delta = gesture.Delta * 10/ Screen_Diagonal;
-			screen_Size = Mathf.Clamp(screen_Size - delta, screen_Size_Min, screen_Size_Max);
-
-			if(!isScreenSizing && screen_Size != Camera.main.orthographicSize)
-			{
-				StopCoroutine("LerpScreenSize");
-				StartCoroutine("LerpScreenSize");
-			}
-			
-			if(gesture.Phase == ContinuousGesturePhase.Ended)
-			{
-				screen_Size = screen_Size_Max;
-				StopCoroutine("LerpScreenSize");
-				StartCoroutine("LerpScreenSize");
-			}
-		}
 		#endregion
 
 		#region Private
@@ -107,6 +86,27 @@
 				Camera.main.rect = rect;
 			}
 		}		
+		#endregion
+
+		#region Public		
+		public void OnPinch(PinchGesture gesture) 
+		{	
+			float delta = gesture.Delta * 10/ Screen_Diagonal;
+			screen_Size = Mathf.Clamp(screen_Size - delta, screen_Size_Min, screen_Size_Max);
+			
+			if(!isScreenSizing && screen_Size != Camera.main.orthographicSize)
+			{
+				StopCoroutine("LerpScreenSize");
+				StartCoroutine("LerpScreenSize");
+			}
+			
+			if(gesture.Phase == ContinuousGesturePhase.Ended)
+			{
+				screen_Size = screen_Size_Max;
+				StopCoroutine("LerpScreenSize");
+				StartCoroutine("LerpScreenSize");
+			}
+		}
 		#endregion
 	}
 }

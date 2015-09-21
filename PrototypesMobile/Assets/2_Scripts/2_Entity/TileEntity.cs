@@ -14,7 +14,8 @@
 	public enum TileState
 	{
 		Clear,
-		PlayerOn
+		PlayerOn,
+		EnemyOn,
 	}
 
 	public class TileEntity : MonoBehaviour
@@ -28,6 +29,12 @@
 		public Rect rect;
 
 		private SpriteRenderer sr;
+		[SerializeField]
+		private bool playerLeft = true;
+		[SerializeField]
+		private bool enemyLeft = true;
+
+		private bool isInit = false;
 
 		void Start ()
 		{
@@ -35,7 +42,9 @@
 
 			this.size = 1.0f;
 			this.rect = new Rect(transform.position.x - 0.5f, transform.position.z - 0.5f, 1, 1);
-			SetTileState(TileState.Clear);
+//			SetTileState(TileState.Clear);
+			sr.color = Color.white;
+			sr.enabled = false;
 		}
 
 		public void SetInit(TileType tt, int index, Vector2 pos)
@@ -56,17 +65,56 @@
 
 		public void SetTileState(TileState tile_state)
 		{
-			switch(tile_state)
+			print (tile_state);
+			if(TurnManager.Instance.turnState == TurnState.PlayerTurn)
 			{
-			case TileState.Clear:
-				sr.color = Color.white;
-				sr.enabled = false;
-				break;
-			case TileState.PlayerOn:
-//				sr.color = Color.green;
-				sr.enabled = true;
-				break;
+				switch(tile_state)
+				{
+				case TileState.Clear:
+					if(enemyLeft)
+					{	
+						sr.color = Color.white;
+						sr.enabled = false;
+					}					
+					playerLeft = true;
+					break;
+				case TileState.PlayerOn:
+					if(enemyLeft)
+					{	
+						sr.color = Color.white;
+						sr.enabled = true;
+					}	
+					else
+					{
+						sr.color = Color.red;
+						sr.enabled = true;
+					}
+					playerLeft = false;
+					break;
+				case TileState.EnemyOn:
+					sr.color = Color.red;
+					sr.enabled = true;
+					enemyLeft = false;
+					break;
+				}
 			}
+			else
+			{
+				switch(tile_state)
+				{
+				case TileState.Clear:
+					sr.color = Color.white;
+					sr.enabled = playerLeft ? false : true;
+					enemyLeft = true;
+					break;
+				case TileState.EnemyOn:
+					sr.color = Color.red;
+					sr.enabled = true;
+					enemyLeft = false;
+					break;
+				}
+			}
+			this.tile_state = tile_state;
 		}
 	}
 }

@@ -97,12 +97,14 @@ namespace TheVandals
 //				}
 			}
 		}
+		#endregion
 
-		void Start()
+		#region Public
+		public void Init()
 		{
 			mapWidth = trs_Floor.localScale.x;
 			mapHeight = trs_Floor.localScale.z;
-
+			
 			if(transform.childCount == 0)
 			{
 				GenerateMapTiles();
@@ -114,13 +116,10 @@ namespace TheVandals
 					map_tiles.Add(child.GetComponent<TileEntity>());
 				}
 			}
-			SetPlayerByPosition(PlayerManager.Instance.transform.position);
 		}
-		#endregion
 
-		#region Public
 		//Get RayCasted Tile
-		public void SetPlayerByPosition(Vector3 position)
+		public void InitUnitCross(Vector3 position, GameObject obj)
 		{			
 			foreach(TileEntity t in map_tiles)
 			{				
@@ -128,8 +127,11 @@ namespace TheVandals
 				   position.x <= t.transform.position.x + 0.5f &&
 				   position.z >= t.transform.position.z - 0.5f && 
 				   position.z <= t.transform.position.z + 0.5f)
-				{					
-					PlayerManager.Instance.SetPlayerPosition(GenerateCross(t));
+				{	
+					if(obj.GetComponent<Enemy>())
+						obj.GetComponent<Enemy>().SetUnitPosition(GenerateCross(t));
+					else if(obj.GetComponent<PlayerManager>())
+						obj.GetComponent<PlayerManager>().SetUnitPosition(GenerateCross(t));
 					return;
 				}
 			}
