@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: material_Player
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: b291a38d8b3574310b33812483dd9ce1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 1fd206bb748994edbaaa9bca33a175d8, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: .5, y: .5}
           m_Offset: {x: 0, y: 0}
       data:
@@ -138,6 +138,22 @@ Material:
         first:
           name: _EmissionScaleUI
         second: 0
+      data:
+        first:
+          name: _yPosLow
+        second: 0
+      data:
+        first:
+          name: _yPosHigh
+        second: .839999974
+      data:
+        first:
+          name: _GradientStrength
+        second: 1
+      data:
+        first:
+          name: _EmissiveStrengh
+        second: 1
     m_Colors:
       data:
         first:
@@ -146,7 +162,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .522058845, g: .522058845, b: .522058845, a: 1}
+        second: {r: .257352948, g: .257352948, b: .257352948, a: 1}
       data:
         first:
           name: _SpecColor
@@ -155,3 +171,19 @@ Material:
         first:
           name: _EmissionColorUI
         second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _ColorLow
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _ColorHigh
+        second: {r: .117647052, g: .117647052, b: .117647052, a: 1}
+      data:
+        first:
+          name: _ColorX
+        second: {r: .661764741, g: .661764741, b: .661764741, a: 1}
+      data:
+        first:
+          name: _ColorY
+        second: {r: .529411793, g: .0272491314, b: .0272491314, a: 1}

@@ -147,24 +147,24 @@ Material:
         second: 0
       data:
         first:
-          name: _Outline
-        second: .00200000009
-      data:
-        first:
           name: _yPosLow
-        second: -1.22000003
+        second: -.610000014
       data:
         first:
           name: _yPosHigh
-        second: 4.07000017
+        second: 6.1500001
       data:
         first:
           name: _GradientStrength
-        second: 1.11000001
+        second: 1.20000005
       data:
         first:
           name: _EmissiveStrengh
-        second: 1
+        second: 1.19000006
+      data:
+        first:
+          name: _Outline
+        second: .00200000009
     m_Colors:
       data:
         first:
@@ -180,21 +180,21 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _OutlineColor
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
           name: _ColorLow
-        second: {r: .338235319, g: .144247413, b: .144247413, a: 1}
+        second: {r: .25, g: .0257352889, b: .0257352889, a: 1}
       data:
         first:
           name: _ColorHigh
-        second: {r: .625, g: .408214927, b: .29411763, a: 1}
+        second: {r: 1, g: .436358839, b: .139705896, a: 1}
       data:
         first:
           name: _ColorX
-        second: {r: .372080475, g: .431608707, b: .45588237, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _ColorY
-        second: {r: .595588207, g: .569260359, b: .424794525, a: 1}
+        second: {r: .195285469, g: .265995294, b: .316176474, a: 1}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: 1, g: 1, b: 1, a: 1}

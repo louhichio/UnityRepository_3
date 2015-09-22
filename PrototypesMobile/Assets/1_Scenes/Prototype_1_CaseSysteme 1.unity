@@ -8098,7 +8098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &659022990
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13003,7 +13003,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: .333333343, g: .10980393, b: .0862745121, a: .0196078438}
+  m_BackGroundColor: {r: .132352948, g: .017007539, b: .00486591412, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -13026,6 +13026,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1075561391
 Transform:
   m_ObjectHideFlags: 0
@@ -23273,7 +23274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnState: 0
   enemyCount_Max: 0
-  turnDelay: .5
+  turnDelay: .100000001
 --- !u!114 &2034035419
 MonoBehaviour:
   m_ObjectHideFlags: 0
