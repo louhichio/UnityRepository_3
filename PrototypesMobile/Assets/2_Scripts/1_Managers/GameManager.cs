@@ -12,10 +12,19 @@ namespace TheVandals
 			MapManager.Instance.Init();
 			EventManager.Instance.Initialise();
 		}
-//		void OnGUI()
-//		{
-//			if(GUI.Button(new Rect(0,0,100,100), "Reset"))
-//				EventManager.Instance.Reset_game();
-//		}
+
+		public IEnumerator PlayerWon()
+		{
+			EventManager.Instance.GameOver("WON");
+			yield return new WaitForSeconds(1.0f);
+			EventManager.Instance.GameReset();
+		}
+
+		public IEnumerator PlayerLost()
+		{
+			EventManager.Instance.GameOver("LOST");
+			yield return new WaitForSeconds(1.0f);
+			EventManager.Instance.GameReset();
+		}
 	}
 }

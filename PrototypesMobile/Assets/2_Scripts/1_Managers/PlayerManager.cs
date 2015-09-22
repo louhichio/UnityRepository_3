@@ -15,28 +15,45 @@ namespace TheVandals
 		public float speed = 1;
 		public CrossEntity cross_current = new CrossEntity();
 		public MoveState moveState = MoveState.None;
+		[HideInInspector]
+		public bool isInitialized = false;
+		private Vector3 position_Init = Vector3.zero;
+		private CrossEntity cross_init = new CrossEntity();
 
-		private bool isInitialized = false;
-		#region Unity
+		#region Events
 		void OnEnable()
 		{
 			EventManager.initialise += Init;
+			EventManager.gameReset += Reset;
 		}		
 		
 		void OnDisable()
 		{
 			EventManager.initialise -= Init;
+			EventManager.gameReset -= Reset;
 		}
-		#endregion
-
+		
 		private void Init()
 		{			
 			MapManager.Instance.InitUnitCross(transform.position, gameObject);
 		}
+		private void Reset()
+		{
+			StopAllCoroutines();
+			
+			this.cross_current.ResetTiles();
+			transform.position = position_Init;
+			
+			cross_current = new CrossEntity(cross_init);
+			this.cross_current.SetTilesState(TileState.PlayerOn);
+			moveState = MoveState.None;
+		}
+		#endregion
 
+		#region Private
 		private IEnumerator MovePlayerHorizontal(Vector3 destination)
 		{
-
+			
 			destination.y += transform.localScale.y / 2;
 			moveState = MoveState.Moving;
 			float t = 0;
@@ -49,15 +66,24 @@ namespace TheVandals
 			
 			this.cross_current.SetTilesState(TileState.PlayerOn);
 			moveState = MoveState.None;
-
+			
 			if(isInitialized)
 			{
-				TurnManager.Instance.StartCoroutine("PlayerMoved");
+				if(this.cross_current.tile_center == MapManager.Instance.tile_GameOver)
+					GameManager.Instance.StartCoroutine("PlayerWon");
+				else
+					TurnManager.Instance.StartCoroutine("PlayerMoved");
 			}
 			else
+			{				
+				cross_init = this.cross_current;
+				position_Init = destination;
 				isInitialized = true;
+				
+				MapManager.Instance.SetGameOverTile(cross_init.tile_center);
+			}
 		}
-
+		
 		private IEnumerator MovePlayerVertical(bool isMovingUp)
 		{
 			Vector3 destination = this.cross_current.tile_center.transform.position;
@@ -74,9 +100,9 @@ namespace TheVandals
 				node_first.y = transform.position.y ;
 				destination.y += transform.localScale.y / 2;
 			}
-
+			
 			moveState = MoveState.Moving;
-
+			
 			float t = 0;
 			while(t <= 1)
 			{
@@ -84,7 +110,7 @@ namespace TheVandals
 				transform.position = Vector3.Lerp(transform.position, node_first, t);
 				yield return null;
 			}
-
+			
 			t = 0;
 			while(t <= 1)
 			{
@@ -95,25 +121,36 @@ namespace TheVandals
 			
 			this.cross_current.SetTilesState(TileState.PlayerOn);
 			moveState = MoveState.None;
-
+			
 			if(isInitialized)
 			{
-				TurnManager.Instance.StartCoroutine("PlayerMoved");
+				if(this.cross_current.tile_center == MapManager.Instance.tile_GameOver)
+					GameManager.Instance.StartCoroutine("PlayerWon");
+				else
+					TurnManager.Instance.StartCoroutine("PlayerMoved");
 			}
 			else
+			{				
+				cross_init = this.cross_current;
+				position_Init = destination;
 				isInitialized = true;
+				
+				MapManager.Instance.SetGameOverTile(cross_init.tile_center);
+			}
 		}
+		#endregion
 
+		#region Public
 		public void SetUnitPosition(CrossEntity cross_current)
 		{
 			if(!CrossEntity.ReferenceEquals(cross_current, null))
 			{
 				if(!CrossEntity.ReferenceEquals(this.cross_current, null))
 					this.cross_current.SetTilesState(TileState.Clear);
-
+				
 				this.cross_current = new CrossEntity(cross_current);
 				float nextPosHeight = cross_current.tile_center.transform.position.y;
-
+				
 				if(transform.position.y > nextPosHeight)
 				{
 					StopCoroutine("MovePlayerVertical");
@@ -131,5 +168,6 @@ namespace TheVandals
 				}
 			}
 		}
+		#endregion
 	}
 }

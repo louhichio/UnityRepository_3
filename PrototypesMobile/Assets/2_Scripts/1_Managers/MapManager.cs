@@ -32,6 +32,12 @@ namespace TheVandals
 		private GameObject obj_Environment;
 		[SerializeField]
 		private GameObject prefab_Tile;
+		[SerializeField]
+		private GameObject prefab_GameOver_particle;
+		[SerializeField]
+		private int tile_GameOver_index = -1;
+		[HideInInspector]
+		public TileEntity tile_GameOver;
 
 		private List<SceneElement> listSceneElements = new List<SceneElement>();
 		private List<TileEntity> map_tiles = new List<TileEntity>();
@@ -115,6 +121,25 @@ namespace TheVandals
 				{
 					map_tiles.Add(child.GetComponent<TileEntity>());
 				}
+			}
+
+		}
+
+		public void SetGameOverTile(TileEntity tile_player)
+		{
+			if(int.ReferenceEquals(tile_GameOver_index,null) || tile_GameOver_index < 0 || tile_GameOver_index > map_tiles.Count -1)
+			{
+				while(TileEntity.ReferenceEquals(tile_GameOver,null) || tile_GameOver == tile_player)
+				{				
+					tile_GameOver = map_tiles[UnityEngine.Random.Range(0,map_tiles.Count -1)];
+				}
+			}else
+				tile_GameOver = map_tiles[tile_GameOver_index];
+
+			if(prefab_GameOver_particle)
+			{
+				GameObject prefab_InScene = Instantiate(prefab_GameOver_particle,tile_GameOver.transform.position, Quaternion.Euler(90 * Vector3.left)) as GameObject;
+				prefab_InScene.transform.parent = tile_GameOver.transform;
 			}
 		}
 

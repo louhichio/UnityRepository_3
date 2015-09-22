@@ -5,15 +5,40 @@
 	
 	public class InputManager : Singleton<InputManager>
 	{
+		private bool isStop = false;
+		#region Events
+		void OnEnable()
+		{
+			EventManager.gameOver += GameOver;
+			EventManager.gameReset += GameReset;
+		}		
+		void OnDisable()
+		{
+			EventManager.gameOver -= GameOver;
+			EventManager.gameReset -= GameReset;
+		}
+		private void GameOver(string status)
+		{
+			isStop = true;
+		}
+		
+		private void GameReset()
+		{
+			isStop = false;
+		}
+		#endregion
+
 		void Update()
 		{
-			if (Input.GetKeyDown(KeyCode.Escape)) 
+			if (!isStop && Input.GetKeyDown(KeyCode.Escape)) 
 				Application.Quit(); 
 		}		
 		
 		void OnTap(TapGesture gesture) 
 		{
-			if(TurnManager.Instance.turnState == TurnState.PlayerTurn && PlayerManager.Instance.moveState == MoveState.None)
+			if(!isStop && 
+			   TurnManager.Instance.turnState == TurnState.PlayerTurn &&
+			   PlayerManager.Instance.moveState == MoveState.None)
 			{
 				Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 				RaycastHit hit;
@@ -29,7 +54,8 @@
 		
 		void OnSwipe( SwipeGesture gesture ) 
 		{
-			if(TurnManager.Instance.turnState == TurnState.PlayerTurn && 
+			if(!isStop && 
+			   TurnManager.Instance.turnState == TurnState.PlayerTurn && 
 			   PlayerManager.Instance.moveState == MoveState.None && 
 			   !CameraManager.Instance.isScreenSizing)
 			{
@@ -40,7 +66,8 @@
 
 		void OnPinch(PinchGesture gesture) 
 		{
-			if(TurnManager.Instance.turnState == TurnState.PlayerTurn)
+			if(!isStop && 
+			   TurnManager.Instance.turnState == TurnState.PlayerTurn)
 				CameraManager.Instance.OnPinch(gesture);
 		}
 	}

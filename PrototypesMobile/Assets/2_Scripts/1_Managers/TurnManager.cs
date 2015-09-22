@@ -17,11 +17,30 @@
 		public int enemyCount_Max = 0;
 		public float turnDelay = 0.5f;
 
-
-		void Start()
+		#region Events
+		void OnEnable()
 		{
+			EventManager.initialise += Init;
+			EventManager.gameReset += Reset;
+		}		
+		
+		void OnDisable()
+		{
+			EventManager.initialise -= Init;
+			EventManager.gameReset -= Reset;
+		}
+		
+		private void Init()
+		{			
 			turnState = TurnState.PlayerTurn;
 		}
+		private void Reset()
+		{
+			StopAllCoroutines();
+			enemyCount = 0;
+			turnState = TurnState.PlayerTurn;
+		}
+		#endregion
 
 		public IEnumerator PlayerMoved()
 		{			

@@ -22,13 +22,13 @@
 		{
 			EventManager.initialise += Init;
 			EventManager.startTurn_Enemy += StartTurn;
-			EventManager.reset_game += Reset;
+			EventManager.gameReset += Reset;
 		}		
 		void OnDisable()
 		{
 			EventManager.initialise -= Init;
 			EventManager.startTurn_Enemy -= StartTurn;
-			EventManager.reset_game -= Reset;
+			EventManager.gameReset -= Reset;
 		}
 
 		private void Init()
@@ -48,7 +48,7 @@
 		{
 			StopAllCoroutines();
 
-			this.cross_current.SetTilesState(TileState.Clear);
+			this.cross_current.ResetTiles();
 			transform.position = position_Init;
 
 			cross_current = new CrossEntity(cross_init);
@@ -76,8 +76,13 @@
 
 			if(isInitialized)
 			{
-				TurnManager.Instance.StopCoroutine("EnemyMoved");
-				TurnManager.Instance.StartCoroutine("EnemyMoved");
+				if(cross_current.IsPlayerOnCross)
+					GameManager.Instance.StartCoroutine("PlayerLost");
+				else
+				{
+					TurnManager.Instance.StopCoroutine("EnemyMoved");
+					TurnManager.Instance.StartCoroutine("EnemyMoved");
+				}
 			}
 			else
 			{				
@@ -127,8 +132,13 @@
 
 			if(isInitialized)
 			{
-				TurnManager.Instance.StopCoroutine("EnemyMoved");
-				TurnManager.Instance.StartCoroutine("EnemyMoved");
+				if(cross_current.IsPlayerOnCross)
+					GameManager.Instance.StartCoroutine("PlayerLost");
+				else
+				{
+					TurnManager.Instance.StopCoroutine("EnemyMoved");
+					TurnManager.Instance.StartCoroutine("EnemyMoved");
+				}
 			}
 			else
 			{				

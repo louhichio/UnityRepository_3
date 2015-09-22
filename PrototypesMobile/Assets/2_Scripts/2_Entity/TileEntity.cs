@@ -34,8 +34,6 @@
 		[SerializeField]
 		private bool enemyLeft = true;
 
-		private bool isInit = false;
-
 		void Start ()
 		{
 			sr = GetComponent<SpriteRenderer>();
@@ -65,56 +63,63 @@
 
 		public void SetTileState(TileState tile_state)
 		{
-			print (tile_state);
-			if(TurnManager.Instance.turnState == TurnState.PlayerTurn)
+			switch(tile_state)
 			{
-				switch(tile_state)
+			case TileState.Clear:
+				if(TurnManager.Instance.turnState != TurnState.PlayerTurn)
 				{
-				case TileState.Clear:
+					sr.color = Color.white;
+					sr.enabled = playerLeft ? false : true;
+					enemyLeft = true;
+				}
+				else
+				{
 					if(enemyLeft)
 					{	
 						sr.color = Color.white;
 						sr.enabled = false;
 					}					
 					playerLeft = true;
-					break;
-				case TileState.PlayerOn:
-					if(enemyLeft)
-					{	
-						sr.color = Color.white;
-						sr.enabled = true;
-					}	
-					else
-					{
-						sr.color = Color.red;
-						sr.enabled = true;
-					}
-					playerLeft = false;
-					break;
-				case TileState.EnemyOn:
-					sr.color = Color.red;
-					sr.enabled = true;
-					enemyLeft = false;
-					break;
 				}
-			}
-			else
-			{
-				switch(tile_state)
-				{
-				case TileState.Clear:
+				break;
+			case TileState.PlayerOn:
+				if(enemyLeft)
+				{	
 					sr.color = Color.white;
-					sr.enabled = playerLeft ? false : true;
-					enemyLeft = true;
-					break;
-				case TileState.EnemyOn:
+					sr.enabled = true;
+				}	
+				else
+				{
 					sr.color = Color.red;
 					sr.enabled = true;
-					enemyLeft = false;
-					break;
 				}
+				playerLeft = false;
+				break;
+			case TileState.EnemyOn:
+				sr.color = Color.red;
+				sr.enabled = true;
+				enemyLeft = false;
+				break;
 			}
 			this.tile_state = tile_state;
+		}
+
+		public void Reset()
+		{
+			playerLeft = true;
+			enemyLeft = true;
+
+			sr.color = Color.white;
+			sr.enabled = false;
+
+			this.tile_state = TileState.Clear;
+		}
+
+		public bool IsPlayerOnTile()
+		{
+			if(PlayerManager.Instance.cross_current.tile_center == this)
+				return true;
+			return false;
 		}
 	}
 }

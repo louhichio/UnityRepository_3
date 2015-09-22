@@ -10,6 +10,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/1_Scenes/Prototype_1_CaseSysteme.unity
   - enabled: 0
-    path: Assets/1_Scenes/Prototype_1_CaseSysteme 1.unity
+    path: Assets/1_Scenes/Prototype_2_Decors_3D.unity
   - enabled: 1
-    path: Assets/1_Scenes/proto_camera_mapping.unity
+    path: Assets/1_Scenes/Prototype_3_Decors_2D.unity

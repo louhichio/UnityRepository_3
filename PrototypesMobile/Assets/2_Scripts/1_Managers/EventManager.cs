@@ -6,14 +6,13 @@ namespace TheVandals
 	
 	public class EventManager: Singleton<EventManager>
 	{		
-		public delegate void Init();
-		public static event Init initialise;
+		public delegate void emptyDel();
+		public static event emptyDel initialise;
+		public static event emptyDel gameReset;
+		public static event emptyDel startTurn_Enemy;
 
-		public delegate void StartTurn();
-		public static event StartTurn startTurn_Enemy;
-
-		public delegate void Reset();
-		public static event Reset reset_game;
+		public delegate void gameoverDel(string status);
+		public static event gameoverDel gameOver;
 
 		public void Initialise()
 		{			
@@ -27,10 +26,16 @@ namespace TheVandals
 				startTurn_Enemy();
 		}
 
-		public void Reset_game()
+		public void GameReset()
 		{
-			if(reset_game != null)
-				reset_game();
+			if(gameReset != null)
+				gameReset();
+		}
+
+		public void GameOver(string status)
+		{
+			if(gameOver != null)
+				gameOver(status);
 		}
 	}
 }
