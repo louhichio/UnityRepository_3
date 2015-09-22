@@ -41,8 +41,11 @@
 			this.size = 1.0f;
 			this.rect = new Rect(transform.position.x - 0.5f, transform.position.z - 0.5f, 1, 1);
 //			SetTileState(TileState.Clear);
-			sr.color = Color.white;
-			sr.enabled = false;
+			if(sr.color != Color.yellow)
+			{
+				sr.color = Color.white;
+				sr.enabled = false;
+			}
 		}
 
 		public void SetInit(TileType tt, int index, Vector2 pos)
@@ -63,6 +66,8 @@
 
 		public void SetTileState(TileState tile_state)
 		{
+			if(sr.color != Color.yellow)
+			{
 			switch(tile_state)
 			{
 			case TileState.Clear:
@@ -101,6 +106,11 @@
 				enemyLeft = false;
 				break;
 			}
+			}
+			else
+			{
+				sr.enabled = true;
+			}
 			this.tile_state = tile_state;
 		}
 
@@ -108,9 +118,11 @@
 		{
 			playerLeft = true;
 			enemyLeft = true;
-
-			sr.color = Color.white;
-			sr.enabled = false;
+			if(sr.color != Color.yellow)
+			{
+				sr.color = Color.white;
+				sr.enabled = false;
+			}
 
 			this.tile_state = TileState.Clear;
 		}

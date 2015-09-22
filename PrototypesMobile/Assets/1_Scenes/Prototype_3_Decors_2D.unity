@@ -732,15 +732,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 493046, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.66428375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493046, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.02915573
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493046, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.05815125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493046, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2737,7 +2737,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e635119ea277443edabc876e143cd996, type: 3}
-  m_Color: {r: 1, g: .889655232, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &680825242
 GameObject:
   m_ObjectHideFlags: 0
@@ -4609,8 +4609,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ratio: {x: 16, y: 9}
-  screen_Size_Max: 8
-  screen_Size_Min: 5
+  screen_Size_Max: 3
+  screen_Size_Min: 1
   isScreenSizing: 0
 --- !u!114 &1075561393
 MonoBehaviour:
@@ -4947,7 +4947,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e635119ea277443edabc876e143cd996, type: 3}
-  m_Color: {r: 1, g: .889655232, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1135436987
 GameObject:
   m_ObjectHideFlags: 0
@@ -6847,9 +6847,8 @@ MonoBehaviour:
   trs_Floor: {fileID: 355255440}
   obj_Environment: {fileID: 387019116}
   prefab_Tile: {fileID: 114124, guid: 932fcac96a9ef974ca22fb8be9c076e1, type: 2}
-  prefab_GameOver_particle: {fileID: 100000, guid: b6fecef6c92b67147b638a07ef91195b,
-    type: 2}
-  tile_GameOver_index: -1
+  prefab_GameOver_particle: {fileID: 0}
+  tile_GameOver_index: 48
   tile_GameOver: {fileID: 0}
   enableEditorMapTilesGeneration: 0
   eraseTiles: 0

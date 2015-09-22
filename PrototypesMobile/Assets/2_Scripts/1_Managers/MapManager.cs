@@ -141,6 +141,8 @@ namespace TheVandals
 				GameObject prefab_InScene = Instantiate(prefab_GameOver_particle,tile_GameOver.transform.position, Quaternion.Euler(90 * Vector3.left)) as GameObject;
 				prefab_InScene.transform.parent = tile_GameOver.transform;
 			}
+			tile_GameOver.GetComponent<SpriteRenderer>().color = Color.yellow;
+			tile_GameOver.GetComponent<SpriteRenderer>().enabled = true;
 		}
 
 		//Get RayCasted Tile
@@ -191,32 +193,32 @@ namespace TheVandals
 					index = cross.tile_forward.index;
 				break;
 			case FingerGestures.SwipeDirection.Right:
-				if(!TileEntity.ReferenceEquals(cross.tile_forward, null))
-					index = cross.tile_forward.index;
+				if(!TileEntity.ReferenceEquals(cross.tile_right, null))
+					index = cross.tile_right.index;
 				break;
 			case FingerGestures.SwipeDirection.LowerRightDiagonal:
 				if(!TileEntity.ReferenceEquals(cross.tile_right, null))
 					index = cross.tile_right.index;
 				break;
 			case FingerGestures.SwipeDirection.Down:
-				if(!TileEntity.ReferenceEquals(cross.tile_right, null))
-					index = cross.tile_right.index;
+				if(!TileEntity.ReferenceEquals(cross.tile_back, null))
+					index = cross.tile_back.index;
 				break;
 			case FingerGestures.SwipeDirection.UpperLeftDiagonal:
 				if(!TileEntity.ReferenceEquals(cross.tile_left, null))
 					index = cross.tile_left.index;
 				break;
 			case FingerGestures.SwipeDirection.Up:
-				if(!TileEntity.ReferenceEquals(cross.tile_left, null))
-					index = cross.tile_left.index;
+				if(!TileEntity.ReferenceEquals(cross.tile_forward, null))
+					index = cross.tile_forward.index;
 				break;
 			case FingerGestures.SwipeDirection.LowerLeftDiagonal:
 				if(!TileEntity.ReferenceEquals(cross.tile_back, null))
 					index = cross.tile_back.index;
 				break;
 			case FingerGestures.SwipeDirection.Left:
-				if(!TileEntity.ReferenceEquals(cross.tile_back, null))
-					index = cross.tile_back.index;
+				if(!TileEntity.ReferenceEquals(cross.tile_left, null))
+					index = cross.tile_left.index;
 				break;
 			}
 

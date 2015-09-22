@@ -18104,8 +18104,7 @@ MonoBehaviour:
   trs_Floor: {fileID: 355255440}
   obj_Environment: {fileID: 387019116}
   prefab_Tile: {fileID: 114124, guid: 932fcac96a9ef974ca22fb8be9c076e1, type: 2}
-  prefab_GameOver_particle: {fileID: 100000, guid: b6fecef6c92b67147b638a07ef91195b,
-    type: 2}
+  prefab_GameOver_particle: {fileID: 0}
   tile_GameOver_index: 194
   tile_GameOver: {fileID: 0}
   enableEditorMapTilesGeneration: 0
@@ -21727,6 +21726,10 @@ Prefab:
     - target: {fileID: 493046, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11423970, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}
+      propertyPath: MinDistance
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}
