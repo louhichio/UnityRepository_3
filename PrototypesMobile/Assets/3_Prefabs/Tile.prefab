@@ -51,6 +51,8 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
+  playerLeft: 1
+  enemyLeft: 1
 --- !u!212 &21243918
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -61,7 +63,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fd41bb47ae097940bff4736d1d9e555, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -93,6 +95,22 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: e635119ea277443edabc876e143cd996,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5fd41bb47ae097940bff4736d1d9e555, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114124}

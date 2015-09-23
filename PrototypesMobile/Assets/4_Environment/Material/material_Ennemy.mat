@@ -134,19 +134,19 @@ Material:
       data:
         first:
           name: _yPosLow
-        second: 0
+        second: -.170000002
       data:
         first:
           name: _yPosHigh
-        second: 1.32000005
+        second: 1.26999998
       data:
         first:
           name: _GradientStrength
-        second: 1
+        second: .720000029
       data:
         first:
           name: _EmissiveStrengh
-        second: 1
+        second: .49000001
     m_Colors:
       data:
         first:
@@ -163,16 +163,16 @@ Material:
       data:
         first:
           name: _ColorLow
-        second: {r: .0869407058, g: .0730968863, b: .191176474, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _ColorHigh
-        second: {r: .13516435, g: .194487482, b: .367647052, a: 1}
+        second: {r: .0167063307, g: .175051421, b: .757352948, a: 1}
       data:
         first:
           name: _ColorX
-        second: {r: .165441155, g: .266227186, b: .75, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _ColorY
-        second: {r: .164705887, g: .266666681, b: .749019623, a: 1}
+        second: {r: .103481822, g: .218122795, b: .639705896, a: 1}

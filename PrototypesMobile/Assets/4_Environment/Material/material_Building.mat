@@ -185,7 +185,7 @@ Material:
       data:
         first:
           name: _ColorHigh
-        second: {r: 1, g: .436358839, b: .139705896, a: 1}
+        second: {r: .617647052, g: .320098937, b: .16349481, a: 1}
       data:
         first:
           name: _ColorX
