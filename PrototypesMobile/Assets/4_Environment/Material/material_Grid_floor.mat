@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: material_Ground
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
-  m_LightmapFlags: 5
+  m_Name: material_Grid_floor
+  m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION
+  m_LightmapFlags: 1
   m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
@@ -20,8 +20,8 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: c89e802bf52074a5d8df9da49a9b4cd4, type: 3}
-          m_Scale: {x: 49, y: 49}
+          m_Texture: {fileID: 2800000, guid: 1f3e4cb80cd6e473781246803abdc20b, type: 3}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -56,7 +56,7 @@ Material:
           name: _EmissionMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 49, y: 49}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -70,7 +70,7 @@ Material:
           name: _DetailAlbedoMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 49, y: 49}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -94,6 +94,10 @@ Material:
         second: .5
       data:
         first:
+          name: PixelSnap
+        second: 0
+      data:
+        first:
           name: _Parallax
         second: .0199999996
       data:
@@ -103,7 +107,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 1
+        second: .5
       data:
         first:
           name: _BumpScale
@@ -134,25 +138,37 @@ Material:
         second: 0
       data:
         first:
-          name: _yPosLow
+          name: _InvFade
+        second: 1
+      data:
+        first:
+          name: _Stencil
         second: 0
       data:
         first:
-          name: _yPosHigh
-        second: 13.7399998
+          name: _StencilComp
+        second: 8
       data:
         first:
-          name: _GradientStrength
-        second: .159999996
+          name: _StencilOp
+        second: 0
       data:
         first:
-          name: _EmissiveStrengh
-        second: -3.57999992
+          name: _StencilReadMask
+        second: 255
+      data:
+        first:
+          name: _StencilWriteMask
+        second: 255
+      data:
+        first:
+          name: _ColorMask
+        second: 15
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 0}
+        second: {r: 1, g: .985294104, b: .985294104, a: 0}
       data:
         first:
           name: _Color
@@ -163,17 +179,5 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _ColorLow
-        second: {r: 0, g: 0, b: 0, a: 1}
-      data:
-        first:
-          name: _ColorHigh
-        second: {r: .948529422, g: 0, b: 0, a: 1}
-      data:
-        first:
-          name: _ColorX
-        second: {r: .5, g: .150735289, b: .150735289, a: 1}
-      data:
-        first:
-          name: _ColorY
-        second: {r: .0901960805, g: .196078449, b: .31764707, a: 1}
+          name: _TintColor
+        second: {r: .5, g: .5, b: .5, a: .5}
