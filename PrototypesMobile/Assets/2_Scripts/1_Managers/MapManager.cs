@@ -228,8 +228,28 @@ namespace TheVandals
 					return GenerateCross(map_tiles[index]);
 				return null;
 			}
-			return null;
+			else
+				return null;
 		}	
+
+		public CrossEntity GenerateRandomNearByCross(CrossEntity cross)
+		{
+			int index = -1;
+			List<int> list_TileIndex = new List<int>();
+
+			if(!TileEntity.ReferenceEquals(cross.tile_forward, null))
+				list_TileIndex.Add (cross.tile_forward.index);
+			if(!TileEntity.ReferenceEquals(cross.tile_back, null))
+				list_TileIndex.Add (cross.tile_back.index);
+			if(!TileEntity.ReferenceEquals(cross.tile_right, null))
+				list_TileIndex.Add (cross.tile_right.index);
+			if(!TileEntity.ReferenceEquals(cross.tile_left, null))
+				list_TileIndex.Add (cross.tile_left.index);
+
+			index = list_TileIndex[UnityEngine.Random.Range(0,list_TileIndex.Count)];
+			
+			return GenerateCross(map_tiles[index]);
+		}
 
 		public CrossEntity GenerateCross(TileEntity t)
 		{
@@ -238,22 +258,23 @@ namespace TheVandals
 			cross_temp.tile_center = t;
 
 			if((t.index + mapHeight) < map_tiles.Count && 
-			   Mathf.Abs(tile_height - map_tiles[t.index + (int)mapHeight].transform.position.y) < t.size * 2)
+			   Mathf.Abs(tile_height - map_tiles[t.index + (int)mapHeight].transform.position.y) < t.size + 0.1f)
 				cross_temp.tile_forward = map_tiles[t.index + (int)mapHeight];
 			
 			if((t.index - mapHeight) >= 0 && 
-			   Mathf.Abs(tile_height - map_tiles[t.index - (int)mapHeight].transform.position.y) < t.size * 2)
+			   Mathf.Abs(tile_height - map_tiles[t.index - (int)mapHeight].transform.position.y) < t.size + 0.1f)
 				cross_temp.tile_back = map_tiles[t.index - (int)mapHeight];
 
 			if((t.index + 1) < map_tiles.Count &&
 			   (t.index + 1) % mapHeight != 0 && 
-			   Mathf.Abs(tile_height - map_tiles[t.index + 1].transform.position.y) < t.size * 2)
+			   Mathf.Abs(tile_height - map_tiles[t.index + 1].transform.position.y) < t.size + 0.1f)
 				cross_temp.tile_left = map_tiles[t.index + 1];
 
 			if((t.index - 1) >= 0 &&
 			   t.index % mapHeight != 0 && 
-			   Mathf.Abs(tile_height - map_tiles[t.index - 1].transform.position.y) < t.size * 2)
+			   Mathf.Abs(tile_height - map_tiles[t.index - 1].transform.position.y) < t.size + 0.1f)
 				cross_temp.tile_right = map_tiles[t.index - 1];
+
 			return cross_temp;
 		}
 		

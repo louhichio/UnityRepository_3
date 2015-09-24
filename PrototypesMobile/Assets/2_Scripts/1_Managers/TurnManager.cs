@@ -17,6 +17,9 @@
 		public int enemyCount_Max = 0;
 		public float turnDelay = 0.5f;
 
+
+
+
 		#region Events
 		void OnEnable()
 		{
@@ -43,11 +46,16 @@
 		#endregion
 
 		public IEnumerator PlayerMoved()
-		{			
-			turnState = TurnState.EnemyTurn;
-			yield return new WaitForSeconds(turnDelay);
+		{		
+			if(enemyCount_Max > 0)
+			{
+				turnState = TurnState.EnemyTurn;
+				yield return new WaitForSeconds(turnDelay);
 
-			EventManager.Instance.StartTurn_Enemy();
+				EventManager.Instance.StartTurn_Enemy();
+			}
+			else
+				yield return new WaitForSeconds(turnDelay);
 		}
 
 		public IEnumerator EnemyMoved()

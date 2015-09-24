@@ -3,6 +3,12 @@
 	using UnityEngine;
 	using System.Collections;
 
+	public enum EnemyBehaviour
+	{
+		Idle,
+		Roam,
+	}
+
 	public class Enemy : MonoBehaviour 
 	{
 		public float speed = 1;
@@ -13,6 +19,9 @@
 
 		private CrossEntity cross_init = new CrossEntity();
 		private Vector3 position_Init = Vector3.zero;
+
+		[SerializeField]
+		private EnemyBehaviour enemy_Behaviour = EnemyBehaviour.Roam;
 
 		#region Unity
 		#endregion
@@ -34,15 +43,16 @@
 		private void Init()
 		{			
 			MapManager.Instance.InitUnitCross(transform.position, gameObject);
-			TurnManager.Instance.enemyCount_Max++;
+
+			if(enemy_Behaviour != EnemyBehaviour.Idle)
+				TurnManager.Instance.enemyCount_Max++;
 		}
 		private void StartTurn()
 		{
-			FingerGestures.SwipeDirection dir = new FingerGestures.SwipeDirection();
-			dir = (FingerGestures.SwipeDirection)(1 << Random.Range(0,3));
-
-			CrossEntity cross_destination = MapManager.Instance.GetSwipeTilePosition(cross_current, dir);
-			SetUnitPosition(cross_destination);
+			if(enemy_Behaviour != EnemyBehaviour.Idle)
+			{
+				SetUnitPosition(MapManager.Instance.GenerateRandomNearByCross(cross_current));
+			}
 		}
 		private void Reset()
 		{
@@ -60,7 +70,10 @@
 		#region Private			
 		private IEnumerator MovePlayerHorizontal(Vector3 destination)
 		{
-			
+			Vector3 direction = destination - transform.position;
+			direction.y =0;
+			if(direction.normalized!= Vector3.zero)
+				transform.forward = -direction.normalized * 90;
 			destination.y += transform.localScale.y / 2;
 			moveState = MoveState.Moving;
 			float t = 0;
@@ -95,6 +108,10 @@
 		private IEnumerator MovePlayerVertical(bool isMovingUp)
 		{
 			Vector3 destination = this.cross_current.tile_center.transform.position;
+			Vector3 direction = destination - transform.position;
+			direction.y =0;
+			if(direction.normalized!= Vector3.zero)
+				transform.forward = -direction.normalized * 90;
 			Vector3 node_first;
 			if(isMovingUp)
 			{

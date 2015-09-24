@@ -54,6 +54,10 @@ namespace TheVandals
 		private IEnumerator MovePlayerHorizontal(Vector3 destination)
 		{
 			
+			Vector3 direction = destination - transform.position;
+			direction.y = 0;
+			transform.forward = direction.normalized * 90;
+
 			destination.y += transform.localScale.y / 2;
 			moveState = MoveState.Moving;
 			float t = 0;
@@ -69,8 +73,11 @@ namespace TheVandals
 			
 			if(isInitialized)
 			{
-				if(this.cross_current.tile_center == MapManager.Instance.tile_GameOver)
-					GameManager.Instance.StartCoroutine("PlayerWon");
+				if(cross_current.IsEnemyOnCross)
+					GameManager.Instance.StartCoroutine("PlayerLost");
+				else 
+					if(this.cross_current.tile_center == MapManager.Instance.tile_GameOver)
+						GameManager.Instance.StartCoroutine("PlayerWon");	
 				else
 					TurnManager.Instance.StartCoroutine("PlayerMoved");
 			}
@@ -85,8 +92,13 @@ namespace TheVandals
 		}
 		
 		private IEnumerator MovePlayerVertical(bool isMovingUp)
-		{
+		{			
 			Vector3 destination = this.cross_current.tile_center.transform.position;
+
+			Vector3 direction = destination - transform.position;
+			direction.y =0;
+			transform.forward = direction.normalized * 90;
+
 			Vector3 node_first;
 			if(isMovingUp)
 			{
@@ -124,8 +136,11 @@ namespace TheVandals
 			
 			if(isInitialized)
 			{
-				if(this.cross_current.tile_center == MapManager.Instance.tile_GameOver)
-					GameManager.Instance.StartCoroutine("PlayerWon");
+				if(cross_current.IsEnemyOnCross)
+					GameManager.Instance.StartCoroutine("PlayerLost");
+				else 
+					if(this.cross_current.tile_center == MapManager.Instance.tile_GameOver)
+						GameManager.Instance.StartCoroutine("PlayerWon");	
 				else
 					TurnManager.Instance.StartCoroutine("PlayerMoved");
 			}

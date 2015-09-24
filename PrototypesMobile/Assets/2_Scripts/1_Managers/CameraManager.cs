@@ -14,6 +14,9 @@
 		private float screen_Size = 5;
 		public bool isScreenSizing = false;
 		private static float Screen_Diagonal;
+
+		public bool followPlayer = false;
+		private Vector3 initPos;
 		
 //		CoroutineController LerpScreenSize_controller;
 		#endregion
@@ -24,11 +27,17 @@
 			screen_Size = screen_Size_Max;
 			Screen_Diagonal = Mathf.Sqrt(Mathf.Pow(Screen.width,2) + Mathf.Pow(Screen.height,2));
 			Camera.main.orthographicSize = screen_Size;
+
+			if(followPlayer)
+				initPos = transform.position;
 		}
 
 		void Update()
 		{
 //			SetCameraAspect();
+			if(followPlayer)
+				transform.position = Vector3.Lerp(transform.position, PlayerManager.Instance.transform.position, Time.deltaTime);
+
 		}		
 		#endregion
 

@@ -13,6 +13,7 @@
 		public TileEntity tile_left = null;
 
 		public bool IsPlayerOnCross = false;
+		public bool IsEnemyOnCross = false;
 
 		public List<TileEntity> list_tiles = new List<TileEntity>();
 
@@ -46,15 +47,19 @@
 		public void SetTilesState(TileState tileState)
 		{
 			IsPlayerOnCross = false;
+			IsEnemyOnCross = false;
 			foreach(TileEntity te in this.list_tiles)
 			{
 				if(!TileEntity.ReferenceEquals(te, null))
 				{
 				   te.SetTileState(tileState);
+
 					if(te.IsPlayerOnTile())
 						IsPlayerOnCross = true;
 				}
-			}
+			}			
+			if(!TileEntity.ReferenceEquals(this.tile_center, null) && !this.tile_center.enemyLeft)
+				IsEnemyOnCross = true;
 		}
 
 		public void ResetTiles()

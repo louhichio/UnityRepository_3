@@ -29,10 +29,9 @@
 		public Rect rect;
 
 		private SpriteRenderer sr;
-		[SerializeField]
-		private bool playerLeft = true;
-		[SerializeField]
-		private bool enemyLeft = true;
+
+		public bool playerLeft = true;
+		public bool enemyLeft = true;
 
 		void Start ()
 		{
