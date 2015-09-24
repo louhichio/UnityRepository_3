@@ -84,7 +84,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 459584}
   - 33: {fileID: 3306476}
-  - 65: {fileID: 6586966}
   - 23: {fileID: 2324102}
   - 114: {fileID: 11473416}
   m_Layer: 0
@@ -165,6 +164,23 @@ GameObject:
   - 4: {fileID: 417246}
   m_Layer: 0
   m_Name: Articulation_1_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &144104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 487352}
+  - 33: {fileID: 3318568}
+  - 23: {fileID: 2338982}
+  m_Layer: 0
+  m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,11 +536,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119026}
   m_LocalRotation: {x: 0, y: .30070582, z: 0, w: .953716934}
-  m_LocalPosition: {x: -3.08999991, y: .44600001, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429270}
   - {fileID: 466570}
+  - {fileID: 487352}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &460672
@@ -560,8 +577,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193788}
   m_LocalRotation: {x: 0, y: .97986114, z: 0, w: .199680403}
-  m_LocalPosition: {x: .109999999, y: -.660000026, z: 3.7252903e-09}
-  m_LocalScale: {x: .219999999, y: .219999999, z: .219999999}
+  m_LocalPosition: {x: .122000001, y: -.512000024, z: -.0170000009}
+  m_LocalScale: {x: .189999998, y: .189999998, z: .189999998}
   m_Children:
   - {fileID: 485366}
   - {fileID: 472102}
@@ -658,6 +675,18 @@ Transform:
   - {fileID: 468646}
   m_Father: {fileID: 466570}
   m_RootOrder: 0
+--- !u!4 &487352
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144104}
+  m_LocalRotation: {x: 0, y: .816606224, z: 0, w: .577195168}
+  m_LocalPosition: {x: 0, y: -.476000011, z: 0}
+  m_LocalScale: {x: .572648346, y: .0460623913, z: .572648525}
+  m_Children: []
+  m_Father: {fileID: 459584}
+  m_RootOrder: 2
 --- !u!4 &488238
 Transform:
   m_ObjectHideFlags: 1
@@ -755,6 +784,30 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!23 &2338982
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144104}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: d7184d612c03f47429800e3ee3f32800, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!33 &3304798
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -769,18 +822,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119026}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6586966
-BoxCollider:
+--- !u!33 &3318568
+MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119026}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 144104}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!95 &9573650
 Animator:
   serializedVersion: 3
@@ -879,22 +927,30 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: .189999998
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
-      value: .100000001
+      value: .189999998
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: .189999998
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
-      value: -.400000006
+      value: -.709999979
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
