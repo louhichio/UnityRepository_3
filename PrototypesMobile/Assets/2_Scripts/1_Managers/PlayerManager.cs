@@ -56,7 +56,8 @@ namespace TheVandals
 			
 			Vector3 direction = destination - transform.position;
 			direction.y = 0;
-			transform.forward = direction.normalized * 90;
+			if(direction.normalized!= Vector3.zero)
+				transform.forward = direction.normalized * 90;
 
 			destination.y += transform.localScale.y / 2;
 			moveState = MoveState.Moving;
@@ -94,10 +95,10 @@ namespace TheVandals
 		private IEnumerator MovePlayerVertical(bool isMovingUp)
 		{			
 			Vector3 destination = this.cross_current.tile_center.transform.position;
-
 			Vector3 direction = destination - transform.position;
 			direction.y =0;
-			transform.forward = direction.normalized * 90;
+			if(direction.normalized!= Vector3.zero)
+				transform.forward = direction.normalized * 90;
 
 			Vector3 node_first;
 			if(isMovingUp)

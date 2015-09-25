@@ -83,7 +83,7 @@ MonoBehaviour:
   EventMessageTarget: {fileID: 151038}
   SendMessageToSelection: 2
   IsExclusive: 0
-  MinDistance: .00999999978
+  MinDistance: .100000001
   MaxDistance: 0
   MinVelocity: 3
   MaxDeviation: 25

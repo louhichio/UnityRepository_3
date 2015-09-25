@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 462798}
   - 212: {fileID: 21243918}
-  - 114: {fileID: 11408486}
+  - 114: {fileID: 11407552}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11408486
+--- !u!114 &11407552
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

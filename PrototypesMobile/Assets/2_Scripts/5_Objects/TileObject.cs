@@ -18,7 +18,7 @@
 		EnemyOn,
 	}
 
-	public class TileEntity : MonoBehaviour
+	public class TileObject : MonoBehaviour
 	{		
 		public TileType tile_type;		
 		public TileState tile_state;

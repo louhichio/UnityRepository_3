@@ -31,16 +31,23 @@ namespace TheVandals
 		[SerializeField]
 		private GameObject obj_Environment;
 		[SerializeField]
-		private GameObject prefab_Tile;
+		private Transform trs_Tiles;
+		[SerializeField]
+		private Transform trs_Links;
+		[SerializeField]
+		private GameObject prefab_Tile;		
+		[SerializeField]
+		private LinkObject prefab_Link;
 		[SerializeField]
 		private GameObject prefab_GameOver_particle;
 		[SerializeField]
 		private int tile_GameOver_index = -1;
 		[HideInInspector]
-		public TileEntity tile_GameOver;
+		public TileObject tile_GameOver;
 
 		private List<SceneElement> listSceneElements = new List<SceneElement>();
-		private List<TileEntity> map_tiles = new List<TileEntity>();
+		private List<TileObject> map_tiles = new List<TileObject>();
+		private List<LinkObject> map_links = new List<LinkObject>();
 		
 		private float mapWidth;
 		private float mapHeight;
@@ -71,11 +78,14 @@ namespace TheVandals
 			}
 			if(Application.isPlaying)
 			{
-				Gizmos.color = Color.blue;
-				foreach(TileEntity te in map_tiles)
+				foreach(TileObject te in map_tiles)
 				{
 					if(te.tile_type == TileType.Horizontal)
-					{
+					{						
+						Gizmos.color = Color.white;
+						Gizmos.DrawCube(te.transform.position, 0.2f * Vector3.one);
+
+						Gizmos.color = Color.blue;
 						Gizmos.DrawLine(new Vector3(te.rect.xMin, te.transform.position.y, te.rect.yMin),
 						                new Vector3(te.rect.xMax, te.transform.position.y, te.rect.yMin));
 						Gizmos.DrawLine(new Vector3(te.rect.xMin, te.transform.position.y, te.rect.yMax),
@@ -101,6 +111,11 @@ namespace TheVandals
 //					Gizmos.DrawLine(new Vector3(se.rect.xMax, se.height, se.rect.yMin),
 //					                new Vector3(se.rect.xMax, se.height, se.rect.yMax));
 //				}
+//				foreach(LinkObject le in map_links)
+//				{
+					Gizmos.color = Color.green;
+//					Gizmos.DrawLine(le.tile_LinkStart.transform.position, le.tile_LinkEnd.transform.position);
+//				}
 			}
 		}
 		#endregion
@@ -111,25 +126,25 @@ namespace TheVandals
 			mapWidth = trs_Floor.localScale.x;
 			mapHeight = trs_Floor.localScale.z;
 			
-			if(transform.childCount == 0)
+			if(trs_Tiles.transform.childCount == 0)
 			{
 				GenerateMapTiles();
 			}
 			else
 			{
-				foreach (Transform child in transform)
+				foreach (Transform child in trs_Tiles.transform)
 				{
-					map_tiles.Add(child.GetComponent<TileEntity>());
+					map_tiles.Add(child.GetComponent<TileObject>());
 				}
 			}
-
+			GenerateLinks();
 		}
 
-		public void SetGameOverTile(TileEntity tile_player)
+		public void SetGameOverTile(TileObject tile_player)
 		{
 			if(int.ReferenceEquals(tile_GameOver_index,null) || tile_GameOver_index < 0 || tile_GameOver_index > map_tiles.Count -1)
 			{
-				while(TileEntity.ReferenceEquals(tile_GameOver,null) || tile_GameOver == tile_player)
+				while(TileObject.ReferenceEquals(tile_GameOver,null) || tile_GameOver == tile_player)
 				{				
 					tile_GameOver = map_tiles[UnityEngine.Random.Range(0,map_tiles.Count -1)];
 				}
@@ -148,7 +163,7 @@ namespace TheVandals
 		//Get RayCasted Tile
 		public void InitUnitCross(Vector3 position, GameObject obj)
 		{			
-			foreach(TileEntity t in map_tiles)
+			foreach(TileObject t in map_tiles)
 			{				
 				if(position.x >= t.transform.position.x - 0.5f && 
 				   position.x <= t.transform.position.x + 0.5f &&
@@ -166,15 +181,16 @@ namespace TheVandals
 
 		public CrossEntity GetTapTilePosition(Vector3 position, CrossEntity cross)
 		{			
-			foreach(TileEntity t in cross.list_tiles)
+			foreach(TileObject t in cross.list_tiles)
 			{
-				if(!TileEntity.ReferenceEquals(t,null)&&
+				if(!TileObject.ReferenceEquals(t,null)&&
 				   position.x >= t.transform.position.x - 0.5f && 
 				   position.x <= t.transform.position.x + 0.5f &&
 				   position.z >= t.transform.position.z - 0.5f && 
 				   position.z <= t.transform.position.z + 0.5f)
 				{						
-					if(t.index != cross.tile_center.index)			
+					if(t.index != cross.tile_center.index && 
+					   cross.list_TileCenter_Links.Find(x => x.tile_LinkStart == t || x.tile_LinkEnd == t).isActive)			
 						return GenerateCross(t);
 					return null;
 				}
@@ -189,42 +205,43 @@ namespace TheVandals
 			switch (dir)
 			{
 			case FingerGestures.SwipeDirection.UpperRightDiagonal:
-				if(!TileEntity.ReferenceEquals(cross.tile_forward, null))
+				if(!TileObject.ReferenceEquals(cross.tile_forward, null))
 					index = cross.tile_forward.index;
 				break;
 			case FingerGestures.SwipeDirection.Right:
-				if(!TileEntity.ReferenceEquals(cross.tile_right, null))
+				if(!TileObject.ReferenceEquals(cross.tile_right, null))
 					index = cross.tile_right.index;
 				break;
 			case FingerGestures.SwipeDirection.LowerRightDiagonal:
-				if(!TileEntity.ReferenceEquals(cross.tile_right, null))
+				if(!TileObject.ReferenceEquals(cross.tile_right, null))
 					index = cross.tile_right.index;
 				break;
 			case FingerGestures.SwipeDirection.Down:
-				if(!TileEntity.ReferenceEquals(cross.tile_back, null))
+				if(!TileObject.ReferenceEquals(cross.tile_back, null))
 					index = cross.tile_back.index;
 				break;
 			case FingerGestures.SwipeDirection.UpperLeftDiagonal:
-				if(!TileEntity.ReferenceEquals(cross.tile_left, null))
+				if(!TileObject.ReferenceEquals(cross.tile_left, null))
 					index = cross.tile_left.index;
 				break;
 			case FingerGestures.SwipeDirection.Up:
-				if(!TileEntity.ReferenceEquals(cross.tile_forward, null))
+				if(!TileObject.ReferenceEquals(cross.tile_forward, null))
 					index = cross.tile_forward.index;
 				break;
 			case FingerGestures.SwipeDirection.LowerLeftDiagonal:
-				if(!TileEntity.ReferenceEquals(cross.tile_back, null))
+				if(!TileObject.ReferenceEquals(cross.tile_back, null))
 					index = cross.tile_back.index;
 				break;
 			case FingerGestures.SwipeDirection.Left:
-				if(!TileEntity.ReferenceEquals(cross.tile_left, null))
+				if(!TileObject.ReferenceEquals(cross.tile_left, null))
 					index = cross.tile_left.index;
 				break;
 			}
 
 			if(index != -1)
 			{
-				if(map_tiles[index].index != cross.tile_center.index)			
+				if(map_tiles[index].index != cross.tile_center.index && 
+				   cross.list_TileCenter_Links.Find(x => x.tile_LinkStart == map_tiles[index] || x.tile_LinkEnd == map_tiles[index]).isActive)			
 					return GenerateCross(map_tiles[index]);
 				return null;
 			}
@@ -236,14 +253,22 @@ namespace TheVandals
 		{
 			int index = -1;
 			List<int> list_TileIndex = new List<int>();
+			List<LinkObject> list_LinkIndex = map_links.FindAll(x => x.tile_LinkStart == cross.tile_center || x.tile_LinkEnd == cross.tile_center);
 
-			if(!TileEntity.ReferenceEquals(cross.tile_forward, null))
+			if(!TileObject.ReferenceEquals(cross.tile_forward, null) && 
+			   list_LinkIndex.Find(x => x.tile_LinkStart == cross.tile_forward || x.tile_LinkEnd == cross.tile_forward).isActive )
 				list_TileIndex.Add (cross.tile_forward.index);
-			if(!TileEntity.ReferenceEquals(cross.tile_back, null))
+
+			if(!TileObject.ReferenceEquals(cross.tile_back, null) && 
+			   list_LinkIndex.Find(x => x.tile_LinkStart == cross.tile_back || x.tile_LinkEnd == cross.tile_back).isActive )
 				list_TileIndex.Add (cross.tile_back.index);
-			if(!TileEntity.ReferenceEquals(cross.tile_right, null))
+
+			if(!TileObject.ReferenceEquals(cross.tile_right, null) && 
+			   list_LinkIndex.Find(x => x.tile_LinkStart == cross.tile_right || x.tile_LinkEnd == cross.tile_right).isActive )
 				list_TileIndex.Add (cross.tile_right.index);
-			if(!TileEntity.ReferenceEquals(cross.tile_left, null))
+
+			if(!TileObject.ReferenceEquals(cross.tile_left, null) && 
+			   list_LinkIndex.Find(x => x.tile_LinkStart == cross.tile_left || x.tile_LinkEnd == cross.tile_left).isActive )
 				list_TileIndex.Add (cross.tile_left.index);
 
 			index = list_TileIndex[UnityEngine.Random.Range(0,list_TileIndex.Count)];
@@ -251,34 +276,32 @@ namespace TheVandals
 			return GenerateCross(map_tiles[index]);
 		}
 
-		public CrossEntity GenerateCross(TileEntity t)
+		public CrossEntity GenerateCross(TileObject t)
 		{
 			CrossEntity cross_temp = new CrossEntity();		
 			float tile_height = t.transform.position.y;
 			cross_temp.tile_center = t;
 
-			if((t.index + mapHeight) < map_tiles.Count && 
-			   Mathf.Abs(tile_height - map_tiles[t.index + (int)mapHeight].transform.position.y) < t.size + 0.1f)
+			if((t.index + mapHeight) < map_tiles.Count )
 				cross_temp.tile_forward = map_tiles[t.index + (int)mapHeight];
 			
-			if((t.index - mapHeight) >= 0 && 
-			   Mathf.Abs(tile_height - map_tiles[t.index - (int)mapHeight].transform.position.y) < t.size + 0.1f)
+			if((t.index - mapHeight) >= 0 )
 				cross_temp.tile_back = map_tiles[t.index - (int)mapHeight];
 
 			if((t.index + 1) < map_tiles.Count &&
-			   (t.index + 1) % mapHeight != 0 && 
-			   Mathf.Abs(tile_height - map_tiles[t.index + 1].transform.position.y) < t.size + 0.1f)
+			   (t.index + 1) % mapHeight != 0 )
 				cross_temp.tile_left = map_tiles[t.index + 1];
 
 			if((t.index - 1) >= 0 &&
-			   t.index % mapHeight != 0 && 
-			   Mathf.Abs(tile_height - map_tiles[t.index - 1].transform.position.y) < t.size + 0.1f)
+			   t.index % mapHeight != 0)
 				cross_temp.tile_right = map_tiles[t.index - 1];
+
+			cross_temp.list_TileCenter_Links = map_links.FindAll(x => x.tile_LinkStart == t || x.tile_LinkEnd == t);
 
 			return cross_temp;
 		}
 		
-		public NodeEntity[] GeneratePath(TileEntity tile_from, TileEntity tile_to)
+		public NodeEntity[] GeneratePath(TileObject tile_from, TileObject tile_to)
 		{
 			NodeEntity[] path = new NodeEntity[0];
 			return path;
@@ -298,18 +321,19 @@ namespace TheVandals
 			//////////////////////////////////Generate Horizontal Tiles /////////////////////////////////////////////////////////////////
 			Vector3 tile_position = Vector3.zero;
 			
-			for(int x = 0; x < trs_Floor.localScale.x; x++)
+			for(int x = 0; x < mapWidth; x++)
 			{
-				tile_position.x = x - (trs_Floor.localScale.x / 2) + 0.5f; 
+				tile_position.x = x - (mapWidth / 2) + 0.5f; 
 				
-				for(int z = 0; z < trs_Floor.localScale.z; z++)
+				for(int z = 0; z < mapHeight; z++)
 				{
-					tile_position.z = z - (trs_Floor.localScale.z / 2) + 0.5f;
+					tile_position.z = z - (mapHeight / 2) + 0.5f;
 					
 					GameObject tile_obj = Instantiate(prefab_Tile, tile_position, Quaternion.Euler(Vector3.right * 90)) as GameObject;
-					tile_obj.transform.parent = transform;
+					tile_obj.transform.parent = trs_Tiles.transform;
+					tile_obj.name = "Tile_" + map_tiles.Count;
 
-					TileEntity tile_temp = tile_obj.GetComponent<TileEntity>();
+					TileObject tile_temp = tile_obj.GetComponent<TileObject>();
 
 					map_tiles.Add(tile_temp);
 					tile_temp.SetInit(TileType.Horizontal, map_tiles.Count - 1, Vector2.zero);
@@ -341,6 +365,7 @@ namespace TheVandals
 
 		private void GenerateHeightMap(MeshFilter mesh, SceneElement se)
 		{
+			print (mesh.sharedMesh);
 			se.trs = mesh.transform;
 			se.vertices = new List<Vector3>();
 			se.height = 0;
@@ -386,6 +411,44 @@ namespace TheVandals
 			
 			listSceneElements.Add(se);
 			print ("GenerateHeightMap Done");
+		}
+
+		private void GenerateLinks()
+		{			
+			LinkObject link_temp;
+			bool isActive;
+			for(int x = 0; x < mapWidth; x++)
+			{				
+				for(int z = 0; z < mapHeight; z++)
+				{
+					int tile_index = x *(int)(mapHeight) + z;
+
+					// Vertical Links
+					if((tile_index + 1) % mapHeight != 0)
+					{
+						link_temp = Instantiate(prefab_Link) as LinkObject;
+						link_temp.transform.parent = trs_Links.transform;		
+						link_temp.gameObject.name = "Link_Vertical_" + map_links.Count;
+						isActive = Mathf.Abs(map_tiles[tile_index].transform.position.y - map_tiles[tile_index + 1].transform.position.y) < map_tiles[tile_index].size + 0.1f;
+
+						link_temp.InitLink(map_tiles[tile_index],map_tiles[tile_index + 1], isActive, map_links.Count);
+						map_links.Add(link_temp);
+					}
+
+					// Horizontal Links
+					if(tile_index + mapHeight < map_tiles.Count)
+					{		
+						link_temp = Instantiate(prefab_Link) as LinkObject;
+						link_temp.transform.parent = trs_Links.transform;
+						link_temp.gameObject.name = "Link_Horizontal_" + map_links.Count;
+						isActive = Mathf.Abs(map_tiles[tile_index].transform.position.y - map_tiles[tile_index + (int)mapHeight].transform.position.y) < map_tiles[tile_index].size + 0.1f;
+
+						link_temp.InitLink(map_tiles[tile_index],map_tiles[tile_index + (int)mapHeight], isActive, map_links.Count);
+						map_links.Add(link_temp);
+					}
+				}
+			}
+			print ("GenerateLinks Done");
 		}
 		
 		#endregion
@@ -478,7 +541,7 @@ namespace TheVandals
 //		private GameObject prefab_Tile;
 //		
 //		private List<SceneElement> listSceneElements = new List<SceneElement>();
-//		private List<TileEntity> map_tiles = new List<TileEntity>();
+//		private List<TileObject> map_tiles = new List<TileObject>();
 //		private List<NodeEntity> map_nodes = new List<NodeEntity>();
 //		
 //		private float mapWidth;
@@ -489,11 +552,11 @@ namespace TheVandals
 //		{
 //			if(Application.isPlaying)
 //			{				
-//				foreach(TileEntity t in map_tiles)
+//				foreach(TileObject t in map_tiles)
 //					t.DrawTile();
 //				
 //				Gizmos.color = Color.blue;
-//				foreach(TileEntity te in map_tiles)
+//				foreach(TileObject te in map_tiles)
 //				{
 //					if(te.tile_type == TileType.Horizontal)
 //					{
@@ -548,7 +611,7 @@ namespace TheVandals
 //			{
 //				foreach (Transform child in transform)
 //				{
-//					map_tiles.Add(child.GetComponent<TileEntity>());
+//					map_tiles.Add(child.GetComponent<TileObject>());
 //				}
 //			}
 //			
@@ -576,14 +639,14 @@ namespace TheVandals
 //					GameObject tile_obj = Instantiate(prefab_Tile, tile_position, Quaternion.identity) as GameObject;
 //					tile_obj.transform.parent = transform;
 //					
-//					map_tiles.Add(tile_obj.GetComponent<TileEntity>());
-//					tile_obj.GetComponent<TileEntity>().SetInit(TileType.Horizontal);
+//					map_tiles.Add(tile_obj.GetComponent<TileObject>());
+//					tile_obj.GetComponent<TileObject>().SetInit(TileType.Horizontal);
 //				}
 //			}
 //			
 //			//////////////////////////////////Generate Tiles Nodes/////////////////////////////////////////////////////////////////
 //			/// 
-//			//			foreach(TileEntity te in map_tiles)
+//			//			foreach(TileObject te in map_tiles)
 //			//			{
 //			//				float zMax = trs_Floor.position.z + (trs_Floor.localScale.z/2) - (te.size / 2);
 //			//				if(te.transform.position.z < zMax)
@@ -681,7 +744,7 @@ namespace TheVandals
 //			
 //			foreach(SceneElement se in listSceneElements)
 //			{
-//				//				se.te = new List<TileEntity>();
+//				//				se.te = new List<TileObject>();
 //				
 //				//				print (se.trs + "   " + se.tiles_discarded.FindAll (z => z.tt == TileType.VerticalL && z.index == index).Count);
 //				foreach(TilesDiscarded td in se.tiles_discarded)
@@ -755,7 +818,7 @@ namespace TheVandals
 //		//Get RayCasted Tile
 //		public Vector3 GetTilePosition(Vector3 position)
 //		{
-//			//			foreach(TileEntity t in map_tiles)
+//			//			foreach(TileObject t in map_tiles)
 //			//			{
 //			//				if(position.x >= t.node_Left.position.x && 
 //			//				   position.x <= t.node_Right.position.x &&
@@ -771,8 +834,8 @@ namespace TheVandals
 //			tile_position.y = height;
 //			GameObject tile_obj = Instantiate(prefab_Tile, tile_position, Quaternion.Euler(angle)) as GameObject;
 //			tile_obj.transform.parent = transform;	
-//			tile_obj.GetComponent<TileEntity>().SetInit(tt);
-//			map_tiles.Add(tile_obj.GetComponent<TileEntity>());
+//			tile_obj.GetComponent<TileObject>().SetInit(tt);
+//			map_tiles.Add(tile_obj.GetComponent<TileObject>());
 //		}
 //		
 //		public void GenerateVerticalNodes(Vector3 tile_position, Vector3 angle, float height, TileType tt)

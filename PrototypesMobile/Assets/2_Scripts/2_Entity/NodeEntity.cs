@@ -7,7 +7,7 @@
 	{		
 		public Vector3 position;
 		public bool isActive;
-		public TileEntity[] tile_linked = new TileEntity[2];
+		public TileObject[] tile_linked = new TileObject[2];
 		
 		public NodeEntity (Vector3 position)
 		{
@@ -15,7 +15,7 @@
 			this.isActive = false;
 		}
 
-		public NodeEntity (Vector3 position, bool isActive, TileEntity tile_linked, TileEntity tile_secondlinked)
+		public NodeEntity (Vector3 position, bool isActive, TileObject tile_linked, TileObject tile_secondlinked)
 		{
 			this.position = position;
 			this.isActive = isActive;
