@@ -44,7 +44,7 @@ Material:
       data:
         first:
           name: _ColorX
-        second: {r: .926470578, g: .761096478, b: .653979242, a: 1}
+        second: {r: .198529422, g: .155118719, b: .127000436, a: 1}
       data:
         first:
           name: _ColorY

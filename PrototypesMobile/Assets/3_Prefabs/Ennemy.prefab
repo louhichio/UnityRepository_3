@@ -536,7 +536,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119026}
   m_LocalRotation: {x: 0, y: .30070582, z: 0, w: .953716934}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.08999991, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429270}
@@ -577,7 +577,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193788}
   m_LocalRotation: {x: 0, y: .97986114, z: 0, w: .199680403}
-  m_LocalPosition: {x: .122000001, y: -.512000024, z: -.0170000009}
+  m_LocalPosition: {x: .0299999993, y: -.512000024, z: -.0810000002}
   m_LocalScale: {x: .189999998, y: .189999998, z: .189999998}
   m_Children:
   - {fileID: 485366}
@@ -857,8 +857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114d5259e2e68134c8af2dac094bf671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .5
+  speed: 3
   moveState: 0
+  enemy_Behaviour: 1
 --- !u!137 &13733370
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -952,6 +953,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
