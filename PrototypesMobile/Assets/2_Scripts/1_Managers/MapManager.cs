@@ -58,21 +58,33 @@ namespace TheVandals
 		#region Unity
 		void OnDrawGizmos()
 		{
-			if(enableEditorMapTilesGeneration && transform.childCount == 0)
+			if(enableEditorMapTilesGeneration && trs_Tiles.childCount == 0)
 			{			
 				transform.position = Vector3.up * (-0.001f);
 				mapWidth = trs_Floor.localScale.x;
 				mapHeight = trs_Floor.localScale.z;
+				
+				map_tiles.Clear();
+				map_links.Clear();
 
 				GenerateMapTiles();
 
+				if(trs_Links.transform.childCount == 0)
+					GenerateLinks();
+				else
+				{
+					foreach (Transform child in trs_Tiles.transform)
+						map_links.Add(child.GetComponent<LinkObject>());
+				}
 				enableEditorMapTilesGeneration = false;
 				transform.position = Vector3.zero;
 			}
 
 			if(eraseTiles)
 			{
-				foreach(Transform child in transform)
+				foreach(Transform child in trs_Tiles)
+					DestroyImmediate(child.gameObject);
+				foreach(Transform child in trs_Links)
 					DestroyImmediate(child.gameObject);
 				eraseTiles = false;
 			}
@@ -113,7 +125,7 @@ namespace TheVandals
 //				}
 //				foreach(LinkObject le in map_links)
 //				{
-					Gizmos.color = Color.green;
+//					Gizmos.color = Color.green;
 //					Gizmos.DrawLine(le.tile_LinkStart.transform.position, le.tile_LinkEnd.transform.position);
 //				}
 			}
@@ -127,17 +139,21 @@ namespace TheVandals
 			mapHeight = trs_Floor.localScale.z;
 			
 			if(trs_Tiles.transform.childCount == 0)
-			{
 				GenerateMapTiles();
-			}
 			else
 			{
-				foreach (Transform child in trs_Tiles.transform)
-				{
-					map_tiles.Add(child.GetComponent<TileObject>());
-				}
+				foreach (Transform child in trs_Tiles)
+//					if(child.GetComponent<TileObject>().isActive)
+						map_tiles.Add(child.GetComponent<TileObject>());
 			}
-			GenerateLinks();
+
+			if(trs_Links.transform.childCount == 0)
+				GenerateLinks();
+			else
+			{
+				foreach (Transform child in trs_Links)
+					map_links.Add(child.GetComponent<LinkObject>());
+			}
 		}
 
 		public void SetGameOverTile(TileObject tile_player)
@@ -180,15 +196,15 @@ namespace TheVandals
 		}		
 
 		public CrossEntity GetTapTilePosition(Vector3 position, CrossEntity cross)
-		{			
+		{				
 			foreach(TileObject t in cross.list_tiles)
 			{
-				if(!TileObject.ReferenceEquals(t,null)&&
+				if(!TileObject.ReferenceEquals(t,null) &&
 				   position.x >= t.transform.position.x - 0.5f && 
 				   position.x <= t.transform.position.x + 0.5f &&
 				   position.z >= t.transform.position.z - 0.5f && 
 				   position.z <= t.transform.position.z + 0.5f)
-				{						
+				{					
 					if(t.index != cross.tile_center.index && 
 					   cross.list_TileCenter_Links.Find(x => x.tile_LinkStart == t || x.tile_LinkEnd == t).isActive)			
 						return GenerateCross(t);
@@ -278,8 +294,8 @@ namespace TheVandals
 
 		public CrossEntity GenerateCross(TileObject t)
 		{
-			CrossEntity cross_temp = new CrossEntity();		
-			float tile_height = t.transform.position.y;
+			CrossEntity cross_temp = new CrossEntity();	
+
 			cross_temp.tile_center = t;
 
 			if((t.index + mapHeight) < map_tiles.Count )
@@ -353,7 +369,7 @@ namespace TheVandals
 
 						if(map_tiles[index].transform.position.y < se.height)
 						{
-							map_tiles[index].SetTileHeight(se.height);
+							map_tiles[index].SetTileHeight(se.height + 0.001f);
 							map_tiles[index].SetInit(TileType.Horizontal, index, new Vector2(x,y));
 						}
 					}
@@ -365,7 +381,6 @@ namespace TheVandals
 
 		private void GenerateHeightMap(MeshFilter mesh, SceneElement se)
 		{
-			print (mesh.sharedMesh);
 			se.trs = mesh.transform;
 			se.vertices = new List<Vector3>();
 			se.height = 0;

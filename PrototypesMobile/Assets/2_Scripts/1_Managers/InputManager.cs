@@ -31,7 +31,7 @@
 		void Update()
 		{
 			if (!isStop && Input.GetKeyDown(KeyCode.Escape)) 
-				Application.Quit(); 
+				Application.Quit();
 		}		
 		
 		void OnTap(TapGesture gesture) 
@@ -44,8 +44,7 @@
 				RaycastHit hit;
 				
 				if (Physics.Raycast(mouseRay, out hit, Mathf.Infinity))
-				{
-					
+				{				
 					PlayerManager.Instance.SetUnitPosition(
 						MapManager.Instance.GetTapTilePosition(hit.point, PlayerManager.Instance.cross_current));
 				}

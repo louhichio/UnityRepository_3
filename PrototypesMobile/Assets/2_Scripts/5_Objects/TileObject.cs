@@ -33,6 +33,9 @@
 		public bool playerLeft = true;
 		public bool enemyLeft = true;
 
+		public float height = 0;
+		public bool isActive = true;
+
 		void Start ()
 		{
 			sr = GetComponent<SpriteRenderer>();
@@ -61,6 +64,8 @@
 			Vector3 pos = transform.position;
 			pos.y = height;
 			transform.position = pos;
+			
+			this.height = height;
 		}
 
 		public void SetTileState(TileState tile_state)

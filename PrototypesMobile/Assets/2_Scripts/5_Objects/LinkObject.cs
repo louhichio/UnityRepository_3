@@ -11,9 +11,17 @@
 		public int index;
 
 		void OnDrawGizmos()
-		{
-			Gizmos.color = isActive ? Color.green : Color.red;
-			Gizmos.DrawLine(tile_LinkStart.transform.position, tile_LinkEnd.transform.position);
+		{			
+			if(tile_LinkStart && tile_LinkEnd)
+			{
+				if(!tile_LinkStart.isActive || !tile_LinkEnd.isActive)
+				{
+					isActive = false;
+				}
+
+				Gizmos.color = isActive ? Color.green : Color.red;
+				Gizmos.DrawLine(tile_LinkStart.transform.position, tile_LinkEnd.transform.position);
+			}
 		}
 
 		public void InitLink (TileObject tile_LinkStart, TileObject tile_LinkEnd, bool isActive, int index)

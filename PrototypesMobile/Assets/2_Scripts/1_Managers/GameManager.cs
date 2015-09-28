@@ -8,7 +8,7 @@ namespace TheVandals
 	{		
 
 		void Start()
-		{
+		{ 
 			MapManager.Instance.Init();
 			EventManager.Instance.Initialise();
 		}

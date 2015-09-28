@@ -61,10 +61,10 @@
 			IsEnemyOnCross = false;
 			foreach(TileObject te in this.list_tiles)
 			{
-				if(!TileObject.ReferenceEquals(te, null))
+				if(!TileObject.ReferenceEquals(te, null) &&
+				   (te == tile_center || list_TileCenter_Links.Find(x => x.tile_LinkStart == te || x.tile_LinkEnd == te).isActive))
 				{
 				   te.SetTileState(tileState);
-
 					if(te.IsPlayerOnTile())
 						IsPlayerOnCross = true;
 				}

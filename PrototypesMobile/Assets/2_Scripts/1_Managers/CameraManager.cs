@@ -17,6 +17,9 @@
 
 		public bool followPlayer = false;
 		private Vector3 initPos;
+
+		[SerializeField]
+		private float follow_Speed = 1;
 		
 //		CoroutineController LerpScreenSize_controller;
 		#endregion
@@ -24,21 +27,53 @@
 		#region Unity
 		void Start()
 		{		
-			screen_Size = screen_Size_Max;
-			Screen_Diagonal = Mathf.Sqrt(Mathf.Pow(Screen.width,2) + Mathf.Pow(Screen.height,2));
-			Camera.main.orthographicSize = screen_Size;
-
-			if(followPlayer)
-				initPos = transform.position;
+//			screen_Size = screen_Size_Max;
+//			Screen_Diagonal = Mathf.Sqrt(Mathf.Pow(Screen.width,2) + Mathf.Pow(Screen.height,2));
+//			Camera.main.orthographicSize = screen_Size;
+//
+//			if(followPlayer)
+//				initPos = transform.position;
 		}
 
 		void Update()
 		{
 //			SetCameraAspect();
-			if(followPlayer)
-				transform.position = Vector3.Lerp(transform.position, PlayerManager.Instance.transform.position, Time.deltaTime);
+			//////////////////////////////// Neeeeds Coroutine ////////////////////////////////
+			if(followPlayer && Vector3.Distance(PlayerManager.Instance.transform.position, transform.position) > 0.1f)
+				transform.position = Vector3.Lerp(transform.position, PlayerManager.Instance.transform.position, Time.deltaTime * follow_Speed);
 
 		}		
+		#endregion
+		
+		#region Events
+		void OnEnable()
+		{
+			EventManager.initialise += Init;
+			EventManager.gameReset += Reset;
+		}		
+		
+		void OnDisable()
+		{
+			EventManager.initialise -= Init;
+			EventManager.gameReset -= Reset;
+		}
+		
+		private void Init()
+		{			
+			screen_Size = screen_Size_Max;
+			Screen_Diagonal = Mathf.Sqrt(Mathf.Pow(Screen.width,2) + Mathf.Pow(Screen.height,2));
+			Camera.main.orthographicSize = screen_Size;
+			
+			if(followPlayer)
+			{
+				transform.position = PlayerManager.Instance.transform.position;
+				initPos = transform.position;
+			}
+		}
+		private void Reset()
+		{
+			transform.position = initPos;
+		}
 		#endregion
 
 		#region Private
