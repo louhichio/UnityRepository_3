@@ -85,7 +85,7 @@ GameObject:
   - 4: {fileID: 459584}
   - 33: {fileID: 3306476}
   - 23: {fileID: 2324102}
-  - 114: {fileID: 11473416}
+  - 114: {fileID: 11429566}
   m_Layer: 0
   m_Name: Ennemy
   m_TagString: Untagged
@@ -445,7 +445,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .109999999, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.02283716, y: .519021749, z: 1}
   m_Children: []
   m_Father: {fileID: 459584}
@@ -536,7 +536,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119026}
   m_LocalRotation: {x: 0, y: .30070582, z: 0, w: .953716934}
-  m_LocalPosition: {x: -3.08999991, y: 1, z: 1}
+  m_LocalPosition: {x: -3.08999991, y: .5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429270}
@@ -576,8 +576,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193788}
-  m_LocalRotation: {x: 0, y: .97986114, z: 0, w: .199680403}
-  m_LocalPosition: {x: .0299999993, y: -.512000024, z: -.0810000002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0299999993, y: 0, z: -.0810000002}
   m_LocalScale: {x: .189999998, y: .189999998, z: .189999998}
   m_Children:
   - {fileID: 485366}
@@ -682,7 +682,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144104}
   m_LocalRotation: {x: 0, y: .816606224, z: 0, w: .577195168}
-  m_LocalPosition: {x: 0, y: -.476000011, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .572648346, y: .0460623913, z: .572648525}
   m_Children: []
   m_Father: {fileID: 459584}
@@ -846,7 +846,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11473416
+--- !u!114 &11429566
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -854,12 +854,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 119026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 114d5259e2e68134c8af2dac094bf671, type: 3}
+  m_Script: {fileID: 11500000, guid: a0a00dca9eca0bf4b94050cb44800d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  Tile: {fileID: 0}
+  Speed: 1
+  path: []
+  waypoints: []
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
+  position_Init: {x: 0, y: 0, z: 0}
+  step_Max: 1
+  tile_init: {fileID: 0}
+  tile_current: {fileID: 0}
+  list_UnitNeighbours: []
   moveState: 0
-  enemy_Behaviour: 1
 --- !u!137 &13733370
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

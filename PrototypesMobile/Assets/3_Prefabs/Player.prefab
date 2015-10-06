@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 448540}
   - 95: {fileID: 9572310}
-  - 114: {fileID: 11432968}
+  - 114: {fileID: 11475816}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -724,7 +724,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11432968
+--- !u!114 &11475816
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -732,10 +732,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 139228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69dfe429125cbae47a7ee0319632c165, type: 3}
+  m_Script: {fileID: 11500000, guid: a659a39aa7a6f5c4097f23bda288a5b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  Name: 
+  Tile: {fileID: 0}
+  move_Max: 1
+  tile_init: {fileID: 0}
+  tile_current: {fileID: 0}
   moveState: 0
   isInitialized: 0
 --- !u!137 &13704200

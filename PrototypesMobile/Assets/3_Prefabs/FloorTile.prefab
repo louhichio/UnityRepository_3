@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 462798}
   - 212: {fileID: 21243918}
-  - 114: {fileID: 11407552}
+  - 114: {fileID: 11430548}
   m_Layer: 0
-  m_Name: Tile
+  m_Name: FloorTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11407552
+--- !u!114 &11430548
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -37,22 +37,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 114124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29909bf8f942694db5af7d1592f3d3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a3e9b9d2b87cab4c8e8dd30913f3bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile_type: 0
-  tile_state: 0
   index: 0
-  pos: {x: 0, y: 0}
-  size: 0
+  Name: 
+  X: 0
+  Y: 0
+  Z: 0
+  Neighbours: []
+  AllowsTraversal: 1
+  TraversalCost: 0
+  IsTraversable: 0
+  tile_state: 0
+  playerLeft: 1
+  enemyLeft: 1
+  IsPlayerOnNeighbours: 0
+  IsEnemyOnNeighbours: 0
   rect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  playerLeft: 1
-  enemyLeft: 1
 --- !u!212 &21243918
 SpriteRenderer:
   m_ObjectHideFlags: 1
