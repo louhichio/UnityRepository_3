@@ -269,6 +269,37 @@ namespace TheVandals
 			}
 			return null;
 		}
+
+		public List<Tile> GetFloorTile(int[,] tile_position, Tile tile)
+		{
+			int index;
+			int x = (int)(tile.index / mapHeight);
+			int y = (int)(tile.index % mapHeight);
+			int tilePositionX;
+			int tilePositionY;
+			List<Tile> list_tiles= new List<Tile>();
+
+			for (int i = 0; i < tile_position.GetLength(0); i += 1) 
+			{
+				tilePositionX = tile_position[i, 1] + x;
+				tilePositionY = tile_position[i, 0] + y;
+
+				index = tilePositionX * (int)(mapHeight) + tilePositionY;
+
+				if(index >= 0 && index < map_tiles.Count)
+				{
+					list_tiles.Add(map_tiles[index]);
+				}
+			}
+			return list_tiles;
+
+		}
+
+		public void ResetTiles()
+		{
+			foreach(var t in map_tiles)
+				t.Reset();
+		}
 		#endregion
 
 		#region Private

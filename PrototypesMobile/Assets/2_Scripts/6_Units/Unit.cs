@@ -12,20 +12,25 @@ namespace TheVandals
 	public abstract class Unit : MonoBehaviour 
 	{
 	    // Fields
-                                                                                	    // ========================================================================
-		public Tile Tile;
+                                                                                                                                                                                                                                                	    // ========================================================================
 
 	    public float Speed = 1f;
-	    protected float AngularSpeed = 6.0f;
 
+//	    protected float AngularSpeed = 6.0f;
+		[HideInInspector]
 		public List<Tile> path;
+		[HideInInspector]
 		public List<Vector3> waypoints;
+		[HideInInspector]
 		public Quaternion targetRotation;
+		[HideInInspector]
 		public Vector3 position_Init = Vector3.zero;
 		
-		public int step_Max = 1;		
+		public int step_Max = 1;
+		[HideInInspector]
 		public Tile tile_init;		
 		public Tile tile_current;
+		[HideInInspector]
 		public List<Tile> list_UnitNeighbours;
 		
 		public MoveState moveState = MoveState.None;
@@ -46,7 +51,6 @@ namespace TheVandals
 
 		public virtual void Initialize(Tile tile)
 		{			
-			Tile = tile;
 			
 			position_Init = tile.GetUnitPosition();
 			transform.position = position_Init;
@@ -79,7 +83,7 @@ namespace TheVandals
 		
 		public virtual bool? CheckTile(){return null;}
 
-	    private List<Vector3> GetWaypointsFromPath(List<Tile> path)
+	    public List<Vector3> GetWaypointsFromPath(List<Tile> path)
 	    {
 	        var outWaypoints = new List<Vector3>();
 	        outWaypoints.Add(path[0].GetUnitPosition());
@@ -97,7 +101,7 @@ namespace TheVandals
 	        return midVector;
 	    }
 
-	    private void MoveThroughWaypoints()
+	    public virtual void MoveThroughWaypoints()
 		{
 			Vector3 direction = waypoints[0] - transform.position;
 
@@ -110,7 +114,6 @@ namespace TheVandals
 
 	            if (waypoints.Count % 2 == 1)
 	            {
-	                Tile = path[0];
 					tile_current = path[0];
 					path.RemoveAt(0);
 					if(CheckTile()!= null && CheckTile().Value)

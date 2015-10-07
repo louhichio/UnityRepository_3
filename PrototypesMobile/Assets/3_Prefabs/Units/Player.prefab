@@ -735,13 +735,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a659a39aa7a6f5c4097f23bda288a5b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Tile: {fileID: 0}
-  move_Max: 1
+  Speed: 1
+  path: []
+  waypoints: []
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
+  position_Init: {x: 0, y: 0, z: 0}
+  step_Max: 1
   tile_init: {fileID: 0}
   tile_current: {fileID: 0}
+  list_UnitNeighbours: []
   moveState: 0
-  isInitialized: 0
 --- !u!137 &13704200
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

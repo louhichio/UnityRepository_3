@@ -41,6 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 0}
   tile_LinkEnd: {fileID: 0}
+  activate: 0
   isActive: 0
   index: 0
 --- !u!1001 &100100000

@@ -7,7 +7,8 @@
 	{
 		Clear,
 		PlayerOn,
-		EnemyOn,
+		EnemyDetect,
+		EnemyView
 	}
 
 	public class FloorTile : Tile 
@@ -53,7 +54,9 @@
 		public override void Reset ()
 		{
 			playerLeft = true;
-			enemyLeft = true;
+			enemyLeft = true;			
+			if(!sr)
+				sr = GetComponent<SpriteRenderer>();
 			if(sr.color != Color.yellow)
 			{
 				sr.color = Color.white;
@@ -93,10 +96,12 @@
 						sr.color = Color.white;
 						sr.enabled = playerLeft ? false : true;
 						enemyLeft = true;
+						if(enemyCount == 0)						
+							this.tile_state = playerLeft ? tile_state : TileState.PlayerOn;						
 					}
 					else
 					{
-						if(enemyLeft)
+						if(enemyLeft && this.tile_state != TileState.EnemyView)
 						{	
 							sr.color = Color.white;
 							sr.enabled = false;
@@ -105,22 +110,33 @@
 					}
 					break;
 				case TileState.PlayerOn:
-					if(enemyLeft)
+					if(enemyLeft && this.tile_state != TileState.EnemyView)
 					{	
 						sr.color = Color.white;
 						sr.enabled = true;
+						this.tile_state = tile_state;
 					}	
-					else
-					{
-						sr.color = Color.red;
-						sr.enabled = true;
-					}
+//					else
+//					{
+//						sr.color = Color.red;
+//						sr.enabled = true;
+//					}
 					playerLeft = false;
 					break;
-				case TileState.EnemyOn:
+				case TileState.EnemyDetect:
 					sr.color = Color.red;
 					sr.enabled = true;
 					enemyLeft = false;
+					this.tile_state = tile_state;
+					break;
+				case TileState.EnemyView:
+					if(enemyLeft)
+					{
+						sr.color = Color.blue;
+						sr.enabled = true;
+						this.tile_state = tile_state;
+//						enemyLeft = false;
+					}
 					break;
 				}
 			}
@@ -128,8 +144,13 @@
 			{
 				sr.enabled = true;
 			}
-			if(tile_state != TileState.Clear && !enemyLeft)
-				this.tile_state = tile_state;
+//			if(enemyCount == 0)
+//			{
+//				this.tile_state = TileState.Clear;
+//				this.tile_state = tile_state;
+//				if(playerLeft)
+//				else
+//			}
 		}
 
 		public override bool? isEnemyFOV()

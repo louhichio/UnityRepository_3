@@ -61,10 +61,8 @@
 		}
 
 		private void Reset()
-		{
-			StopAllCoroutines();
-			
-			ResetUnitNeighboursTiles();	
+		{			
+//			ResetUnitNeighboursTiles();	
 			tile_current.RemoveUnit(this);
 
 			path.Clear();
@@ -95,7 +93,7 @@
 				return;
 			}
 			if(tile_current == MapManager.Instance.tile_EndGame)
-					GameManager.Instance.StartCoroutine("PlayerWon");	
+				GameManager.Instance.StartCoroutine("PlayerWon");	
 			else
 				TurnManager.Instance.StartCoroutine("PlayerMoved");
 		}
