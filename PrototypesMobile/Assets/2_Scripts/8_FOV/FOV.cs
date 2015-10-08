@@ -13,47 +13,78 @@
 		[HideInInspector]
 		public List<Tile> tiles_View;		
 		[HideInInspector]
-		public List<Tile> tiles_Neighbours;
+		public List<Tile> tiles_Neighbours;		
 		[HideInInspector]
-		public int max_Step;
+		public List<TileFOV> tiles_Visual;
 
-		public abstract void Initialize(Tile tile);
+		public GameObject prefab_TileFoV;
+		public bool GenerateFoVTiles = false;
 
-		public void SetTilesState(List<Tile> l, TileState ts)
+		public abstract int count{get;}
+		public abstract int max_Step{get;}
+
+		void OnDrawGizmos()
 		{
-			foreach(var t in l)
+			if(transform.childCount == 0 && GenerateFoVTiles && prefab_TileFoV != null)
 			{
-				t.SetTileState(ts);
+				GenerateFOVTiles();
+				GenerateFoVTiles = false;
 			}
 		}
+
+		public void Initialize(Tile tile)
+		{
+			if(transform.childCount == 0 && prefab_TileFoV != null)
+			{
+				GenerateFOVTiles();
+				GenerateFoVTiles = false;
+			}
+			else
+			{
+				tiles_Visual.Clear();
+				foreach (Transform child in transform)
+				{
+					tiles_Visual.Add(child.GetComponent<TileFOV>());
+					tiles_Visual[tiles_Visual.Count-1].Initialise();
+				}
+			}
+
+			EnableFov(tile);
+		}	
+
+		public virtual void EnableFov(Tile tile)
+		{
+			SetFovDirection((int)transform.eulerAngles.y);
+			
+			tiles_Neighbours = tile.GetTilesWithinCost(max_Step);
+
+			NeighboursRestriction(MapManager.Instance.GetFloorTile(pos2D_Detect, tile), ref tiles_Detect);
+			NeighboursRestriction(MapManager.Instance.GetFloorTile(pos2D_View, tile), ref tiles_View);
+
+			UpdateMapTiles(true);
+
+			SetFoVTiles();
+		}
+		
+		public virtual void DisableFov()
+		{
+			UpdateMapTiles(false);
+
+			SetTilesState(TileState.Clear);			
+		}
+		
+		public abstract void SetFovDirection(int Angle);
+
 		public void NeighboursRestriction(List<Tile> From, ref List<Tile> to)
 		{
 			to.Clear();
 			foreach(var t in From)
 			{
 				if(tiles_Neighbours.Contains(t))
+				{
 					to.Add(t);
+				}
 			}
-		}
-		public abstract void SetFovDirection(int Angle);
-
-		public virtual void EnableFov(Tile tile)
-		{
-			SetFovDirection((int)transform.eulerAngles.y);
-
-			tiles_Neighbours = tile.GetTilesWithinCost(max_Step);
-
-			NeighboursRestriction(MapManager.Instance.GetFloorTile(pos2D_Detect, tile), ref tiles_Detect);
-			NeighboursRestriction(MapManager.Instance.GetFloorTile(pos2D_View, tile), ref tiles_View);
-
-			SetTilesState(tiles_Detect, TileState.EnemyDetect);
-			SetTilesState(tiles_View, TileState.EnemyView);
-		}
-
-		public virtual void DisableFov()
-		{
-			SetTilesState(tiles_Neighbours, TileState.Clear);			
-//			SetTilesState(tiles_View, TileState.Clear);
 		}
 
 		public virtual bool isPlayerDetected()
@@ -63,6 +94,68 @@
 				return true;
 			}			
 			return false;
+		}
+		public virtual bool isPlayerDetected(Tile tile_player)
+		{			
+			if(tiles_Detect.Contains(tile_player))
+			{
+				return true;
+			}			
+			return false;
+		}
+
+		public void GenerateFOVTiles()
+		{
+			for(int i = 0; i < count; i++)
+			{
+				GameObject tile_obj = Instantiate(prefab_TileFoV, transform.position, Quaternion.Euler(Vector3.right * 90)) as GameObject;
+				tile_obj.transform.parent = transform;
+				tile_obj.name = "FOV_Tile_" + i;
+
+				tiles_Visual.Add(tile_obj.GetComponent<TileFOV>());
+			}
+		}
+
+		public void SetFoVTiles()
+		{
+			int count = 0;
+			foreach(var t in tiles_Detect)
+			{
+				tiles_Visual[count].SetTile(t, TileState.EnemyDetect);
+				count++;
+			}
+
+			foreach(var t in tiles_View)
+			{
+				tiles_Visual[count].SetTile(t,TileState.EnemyView);
+				count++;
+			}
+
+			while(count<this.count)
+			{
+				tiles_Visual[count].SetTile();
+				count++;
+			}
+		}
+		
+		public void SetTilesState(TileState ts)
+		{
+			foreach(var t in tiles_Visual)
+			{
+				t.SetTileState(ts);
+			}
+		}	
+
+		public void UpdateMapTiles(bool value)
+		{
+			foreach(var t in tiles_Detect)
+			{
+				t.isFoVDetect = value;
+			}
+			foreach(var t in tiles_View)
+			{
+				t.isFoVView = value;
+			}
 		}
 	}
 }

@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/HelloWorld.unity
+  - enabled: 1
+    path: Assets/1_Scenes/Prototype_2_Decors_3D.unity
   - enabled: 0
     path: Assets/1_Scenes/Prototype_3_Decors_2D.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/1_Scenes/Prototype_4_Decors_2D.unity

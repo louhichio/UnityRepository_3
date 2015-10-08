@@ -7,6 +7,7 @@
 	{
 		Clear,
 		PlayerOn,
+		EnemyOn,
 		EnemyDetect,
 		EnemyView
 	}
@@ -14,7 +15,8 @@
 	public class FloorTile : Tile 
 	{	
 		public TileState tile_state;
-		private SpriteRenderer sr;
+		[HideInInspector]
+		public SpriteRenderer sr;
 
 		public bool playerLeft = true;
 		public bool enemyLeft = true;
@@ -38,6 +40,9 @@
 			isPlayerOn = false;
 			enemyCount = 0;
 
+			isFoVDetect = false;
+			isFoVView = false;
+
 			int[] arrayCoordinate = ArrayCoordinateFromPosition(transform.position);
 			
 			X = arrayCoordinate[0];
@@ -48,7 +53,6 @@
 			
 			sr.color = Color.white;
 			sr.enabled = false;
-//			SetTileState(TileState.Clear);
 		}
 
 		public override void Reset ()
@@ -66,6 +70,9 @@
 			isEnemyOn = false;
 			isPlayerOn = false;
 			enemyCount = 0;
+
+			isFoVDetect = false;
+			isFoVView = false;
 
 			this.tile_state = TileState.Clear;
 		}
@@ -101,7 +108,7 @@
 					}
 					else
 					{
-						if(enemyLeft && this.tile_state != TileState.EnemyView)
+						if(enemyLeft)
 						{	
 							sr.color = Color.white;
 							sr.enabled = false;
@@ -110,33 +117,19 @@
 					}
 					break;
 				case TileState.PlayerOn:
-					if(enemyLeft && this.tile_state != TileState.EnemyView)
+					if(enemyLeft)
 					{	
 						sr.color = Color.white;
 						sr.enabled = true;
 						this.tile_state = tile_state;
 					}	
-//					else
-//					{
-//						sr.color = Color.red;
-//						sr.enabled = true;
-//					}
 					playerLeft = false;
 					break;
-				case TileState.EnemyDetect:
+				case TileState.EnemyOn:
 					sr.color = Color.red;
 					sr.enabled = true;
 					enemyLeft = false;
 					this.tile_state = tile_state;
-					break;
-				case TileState.EnemyView:
-					if(enemyLeft)
-					{
-						sr.color = Color.blue;
-						sr.enabled = true;
-						this.tile_state = tile_state;
-//						enemyLeft = false;
-					}
 					break;
 				}
 			}
@@ -144,18 +137,6 @@
 			{
 				sr.enabled = true;
 			}
-//			if(enemyCount == 0)
-//			{
-//				this.tile_state = TileState.Clear;
-//				this.tile_state = tile_state;
-//				if(playerLeft)
-//				else
-//			}
-		}
-
-		public override bool? isEnemyFOV()
-		{
-			return enemyLeft;
 		}
 	}
 }

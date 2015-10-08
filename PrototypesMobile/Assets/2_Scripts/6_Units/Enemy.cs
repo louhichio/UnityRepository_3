@@ -13,14 +13,24 @@
 	{
 		Guard,
 		Dog,
+		Cam
 	}
+	public enum Waypoint
+	{
+
+	}
+
 	public abstract class Enemy : Unit 
 	{
+		#region Properties
 		public EnemyBehaviour enemy_Behaviour;
 		[HideInInspector]
 		public EnemyType enemy_Type;
 		[HideInInspector]
 		public FOV fov;
+
+		public List<Tile> wayPoints;
+		#endregion
 
 		#region Events
 		void OnEnable()
@@ -36,19 +46,8 @@
 			EventManager.gameReset -= Reset;
 		}
 		
-		public virtual void Init()
-		{			
-			Initialize(MapManager.Instance.InitializeUnit(transform.position, gameObject));
+		public abstract void Init();
 
-//			SetUnitNeighboursTilesState(TileState.EnemyDetect);
-			tile_current.AddUnit(this);
-
-			if(enemy_Behaviour != EnemyBehaviour.Idle)
-				TurnManager.Instance.enemyCount_Max++;
-
-			fov = GetComponent<FOV>();
-			fov.Initialize(tile_current);
-		}
 		public void StartTurn()
 		{
 			if(enemy_Behaviour != EnemyBehaviour.Idle)
@@ -59,9 +58,7 @@
 			}
 		}
 		public void Reset()
-		{
-			
-			//			ResetUnitNeighboursTiles();
+		{			
 			tile_current.RemoveUnit(this);
 
 			path.Clear();
@@ -74,10 +71,11 @@
 			fov.EnableFov(tile_current);
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
-//			SetUnitNeighboursTilesState(TileState.EnemyDetect);
+			SetUnitNeighboursTilesState(TileState.EnemyOn);
 
 			moveState = MoveState.None;
-		}
+		}		
+		#endregion
 
 		public override void TravelTo(Tile destination)
 		{
@@ -90,8 +88,10 @@
 				path = null;
 				return;
 			}
-//			SetUnitNeighboursTilesState(TileState.Clear);
+
 			fov.DisableFov();
+			SetUnitNeighboursTilesState(TileState.Clear);
+
 			tile_current.RemoveUnit(this);
 			
 			this.path = path;
@@ -102,21 +102,28 @@
 			moveState = MoveState.None;
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
-			//			SetUnitNeighboursTilesState(TileState.EnemyDetect);
+			SetUnitNeighboursTilesState(TileState.EnemyOn);
 			
 			tile_current.AddUnit(this);	
 
 			fov.EnableFov(tile_current);
-			if(fov.isPlayerDetected())
-				GameManager.Instance.StartCoroutine("PlayerLost");	
-			else
+
+			if(!Check())
 			{
 				TurnManager.Instance.StopCoroutine("EnemyMoved");
 				TurnManager.Instance.StartCoroutine("EnemyMoved");
 			}
 		}
-
-		#endregion
+		public override bool Check()
+		{
+			if(fov.isPlayerDetected())
+			{
+				Stop();
+				GameManager.Instance.StartCoroutine("PlayerLost");			
+				return true;	
+			}
+			return false;
+		}
 		
 	}
 }

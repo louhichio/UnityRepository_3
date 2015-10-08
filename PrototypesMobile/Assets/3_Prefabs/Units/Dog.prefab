@@ -60,9 +60,24 @@ GameObject:
   m_Component:
   - 4: {fileID: 486210}
   - 114: {fileID: 11451190}
-  - 114: {fileID: 11463178}
   m_Layer: 0
   m_Name: Dog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &165914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 490400}
+  - 114: {fileID: 11418206}
+  m_Layer: 0
+  m_Name: FOV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.05999994, y: 4.92999983, z: -5.03000021}
+  m_LocalPosition: {x: -2, y: 3, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 411622}
@@ -195,8 +210,21 @@ Transform:
   - {fileID: 400770}
   - {fileID: 456374}
   - {fileID: 451214}
+  - {fileID: 490400}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &490400
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 486210}
+  m_RootOrder: 6
 --- !u!4 &495402
 Transform:
   m_ObjectHideFlags: 1
@@ -395,6 +423,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123144}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &11418206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2e805cfc80fc343a424bbebe2bc44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiles_Detect: []
+  tiles_View: []
+  tiles_Neighbours: []
+  max_Step: 0
 --- !u!114 &11451190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -419,21 +462,6 @@ MonoBehaviour:
   enemy_Behaviour: 0
   enemy_Type: 0
   fov: {fileID: 0}
---- !u!114 &11463178
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e2e805cfc80fc343a424bbebe2bc44a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiles_Detect: []
-  tiles_View: []
-  tiles_Neighbours: []
-  max_Step: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

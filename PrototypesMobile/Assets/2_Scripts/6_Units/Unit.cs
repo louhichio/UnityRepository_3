@@ -11,9 +11,6 @@ namespace TheVandals
 	}
 	public abstract class Unit : MonoBehaviour 
 	{
-	    // Fields
-                                                                                                                                                                                                                                                	    // ========================================================================
-
 	    public float Speed = 1f;
 
 //	    protected float AngularSpeed = 6.0f;
@@ -79,9 +76,10 @@ namespace TheVandals
 			this.path = path;
 	        waypoints = GetWaypointsFromPath(path);
 	    }
+
 		public abstract void TravelFinished();
 		
-		public virtual bool? CheckTile(){return null;}
+		public abstract bool Check();
 
 	    public List<Vector3> GetWaypointsFromPath(List<Tile> path)
 	    {
@@ -116,7 +114,7 @@ namespace TheVandals
 	            {
 					tile_current = path[0];
 					path.RemoveAt(0);
-					if(CheckTile()!= null && CheckTile().Value)
+					if(Check())
 						return;
 	            }
 

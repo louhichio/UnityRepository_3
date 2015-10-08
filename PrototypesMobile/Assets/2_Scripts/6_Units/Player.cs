@@ -87,33 +87,20 @@
 			SetUnitNeighboursTilesState(TileState.PlayerOn);
 
 			tile_current.AddUnit(this);
-			if(!tile_current.isEnemyFOV().Value)
-			{
-				GameManager.Instance.StartCoroutine("PlayerLost");
-				return;
-			}
-			if(tile_current == MapManager.Instance.tile_EndGame)
-				GameManager.Instance.StartCoroutine("PlayerWon");	
-			else
+
+			if(!Check())
 				TurnManager.Instance.StartCoroutine("PlayerMoved");
 		}
-		public override bool? CheckTile()
+		public override bool Check()
 		{
-			if(!tile_current.isEnemyFOV().Value)
+			if(tile_current.isFoVDetect)
 			{
 				Stop();
 				GameManager.Instance.StartCoroutine("PlayerLost");
 				return true;
 			}
-			//			foreach(var t in list_UnitNeighbours)
-			//			{
-			//				if(t.isEnemyOn)
-			//				{
-			//					GameManager.Instance.StartCoroutine("PlayerLost");
-			//					return;
-			//				}
-			//			}	
-			if(tile_current.index == MapManager.Instance.tile_EndGame.index)
+
+			if(tile_current == MapManager.Instance.tile_EndGame)
 			{
 				GameManager.Instance.StartCoroutine("PlayerWon");				
 				return true;

@@ -15,7 +15,6 @@ namespace TheVandals
 		public int Y;
 		public int Z;
 	    public List<Tile> Neighbours;
-		public List<Tile> UnitNeighbours;
 	    public bool AllowsTraversal = true; // Indicates whether this particular type of Tile allows traversal. You can set this value in classes inherited from the Tile class.
 	    public int TraversalCost;
 	    public bool IsTraversable; // Indicates whether the tile is traversable, or buried under other tiles in the level. This value is set by the Graph class automatically.
@@ -25,11 +24,12 @@ namespace TheVandals
 	    protected float[] ActualBoundaryHeights; // Heights of the boundaries used for the unit's traversal over the terrain. Should correspond to accurate world units.
 	    protected float[] VirtualBoundaryHeights; // Heights of the boundaries used to determine if any two neighbouring tile boundary can be traversed. Check out the interaction between the SlopeTile and the BlockTile for details.
 
-		private GameObject nodeVisualizer;
-
 		public bool isEnemyOn;
 		public bool isPlayerOn;
 		public int enemyCount;
+
+		public bool isFoVDetect;
+		public bool isFoVView;
 
 	    // Public methods
 	    // ========================================================================
@@ -54,14 +54,10 @@ namespace TheVandals
 	            Mathf.RoundToInt(position.y),
 	            Mathf.RoundToInt(position.z),
 	        };
-	    }
+		}
 
 		public virtual void SetTilesState(TileState tile_state){}
 		public virtual void SetTileState(TileState tile_state){}
-
-		public virtual bool? isEnemyFOV()
-		{return null;
-		}
 
 		public virtual void SetTileHeight(float height)
 		{	
