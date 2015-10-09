@@ -43,9 +43,11 @@ namespace TheVandals
 
 		[HideInInspector]
 		public Tile tile_EndGame;
+		[SerializeField]
+		public GameObject prefab_EndGame_particle;
 
 		private List<SceneElement> listSceneElements = new List<SceneElement>();
-		private List<Tile> map_tiles = new List<Tile>();
+		public List<Tile> map_tiles = new List<Tile>();
 		private List<LinkObject> map_links = new List<LinkObject>();
 		
 		private float mapWidth;
@@ -57,6 +59,12 @@ namespace TheVandals
 		#region Unity
 		void OnDrawGizmos()
 		{
+			if(!Application.isPlaying && trs_Tiles.childCount != 0 && map_tiles.Count == 0)
+			{
+				foreach (Transform child in trs_Tiles.transform)
+					map_tiles.Add(child.GetComponent<Tile>());
+			}
+
 			if(enableEditorMapTilesGeneration && trs_Tiles.childCount == 0)
 			{			
 				transform.position = Vector3.up * (-0.001f);
@@ -87,8 +95,8 @@ namespace TheVandals
 					DestroyImmediate(child.gameObject);
 				eraseTiles = false;
 			}
-			if(Application.isPlaying)
-			{
+//			if(Application.isPlaying)
+//			{
 				///////////////////////////Show Tiles////////////////////
 //				foreach(Tile te in map_tiles)
 //				{
@@ -124,7 +132,7 @@ namespace TheVandals
 //					Gizmos.DrawLine(new Vector3(se.rect.xMax, se.height, se.rect.yMin),
 //					                new Vector3(se.rect.xMax, se.height, se.rect.yMax));
 //				}
-			}
+//			}
 		}
 		#endregion
 
@@ -166,6 +174,13 @@ namespace TheVandals
 			{
 				tile_EndGame = map_tiles[tile_EndGame_index];
 			}
+
+			if(prefab_EndGame_particle)
+			{
+				GameObject prefab_InScene = Instantiate(prefab_EndGame_particle, tile_EndGame.transform.position, Quaternion.identity) as GameObject;
+				prefab_InScene.transform.parent = tile_EndGame.transform;
+			}
+
 			tile_EndGame.GetComponent<SpriteRenderer>().color = Color.yellow;
 			tile_EndGame.GetComponent<SpriteRenderer>().enabled = true;
 		}
@@ -299,6 +314,16 @@ namespace TheVandals
 		{
 			foreach(var t in map_tiles)
 				t.Reset();
+		}
+
+		public void SetWayPoints(ref List<Tile> l, int[] tiles_index)
+		{
+			l.Clear();
+
+			foreach(var index in tiles_index)
+			{
+				l.Add(map_tiles[index]);
+			}
 		}
 		#endregion
 

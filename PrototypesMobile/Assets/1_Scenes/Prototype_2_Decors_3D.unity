@@ -15677,6 +15677,9 @@ MonoBehaviour:
   prefab_Link: {fileID: 11495290, guid: cead41bf89c0c9c4faafffb20c79ac00, type: 2}
   tile_EndGame_index: 10
   tile_EndGame: {fileID: 0}
+  prefab_EndGame_particle: {fileID: 153058, guid: 0e9acb1af802644148f5c2e0485d95db,
+    type: 2}
+  map_tiles: []
   enableEditorMapTilesGeneration: 0
   eraseTiles: 0
 --- !u!1 &724526560
@@ -35727,13 +35730,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd67231f63dbff549a768d9d861eca0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointType: 0
-  list_wayPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  isPathDefined: 0
+  waypointType: 1
+  tiles_index: 00000000000000000000000000000000
+  isTilesSet: 0
+  list_wayPoints: []
 --- !u!1 &1641290504
 GameObject:
   m_ObjectHideFlags: 0

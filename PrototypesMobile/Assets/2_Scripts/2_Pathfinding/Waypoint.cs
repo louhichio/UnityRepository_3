@@ -19,36 +19,41 @@
 
 		public int[] tiles_index;
 
-		public bool retrieveTiles
-		
-		public List<Tile> list_wayPoints;
+		public bool isTilesSet = false;
+		[SerializeField]
+		private List<Tile> list_wayPoints;
 
-		public bool isPathDefined = false;
+		private bool isPathDefined = false;
 		#endregion
 
 		#region Unity
 		void OnDrawGizmos()
 		{
-			if()
+			if(waypointType != WaypointType.None && !isTilesSet && tiles_index.Length > 1)		
+			{
+				print ("isTilesSet");
+				MapManager.Instance.SetWayPoints(ref list_wayPoints, tiles_index);
+				isTilesSet = true;
+			}
 		}
 		#endregion
 
 		#region Private
 
-//		public void Initialise()
-//		{
-//			SetIsPathDefined();
-//		}
-//
-//		private void SetIsPathDefined()
-//		{
-//			if(waypointType != WaypointType.None && (list_wayPoints || list_wayPoints.Count < 2))
-//			{
-//				isPathDefined =  false;
-//				return;
-//			}
-//			isPathDefined = true;
-//		}
+		public void Initialise()
+		{
+			SetIsPathDefined();
+		}
+
+		private void SetIsPathDefined()
+		{
+			if(waypointType != WaypointType.None && (List<Tile>.ReferenceEquals(list_wayPoints, null) || list_wayPoints.Count < 2))
+			{
+				isPathDefined =  false;
+				return;
+			}
+			isPathDefined = true;
+		}
 		#endregion
 	}
 }
