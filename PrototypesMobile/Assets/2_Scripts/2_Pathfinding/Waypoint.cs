@@ -4,36 +4,59 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 
-	public enum WaypointType
-	{
-		None,
-		PingPong,
-		ClosedLoop,
-		Aleatoire
-	}
+
 
 	public class Waypoint : MonoBehaviour 
 	{
+		public enum Type
+		{
+			None,
+			PingPong,
+			ClosedLoop,
+			Aleatoire
+		}
 		#region Properties		
-		public WaypointType waypointType = WaypointType.None;
+		public Type type = Type.None;
 
-		public int[] tiles_index;
+		public int[] tiles_index;	
 
-		public bool isTilesSet = false;
-		[SerializeField]
-		private List<Tile> list_wayPoints;
+		public bool RetrieveTiles = false;
 
-		private bool isPathDefined = false;
+		public List<Tile> list_wayPoints;
+
+		[HideInInspector]
+		public bool isPathDefined = false;
+
+		private int unitPos;
+		private bool directionInverse = false;
 		#endregion
-
+			
+			#region Events
+			void OnEnable()
+		{
+			EventManager.gameReset += Reset;
+		}		
+		void OnDisable()
+		{
+			EventManager.gameReset -= Reset;
+		}
+		
+		void Reset()
+		{
+			unitPos = 0;
+			directionInverse = false;
+		}
+		#endregion
 		#region Unity
 		void OnDrawGizmos()
 		{
-			if(waypointType != WaypointType.None && !isTilesSet && tiles_index.Length > 1)		
+			if(type != Type.None && RetrieveTiles && tiles_index.Length > 0)		
 			{
-				print ("isTilesSet");
+				print ("RetrieveTiles");
+				list_wayPoints.Clear();
+				list_wayPoints.Add(MapManager.Instance.InitializeUnit(transform.position, gameObject));
 				MapManager.Instance.SetWayPoints(ref list_wayPoints, tiles_index);
-				isTilesSet = true;
+				RetrieveTiles = false;
 			}
 		}
 		#endregion
@@ -47,12 +70,48 @@
 
 		private void SetIsPathDefined()
 		{
-			if(waypointType != WaypointType.None && (List<Tile>.ReferenceEquals(list_wayPoints, null) || list_wayPoints.Count < 2))
+			if(type != Type.None && (List<Tile>.ReferenceEquals(list_wayPoints, null) || list_wayPoints.Count < 2))
 			{
 				isPathDefined =  false;
 				return;
 			}
 			isPathDefined = true;
+		}
+
+		public Tile GetNextWayPoint()
+		{
+			switch (type)
+			{
+			case Type.PingPong:
+				if(directionInverse)
+				{
+					unitPos++;
+					
+					if(unitPos > list_wayPoints.Count)
+					{
+						unitPos = list_wayPoints.Count - 1;
+						directionInverse = true;
+					}
+				}
+				else
+				{
+					unitPos--;
+					
+					if(unitPos < 0)
+					{
+						unitPos = 1;
+						directionInverse = false;
+					}
+				}
+				break;
+			case Type.ClosedLoop:
+				unitPos++;
+				
+				if(unitPos > list_wayPoints.Count)
+					unitPos = 0;
+				break;
+			}
+			return list_wayPoints[unitPos];
 		}
 		#endregion
 	}

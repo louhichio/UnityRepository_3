@@ -318,8 +318,6 @@ namespace TheVandals
 
 		public void SetWayPoints(ref List<Tile> l, int[] tiles_index)
 		{
-			l.Clear();
-
 			foreach(var index in tiles_index)
 			{
 				l.Add(map_tiles[index]);

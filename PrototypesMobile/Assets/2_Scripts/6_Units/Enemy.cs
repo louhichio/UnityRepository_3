@@ -4,11 +4,6 @@
 	using System.Collections;
 	using System.Collections.Generic;
 
-	public enum EnemyBehaviour
-	{
-		Idle,
-		Roam,
-	}
 	public enum EnemyType
 	{
 		Guard,
@@ -19,9 +14,7 @@
 	public abstract class Enemy : Unit 
 	{
 		#region Properties
-		public EnemyBehaviour enemy_Behaviour;
 		[HideInInspector]
-
 		public abstract EnemyType enemy_Type{get;}
 
 		[HideInInspector]
@@ -49,17 +42,14 @@
 		public void Init()
 		{
 			Initialize(MapManager.Instance.InitializeUnit(transform.position, gameObject));
-			
+
 			tile_current.AddUnit(this);
-			
-			if(enemy_Behaviour != EnemyBehaviour.Idle)
-			{
+
+			waypoint = GetComponentInChildren<Waypoint>();
+			waypoint.Initialise();
+
+			if(waypoint.type != Waypoint.Type.None)
 				TurnManager.Instance.enemyCount_Max++;
-				
-				waypoint = GetComponentInChildren<Waypoint>();
-				if(!waypoint)
-					print (waypoint);
-			}
 			
 			fov = GetComponentInChildren<FOV>();
 			fov.Initialize(tile_current);
@@ -71,11 +61,27 @@
 
 		public void StartTurn()
 		{
-			if(enemy_Behaviour != EnemyBehaviour.Idle)
+			if(waypoint.type != Waypoint.Type.None)
 			{
-				var list = tile_current.GetTilesWithinCost(step_Max);
-				list.Remove(tile_current);
-				TravelTo(list[Random.Range(0, list.Count - 1)]);
+				if(!List<Tile>.ReferenceEquals(waypoint, null) && waypoint.isPathDefined)
+				{
+					switch (waypoint.type)
+					{
+					case Waypoint.Type.None:
+						break;
+					case Waypoint.Type.ClosedLoop:			
+						TravelTo(waypoint.GetNextWayPoint());
+						break;
+					case Waypoint.Type.PingPong:						
+						TravelTo(waypoint.GetNextWayPoint());
+						break;
+					case Waypoint.Type.Aleatoire:
+						var list = tile_current.GetTilesWithinCost(step_Max);
+						list.Remove(tile_current);
+						TravelTo(list[Random.Range(0, list.Count - 1)]);
+						break;
+					}
+				}
 			}
 		}
 		public void Reset()
@@ -126,7 +132,7 @@
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 			SetUnitNeighboursTilesState(TileState.EnemyOn);
 			
-			tile_current.AddUnit(this);	
+			tile_current.AddUnit(this);
 
 			fov.EnableFov(tile_current);
 
