@@ -1372,10 +1372,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd67231f63dbff549a768d9d861eca0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  tiles_index: 
+  type: 1
+  tiles_index: 0000000000000000
   RetrieveTiles: 0
-  list_wayPoints: []
+  list_wayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   isPathDefined: 0
 --- !u!114 &11485906
 MonoBehaviour:

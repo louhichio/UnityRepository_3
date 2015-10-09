@@ -22532,14 +22532,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1638464805}
     m_Modifications:
-    - target: {fileID: 11485850, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-      propertyPath: tiles_index.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485850, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-      propertyPath: list_wayPoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 486210, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -22570,14 +22562,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 486210, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485850, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-      propertyPath: RetrieveTiles
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485850, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-      propertyPath: type
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11485850, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
@@ -40954,14 +40938,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1638464805}
     m_Modifications:
-    - target: {fileID: 11492894, guid: 9be8d6bf5fd114be691894e9426f3e47, type: 2}
-      propertyPath: tiles_index.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492894, guid: 9be8d6bf5fd114be691894e9426f3e47, type: 2}
-      propertyPath: list_wayPoints.Array.size
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 459584, guid: 9be8d6bf5fd114be691894e9426f3e47, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -41034,14 +41010,6 @@ Prefab:
       propertyPath: list_wayPoints.Array.data[9]
       value: 
       objectReference: {fileID: 884161268}
-    - target: {fileID: 11492894, guid: 9be8d6bf5fd114be691894e9426f3e47, type: 2}
-      propertyPath: type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492894, guid: 9be8d6bf5fd114be691894e9426f3e47, type: 2}
-      propertyPath: RetrieveTiles
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 11492894, guid: 9be8d6bf5fd114be691894e9426f3e47, type: 2}
       propertyPath: list_wayPoints.Array.data[10]
       value: 

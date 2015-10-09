@@ -1285,10 +1285,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd67231f63dbff549a768d9d861eca0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  tiles_index: 00000000010000000200000003000000030000000300000003000000030000000300000003000000
+  type: 2
+  tiles_index: 0000000001000000020000000300000003000000
   RetrieveTiles: 0
   list_wayPoints:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
