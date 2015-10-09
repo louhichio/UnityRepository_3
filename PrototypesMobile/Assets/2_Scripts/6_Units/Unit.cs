@@ -27,6 +27,10 @@ namespace TheVandals
 		[HideInInspector]
 		public Tile tile_init;		
 		public Tile tile_current;
+		
+		[HideInInspector]
+		public int rotation_init;
+
 		[HideInInspector]
 		public List<Tile> list_UnitNeighbours;
 		
@@ -47,12 +51,16 @@ namespace TheVandals
 		}
 
 		public virtual void Initialize(Tile tile)
-		{			
-			
+		{						
 			position_Init = tile.GetUnitPosition();
-			transform.position = position_Init;
-			targetRotation = transform.rotation;
+			transform.position = position_Init;			
 			
+			if(transform.eulerAngles.y != 0 && transform.eulerAngles.y != 90 && transform.eulerAngles.y != 180 && transform.eulerAngles.y != 270 )
+				transform.rotation = Quaternion.Euler(Vector3.zero);
+			
+			targetRotation = transform.rotation;
+			rotation_init = Mathf.RoundToInt(targetRotation.y);			
+
 			tile_init = tile;		
 			tile_current = tile;
 			

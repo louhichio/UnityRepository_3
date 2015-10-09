@@ -25,7 +25,9 @@
 		#region Properties
 		public EnemyBehaviour enemy_Behaviour;
 		[HideInInspector]
-		public EnemyType enemy_Type;
+
+		public abstract EnemyType enemy_Type{get;}
+
 		[HideInInspector]
 		public FOV fov;
 
@@ -46,7 +48,21 @@
 			EventManager.gameReset -= Reset;
 		}
 		
-		public abstract void Init();
+		public void Init()
+		{
+			Initialize(MapManager.Instance.InitializeUnit(transform.position, gameObject));
+			
+			tile_current.AddUnit(this);
+			
+			if(enemy_Behaviour != EnemyBehaviour.Idle)
+				TurnManager.Instance.enemyCount_Max++;
+			
+			fov = GetComponentInChildren<FOV>();
+			fov.Initialize(tile_current);
+			
+			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
+			SetUnitNeighboursTilesState(TileState.EnemyOn);
+		}
 
 		public void StartTurn()
 		{
@@ -65,7 +81,8 @@
 			waypoints.Clear();
 
 			transform.position = position_Init;
-			
+			transform.eulerAngles = new Vector3(0, rotation_init, 0);
+
 			tile_current = tile_init;			
 			tile_current.AddUnit(this);
 			fov.EnableFov(tile_current);
