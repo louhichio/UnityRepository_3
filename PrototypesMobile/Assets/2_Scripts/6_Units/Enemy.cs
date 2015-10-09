@@ -15,10 +15,6 @@
 		Dog,
 		Cam
 	}
-	public enum Waypoint
-	{
-
-	}
 
 	public abstract class Enemy : Unit 
 	{
@@ -31,7 +27,9 @@
 		[HideInInspector]
 		public FOV fov;
 
-		public List<Tile> wayPoints;
+		[HideInInspector]
+		public Waypoint waypoint;
+
 		#endregion
 
 		#region Events
@@ -55,11 +53,18 @@
 			tile_current.AddUnit(this);
 			
 			if(enemy_Behaviour != EnemyBehaviour.Idle)
+			{
 				TurnManager.Instance.enemyCount_Max++;
+				
+				waypoint = GetComponentInChildren<Waypoint>();
+				if(!waypoint)
+					print (waypoint);
+			}
 			
 			fov = GetComponentInChildren<FOV>();
 			fov.Initialize(tile_current);
-			
+
+
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 			SetUnitNeighboursTilesState(TileState.EnemyOn);
 		}
