@@ -186,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &146654
 GameObject:
   m_ObjectHideFlags: 1
@@ -871,6 +871,7 @@ MonoBehaviour:
   enemy_Behaviour: 0
   enemy_Type: 0
   fov: {fileID: 0}
+  wayPoints: []
 --- !u!114 &11487942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -885,7 +886,9 @@ MonoBehaviour:
   tiles_Detect: []
   tiles_View: []
   tiles_Neighbours: []
-  max_Step: 0
+  tiles_Visual: []
+  prefab_TileFoV: {fileID: 0}
+  GenerateFoVTiles: 0
 --- !u!137 &13733370
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

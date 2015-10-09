@@ -40,6 +40,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d10393e291ef324aa2a33da5405c1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
+  sr: {fileID: 0}
+  tile_state: 0
 --- !u!212 &21253838
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -65,14 +68,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8308f83782f49cc44840e356388522fd, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: .227450982}
+  m_Color: {r: 1, g: 0, b: 0, a: .465999991}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Color.a
+      value: .465999991
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122298}

@@ -80,14 +80,14 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Ramp
+          name: _ToonShade
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _ToonShade
+          name: _Ramp
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -148,11 +148,11 @@ Material:
       data:
         first:
           name: _yPosLow
-        second: -.610000014
+        second: -1.89999998
       data:
         first:
           name: _yPosHigh
-        second: 6.1500001
+        second: 4.1500001
       data:
         first:
           name: _GradientStrength
@@ -160,7 +160,7 @@ Material:
       data:
         first:
           name: _EmissiveStrengh
-        second: 1.19000006
+        second: 1
       data:
         first:
           name: _Outline
@@ -181,11 +181,11 @@ Material:
       data:
         first:
           name: _ColorLow
-        second: {r: .25, g: .0257352889, b: .0257352889, a: 1}
+        second: {r: .360294104, g: .360294104, b: .360294104, a: 1}
       data:
         first:
           name: _ColorHigh
-        second: {r: .617647052, g: .320098937, b: .16349481, a: 1}
+        second: {r: .669117689, g: .61991787, b: .62789613, a: 1}
       data:
         first:
           name: _ColorX
