@@ -413,8 +413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 71506275}
   tile_LinkEnd: {fileID: 152187621}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 140
 --- !u!1 &31971152
 GameObject:
@@ -687,8 +687,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 2037743315}
   tile_LinkEnd: {fileID: 1991049793}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 136
 --- !u!1 &42634951
 GameObject:
@@ -1037,11 +1037,7 @@ MonoBehaviour:
   X: -3
   Y: 1
   Z: 5
-  Neighbours:
-  - {fileID: 317729145}
-  - {fileID: 1991049793}
-  - {fileID: 152187621}
-  - {fileID: 1370439171}
+  Neighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -2634,7 +2630,6 @@ MonoBehaviour:
   Z: 6
   Neighbours:
   - {fileID: 1266439370}
-  - {fileID: 71506275}
   - {fileID: 618061395}
   - {fileID: 1853542818}
   AllowsTraversal: 1
@@ -2828,8 +2823,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 2027086019}
   tile_LinkEnd: {fileID: 233974867}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 82
 --- !u!1 &163853420
 GameObject:
@@ -4049,7 +4044,6 @@ MonoBehaviour:
   Z: 6
   Neighbours:
   - {fileID: 582042271}
-  - {fileID: 2027086019}
   - {fileID: 1266439370}
   AllowsTraversal: 1
   TraversalCost: 1
@@ -4779,7 +4773,6 @@ MonoBehaviour:
   Y: 4
   Z: -2
   Neighbours:
-  - {fileID: 1076086043}
   - {fileID: 694829653}
   AllowsTraversal: 1
   TraversalCost: 1
@@ -5880,11 +5873,7 @@ MonoBehaviour:
   X: -4
   Y: 1
   Z: 5
-  Neighbours:
-  - {fileID: 2027086019}
-  - {fileID: 1015485064}
-  - {fileID: 1266439370}
-  - {fileID: 71506275}
+  Neighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -6566,7 +6555,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 356290441}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -6688,8 +6677,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 919735356}
   tile_LinkEnd: {fileID: 1076086043}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 359
 --- !u!1 &365443066
 GameObject:
@@ -8432,7 +8421,6 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 2037743315}
   - {fileID: 849821892}
-  - {fileID: 1741831144}
   - {fileID: 1854314239}
   AllowsTraversal: 1
   TraversalCost: 1
@@ -9026,8 +9014,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 2027086019}
   tile_LinkEnd: {fileID: 317729145}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 83
 --- !u!1 &471092535
 GameObject:
@@ -9663,8 +9651,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1158085286}
   tile_LinkEnd: {fileID: 788810981}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 78
 --- !u!1 &505034161
 GameObject:
@@ -10217,8 +10205,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1152849176}
   tile_LinkEnd: {fileID: 1215888343}
-  activate: 0
-  isActive: 0
+  activate: 1
+  isActive: 1
   index: 86
 --- !u!1 &552467773
 GameObject:
@@ -10679,8 +10667,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 437023441}
   tile_LinkEnd: {fileID: 1741831144}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 165
 --- !u!1 &580348675
 GameObject:
@@ -10761,7 +10749,6 @@ MonoBehaviour:
   Z: 6
   Neighbours:
   - {fileID: 793853255}
-  - {fileID: 1050061542}
   - {fileID: 233974867}
   AllowsTraversal: 1
   TraversalCost: 1
@@ -11356,7 +11343,6 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1158085286}
   - {fileID: 590217309}
-  - {fileID: 1015485064}
   - {fileID: 2037743315}
   AllowsTraversal: 1
   TraversalCost: 1
@@ -13174,8 +13160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 904613919}
   tile_LinkEnd: {fileID: 788810981}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 52
 --- !u!1 &711679791
 GameObject:
@@ -13262,7 +13248,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2040270, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: orthographic size
-      value: 19.5
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040270, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: near clip plane
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: screen_Size_Max
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: screen_Size_Min
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
@@ -13628,7 +13626,7 @@ MonoBehaviour:
   trs_Links: {fileID: 791662739}
   prefab_Tile: {fileID: 114124, guid: 932fcac96a9ef974ca22fb8be9c076e1, type: 2}
   prefab_Link: {fileID: 11495290, guid: cead41bf89c0c9c4faafffb20c79ac00, type: 2}
-  tile_EndGame_index: 10
+  tile_EndGame_index: 223
   tile_EndGame: {fileID: 0}
   enableEditorMapTilesGeneration: 0
   eraseTiles: 0
@@ -14381,8 +14379,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1047567363}
   tile_LinkEnd: {fileID: 1076086043}
-  activate: 0
-  isActive: 0
+  activate: 1
+  isActive: 1
   index: 385
 --- !u!1 &779017474
 GameObject:
@@ -14534,11 +14532,7 @@ MonoBehaviour:
   X: -5
   Y: 1
   Z: 4
-  Neighbours:
-  - {fileID: 904613919}
-  - {fileID: 1158085286}
-  - {fileID: 2027086019}
-  - {fileID: 1015485064}
+  Neighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -15491,8 +15485,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1764488808}
   tile_LinkEnd: {fileID: 904613919}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 23
 --- !u!1 &802438562
 GameObject:
@@ -16043,8 +16037,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 71506275}
   tile_LinkEnd: {fileID: 1370439171}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 141
 --- !u!1 &822775971
 GameObject:
@@ -16087,8 +16081,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 317729145}
   tile_LinkEnd: {fileID: 71506275}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 112
 --- !u!1 &823260284
 GameObject:
@@ -16633,8 +16627,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1741831144}
   tile_LinkEnd: {fileID: 1238644066}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 168
 --- !u!1 &843588410
 GameObject:
@@ -17227,8 +17221,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1050061542}
   tile_LinkEnd: {fileID: 582042271}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 53
 --- !u!1 &863655776
 GameObject:
@@ -17566,8 +17560,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 904613919}
   tile_LinkEnd: {fileID: 1050061542}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 51
 --- !u!1 &880333538
 GameObject:
@@ -17865,8 +17859,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1991049793}
   tile_LinkEnd: {fileID: 71506275}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 138
 --- !u!1 &904613918
 GameObject:
@@ -17901,11 +17895,7 @@ MonoBehaviour:
   X: -6
   Y: 1
   Z: 4
-  Neighbours:
-  - {fileID: 1764488808}
-  - {fileID: 1806678476}
-  - {fileID: 1050061542}
-  - {fileID: 788810981}
+  Neighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -18329,7 +18319,6 @@ MonoBehaviour:
   Z: -2
   Neighbours:
   - {fileID: 1884127720}
-  - {fileID: 1076086043}
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -18886,8 +18875,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 615163072}
   tile_LinkEnd: {fileID: 1015485064}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 107
 --- !u!1 &950663569
 GameObject:
@@ -19316,8 +19305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1050061542}
   tile_LinkEnd: {fileID: 2027086019}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 54
 --- !u!1 &971186523
 GameObject:
@@ -20416,11 +20405,7 @@ MonoBehaviour:
   X: -4
   Y: 1
   Z: 4
-  Neighbours:
-  - {fileID: 788810981}
-  - {fileID: 615163072}
-  - {fileID: 317729145}
-  - {fileID: 1991049793}
+  Neighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -20934,6 +20919,7 @@ MonoBehaviour:
   - {fileID: 346114276}
   - {fileID: 808380071}
   - {fileID: 74764419}
+  - {fileID: 1076086043}
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -21155,11 +21141,7 @@ MonoBehaviour:
   X: -6
   Y: 1
   Z: 5
-  Neighbours:
-  - {fileID: 2120261552}
-  - {fileID: 904613919}
-  - {fileID: 582042271}
-  - {fileID: 2027086019}
+  Neighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -21520,9 +21502,7 @@ MonoBehaviour:
   Y: 3
   Z: -2
   Neighbours:
-  - {fileID: 919735356}
-  - {fileID: 2073827520}
-  - {fileID: 263454040}
+  - {fileID: 1047567363}
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -21574,7 +21554,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1076086042}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 6, y: 3.0010004, z: -2}
+  m_LocalPosition: {x: 6, y: .00100000005, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 791662738}
@@ -22902,6 +22882,7 @@ MonoBehaviour:
   Z: 7
   Neighbours:
   - {fileID: 1336468008}
+  - {fileID: 1215888343}
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -23112,7 +23093,6 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1806678476}
   - {fileID: 294335595}
-  - {fileID: 788810981}
   - {fileID: 615163072}
   AllowsTraversal: 1
   TraversalCost: 1
@@ -24288,6 +24268,7 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1266439370}
   - {fileID: 618061395}
+  - {fileID: 1152849176}
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -24859,7 +24840,6 @@ MonoBehaviour:
   Y: 0
   Z: 4
   Neighbours:
-  - {fileID: 1741831144}
   - {fileID: 1854314239}
   - {fileID: 1475665678}
   - {fileID: 1955404579}
@@ -24960,8 +24940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1370439171}
   tile_LinkEnd: {fileID: 1475665678}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 170
 --- !u!1 &1240457956
 GameObject:
@@ -25433,7 +25413,6 @@ MonoBehaviour:
   Z: 6
   Neighbours:
   - {fileID: 233974867}
-  - {fileID: 317729145}
   - {fileID: 1215888343}
   - {fileID: 152187621}
   AllowsTraversal: 1
@@ -26374,8 +26353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1991049793}
   tile_LinkEnd: {fileID: 1741831144}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 139
 --- !u!1 &1308572637
 GameObject:
@@ -26608,6 +26587,28 @@ MonoBehaviour:
   activate: 1
   isActive: 1
   index: 79
+--- !u!1 &1314411763 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 127278, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+  m_PrefabInternal: {fileID: 713636245}
+--- !u!114 &1314411770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1314411763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8e0d4b232a1475283137c73daf58a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _color1: {r: .055417385, g: .169110939, b: .301470578, a: 1}
+  _color2: {r: .882352948, g: .314103365, b: .0583910085, a: 1}
+  _angle: -54
+  _opacity: .569999993
+  _blendMode: 2
+  _debug: 0
+  _shader: {fileID: 4800000, guid: 0eccb83e08c1a4981813863cbdebc044, type: 3}
 --- !u!1 &1316338062
 GameObject:
   m_ObjectHideFlags: 0
@@ -27314,7 +27315,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1339648613}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -27560,11 +27561,7 @@ MonoBehaviour:
   X: -2
   Y: 0
   Z: 5
-  Neighbours:
-  - {fileID: 71506275}
-  - {fileID: 1741831144}
-  - {fileID: 1853542818}
-  - {fileID: 1475665678}
+  Neighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -29804,7 +29801,6 @@ MonoBehaviour:
   Y: 0
   Z: 5
   Neighbours:
-  - {fileID: 1370439171}
   - {fileID: 1238644066}
   - {fileID: 2104098222}
   - {fileID: 1206001129}
@@ -30091,8 +30087,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 788810981}
   tile_LinkEnd: {fileID: 1015485064}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 81
 --- !u!1 &1487238525
 GameObject:
@@ -32282,7 +32278,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1591678470}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -32537,7 +32533,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1598616117}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -34310,8 +34306,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1741831144}
   tile_LinkEnd: {fileID: 1370439171}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 167
 --- !u!1 &1693095439
 GameObject:
@@ -34668,8 +34664,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1015485064}
   tile_LinkEnd: {fileID: 317729145}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 109
 --- !u!1 &1706795451
 GameObject:
@@ -35214,8 +35210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1076086043}
   tile_LinkEnd: {fileID: 2073827520}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 387
 --- !u!1 &1725257371
 GameObject:
@@ -35606,11 +35602,7 @@ MonoBehaviour:
   X: -2
   Y: 0
   Z: 4
-  Neighbours:
-  - {fileID: 1991049793}
-  - {fileID: 437023441}
-  - {fileID: 1370439171}
-  - {fileID: 1238644066}
+  Neighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -36060,7 +36052,6 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 456354436}
   - {fileID: 2120261552}
-  - {fileID: 904613919}
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -36706,7 +36697,6 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 456354436}
   - {fileID: 1606371545}
-  - {fileID: 904613919}
   - {fileID: 1158085286}
   AllowsTraversal: 1
   TraversalCost: 1
@@ -37763,8 +37753,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 317729145}
   tile_LinkEnd: {fileID: 1266439370}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 111
 --- !u!1 &1853542817
 GameObject:
@@ -37801,7 +37791,6 @@ MonoBehaviour:
   Z: 6
   Neighbours:
   - {fileID: 152187621}
-  - {fileID: 1370439171}
   - {fileID: 598878332}
   - {fileID: 2104098222}
   AllowsTraversal: 1
@@ -38856,7 +38845,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1901199976}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -39584,7 +39573,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1948149723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -40757,8 +40746,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1806678476}
   tile_LinkEnd: {fileID: 904613919}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 49
 --- !u!1 &1981929657
 GameObject:
@@ -40931,11 +40920,7 @@ MonoBehaviour:
   X: -3
   Y: 1
   Z: 4
-  Neighbours:
-  - {fileID: 1015485064}
-  - {fileID: 2037743315}
-  - {fileID: 71506275}
-  - {fileID: 1741831144}
+  Neighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -41253,8 +41238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 2120261552}
   tile_LinkEnd: {fileID: 1050061542}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 25
 --- !u!1 &2021595079
 GameObject:
@@ -41426,11 +41411,7 @@ MonoBehaviour:
   X: -5
   Y: 1
   Z: 5
-  Neighbours:
-  - {fileID: 1050061542}
-  - {fileID: 788810981}
-  - {fileID: 233974867}
-  - {fileID: 317729145}
+  Neighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -41567,7 +41548,6 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 615163072}
   - {fileID: 1391399156}
-  - {fileID: 1991049793}
   - {fileID: 437023441}
   AllowsTraversal: 1
   TraversalCost: 1
@@ -41661,7 +41641,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2038538492}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -42272,7 +42252,6 @@ MonoBehaviour:
   Z: -1
   Neighbours:
   - {fileID: 1884127720}
-  - {fileID: 1076086043}
   - {fileID: 152566763}
   - {fileID: 694829653}
   AllowsTraversal: 1
@@ -42510,8 +42489,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 788810981}
   tile_LinkEnd: {fileID: 2027086019}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 80
 --- !u!1 &2081480558
 GameObject:
@@ -42554,8 +42533,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1370439171}
   tile_LinkEnd: {fileID: 1853542818}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 169
 --- !u!1 &2081565000
 GameObject:
@@ -42730,8 +42709,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1015485064}
   tile_LinkEnd: {fileID: 1991049793}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 110
 --- !u!1 &2090337121
 GameObject:
@@ -43124,8 +43103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1076086043}
   tile_LinkEnd: {fileID: 263454040}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 388
 --- !u!1 &2105246287
 GameObject:
@@ -43257,7 +43236,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2106550251}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -43606,7 +43585,6 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1764488808}
   - {fileID: 793853255}
-  - {fileID: 1050061542}
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
