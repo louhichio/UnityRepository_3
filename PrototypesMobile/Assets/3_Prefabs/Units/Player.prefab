@@ -356,7 +356,7 @@ Transform:
   m_GameObject: {fileID: 195400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.0641976893, y: .699000001, z: .00356260058}
-  m_LocalScale: {x: .25, y: .25, z: .25}
+  m_LocalScale: {x: .349999994, y: .349999994, z: .349999994}
   m_Children:
   - {fileID: 409574}
   m_Father: {fileID: 448540}
@@ -470,7 +470,7 @@ Transform:
   m_GameObject: {fileID: 168358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.0613047779, y: .699000001, z: .00356260058}
-  m_LocalScale: {x: .25, y: .25, z: .25}
+  m_LocalScale: {x: .349999994, y: .349999994, z: .349999994}
   m_Children:
   - {fileID: 459034}
   m_Father: {fileID: 448540}
@@ -682,6 +682,7 @@ MonoBehaviour:
   step_Max: 4
   tile_init: {fileID: 0}
   tile_current: {fileID: 0}
+  rotation_init: 0
   list_UnitNeighbours: []
   moveState: 0
 --- !u!137 &13704200
