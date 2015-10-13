@@ -48,6 +48,7 @@
 			isFoVView = false;
 
 			isHide = false;
+			isCollectible = false;
 
 			int[] arrayCoordinate = ArrayCoordinateFromPosition(transform.position);
 			

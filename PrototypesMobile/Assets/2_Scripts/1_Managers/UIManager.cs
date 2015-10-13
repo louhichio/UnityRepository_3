@@ -17,6 +17,8 @@
 		private GameObject panel_PlayerInfo;
 		[SerializeField]
 		private Text text_StepsLeft;
+		[SerializeField]
+		private Text text_Collectables;
 
 		[SerializeField]
 		private GameObject panel_EnemyInfo;
@@ -45,7 +47,7 @@
 		public void Init()
 		{			
 			panel_Gameover.SetActive(false);
-			panel_PlayerInfo.SetActive(false);
+			panel_PlayerInfo.SetActive(true);
 			panel_EnemyInfo.SetActive(false);
 		}
 
@@ -85,6 +87,7 @@
 			panel_EnemyInfo.SetActive(false);
 			panel_PlayerInfo.SetActive(true);
 			text_StepsLeft.text = "StepsLeft: " + Player.Instance.turnSteps + "/" + Player.Instance.step_Max ;
+			text_Collectables.text = "Collectables: " + CollectManager.Instance.collected + "/" + CollectManager.Instance.collectables_Count;
 		}
 		#endregion
 
@@ -96,6 +99,11 @@
 		public void UpdatePlayerInfo(int maxSteps, int currentSteps)
 		{			
 			text_StepsLeft.text = "StepsLeft: " + currentSteps + "/" + maxSteps ;
+		}
+
+		public void UpdatePlayerInfoCollectables(int collected, int collectables_Count)
+		{			
+			text_Collectables.text = "Collectables: " + collected + "/" + collectables_Count;
 		}
 		#endregion
 	}

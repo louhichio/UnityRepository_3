@@ -34,7 +34,9 @@ namespace TheVandals
 		private Transform trs_Tiles;
 		[SerializeField]
 		private Transform trs_Links;	
-
+		[SerializeField]
+		private Transform trs_Collectables;
+		
 		[SerializeField]
 		private GameObject prefab_Tile;		
 		[SerializeField]
@@ -226,11 +228,11 @@ namespace TheVandals
 				   position.z <= t.transform.position.z + 0.5f)
 				{								
 //					print (t);
-					if(t.index != tile.index)
-					{
+//					if(t.index != tile.index)
+//					{
 						return t;
-					}					
-					break;
+//					}					
+//					break;
 				}
 			}
 			return null;

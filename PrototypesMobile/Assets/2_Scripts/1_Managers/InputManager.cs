@@ -45,8 +45,12 @@
 				
 				if (Physics.Raycast(mouseRay, out hit, Mathf.Infinity))
 				{
-					Player.Instance.TravelTo(
-						MapManager.Instance.GetTapTilePosition(hit.point, Player.Instance.tile_current, Player.Instance.step_Max));
+					Tile t = MapManager.Instance.GetTapTilePosition(hit.point, Player.Instance.tile_current, Player.Instance.step_Max);
+
+					if(t != Player.Instance.tile_current)
+						Player.Instance.TravelTo(t);
+					else
+						TurnManager.Instance.StartCoroutine("PlayerMoved");
 				}
 			}
 		}

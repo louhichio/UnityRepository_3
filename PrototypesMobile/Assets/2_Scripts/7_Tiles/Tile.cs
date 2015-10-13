@@ -31,6 +31,7 @@ namespace TheVandals
 		public bool isFoVDetect;
 		public bool isFoVView;
 		public bool isHide;
+		public bool isCollectible;
 
 	    // Public methods
 	    // ========================================================================

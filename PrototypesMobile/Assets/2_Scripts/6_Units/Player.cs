@@ -137,6 +137,12 @@
 			else if(isHidden)
 				isHidden = false;
 
+			if(tile_current.isCollectible)
+			{
+				tile_current.isCollectible = false;
+				CollectManager.Instance.PlayerCollectedObj(tile_current);
+			}
+
 			if(tile_current == MapManager.Instance.tile_EndGame)
 			{
 				GameManager.Instance.StartCoroutine("PlayerWon");				
