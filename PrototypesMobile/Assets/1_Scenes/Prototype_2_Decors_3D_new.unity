@@ -20350,21 +20350,9 @@ Prefab:
       propertyPath: m_Name
       value: Guard (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 11465144, guid: 9be8d6bf5fd114be691894e9426f3e47, type: 2}
-      propertyPath: psDetect
-      value: 
-      objectReference: {fileID: 1039620199}
-    - target: {fileID: 436600, guid: 9be8d6bf5fd114be691894e9426f3e47, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9be8d6bf5fd114be691894e9426f3e47, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1039620199 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 166852, guid: 9be8d6bf5fd114be691894e9426f3e47, type: 2}
-  m_PrefabInternal: {fileID: 1039620198}
 --- !u!1 &1039728305
 GameObject:
   m_ObjectHideFlags: 0
@@ -28786,17 +28774,13 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1638464805}
     m_Modifications:
-    - target: {fileID: 11485850, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-      propertyPath: tiles_index.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 486210, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 486210, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 486210, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
       propertyPath: m_LocalPosition.z
@@ -28822,37 +28806,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 187392, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-      propertyPath: m_Name
-      value: character
-      objectReference: {fileID: 0}
-    - target: {fileID: 11432424, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-      propertyPath: psDetect
-      value: 
-      objectReference: {fileID: 1460441381}
-    - target: {fileID: 162974, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11432424, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-      propertyPath: step_Max
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485850, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-      propertyPath: type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485850, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-      propertyPath: tiles_index.Array.data[0]
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1460441381 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 125328, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
-  m_PrefabInternal: {fileID: 1460441380}
 --- !u!1 &1460736928
 GameObject:
   m_ObjectHideFlags: 0

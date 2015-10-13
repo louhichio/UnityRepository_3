@@ -60,7 +60,7 @@
 
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
-			SetUnitNeighboursTilesState(TileState.EnemyOn);
+//			SetUnitNeighboursTilesState(TileState.EnemyOn);
 		}
 
 		public void StartTurn()
@@ -112,7 +112,7 @@
 			fov.EnableFov(tile_current, (int)transform.eulerAngles.y);
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
-			SetUnitNeighboursTilesState(TileState.EnemyOn);
+//			SetUnitNeighboursTilesState(TileState.EnemyOn);
 
 			moveState = MoveState.None;
 		}		
@@ -137,11 +137,11 @@
 
 		public override void TravelFinished()
 		{
-			SetUnitNeighboursTilesState(TileState.Clear);
+//			SetUnitNeighboursTilesState(TileState.Clear);
 			moveState = MoveState.None;
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
-			SetUnitNeighboursTilesState(TileState.EnemyOn);
+//			SetUnitNeighboursTilesState(TileState.EnemyOn);
 			SetFov(true, tile_current);	
 
 			Check();

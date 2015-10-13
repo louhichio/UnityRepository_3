@@ -590,7 +590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &165914
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +838,7 @@ GameObject:
   - 4: {fileID: 422828}
   - 114: {fileID: 11432424}
   m_Layer: 0
-  m_Name: body
+  m_Name: character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -953,7 +953,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0959999561, y: -.220999956, z: -.223999977}
+  m_LocalPosition: {x: -.100000001, y: .116999999, z: -.219999999}
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 422828}
@@ -1061,7 +1061,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .337000012, z: 0}
   m_LocalScale: {x: .300000012, y: .150000006, z: .699999988}
   m_Children: []
   m_Father: {fileID: 422828}
@@ -1151,7 +1151,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0909999609, y: -.220999956, z: -.223999977}
+  m_LocalPosition: {x: .0900000036, y: .116999999, z: -.219999999}
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 422828}
@@ -1235,7 +1235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .118000031, y: -.220999956, z: .129000187}
+  m_LocalPosition: {x: .119999997, y: .116999999, z: .129999995}
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 422828}
@@ -1295,7 +1295,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.125, y: -.220999956, z: .122000217}
+  m_LocalPosition: {x: -.129999995, y: .116999999, z: .119999997}
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 422828}
@@ -1562,7 +1562,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 3, z: -5}
+  m_LocalPosition: {x: -2, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 422828}
@@ -1644,7 +1644,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0039999485, y: .152999878, z: .333000183}
+  m_LocalPosition: {x: 0, y: .486999989, z: .330000013}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children: []
   m_Father: {fileID: 422828}
@@ -2172,7 +2172,7 @@ MonoBehaviour:
   waypoints: []
   targetRotation: {x: 0, y: 0, z: 0, w: 0}
   position_Init: {x: 0, y: 0, z: 0}
-  step_Max: 1
+  step_Max: 3
   tile_init: {fileID: 0}
   tile_current: {fileID: 0}
   rotation_init: 0
@@ -2183,7 +2183,7 @@ MonoBehaviour:
   fov: {fileID: 11418206}
   waypoint: {fileID: 11485850}
   target: {fileID: 0}
-  psDetect: {fileID: 0}
+  psDetect: {fileID: 125328}
 --- !u!114 &11438850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2419,8 +2419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd67231f63dbff549a768d9d861eca0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
-  tiles_index: 00000000000000000a000000
+  type: 2
+  tiles_index: 0a000000
   list_wayPoints: []
   isPathDefined: 0
   unitPos: 0
@@ -5768,7 +5768,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8308f83782f49cc44840e356388522fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5acfeb19af60f4ae0ba0cd812085c388, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21206310
 SpriteRenderer:
