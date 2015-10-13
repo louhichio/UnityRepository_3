@@ -9,7 +9,8 @@ namespace TheVandals
 		public delegate void emptyDel();
 		public static event emptyDel initialise;
 		public static event emptyDel gameReset;
-		public static event emptyDel startTurn_Enemy;
+		public static event emptyDel startTurn_Enemy;		
+		public static event emptyDel startTurn_Player;
 
 		public delegate void gameoverDel(string status);
 		public static event gameoverDel gameOver;
@@ -45,6 +46,12 @@ namespace TheVandals
 		{
 			if(playerChangedTile != null)
 				playerChangedTile(tile);
+		}	
+
+		public void StartTurn_Player()
+		{
+			if(startTurn_Player != null)
+				startTurn_Player();
 		}
 	}
 }

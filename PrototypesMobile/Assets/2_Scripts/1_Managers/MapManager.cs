@@ -33,7 +33,8 @@ namespace TheVandals
 		[SerializeField]
 		private Transform trs_Tiles;
 		[SerializeField]
-		private Transform trs_Links;
+		private Transform trs_Links;	
+
 		[SerializeField]
 		private GameObject prefab_Tile;		
 		[SerializeField]
@@ -47,7 +48,9 @@ namespace TheVandals
 		public GameObject prefab_EndGame_particle;
 
 		private List<SceneElement> listSceneElements = new List<SceneElement>();
-		public List<Tile> map_tiles = new List<Tile>();
+
+		private List<Tile> map_tiles = new List<Tile>();
+
 		private List<LinkObject> map_links = new List<LinkObject>();
 		
 		private float mapWidth;
@@ -190,7 +193,7 @@ namespace TheVandals
 		}
 
 		//Get RayCasted Tile
-		public Tile InitializeUnit(Vector3 position, GameObject obj)
+		public Tile InitializeUnit(Vector3 position)
 		{			
 			if(List<Tile>.ReferenceEquals(map_tiles,null) || map_tiles.Count == 0)
 				SetMapTiles();

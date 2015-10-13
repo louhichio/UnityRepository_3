@@ -124,14 +124,16 @@ MonoBehaviour:
   - {fileID: 1235753831}
   - {fileID: 847421117}
   - {fileID: 2130502461}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -436,14 +438,16 @@ MonoBehaviour:
   - {fileID: 1865887355}
   - {fileID: 802735145}
   - {fileID: 1982390217}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -526,14 +530,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 356768713}
   - {fileID: 1216288663}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -724,14 +730,16 @@ MonoBehaviour:
   - {fileID: 1049314059}
   - {fileID: 607665236}
   - {fileID: 712905788}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -1036,14 +1044,16 @@ MonoBehaviour:
   - {fileID: 1757888018}
   - {fileID: 1981639911}
   - {fileID: 993638520}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -1172,14 +1182,16 @@ MonoBehaviour:
   - {fileID: 1841193828}
   - {fileID: 1702703400}
   - {fileID: 983796136}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -1466,14 +1478,16 @@ MonoBehaviour:
   - {fileID: 1892260330}
   - {fileID: 1542208168}
   - {fileID: 1253060172}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -1681,14 +1695,16 @@ MonoBehaviour:
   - {fileID: 1220217076}
   - {fileID: 1914240014}
   - {fileID: 1892260330}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -1816,14 +1832,16 @@ MonoBehaviour:
   - {fileID: 1448557145}
   - {fileID: 413199719}
   - {fileID: 68627025}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -2039,14 +2057,16 @@ MonoBehaviour:
   - {fileID: 413199719}
   - {fileID: 464875669}
   - {fileID: 1629941305}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -2219,14 +2239,16 @@ MonoBehaviour:
   - {fileID: 729350564}
   - {fileID: 1681010674}
   - {fileID: 87205309}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -2395,14 +2417,16 @@ MonoBehaviour:
   Y: 1
   Z: 0
   Neighbours: []
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -2486,14 +2510,16 @@ MonoBehaviour:
   - {fileID: 1576288003}
   - {fileID: 900736688}
   - {fileID: 1709076131}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -2578,14 +2604,16 @@ MonoBehaviour:
   - {fileID: 1489601401}
   - {fileID: 1201709384}
   - {fileID: 1038786791}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -2746,14 +2774,16 @@ MonoBehaviour:
   - {fileID: 2113254361}
   - {fileID: 384210143}
   - {fileID: 75819341}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -3014,14 +3044,16 @@ MonoBehaviour:
   - {fileID: 356768713}
   - {fileID: 697750344}
   - {fileID: 1841193828}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -3155,6 +3187,52 @@ Transform:
   - {fileID: 1262816120}
   m_Father: {fileID: 550344857}
   m_RootOrder: 2
+--- !u!1001 &392545123
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 474264, guid: bf5306171e3c34845bc9f72e9765ac6a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.2579999
+      objectReference: {fileID: 0}
+    - target: {fileID: 474264, guid: bf5306171e3c34845bc9f72e9765ac6a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .400000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 474264, guid: bf5306171e3c34845bc9f72e9765ac6a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 474264, guid: bf5306171e3c34845bc9f72e9765ac6a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474264, guid: bf5306171e3c34845bc9f72e9765ac6a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474264, guid: bf5306171e3c34845bc9f72e9765ac6a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474264, guid: bf5306171e3c34845bc9f72e9765ac6a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474264, guid: bf5306171e3c34845bc9f72e9765ac6a, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378892, guid: bf5306171e3c34845bc9f72e9765ac6a, type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1412798576}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: bf5306171e3c34845bc9f72e9765ac6a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &401294972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3388,14 +3466,16 @@ MonoBehaviour:
   - {fileID: 221239917}
   - {fileID: 285797497}
   - {fileID: 802735145}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -3693,14 +3773,16 @@ MonoBehaviour:
   - {fileID: 285797497}
   - {fileID: 1059390836}
   - {fileID: 1747152521}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -3826,14 +3908,16 @@ MonoBehaviour:
   Z: 4
   Neighbours:
   - {fileID: 1757888018}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -3992,14 +4076,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 607665236}
   - {fileID: 712905788}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -4275,14 +4361,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1981639911}
   - {fileID: 993638520}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -4732,6 +4820,8 @@ MonoBehaviour:
   prefab_Link: {fileID: 11495290, guid: cead41bf89c0c9c4faafffb20c79ac00, type: 2}
   tile_EndGame_index: 38
   tile_EndGame: {fileID: 0}
+  prefab_EndGame_particle: {fileID: 0}
+  map_tiles: []
   enableEditorMapTilesGeneration: 0
   eraseTiles: 0
 --- !u!1 &556963944
@@ -4772,14 +4862,16 @@ MonoBehaviour:
   - {fileID: 1781477692}
   - {fileID: 1041047901}
   - {fileID: 1020447395}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -4863,14 +4955,16 @@ MonoBehaviour:
   - {fileID: 1781477692}
   - {fileID: 1898971031}
   - {fileID: 1020447395}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -5119,14 +5213,16 @@ MonoBehaviour:
   - {fileID: 87205309}
   - {fileID: 1757888018}
   - {fileID: 492122645}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -5343,14 +5439,16 @@ MonoBehaviour:
   - {fileID: 1501404692}
   - {fileID: 1506631619}
   - {fileID: 313013186}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -5787,14 +5885,16 @@ MonoBehaviour:
   - {fileID: 1702703400}
   - {fileID: 717399282}
   - {fileID: 1318710633}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -5967,14 +6067,16 @@ MonoBehaviour:
   - {fileID: 384210143}
   - {fileID: 1709076131}
   - {fileID: 140331046}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -6271,14 +6373,16 @@ MonoBehaviour:
   - {fileID: 87205309}
   - {fileID: 1333766098}
   - {fileID: 492122645}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -6407,14 +6511,16 @@ MonoBehaviour:
   - {fileID: 688665554}
   - {fileID: 1501404692}
   - {fileID: 806492049}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -6543,14 +6649,16 @@ MonoBehaviour:
   - {fileID: 806492049}
   - {fileID: 313013186}
   - {fileID: 1049314059}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -6635,14 +6743,16 @@ MonoBehaviour:
   - {fileID: 983796136}
   - {fileID: 1318710633}
   - {fileID: 1781477692}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -7033,79 +7143,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 778610084}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &788667924
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 788667925}
-  - 33: {fileID: 788667928}
-  - 65: {fileID: 788667927}
-  - 23: {fileID: 788667926}
-  m_Layer: 0
-  m_Name: Hide
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &788667925
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 788667924}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2579999, y: .400000006, z: -5.5}
-  m_LocalScale: {x: .583200037, y: .87100333, z: .583200037}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
---- !u!23 &788667926
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 788667924}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 443689fdfc4ed4c1bb9fa9dc78eba10f, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!65 &788667927
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 788667924}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &788667928
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 788667924}
-  m_Mesh: {fileID: 1412798576}
 --- !u!1 &802735144
 GameObject:
   m_ObjectHideFlags: 0
@@ -7143,14 +7180,16 @@ MonoBehaviour:
   - {fileID: 413199719}
   - {fileID: 68627025}
   - {fileID: 2101241976}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -7235,14 +7274,16 @@ MonoBehaviour:
   - {fileID: 1318710633}
   - {fileID: 729350564}
   - {fileID: 1041047901}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -7371,14 +7412,16 @@ MonoBehaviour:
   - {fileID: 1681010674}
   - {fileID: 1253060172}
   - {fileID: 1757888018}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -7462,14 +7505,16 @@ MonoBehaviour:
   - {fileID: 1149011}
   - {fileID: 1392488312}
   - {fileID: 1910532359}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -7822,14 +7867,16 @@ MonoBehaviour:
   - {fileID: 1910532359}
   - {fileID: 331352654}
   - {fileID: 697750344}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -8134,14 +8181,16 @@ MonoBehaviour:
   - {fileID: 1287080869}
   - {fileID: 1216288663}
   - {fileID: 1987391942}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -8314,14 +8363,16 @@ MonoBehaviour:
   - {fileID: 1429069143}
   - {fileID: 751318707}
   - {fileID: 1201709384}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -8492,14 +8543,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 116403545}
   - {fileID: 508399228}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -8626,14 +8679,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1899935736}
   - {fileID: 1050350874}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -8804,14 +8859,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 556963945}
   - {fileID: 559357866}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -9070,14 +9127,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 340112458}
   - {fileID: 1898971031}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -9205,14 +9264,16 @@ MonoBehaviour:
   - {fileID: 806492049}
   - {fileID: 556963945}
   - {fileID: 1049314059}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -9383,14 +9444,16 @@ MonoBehaviour:
   - {fileID: 1041047901}
   - {fileID: 87205309}
   - {fileID: 1333766098}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -9474,14 +9537,16 @@ MonoBehaviour:
   - {fileID: 1003605315}
   - {fileID: 1955134810}
   - {fileID: 1600457735}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -9565,14 +9630,16 @@ MonoBehaviour:
   - {fileID: 464875669}
   - {fileID: 1899935736}
   - {fileID: 1220217076}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -10079,14 +10146,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1235753831}
   - {fileID: 1472422029}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -10214,14 +10283,16 @@ MonoBehaviour:
   - {fileID: 1472422029}
   - {fileID: 2113254361}
   - {fileID: 2101372698}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -10438,14 +10509,16 @@ MonoBehaviour:
   - {fileID: 340112458}
   - {fileID: 1781477692}
   - {fileID: 1898971031}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -10618,14 +10691,16 @@ MonoBehaviour:
   - {fileID: 932365371}
   - {fileID: 1429069143}
   - {fileID: 1489601401}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -10710,14 +10785,16 @@ MonoBehaviour:
   - {fileID: 1747152521}
   - {fileID: 1955134810}
   - {fileID: 207746545}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -10911,14 +10988,16 @@ MonoBehaviour:
   - {fileID: 1126577642}
   - {fileID: 1149011}
   - {fileID: 1376593027}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -11091,14 +11170,16 @@ MonoBehaviour:
   - {fileID: 839624108}
   - {fileID: 1361903156}
   - {fileID: 116403545}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -11372,14 +11453,16 @@ MonoBehaviour:
   Y: 1
   Z: -4
   Neighbours: []
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -11555,14 +11638,16 @@ MonoBehaviour:
   - {fileID: 2101372698}
   - {fileID: 932365371}
   - {fileID: 1604614726}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -11735,14 +11820,16 @@ MonoBehaviour:
   - {fileID: 751318707}
   - {fileID: 806492049}
   - {fileID: 556963945}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -12045,14 +12132,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1049314059}
   - {fileID: 712905788}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -12194,14 +12283,16 @@ MonoBehaviour:
   - {fileID: 1542208168}
   - {fileID: 1253060172}
   - {fileID: 1981639911}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -12330,14 +12421,16 @@ MonoBehaviour:
   - {fileID: 1472422029}
   - {fileID: 2130502461}
   - {fileID: 2113254361}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -12541,14 +12634,16 @@ MonoBehaviour:
   - {fileID: 847421117}
   - {fileID: 1576288003}
   - {fileID: 900736688}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -12937,14 +13032,16 @@ MonoBehaviour:
   - {fileID: 1216288663}
   - {fileID: 983796136}
   - {fileID: 340112458}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -13027,14 +13124,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 221239917}
   - {fileID: 1865887355}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -13207,14 +13306,16 @@ MonoBehaviour:
   - {fileID: 1709076131}
   - {fileID: 1982390217}
   - {fileID: 688665554}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -13460,14 +13561,16 @@ MonoBehaviour:
   - {fileID: 1126577642}
   - {fileID: 1376593027}
   - {fileID: 1148103812}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -13671,14 +13774,16 @@ MonoBehaviour:
   - {fileID: 1216288663}
   - {fileID: 1987391942}
   - {fileID: 340112458}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -13851,14 +13956,16 @@ MonoBehaviour:
   - {fileID: 717399282}
   - {fileID: 651254910}
   - {fileID: 729350564}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -13942,14 +14049,16 @@ MonoBehaviour:
   - {fileID: 651254910}
   - {fileID: 1892260330}
   - {fileID: 1681010674}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -14297,14 +14406,16 @@ MonoBehaviour:
   - {fileID: 1600457735}
   - {fileID: 190104725}
   - {fileID: 1361903156}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -14475,14 +14586,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1392488312}
   - {fileID: 331352654}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -14654,14 +14767,16 @@ MonoBehaviour:
   - {fileID: 1050350874}
   - {fileID: 1914240014}
   - {fileID: 1542208168}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -14745,14 +14860,16 @@ MonoBehaviour:
   - {fileID: 1287080869}
   - {fileID: 1987391942}
   - {fileID: 1908937963}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -14924,14 +15041,16 @@ MonoBehaviour:
   - {fileID: 285797497}
   - {fileID: 1747152521}
   - {fileID: 1682896854}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -15323,14 +15442,16 @@ MonoBehaviour:
   - {fileID: 313013186}
   - {fileID: 839624108}
   - {fileID: 607665236}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -15501,14 +15622,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1629941305}
   - {fileID: 651254910}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -15813,14 +15936,16 @@ MonoBehaviour:
   - {fileID: 140331046}
   - {fileID: 688665554}
   - {fileID: 751318707}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -15905,14 +16030,16 @@ MonoBehaviour:
   - {fileID: 697750344}
   - {fileID: 1460323999}
   - {fileID: 1702703400}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -16381,14 +16508,16 @@ MonoBehaviour:
   - {fileID: 1629941305}
   - {fileID: 1220217076}
   - {fileID: 1848543961}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -16559,14 +16688,16 @@ MonoBehaviour:
   - {fileID: 607665236}
   - {fileID: 116403545}
   - {fileID: 479901043}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -16699,14 +16830,16 @@ MonoBehaviour:
   - {fileID: 1201709384}
   - {fileID: 556963945}
   - {fileID: 559357866}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -17042,14 +17175,16 @@ MonoBehaviour:
   - {fileID: 384210143}
   - {fileID: 140331046}
   - {fileID: 1429069143}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -17131,14 +17266,16 @@ MonoBehaviour:
   Z: 4
   Neighbours:
   - {fileID: 1747152521}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -17295,14 +17432,16 @@ MonoBehaviour:
   - {fileID: 1448557145}
   - {fileID: 68627025}
   - {fileID: 1460323999}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -17595,14 +17734,16 @@ MonoBehaviour:
   - {fileID: 1506631619}
   - {fileID: 190104725}
   - {fileID: 839624108}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -17686,14 +17827,16 @@ MonoBehaviour:
   - {fileID: 1201709384}
   - {fileID: 1038786791}
   - {fileID: 559357866}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -17777,14 +17920,16 @@ MonoBehaviour:
   - {fileID: 1059390836}
   - {fileID: 1003605315}
   - {fileID: 1955134810}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -17911,14 +18056,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1604614726}
   - {fileID: 1917754025}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -18003,14 +18150,16 @@ MonoBehaviour:
   - {fileID: 2130502461}
   - {fileID: 900736688}
   - {fileID: 384210143}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -18139,14 +18288,16 @@ MonoBehaviour:
   - {fileID: 207746545}
   - {fileID: 1600457735}
   - {fileID: 190104725}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -18229,14 +18380,16 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1987391942}
   - {fileID: 1908937963}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -18320,14 +18473,16 @@ MonoBehaviour:
   - {fileID: 2113254361}
   - {fileID: 2101372698}
   - {fileID: 932365371}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -18412,14 +18567,16 @@ MonoBehaviour:
   - {fileID: 1220217076}
   - {fileID: 1050350874}
   - {fileID: 1914240014}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -18503,14 +18660,16 @@ MonoBehaviour:
   - {fileID: 1361903156}
   - {fileID: 116403545}
   - {fileID: 508399228}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -18595,14 +18754,16 @@ MonoBehaviour:
   - {fileID: 1460323999}
   - {fileID: 2101241976}
   - {fileID: 717399282}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -18779,14 +18940,16 @@ MonoBehaviour:
   - {fileID: 1604614726}
   - {fileID: 1489601401}
   - {fileID: 1917754025}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -19421,14 +19584,16 @@ MonoBehaviour:
   - {fileID: 802735145}
   - {fileID: 1982390217}
   - {fileID: 1501404692}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -19512,14 +19677,16 @@ MonoBehaviour:
   - {fileID: 1148103812}
   - {fileID: 1955009345}
   - {fileID: 1287080869}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -19648,14 +19815,16 @@ MonoBehaviour:
   - {fileID: 1148103812}
   - {fileID: 356768713}
   - {fileID: 1955009345}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:
@@ -19828,14 +19997,16 @@ MonoBehaviour:
   - {fileID: 1376593027}
   - {fileID: 1910532359}
   - {fileID: 356768713}
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:

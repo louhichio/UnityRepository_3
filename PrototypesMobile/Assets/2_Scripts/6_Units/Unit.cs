@@ -37,6 +37,7 @@ namespace TheVandals
 		public MoveState moveState = MoveState.None;
 		public bool canMove = false;
 
+		[HideInInspector]
 		public int turnSteps;
 
 
@@ -86,9 +87,6 @@ namespace TheVandals
 	            path = null;
 	            return;
 	        }
-			
-			canMove = true;	
-			turnSteps = 0;
 
 			tile_current.RemoveUnit(this);
 
@@ -144,8 +142,6 @@ namespace TheVandals
 						turnSteps++;
 						if(turnSteps >= step_Max)
 							canMove = false;
-						
-
 					}					
 					if(Check())
 						return;

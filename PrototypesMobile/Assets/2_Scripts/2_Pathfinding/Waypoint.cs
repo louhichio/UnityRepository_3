@@ -69,7 +69,7 @@
 			if(type != Type.None)		
 			{
 				list_wayPoints.Clear();
-				list_wayPoints.Add(MapManager.Instance.InitializeUnit(transform.position, gameObject));
+				list_wayPoints.Add(MapManager.Instance.InitializeUnit(transform.position));
 				MapManager.Instance.SetWayPoints(ref list_wayPoints, tiles_index);
 //				RetrieveTiles = false;
 			}

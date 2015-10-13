@@ -42,12 +42,12 @@
 			EventManager.playerChangedTile -= PlayerChangedTile;
 		}
 		
-		public void Init()
+		public virtual void Init()
 		{
 			target = null;
 			psDetect.SetActive(false);
 
-			Initialize(MapManager.Instance.InitializeUnit(transform.position, gameObject));
+			Initialize(MapManager.Instance.InitializeUnit(transform.position));
 
 			tile_current.AddUnit(this);
 
@@ -64,7 +64,9 @@
 		}
 
 		public void StartTurn()
-		{			
+		{					
+			canMove = true;	
+			turnSteps = 0;	
 			if(!Tile.ReferenceEquals(target, null))
 			{
 				TravelTo(target);	
@@ -168,34 +170,38 @@
 
 		public override bool Check()
 		{				
-			if(tile_current == Player.Instance.tile_current)
+			if(!Player.Instance.isHidden)
 			{
-				Stop();
-				GameManager.Instance.StartCoroutine("PlayerLost");	
-				return true;
-			}
-			if(fov.isPlayerDetected())
-			{
-				if(Tile.ReferenceEquals(target, null) || target != Player.Instance.tile_current)
+				if(tile_current == Player.Instance.tile_current)
 				{
-					target = Player.Instance.tile_current;
-					List<Tile> path = AStar.FindPath(tile_current, Player.Instance.tile_current);
-					this.path = path;
-					waypoints.Clear();
-					waypoints = GetWaypointsFromPath(path);
-
-					Vector3 pos = target.transform.position;
-					pos.y += 0.003f;
-					psDetect.transform.position = pos;
-					psDetect.SetActive(true);
-					
-					Vector3 direction = waypoints[0] - transform.position;
-					direction.y =0;						
-					if(direction.normalized!= Vector3.zero)
-						transform.forward = direction.normalized * 90;	
-					SetFov(false, tile_current);					
-					SetFov(true, path[0]);		
+					Stop();
+					GameManager.Instance.StartCoroutine("PlayerLost");	
 					return true;
+				}
+
+				if(fov.isPlayerDetected())
+				{
+					if(Tile.ReferenceEquals(target, null) || target != Player.Instance.tile_current)
+					{
+						target = Player.Instance.tile_current;
+						List<Tile> path = AStar.FindPath(tile_current, Player.Instance.tile_current);
+						this.path = path;
+						waypoints.Clear();
+						waypoints = GetWaypointsFromPath(path);
+						
+						Vector3 pos = target.transform.position;
+						pos.y += 0.003f;
+						psDetect.transform.position = pos;
+						psDetect.SetActive(true);
+						
+						Vector3 direction = waypoints[0] - transform.position;
+						direction.y =0;						
+						if(direction.normalized!= Vector3.zero)
+							transform.forward = direction.normalized * 90;	
+						SetFov(false, tile_current);					
+						SetFov(true, path[0]);		
+						return true;
+					}
 				}
 			}
 			return false;

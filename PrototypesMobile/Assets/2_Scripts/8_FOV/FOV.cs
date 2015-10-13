@@ -88,7 +88,7 @@
 		}
 
 		public virtual bool isPlayerDetected()
-		{			
+		{	
 			if(tiles_Detect.Contains(Player.Instance.tile_current))
 			{
 				return true;

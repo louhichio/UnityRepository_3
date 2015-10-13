@@ -66,6 +66,8 @@
 				yield return new WaitForSeconds(0f);
 				turnState = TurnState.PlayerTurn;
 				enemyCount = 0;
+
+				EventManager.Instance.StartTurn_Player();
 			}
 		}
 	}

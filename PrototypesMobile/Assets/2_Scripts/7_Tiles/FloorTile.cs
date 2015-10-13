@@ -47,6 +47,8 @@
 			isFoVDetect = false;
 			isFoVView = false;
 
+			isHide = false;
+
 			int[] arrayCoordinate = ArrayCoordinateFromPosition(transform.position);
 			
 			X = arrayCoordinate[0];
