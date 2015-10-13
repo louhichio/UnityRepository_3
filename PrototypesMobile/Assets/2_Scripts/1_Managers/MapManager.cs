@@ -59,12 +59,6 @@ namespace TheVandals
 		#region Unity
 		void OnDrawGizmos()
 		{
-			if(!Application.isPlaying && trs_Tiles.childCount != 0 && map_tiles.Count == 0)
-			{
-				foreach (Transform child in trs_Tiles.transform)
-					map_tiles.Add(child.GetComponent<Tile>());
-			}
-
 			if(enableEditorMapTilesGeneration && trs_Tiles.childCount == 0)
 			{			
 				transform.position = Vector3.up * (-0.001f);
@@ -162,6 +156,16 @@ namespace TheVandals
 			}
 		}
 
+		public void SetMapTiles()
+		{
+			if(!Application.isPlaying && trs_Tiles.childCount != 0 && map_tiles.Count == 0)
+			{
+				foreach (Transform child in trs_Tiles.transform)
+					map_tiles.Add(child.GetComponent<Tile>());
+			}
+			print("SetMapTiles");
+		}
+
 		public void SetGameOverTile(Tile tile_player)
 		{
 			if(int.ReferenceEquals(tile_EndGame_index,null) || tile_EndGame_index < 0 || tile_EndGame_index > map_tiles.Count -1)
@@ -188,6 +192,9 @@ namespace TheVandals
 		//Get RayCasted Tile
 		public Tile InitializeUnit(Vector3 position, GameObject obj)
 		{			
+			if(List<Tile>.ReferenceEquals(map_tiles,null) || map_tiles.Count == 0)
+				SetMapTiles();
+
 			foreach(Tile t in map_tiles)
 			{				
 				if(position.x >= t.transform.position.x - 0.5f && 

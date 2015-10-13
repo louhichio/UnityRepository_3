@@ -20,14 +20,15 @@
 
 		public int[] tiles_index;	
 
-		public bool RetrieveTiles = false;
+//		public bool RetrieveTiles = false;
 
+		[HideInInspector]
 		public List<Tile> list_wayPoints;
 
 		[HideInInspector]
 		public bool isPathDefined = false;
 
-		private int unitPos;
+		public int unitPos;
 		private bool directionInverse = false;
 		#endregion
 			
@@ -48,23 +49,30 @@
 		}
 		#endregion
 		#region Unity
-		void OnDrawGizmos()
-		{
-			if(type != Type.None && RetrieveTiles && tiles_index.Length > 0)		
-			{
-				print ("RetrieveTiles");
-				list_wayPoints.Clear();
-				list_wayPoints.Add(MapManager.Instance.InitializeUnit(transform.position, gameObject));
-				MapManager.Instance.SetWayPoints(ref list_wayPoints, tiles_index);
-				RetrieveTiles = false;
-			}
-		}
+//		void OnDrawGizmos()
+//		{
+//			if(type != Type.None && RetrieveTiles && tiles_index.Length > 0)		
+//			{
+//				print ("RetrieveTiles");
+//				list_wayPoints.Clear();
+//				list_wayPoints.Add(MapManager.Instance.InitializeUnit(transform.position, gameObject));
+//				MapManager.Instance.SetWayPoints(ref list_wayPoints, tiles_index);
+//				RetrieveTiles = false;
+//			}
+//		}
 		#endregion
 
 		#region Private
 
 		public void Initialise()
 		{
+			if(type != Type.None)		
+			{
+				list_wayPoints.Clear();
+				list_wayPoints.Add(MapManager.Instance.InitializeUnit(transform.position, gameObject));
+				MapManager.Instance.SetWayPoints(ref list_wayPoints, tiles_index);
+//				RetrieveTiles = false;
+			}
 			SetIsPathDefined();
 		}
 
@@ -78,38 +86,50 @@
 			isPathDefined = true;
 		}
 
-		public Tile GetNextWayPoint()
+		public Tile GetNextWayPoint(Tile tile_Unit)
 		{
-			switch (type)
-			{
-			case Type.PingPong:
-				if(directionInverse)
+			if(list_wayPoints.Count > 1)
+			{				
+				if(tile_Unit != list_wayPoints[unitPos])
+					return list_wayPoints[unitPos];
+				switch (type)
 				{
+				case Type.Aleatoire:
+					int initPos = unitPos;
+					while(unitPos == initPos)
+					{
+						unitPos = UnityEngine.Random.Range(0, list_wayPoints.Count -1);
+					}
+					break;
+				case Type.PingPong:
+					if(!directionInverse)
+					{
+						unitPos++;
+						
+						if(unitPos >= list_wayPoints.Count)
+						{
+							unitPos = list_wayPoints.Count - 2;
+							directionInverse = true;
+						}
+					}
+					else
+					{
+						unitPos--;
+						
+						if(unitPos < 0)
+						{
+							unitPos = 1;
+							directionInverse = false;
+						}
+					}
+					break;
+				case Type.ClosedLoop:
 					unitPos++;
 					
-					if(unitPos > list_wayPoints.Count)
-					{
-						unitPos = list_wayPoints.Count - 1;
-						directionInverse = true;
-					}
+					if(unitPos >= list_wayPoints.Count)
+						unitPos = 0;
+					break;
 				}
-				else
-				{
-					unitPos--;
-					
-					if(unitPos < 0)
-					{
-						unitPos = 1;
-						directionInverse = false;
-					}
-				}
-				break;
-			case Type.ClosedLoop:
-				unitPos++;
-				
-				if(unitPos > list_wayPoints.Count)
-					unitPos = 0;
-				break;
 			}
 			return list_wayPoints[unitPos];
 		}

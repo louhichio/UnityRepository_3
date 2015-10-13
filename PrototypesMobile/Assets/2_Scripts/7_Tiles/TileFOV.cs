@@ -12,7 +12,7 @@
 		public void Initialise()
 		{
 			sr = GetComponent<SpriteRenderer>();
-//			sr.enabled = false;
+			sr.enabled = false;
 		}
 		public void SetTile()
 		{

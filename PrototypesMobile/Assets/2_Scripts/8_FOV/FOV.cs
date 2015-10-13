@@ -14,7 +14,7 @@
 		public List<Tile> tiles_View;		
 		[HideInInspector]
 		public List<Tile> tiles_Neighbours;		
-		[HideInInspector]
+//		[HideInInspector]
 		public List<TileFOV> tiles_Visual;
 
 		public GameObject prefab_TileFoV;
@@ -32,7 +32,7 @@
 			}
 		}
 
-		public void Initialize(Tile tile)
+		public void Initialize(Tile tile, int angle)
 		{
 			if(transform.childCount == 0 && prefab_TileFoV != null)
 			{
@@ -49,17 +49,17 @@
 				}
 			}
 
-			EnableFov(tile);
+			EnableFov(tile, angle);
 		}	
 
-		public virtual void EnableFov(Tile tile)
+		public virtual void EnableFov(Tile tile, int angle)
 		{
-			SetFovDirection((int)transform.eulerAngles.y);
+			SetFovDirection(angle);
 			
 			tiles_Neighbours = tile.GetTilesWithinCost(max_Step);
 
 			NeighboursRestriction(MapManager.Instance.GetFloorTile(pos2D_Detect, tile), ref tiles_Detect);
-			NeighboursRestriction(MapManager.Instance.GetFloorTile(pos2D_View, tile), ref tiles_View);
+//			NeighboursRestriction(MapManager.Instance.GetFloorTile(pos2D_View, tile), ref tiles_View);
 
 			UpdateMapTiles(true);
 
@@ -125,13 +125,13 @@
 				count++;
 			}
 
-			foreach(var t in tiles_View)
-			{
-				tiles_Visual[count].SetTile(t,TileState.EnemyView);
-				count++;
-			}
+//			foreach(var t in tiles_View)
+//			{
+//				tiles_Visual[count].SetTile(t,TileState.EnemyView);
+//				count++;
+//			}
 
-			while(count<this.count)
+			while(count < this.count)
 			{
 				tiles_Visual[count].SetTile();
 				count++;

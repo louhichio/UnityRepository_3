@@ -14,6 +14,9 @@ namespace TheVandals
 		public delegate void gameoverDel(string status);
 		public static event gameoverDel gameOver;
 
+		public delegate void PlayerChangedTile(Tile tile);
+		public static event PlayerChangedTile playerChangedTile;
+
 		public void Initialise()
 		{			
 			if(initialise != null)
@@ -36,6 +39,12 @@ namespace TheVandals
 		{
 			if(gameOver != null)
 				gameOver(status);
+		}
+
+		public void PlChangedTile(Tile tile)
+		{
+			if(playerChangedTile != null)
+				playerChangedTile(tile);
 		}
 	}
 }

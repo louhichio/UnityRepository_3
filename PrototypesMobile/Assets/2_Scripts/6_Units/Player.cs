@@ -50,7 +50,7 @@
 		}
 		
 		private void Init()
-		{			
+		{					
 			Tile tile_temp = MapManager.Instance.InitializeUnit(transform.position, gameObject);
 
 			Initialize(tile_temp);
@@ -61,8 +61,7 @@
 		}
 
 		private void Reset()
-		{			
-//			ResetUnitNeighboursTiles();	
+		{				
 			tile_current.RemoveUnit(this);
 
 			path.Clear();
@@ -81,6 +80,8 @@
 
 		public override void TravelFinished()
 		{
+			SetUnitNeighboursTilesState(TileState.Clear);
+
 			moveState = MoveState.None;
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
@@ -88,16 +89,19 @@
 
 			tile_current.AddUnit(this);
 
-			if(!Check())
-				TurnManager.Instance.StartCoroutine("PlayerMoved");
+			TurnManager.Instance.StartCoroutine("PlayerMoved");
 		}
 		public override bool Check()
 		{
-			if(tile_current.isFoVDetect)
+			if(tile_current.isEnemyOn)
 			{
-				Stop();
 				GameManager.Instance.StartCoroutine("PlayerLost");
+				Stop();
 				return true;
+			}
+			if(tile_current.isFoVDetect)
+			{				
+				EventManager.Instance.PlChangedTile(tile_current);
 			}
 
 			if(tile_current == MapManager.Instance.tile_EndGame)

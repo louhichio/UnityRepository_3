@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/1_Scenes/Prototype_3_Decors_2D.unity
   - enabled: 0
     path: Assets/1_Scenes/Prototype_4_Decors_2D.unity
+  - enabled: 1
+    path: Assets/1_Scenes/Prototype_2_Decors_3D_new.unity

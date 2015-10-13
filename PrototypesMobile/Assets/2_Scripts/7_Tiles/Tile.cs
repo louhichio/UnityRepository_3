@@ -67,9 +67,9 @@ namespace TheVandals
 			transform.position = pos;
 		}
 
-	    public Vector3 GetUnitPosition()
+	    public Vector3 GetTilePosition()
 	    {
-	        return transform.position + CentreUnitOffset;
+	        return transform.position;
 	    }
 
 	    public Quaternion GetUnitRotation(Quaternion unitRotation)
@@ -126,6 +126,7 @@ namespace TheVandals
 			{
 				isPlayerOn = false;
 			}
+
 		}
 
 	    // Private methods

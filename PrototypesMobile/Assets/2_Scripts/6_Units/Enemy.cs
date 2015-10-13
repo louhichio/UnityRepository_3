@@ -17,12 +17,13 @@
 		[HideInInspector]
 		public abstract EnemyType enemy_Type{get;}
 
-		[HideInInspector]
 		public FOV fov;
 
-		[HideInInspector]
 		public Waypoint waypoint;
 
+		public Tile target;
+
+		public GameObject psDetect;
 		#endregion
 
 		#region Events
@@ -31,28 +32,31 @@
 			EventManager.initialise += Init;
 			EventManager.startTurn_Enemy += StartTurn;
 			EventManager.gameReset += Reset;
+			EventManager.playerChangedTile += PlayerChangedTile;
 		}		
 		void OnDisable()
 		{
 			EventManager.initialise -= Init;
 			EventManager.startTurn_Enemy -= StartTurn;
 			EventManager.gameReset -= Reset;
+			EventManager.playerChangedTile -= PlayerChangedTile;
 		}
 		
 		public void Init()
 		{
+			target = null;
+			psDetect.SetActive(false);
+
 			Initialize(MapManager.Instance.InitializeUnit(transform.position, gameObject));
 
 			tile_current.AddUnit(this);
 
-			waypoint = GetComponentInChildren<Waypoint>();
 			waypoint.Initialise();
 
 			if(waypoint.type != Waypoint.Type.None)
 				TurnManager.Instance.enemyCount_Max++;
-			
-			fov = GetComponentInChildren<FOV>();
-			fov.Initialize(tile_current);
+
+			fov.Initialize(tile_current, (int)transform.eulerAngles.y);
 
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
@@ -60,32 +64,28 @@
 		}
 
 		public void StartTurn()
-		{
-			if(waypoint.type != Waypoint.Type.None)
+		{			
+			if(!Tile.ReferenceEquals(target, null))
+			{
+				TravelTo(target);	
+			}
+			else if(waypoint.type != Waypoint.Type.None)
 			{
 				if(!List<Tile>.ReferenceEquals(waypoint, null) && waypoint.isPathDefined)
 				{
-					switch (waypoint.type)
-					{
-					case Waypoint.Type.None:
-						break;
-					case Waypoint.Type.ClosedLoop:			
-						TravelTo(waypoint.GetNextWayPoint());
-						break;
-					case Waypoint.Type.PingPong:						
-						TravelTo(waypoint.GetNextWayPoint());
-						break;
-					case Waypoint.Type.Aleatoire:
-						var list = tile_current.GetTilesWithinCost(step_Max);
-						list.Remove(tile_current);
-						TravelTo(list[Random.Range(0, list.Count - 1)]);
-						break;
-					}
+					TravelTo(waypoint.GetNextWayPoint(tile_current));
 				}
+				else
+					print ("Waypoint path isn't defined");
 			}
+			else
+				TravelTo(tile_init);
 		}
 		public void Reset()
 		{			
+			target = null;
+			psDetect.SetActive(false);
+
 			tile_current.RemoveUnit(this);
 
 			path.Clear();
@@ -96,62 +96,97 @@
 
 			tile_current = tile_init;			
 			tile_current.AddUnit(this);
-			fov.EnableFov(tile_current);
+			fov.EnableFov(tile_current, (int)transform.eulerAngles.y);
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 			SetUnitNeighboursTilesState(TileState.EnemyOn);
 
 			moveState = MoveState.None;
 		}		
+
+		public void PlayerChangedTile(Tile tile)
+		{
+			if(Tile.ReferenceEquals(target, null) || target != Player.Instance.tile_current)
+			{
+				target = Player.Instance.tile_current;
+				
+				psDetect.transform.position = target.transform.position;
+				psDetect.SetActive(true);
+			}
+		}
 		#endregion
 
-		public override void TravelTo(Tile destination)
-		{
-			if(Tile.ReferenceEquals(destination, null))
-				return;
-			
-			List<Tile> path = AStar.FindPath(tile_current, destination);
-			if (path.Count == 0)
-			{
-				path = null;
-				return;
-			}
 
-			fov.DisableFov();
-			SetUnitNeighboursTilesState(TileState.Clear);
-
-			tile_current.RemoveUnit(this);
-			
-			this.path = path;
-			waypoints = GetWaypointsFromPath(path);
-		}
 		public override void TravelFinished()
 		{
+			SetUnitNeighboursTilesState(TileState.Clear);
 			moveState = MoveState.None;
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 			SetUnitNeighboursTilesState(TileState.EnemyOn);
+			SetFov(true, tile_current);	
 			
 			tile_current.AddUnit(this);
 
-			fov.EnableFov(tile_current);
+			if(tile_current == target)
+			{
+				target = null;
+				psDetect.SetActive(false);
+			}
 
-			if(!Check())
+			if(tile_current == Player.Instance.tile_current)
+			{
+				Stop();
+				GameManager.Instance.StartCoroutine("PlayerLost");			
+			}
+			else
 			{
 				TurnManager.Instance.StopCoroutine("EnemyMoved");
 				TurnManager.Instance.StartCoroutine("EnemyMoved");
 			}
 		}
+
 		public override bool Check()
-		{
-			if(fov.isPlayerDetected())
+		{				
+			if(tile_current == Player.Instance.tile_current)
 			{
 				Stop();
-				GameManager.Instance.StartCoroutine("PlayerLost");			
-				return true;	
+				GameManager.Instance.StartCoroutine("PlayerLost");	
+				return true;
+			}
+			if(fov.isPlayerDetected())
+			{
+				if(Tile.ReferenceEquals(target, null) || target != Player.Instance.tile_current)
+				{
+					target = Player.Instance.tile_current;
+					List<Tile> path = AStar.FindPath(tile_current, Player.Instance.tile_current);
+					this.path = path;
+					waypoints.Clear();
+					waypoints = GetWaypointsFromPath(path);
+
+					psDetect.transform.position = target.transform.position;
+					psDetect.SetActive(true);
+					
+					Vector3 direction = waypoints[0] - transform.position;
+					direction.y =0;						
+					if(direction.normalized!= Vector3.zero)
+						transform.forward = direction.normalized * 90;	
+					SetFov(false, tile_current);					
+					SetFov(true, path[1]);		
+					return true;
+				}
 			}
 			return false;
 		}
-		
+
+		public override void SetFov(bool enable , Tile tile)
+		{			
+			if(enable)
+				fov.EnableFov(tile, (int)transform.eulerAngles.y);
+			else
+			{
+				fov.DisableFov();
+			}
+		}
 	}
 }

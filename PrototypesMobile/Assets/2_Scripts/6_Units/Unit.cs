@@ -14,7 +14,7 @@ namespace TheVandals
 	    public float Speed = 1f;
 
 //	    protected float AngularSpeed = 6.0f;
-		[HideInInspector]
+//		[HideInInspector]
 		public List<Tile> path;
 		[HideInInspector]
 		public List<Vector3> waypoints;
@@ -35,10 +35,14 @@ namespace TheVandals
 		public List<Tile> list_UnitNeighbours;
 		
 		public MoveState moveState = MoveState.None;
+		public bool canMove = false;
+
+		public int turnSteps;
+
 
 		void Update () 
 		{
-			if (path != null && path.Count > 0 && waypoints != null && waypoints.Count > 0)
+			if (canMove && path != null && path.Count > 0 && waypoints != null && waypoints.Count > 0)
 			{
 				moveState = MoveState.Moving;
 				MoveThroughWaypoints();
@@ -52,7 +56,11 @@ namespace TheVandals
 
 		public virtual void Initialize(Tile tile)
 		{						
-			position_Init = tile.GetUnitPosition();
+			turnSteps = 0;
+
+			moveState = MoveState.None;
+
+			position_Init = tile.GetTilePosition();
 			transform.position = position_Init;			
 			
 			if(transform.eulerAngles.y != 0 && transform.eulerAngles.y != 90 && transform.eulerAngles.y != 180 && transform.eulerAngles.y != 270 )
@@ -67,7 +75,7 @@ namespace TheVandals
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 		}
 
-		public virtual void TravelTo(Tile destination)
+		public void TravelTo(Tile destination)
 	    {
 			if(Tile.ReferenceEquals(destination, null))
 				return;
@@ -78,11 +86,25 @@ namespace TheVandals
 	            path = null;
 	            return;
 	        }
-			SetUnitNeighboursTilesState(TileState.Clear);
+			
+			canMove = true;	
+			turnSteps = 0;
+
 			tile_current.RemoveUnit(this);
 
 			this.path = path;
 	        waypoints = GetWaypointsFromPath(path);
+
+			if(waypoints.Count > 0)
+			{
+				Vector3 direction = waypoints[1] - transform.position;
+				direction.y =0;						
+				if(direction.normalized!= Vector3.zero)
+					transform.forward = direction.normalized * 90;	
+				SetFov(false, tile_current);					
+				SetFov(true, path[1]);	
+				Check();	
+			}
 	    }
 
 		public abstract void TravelFinished();
@@ -92,42 +114,60 @@ namespace TheVandals
 	    public List<Vector3> GetWaypointsFromPath(List<Tile> path)
 	    {
 	        var outWaypoints = new List<Vector3>();
-	        outWaypoints.Add(path[0].GetUnitPosition());
+			outWaypoints.Add(path[0].GetTilePosition());
 	        for (int i = 1; i < path.Count ; i++)
 	        {
-				outWaypoints.Add(GetMidwayVector(path[i].GetUnitPosition(), path[i-1].GetUnitPosition()));
-	            outWaypoints.Add(path[i].GetUnitPosition());
+				outWaypoints.Add(GetMidwayVector(path[i].GetTilePosition(), path[i-1].GetTilePosition()));
+				outWaypoints.Add(path[i].GetTilePosition());
 	        }
 	        return outWaypoints;
 	    }
 
 		private Vector3 GetMidwayVector(Vector3 tile1, Vector3 tile2)
 	    {
-			Vector3 midVector = tile1.y >= tile2.y ? new Vector3(tile2.x,tile1.y,tile2.z) : new Vector3(tile1.x,tile2.y,tile1.z);
+			Vector3 midVector;
+			if(tile1.y == tile2.y)			
+				midVector = (tile2 + tile1)/2;			
+			else
+				midVector = tile1.y > tile2.y ? new Vector3(tile2.x,tile1.y,tile2.z) : new Vector3(tile1.x,tile2.y,tile1.z);
 	        return midVector;
 	    }
 
-	    public virtual void MoveThroughWaypoints()
+		public void MoveThroughWaypoints()
 		{
 			Vector3 direction = waypoints[0] - transform.position;
-
+			
 			direction.Normalize();
-	        transform.position += direction * Speed * Time.deltaTime;
+			transform.position += direction * Speed * Time.deltaTime;
 
-	        if (Vector3.Distance(waypoints[0], transform.position) <= Speed * Time.deltaTime / 2.0f)
-	        {
-	            transform.position = waypoints[0];
-
-	            if (waypoints.Count % 2 == 1)
-	            {
+			if (Vector3.Distance(waypoints[0], transform.position) <= Speed * Time.deltaTime / 2.0f)
+			{
+				transform.position = waypoints[0];
+				
+				if (waypoints.Count % 2 == 1)
+				{
 					tile_current = path[0];
 					path.RemoveAt(0);
+					
+					if(direction != Vector3.zero)
+					{
+						turnSteps++;
+						if(turnSteps >= step_Max)
+							canMove = false;
+						
+
+					}					
 					if(Check())
 						return;
-	            }
-
-	            waypoints.RemoveAt(0);
-
+				}
+				else
+				{						
+					SetFov(false, tile_current);					
+					SetFov(true, path[0]);			
+				}
+				
+				waypoints.RemoveAt(0);
+				
 				if(waypoints.Count > 0)
 				{
 					direction = waypoints[0] - transform.position;
@@ -135,8 +175,10 @@ namespace TheVandals
 					if(direction.normalized!= Vector3.zero)
 						transform.forward = direction.normalized * 90;	
 				}
-	        }
-	    }
+			}
+		}
+		
+		public virtual void SetFov(bool enable , Tile tile){}
 
 		public void SetUnitNeighboursTilesState(TileState ts)
 		{
@@ -175,6 +217,8 @@ namespace TheVandals
 		{
 			path.Clear();
 			waypoints.Clear();
+			canMove = false;
+			moveState = MoveState.None;
 		}
 	}
 }

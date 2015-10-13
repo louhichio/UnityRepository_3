@@ -39,8 +39,13 @@
 		{
 //			SetCameraAspect();
 			//////////////////////////////// Neeeeds Coroutine ////////////////////////////////
-			if(followPlayer && Vector3.Distance(Player.Instance.transform.position, transform.position) > 0.1f)
-				transform.position = Vector3.Lerp(transform.position, Player.Instance.transform.position, Time.deltaTime * follow_Speed);
+			if(followPlayer)
+			{
+				Vector3 destinationPos = Player.Instance.transform.position / 2;
+
+				if(Vector3.Distance(destinationPos, transform.position) > 0.1f)		
+					transform.position = Vector3.Lerp(transform.position, destinationPos, Time.deltaTime * follow_Speed);
+			}
 
 		}		
 		#endregion

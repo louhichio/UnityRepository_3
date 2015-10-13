@@ -112,7 +112,9 @@
 						{	
 							sr.color = Color.white;
 							sr.enabled = false;
-						}					
+						}				
+						
+						this.tile_state = enemyLeft ? tile_state : TileState.EnemyOn;
 						playerLeft = true;
 					}
 					break;
