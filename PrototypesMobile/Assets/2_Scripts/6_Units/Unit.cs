@@ -75,7 +75,7 @@ namespace TheVandals
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 		}
 
-		public void TravelTo(Tile destination)
+		public virtual void TravelTo(Tile destination)
 	    {
 			if(Tile.ReferenceEquals(destination, null))
 				return;
@@ -95,16 +95,6 @@ namespace TheVandals
 			this.path = path;
 	        waypoints = GetWaypointsFromPath(path);
 
-			if(waypoints.Count > 0)
-			{
-				Vector3 direction = waypoints[1] - transform.position;
-				direction.y =0;						
-				if(direction.normalized!= Vector3.zero)
-					transform.forward = direction.normalized * 90;	
-				SetFov(false, tile_current);					
-				SetFov(true, path[1]);	
-				Check();	
-			}
 	    }
 
 		public abstract void TravelFinished();

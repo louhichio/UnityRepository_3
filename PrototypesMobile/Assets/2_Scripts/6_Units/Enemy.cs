@@ -80,13 +80,26 @@
 			}
 			else
 				TravelTo(tile_init);
+
+			if(waypoints.Count > 0)
+			{
+				Vector3 directionOr = transform.eulerAngles;
+				Vector3 direction = waypoints[1] - transform.position;
+				direction.y =0;						
+				if(direction.normalized!= Vector3.zero)
+					transform.forward = direction.normalized * 90;	
+				if(transform.eulerAngles != directionOr)
+				{
+					SetFov(false, tile_current);					
+					SetFov(true, path[0]);	
+				}
+				Check();	
+			}
 		}
 		public void Reset()
 		{			
 			target = null;
 			psDetect.SetActive(false);
-
-			tile_current.RemoveUnit(this);
 
 			path.Clear();
 			waypoints.Clear();
@@ -108,10 +121,15 @@
 		{
 			if(Tile.ReferenceEquals(target, null) || target != Player.Instance.tile_current)
 			{
-				target = Player.Instance.tile_current;
-				
-				psDetect.transform.position = target.transform.position;
-				psDetect.SetActive(true);
+				if(fov.isPlayerDetected())
+				{
+					target = Player.Instance.tile_current;
+
+					Vector3 pos = target.transform.position;
+					pos.y += 0.003f;
+					psDetect.transform.position = pos;
+					psDetect.SetActive(true);
+				}
 			}
 		}
 		#endregion
@@ -125,6 +143,8 @@
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 			SetUnitNeighboursTilesState(TileState.EnemyOn);
 			SetFov(true, tile_current);	
+
+			Check();
 			
 			tile_current.AddUnit(this);
 
@@ -164,7 +184,9 @@
 					waypoints.Clear();
 					waypoints = GetWaypointsFromPath(path);
 
-					psDetect.transform.position = target.transform.position;
+					Vector3 pos = target.transform.position;
+					pos.y += 0.003f;
+					psDetect.transform.position = pos;
 					psDetect.SetActive(true);
 					
 					Vector3 direction = waypoints[0] - transform.position;
@@ -172,7 +194,7 @@
 					if(direction.normalized!= Vector3.zero)
 						transform.forward = direction.normalized * 90;	
 					SetFov(false, tile_current);					
-					SetFov(true, path[1]);		
+					SetFov(true, path[0]);		
 					return true;
 				}
 			}

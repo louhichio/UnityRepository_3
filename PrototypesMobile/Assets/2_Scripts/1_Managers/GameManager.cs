@@ -18,7 +18,7 @@ namespace TheVandals
 			EventManager.Instance.GameOver("WON");
 
 			yield return new WaitForSeconds(1.0f);
-
+			
 			MapManager.Instance.ResetTiles();
 			EventManager.Instance.GameReset();
 		}
@@ -28,7 +28,7 @@ namespace TheVandals
 			EventManager.Instance.GameOver("LOST");
 
 			yield return new WaitForSeconds(1.0f);
-
+			
 			MapManager.Instance.ResetTiles();
 			EventManager.Instance.GameReset();
 		}

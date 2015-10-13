@@ -108,6 +108,8 @@ namespace TheVandals
 			{
 				enemyCount++;
 				isEnemyOn = true;
+				
+//				print("AddUnit" + this + "    " + obj + "  " + enemyCount);
 			}
 			else if(obj is Player)
 			{
@@ -121,12 +123,13 @@ namespace TheVandals
 				enemyCount--;
 				if(enemyCount == 0)
 					isEnemyOn = false;
+				
+//				print("RemoveUnit" + this + "    " + obj + "  " + enemyCount);
 			}
 			else if(obj is Player)
 			{
 				isPlayerOn = false;
 			}
-
 		}
 
 	    // Private methods

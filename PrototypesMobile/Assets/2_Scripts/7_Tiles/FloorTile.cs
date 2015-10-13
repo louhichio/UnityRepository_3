@@ -22,7 +22,11 @@
 		public bool enemyLeft = true;
 
 		public Rect rect;
-
+		void Update()
+		{
+			if(enemyCount < 0)
+				print (index);
+		}
 		public override void Initialize (int index)
 		{
 			Name = "Floor";

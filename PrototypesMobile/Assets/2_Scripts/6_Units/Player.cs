@@ -62,8 +62,6 @@
 
 		private void Reset()
 		{				
-			tile_current.RemoveUnit(this);
-
 			path.Clear();
 			waypoints.Clear();
 
