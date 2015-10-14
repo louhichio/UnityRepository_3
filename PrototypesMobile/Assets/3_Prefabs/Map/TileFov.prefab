@@ -67,8 +67,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8308f83782f49cc44840e356388522fd, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: .465999991}
+  m_Sprite: {fileID: 21300000, guid: 96fc8b21b7e754f489fd63951e993b7c, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: .272000015}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -78,8 +78,29 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Color.a
-      value: .465999991
+      value: .272000015
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 96fc8b21b7e754f489fd63951e993b7c,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 949593942c489443ea0da434db7e742a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122298}

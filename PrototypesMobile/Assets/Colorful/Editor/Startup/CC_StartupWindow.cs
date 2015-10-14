@@ -67,7 +67,7 @@ public class CC_StartupWindow : EditorWindow
 #if UNITY_5_1_PLUS
 		return AssetDatabase.LoadAssetAtPath<T>(path);
 #else
-		return AssetDatabase.LoadAssetAtPath<T>(path);
+		return Resources.LoadAssetAtPath<T>(path);
 #endif
 	}
 

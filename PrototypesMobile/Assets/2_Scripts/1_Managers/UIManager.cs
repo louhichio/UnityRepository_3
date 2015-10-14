@@ -60,10 +60,10 @@
 				switch(status)
 				{
 				case "WON":
-					text_Gameover.text = "CONGRATULATIONS YOU WON";
+					text_Gameover.text = "VICTOIRE";
 					break;
 				case "LOST":
-					text_Gameover.text = "GAME OVER";
+					text_Gameover.text = "POLICE";
 					break;
 				}
 			}

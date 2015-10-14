@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfeb40e027395d45a5545d3b06bcea6, type: 3}
+  m_Name: QuickDecalsDatabase
+  m_EditorClassIdentifier: 
+  decalGroups:
+  - decals:
+    - name: spaceinvader
+      id: ddf3f596fff19484a9cc63b0c81db7a0
+      isPacked: 0
+      materialId: 
+      rotation: {x: -45, y: 45, z: 0}
+      scale: {x: .800000012, y: 1.20000005, z: 1}
+      atlasRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+      orgGroup: 0
+      orgIndex: 0
+      atlasGroup: 0
+      atlasIndex: 0
+      rotationPlacement: 0
+      scalePlacement: 0
+      texture: {fileID: 2800000, guid: ddf3f596fff19484a9cc63b0c81db7a0, type: 3}
+    - name: missvan
+      id: 6aa8819ae9c7540deb9e325b49b2405b
+      isPacked: 0
+      materialId: 
+      rotation: {x: -45, y: 45, z: 0}
+      scale: {x: .800000012, y: 1.20000005, z: 1}
+      atlasRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+      orgGroup: 0
+      orgIndex: 1
+      atlasGroup: 0
+      atlasIndex: 0
+      rotationPlacement: 0
+      scalePlacement: 0
+      texture: {fileID: 2800000, guid: 6aa8819ae9c7540deb9e325b49b2405b, type: 3}
+    - name: banksy
+      id: 53c2c4eb80a4e492abfa03b1a4a6d2b7
+      isPacked: 0
+      materialId: 
+      rotation: {x: -45, y: 45, z: 0}
+      scale: {x: .800000012, y: 1.20000005, z: 1}
+      atlasRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+      orgGroup: 0
+      orgIndex: 2
+      atlasGroup: 0
+      atlasIndex: 0
+      rotationPlacement: 0
+      scalePlacement: 0
+      texture: {fileID: 2800000, guid: 53c2c4eb80a4e492abfa03b1a4a6d2b7, type: 3}
+    name: 
+    shader: {fileID: 0}
+    isPacked: 0
+    material: {fileID: 0}
+    maxAtlasSize: 0
+    padding: 0
+  s_decals:
+  - '{
+
+    spaceinvader
+
+    ddf3f596fff19484a9cc63b0c81db7a0
+
+    (-45.0, 45.0, 0.0)
+
+    (0.8, 1.2, 1.0)
+
+    (0, 0, 1, 1)
+
+    0
+
+    0
+
+    0
+
+    0
+
+    0
+
+    0
+
+    False
+
+    }'
+  - '{
+
+    missvan
+
+    6aa8819ae9c7540deb9e325b49b2405b
+
+    (-45.0, 45.0, 0.0)
+
+    (0.8, 1.2, 1.0)
+
+    (0, 0, 1, 1)
+
+    0
+
+    0
+
+    1
+
+    0
+
+    0
+
+    0
+
+    False
+
+    }'
+  - '{
+
+    banksy
+
+    53c2c4eb80a4e492abfa03b1a4a6d2b7
+
+    (-45.0, 45.0, 0.0)
+
+    (0.8, 1.2, 1.0)
+
+    (0, 0, 1, 1)
+
+    0
+
+    0
+
+    2
+
+    0
+
+    0
+
+    0
+
+    False
+
+    }'
+  names: []
+  isPacked: 
+  materials: []
+  shaders: []
+  atlasSize: 
+  padding: 
