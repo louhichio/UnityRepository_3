@@ -13,7 +13,7 @@
 				if (_instance == null)
 				{
 					_instance = (Player) FindObjectOfType(typeof(Player));
-					
+
 					if (FindObjectsOfType(typeof(Player)).Length > 1 )
 					{
 						return _instance;
@@ -38,6 +38,8 @@
 			
 		public bool isHidden;
 
+		public GameObject tile_Destination;
+
 		#region Events
 			void OnEnable()
 		{
@@ -60,6 +62,8 @@
 			Initialize(tile_temp);
 			SetUnitNeighboursTilesState(TileState.PlayerOn);
 			tile_current.AddUnit(this);
+			
+			tile_Destination.SetActive(false);
 
 			isHidden = false;
 
@@ -74,9 +78,12 @@
 			waypoints.Clear();
 
 			transform.position = position_Init;
+			transform.eulerAngles = new Vector3(0, rotation_init, 0);
 			
 			tile_current = tile_init;			
 			tile_current.AddUnit(this);
+			
+			tile_Destination.SetActive(false);
 
 			isHidden = false;
 
@@ -108,16 +115,18 @@
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max - turnSteps);
 			SetUnitNeighboursTilesState(TileState.PlayerOn);
+			
+			tile_Destination.SetActive(false);
 
 			tile_current.AddUnit(this);
 
 			if(turnSteps == step_Max)
 			{
-				list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
-				SetUnitNeighboursTilesState(TileState.PlayerOn);
+//				list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
+//				SetUnitNeighboursTilesState(TileState.PlayerOn);
 
 				if(TurnManager.Instance.turnState != TurnState.EnemyTurn)
-				TurnManager.Instance.StartCoroutine("PlayerMoved");
+					TurnManager.Instance.StartCoroutine("PlayerMoved");
 			}
 		}
 		public override bool Check()
@@ -128,6 +137,13 @@
 			{
 				GameManager.Instance.StartCoroutine("PlayerLost");
 				Stop();
+				return true;
+			}			
+			
+			if(tile_current == MapManager.Instance.tile_EndGame)
+			{
+				GameManager.Instance.StartCoroutine("PlayerWon");	
+				Stop();			
 				return true;
 			}
 
@@ -143,13 +159,16 @@
 				tile_current.isCollectible = false;
 				CollectManager.Instance.PlayerCollectedObj(tile_current);
 			}
-
-			if(tile_current == MapManager.Instance.tile_EndGame)
-			{
-				GameManager.Instance.StartCoroutine("PlayerWon");				
-				return true;
-			}
 			return false;
+		}
+
+		public void TouchOnDestinationTile(Tile destination)
+		{
+			tile_Destination.transform.position = destination.transform.position;
+			Vector3 pos = destination.transform.position;
+			pos.y += 0.003f;
+			tile_Destination.transform.position = pos;
+			tile_Destination.SetActive(true);
 		}
 	}
 }

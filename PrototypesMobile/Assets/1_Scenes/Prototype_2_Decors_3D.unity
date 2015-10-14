@@ -20295,7 +20295,7 @@ Transform:
   m_LocalScale: {x: 5, y: 4, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &961414401
 GameObject:
   m_ObjectHideFlags: 0
@@ -25229,6 +25229,34 @@ Prefab:
     - target: {fileID: 11475816, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
       propertyPath: Speed
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114462, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
+      propertyPath: m_Name
+      value: TileDestination
+      objectReference: {fileID: 0}
+    - target: {fileID: 420254, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: .707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 420254, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .707106709
+      objectReference: {fileID: 0}
+    - target: {fileID: 420254, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420254, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420254, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464152, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}

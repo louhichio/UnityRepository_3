@@ -28,7 +28,7 @@ namespace TheVandals
 		public Tile tile_init;		
 		public Tile tile_current;
 		
-		[HideInInspector]
+//		[HideInInspector]
 		public int rotation_init;
 
 		[HideInInspector]
@@ -62,12 +62,13 @@ namespace TheVandals
 
 			position_Init = tile.GetTilePosition();
 			transform.position = position_Init;			
-			
-			if(transform.eulerAngles.y != 0 && transform.eulerAngles.y != 90 && transform.eulerAngles.y != 180 && transform.eulerAngles.y != 270 )
+
+			int angle = (int)transform.eulerAngles.y;
+			if(angle != 0 && angle != 90.0f && angle != 180.0f && angle != 270.0f )
 				transform.rotation = Quaternion.Euler(Vector3.zero);
 			
 			targetRotation = transform.rotation;
-			rotation_init = Mathf.RoundToInt(targetRotation.y);			
+			rotation_init = (int)transform.eulerAngles.y;			
 
 			tile_init = tile;		
 			tile_current = tile;
@@ -159,7 +160,7 @@ namespace TheVandals
 					direction = waypoints[0] - transform.position;
 					direction.y =0;						
 					if(direction.normalized!= Vector3.zero)
-						transform.forward = direction.normalized * 90;	
+						transform.forward = direction.normalized * 90;
 				}
 			}
 		}
