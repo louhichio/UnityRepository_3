@@ -45,7 +45,6 @@ namespace TheVandals
 		{
 			if (canMove && path != null && path.Count > 0 && waypoints != null && waypoints.Count > 0)
 			{
-				moveState = MoveState.Moving;
 				MoveThroughWaypoints();
 			}
 			else if(moveState != MoveState.None)
@@ -84,15 +83,16 @@ namespace TheVandals
 			List<Tile> path = AStar.FindPath(tile_current, destination);
 	        if (path.Count == 0)
 	        {
-	            path = null;
+	            this.path = null;
+//				print ("No Path Found For Unit: " + transform.parent);
 	            return;
 	        }
-
 			tile_current.RemoveUnit(this);
 
 			this.path = path;
 	        waypoints = GetWaypointsFromPath(path);
-
+			
+			moveState = MoveState.Moving;
 	    }
 
 		public abstract void TravelFinished();

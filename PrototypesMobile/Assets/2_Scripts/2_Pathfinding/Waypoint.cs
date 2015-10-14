@@ -98,7 +98,7 @@
 					int initPos = unitPos;
 					while(unitPos == initPos)
 					{
-						unitPos = UnityEngine.Random.Range(0, list_wayPoints.Count -1);
+						unitPos = UnityEngine.Random.Range(0, list_wayPoints.Count);
 					}
 					break;
 				case Type.PingPong:

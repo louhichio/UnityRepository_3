@@ -53,6 +53,8 @@
 
 		private void GameOver(string status)
 		{
+			panel_PlayerInfo.SetActive(false);
+			panel_EnemyInfo.SetActive(false);
 			panel_Gameover.SetActive(true);
 			
 			if(text_Gameover)
@@ -74,6 +76,8 @@
 		private void GameReset()
 		{
 			panel_Gameover.SetActive(false);
+			panel_PlayerInfo.SetActive(true);
+			panel_EnemyInfo.SetActive(false);
 		}
 
 		private void StartTurn_Enemy()

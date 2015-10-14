@@ -41,7 +41,6 @@
 
 		public void PlayerCollectedObj(Tile t)
 		{
-			print ("here");
 			collected++;
 			list_Collectables.Find(x=>x.tile == t).SetActive(false);
 			UIManager.Instance.UpdatePlayerInfoCollectables(collected, collectables_Count);

@@ -116,6 +116,7 @@
 				list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 				SetUnitNeighboursTilesState(TileState.PlayerOn);
 
+				if(TurnManager.Instance.turnState != TurnState.EnemyTurn)
 				TurnManager.Instance.StartCoroutine("PlayerMoved");
 			}
 		}

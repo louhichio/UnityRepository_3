@@ -215,19 +215,16 @@ namespace TheVandals
 
 		public Tile GetTapTilePosition(Vector3 position, Tile tile, int cost)
 		{	
-
-			foreach(Tile t in tile.GetTilesWithinCost(cost))//cross.list_tiles
+			foreach(Tile t in tile.GetTilesWithinCost(cost))
 			{
-//				print (t);
-//				foreach(var n in t.Neighbours)
-//					print (n);
+//				print (t + "  " + position.x + "  " + (t.transform.position.x + 0.5f));
 				if(!Tile.ReferenceEquals(t,null) &&
 				   position.x >= t.transform.position.x - 0.5f && 
 				   position.x <= t.transform.position.x + 0.5f &&
 				   position.z >= t.transform.position.z - 0.5f && 
 				   position.z <= t.transform.position.z + 0.5f)
 				{								
-//					print (t);
+//					print ("here");
 //					if(t.index != tile.index)
 //					{
 						return t;

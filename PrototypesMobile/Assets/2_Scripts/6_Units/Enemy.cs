@@ -53,8 +53,7 @@
 
 			waypoint.Initialise();
 
-			if(waypoint.type != Waypoint.Type.None)
-				TurnManager.Instance.enemyCount_Max++;
+			TurnManager.Instance.enemyCount_Max++;
 
 			fov.Initialize(tile_current, (int)transform.eulerAngles.y);
 
@@ -78,12 +77,21 @@
 					TravelTo(waypoint.GetNextWayPoint(tile_current));
 				}
 				else
-					print ("Waypoint path isn't defined");
+				{
+					TravelTo(tile_init);
+				}
 			}
 			else
 				TravelTo(tile_init);
 
-			if(waypoints.Count > 0)
+			if(path == null)
+			{
+				canMove = false;
+				TravelFinished();
+				return;
+			}
+
+			if(waypoints.Count > 1)
 			{
 				Vector3 directionOr = transform.eulerAngles;
 				Vector3 direction = waypoints[1] - transform.position;
@@ -103,8 +111,11 @@
 			target = null;
 			psDetect.SetActive(false);
 
-			path.Clear();
-			waypoints.Clear();
+			if(path != null)
+			{
+				path.Clear();
+				waypoints.Clear();
+			}
 
 			transform.position = position_Init;
 			transform.eulerAngles = new Vector3(0, rotation_init, 0);
@@ -163,7 +174,8 @@
 			}
 			else
 			{
-				TurnManager.Instance.StopCoroutine("EnemyMoved");
+//				print (transform.parent);
+//				TurnManager.Instance.StopCoroutine("EnemyMoved");
 				TurnManager.Instance.StartCoroutine("EnemyMoved");
 			}
 		}

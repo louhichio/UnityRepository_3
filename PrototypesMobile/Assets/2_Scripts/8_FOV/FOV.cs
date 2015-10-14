@@ -14,7 +14,7 @@
 		public List<Tile> tiles_View;		
 		[HideInInspector]
 		public List<Tile> tiles_Neighbours;		
-//		[HideInInspector]
+		[HideInInspector]
 		public List<TileFOV> tiles_Visual;
 
 		public GameObject prefab_TileFoV;

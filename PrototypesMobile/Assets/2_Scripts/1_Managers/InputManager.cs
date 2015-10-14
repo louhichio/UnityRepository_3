@@ -47,8 +47,8 @@
 				{
 					Tile t = MapManager.Instance.GetTapTilePosition(hit.point, Player.Instance.tile_current, Player.Instance.step_Max);
 
-					if(t != Player.Instance.tile_current)
-						Player.Instance.TravelTo(t);
+					if(t != Player.Instance.tile_current)					
+						Player.Instance.TravelTo(t);					
 					else
 						TurnManager.Instance.StartCoroutine("PlayerMoved");
 				}

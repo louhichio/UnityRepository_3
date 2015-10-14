@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd67231f63dbff549a768d9d861eca0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
+  type: 0
   tiles_index: b2000000b3000000
   list_wayPoints:
   - {fileID: 0}
