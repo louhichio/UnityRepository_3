@@ -45,7 +45,13 @@
 
 		public void SetActive(bool isActive)
 		{
-			mesh_renderer.enabled = isActive;
+			if(mesh_renderer)				
+				mesh_renderer.enabled = isActive;
+			else
+			{
+				foreach(Transform child in transform)
+					child.GetComponent<MeshRenderer>().enabled = isActive;
+			}
 		}
 	}
 }
