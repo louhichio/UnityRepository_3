@@ -26,10 +26,14 @@
 		[SerializeField]
 		private float follow_Speed = 1;
 		[SerializeField]
-		public float boundaries_width;
+		public float boundaries_xMin;
 		[SerializeField]
-		public float boundaries_height;
-
+		public float boundaries_xMax;
+		[SerializeField]
+		public float boundaries_zMin;
+		[SerializeField]
+		public float boundaries_zMax;
+		
 		private Rect rect = new Rect();
 		#endregion
 
@@ -68,8 +72,8 @@
 			if(followPlayer)
 			{
 				Vector3 destinationPos = Player.Instance.transform.position / 2;
-				destinationPos.x = Mathf.Clamp(destinationPos.x, initPos.x - boundaries_width, initPos.x + boundaries_width);
-				destinationPos.z = Mathf.Clamp(destinationPos.z, initPos.z - boundaries_height, initPos.z + boundaries_height);
+				destinationPos.x = Mathf.Clamp(destinationPos.x, boundaries_xMin, boundaries_xMax);
+				destinationPos.z = Mathf.Clamp(destinationPos.z, boundaries_zMin, boundaries_zMax);
 
 				if(Vector3.Distance(destinationPos, transform.position) > 0.1f)		
 					transform.position = Vector3.Lerp(transform.position, destinationPos, Time.deltaTime * follow_Speed);
@@ -101,6 +105,10 @@
 			if(followPlayer)
 			{
 				initPos = (Player.Instance.transform.position + transform.position) / 2;
+				
+				initPos.x = Mathf.Clamp(initPos.x, boundaries_xMin, boundaries_xMax);
+				initPos.z = Mathf.Clamp(initPos.z, boundaries_zMin, boundaries_zMax);
+
 				transform.position = initPos;
 			}
 		}

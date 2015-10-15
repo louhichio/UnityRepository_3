@@ -17581,6 +17581,22 @@ Prefab:
       propertyPath: boundaries_height
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: boundaries_xMin
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: boundaries_xMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: boundaries_zMin
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: boundaries_zMax
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
   m_IsPrefabParent: 0
