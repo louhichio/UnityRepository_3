@@ -54,12 +54,12 @@
 						Player.Instance.TouchOnDestinationTile(t);
 				}
 			}
-
-			print ("isPinching: " + isPinching + 
-			       "  isTap: " + isTap +
-			       "  isSwipe:  " + isSwipe +
-			       "  isDrag:  " + isDrag + 
-			       "  TouchCount:  " + Input.touchCount);
+//
+//			print ("isPinching: " + isPinching + 
+//			       "  isTap: " + isTap +
+//			       "  isSwipe:  " + isSwipe +
+//			       "  isDrag:  " + isDrag + 
+//			       "  TouchCount:  " + Input.touchCount);
 			isTap = false;
 		}		
 		

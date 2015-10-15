@@ -12237,7 +12237,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ratio: {x: 16, y: 9}
   screen_Size_Max: 3
+  screen_Size_Center: 5
   screen_Size_Min: 1
+  screen_Size: 0
   isScreenSizing: 0
   followPlayer: 1
   follow_Speed: 1
@@ -17403,6 +17405,14 @@ Prefab:
     - target: {fileID: 11475816, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
       propertyPath: step_Max
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400466, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.01000023
+      objectReference: {fileID: 0}
+    - target: {fileID: 400466, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3.98000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}

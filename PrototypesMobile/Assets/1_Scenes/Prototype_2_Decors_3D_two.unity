@@ -5201,7 +5201,7 @@ Transform:
   - {fileID: 675989300}
   - {fileID: 336702953}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &722663013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9689,6 +9689,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 400466, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.86999989
+      objectReference: {fileID: 0}
+    - target: {fileID: 400466, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3.86999989
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 833db9002bba84e07b1d0bc04b7e78de, type: 2}
   m_IsPrefabParent: 0
@@ -13795,7 +13803,7 @@ Transform:
   - {fileID: 1022422983}
   - {fileID: 701983427}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1642938437
 GameObject:
   m_ObjectHideFlags: 0
