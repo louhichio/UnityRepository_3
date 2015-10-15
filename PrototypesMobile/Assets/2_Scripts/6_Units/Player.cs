@@ -40,6 +40,11 @@
 
 		public GameObject tile_Destination;
 
+		public int stepsLeft
+		{
+			get { return step_Max - turnSteps; }
+		}
+
 		#region Events
 			void OnEnable()
 		{
@@ -113,7 +118,7 @@
 
 			moveState = MoveState.None;
 
-			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max - turnSteps);
+			list_UnitNeighbours = tile_current.GetTilesWithinCost(stepsLeft);
 			SetUnitNeighboursTilesState(TileState.PlayerOn);
 			
 			tile_Destination.SetActive(false);
@@ -169,6 +174,11 @@
 			pos.y += 0.003f;
 			tile_Destination.transform.position = pos;
 			tile_Destination.SetActive(true);
+		}
+
+		public void DisableDestinationTile()
+		{
+			tile_Destination.SetActive(false);
 		}
 	}
 }

@@ -10,8 +10,10 @@
 		public Vector2 ratio = new Vector2(10.0f, 10.0f);
 
 		public float screen_Size_Max = 7;	
-		public float screen_Size_Min = 5;	
-		private float screen_Size = 5;
+		public float screen_Size_Center = 5;	
+		public float screen_Size_Min = 3;
+		[SerializeField]
+		private float screen_Size;
 		public bool isScreenSizing = false;
 		private static float Screen_Diagonal;
 
@@ -25,16 +27,6 @@
 		#endregion
 
 		#region Unity
-		void Start()
-		{		
-//			screen_Size = screen_Size_Max;
-//			Screen_Diagonal = Mathf.Sqrt(Mathf.Pow(Screen.width,2) + Mathf.Pow(Screen.height,2));
-//			Camera.main.orthographicSize = screen_Size;
-//
-//			if(followPlayer)
-//				initPos = transform.position;
-		}
-
 		void Update()
 		{
 //			SetCameraAspect();
@@ -46,7 +38,8 @@
 				if(Vector3.Distance(destinationPos, transform.position) > 0.1f)		
 					transform.position = Vector3.Lerp(transform.position, destinationPos, Time.deltaTime * follow_Speed);
 			}
-
+			
+			Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, screen_Size, Time.deltaTime * 3);
 		}		
 		#endregion
 		
@@ -65,14 +58,14 @@
 		
 		private void Init()
 		{			
-			screen_Size = screen_Size_Max;
+			screen_Size = screen_Size_Center;
 			Screen_Diagonal = Mathf.Sqrt(Mathf.Pow(Screen.width,2) + Mathf.Pow(Screen.height,2));
 			Camera.main.orthographicSize = screen_Size;
 			
 			if(followPlayer)
 			{
-				transform.position = Player.Instance.transform.position;
-				initPos = transform.position;
+				initPos = (Player.Instance.transform.position + transform.position) / 2;
+				transform.position = initPos;
 			}
 		}
 		private void Reset()
@@ -89,10 +82,10 @@
 			while(Camera.main.orthographicSize != screen_Size)
 			{
 				t += Time.deltaTime;
-				Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, screen_Size, t);
 				yield return null;
 			}
 			isScreenSizing = false;
+			print ("Finished");
 		}
 
 		private void SetCameraAspect()
@@ -140,21 +133,19 @@
 		#region Public		
 		public void OnPinch(PinchGesture gesture) 
 		{	
-			float delta = gesture.Delta * 10/ Screen_Diagonal;
-			screen_Size = Mathf.Clamp(screen_Size - delta, screen_Size_Min, screen_Size_Max);
-			
-			if(!isScreenSizing && screen_Size != Camera.main.orthographicSize)
-			{
-				StopCoroutine("LerpScreenSize");
-				StartCoroutine("LerpScreenSize");
-			}
-			
 			if(gesture.Phase == ContinuousGesturePhase.Ended)
 			{
-				screen_Size = screen_Size_Max;
-				StopCoroutine("LerpScreenSize");
-				StartCoroutine("LerpScreenSize");
+				screen_Size = screen_Size_Center;
+				return;
 			}
+
+			float delta = gesture.Delta * 10/ Screen_Diagonal;
+			screen_Size = Mathf.Clamp(screen_Size - delta, screen_Size_Min, screen_Size_Max);
+
+//			if(!isScreenSizing && screen_Size != Camera.main.orthographicSize)
+//			{
+//				StartCoroutine("LerpScreenSize");
+//			}
 		}
 		#endregion
 	}

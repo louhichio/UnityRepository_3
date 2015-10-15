@@ -6,6 +6,15 @@
 	public class InputManager : Singleton<InputManager>
 	{
 		private bool isStop = false;
+		[SerializeField]
+		private bool isPinching = false;
+		[SerializeField]
+		private bool isTap = false;
+		[SerializeField]
+		private bool isSwipe = false;
+		[SerializeField]
+		private bool isDrag = false;
+
 		#region Events
 		void OnEnable()
 		{
@@ -37,20 +46,32 @@
 			{
 				if(!isStop && 
 				   TurnManager.Instance.turnState == TurnState.PlayerTurn &&
-				   Player.Instance.moveState == MoveState.None)
+				   Player.Instance.moveState == MoveState.None && 
+				   !isPinching)
 				{
 					Tile t = RetrieveTouchTilePosition();
 					if(t != null)
 						Player.Instance.TouchOnDestinationTile(t);
 				}
 			}
+
+			print ("isPinching: " + isPinching + 
+			       "  isTap: " + isTap +
+			       "  isSwipe:  " + isSwipe +
+			       "  isDrag:  " + isDrag + 
+			       "  TouchCount:  " + Input.touchCount);
+			isTap = false;
 		}		
 		
 		void OnTap(TapGesture gesture) 
 		{
+			if(!isTap)
+				isTap = true;
+
 			if(!isStop && 
 			   TurnManager.Instance.turnState == TurnState.PlayerTurn &&
-			   Player.Instance.moveState == MoveState.None)
+			   Player.Instance.moveState == MoveState.None && 
+			   !isPinching)
 			{
 				Tile t = RetrieveTouchTilePosition();
 
@@ -63,32 +84,52 @@
 						TurnManager.Instance.StartCoroutine("PlayerMoved");
 				}
 			}
+//			if(gesture.State == GestureRecognitionState.Ended)
+//				isTap = false;
 		}
 		
 		void OnSwipe(SwipeGesture gesture) 
 		{
+			if(!isSwipe)
+				isSwipe = true;
+
 			if(!isStop && 
 			   TurnManager.Instance.turnState == TurnState.PlayerTurn && 
 			   Player.Instance.moveState == MoveState.None && 
-			   !CameraManager.Instance.isScreenSizing)
+			   !isPinching)
 			{
 				Player.Instance.TravelTo(
 					MapManager.Instance.GetSwipeTilePosition(Player.Instance.tile_current, gesture.Direction));
 			}
+			if(gesture.State == GestureRecognitionState.Ended)
+				isSwipe = false;
 		}
 
 		void OnPinch(PinchGesture gesture) 
 		{
+			if(!isPinching)
+			{
+				isPinching = true;
+				Player.Instance.DisableDestinationTile();
+			}
+
 			if(!isStop && 
 			   TurnManager.Instance.turnState == TurnState.PlayerTurn)
 				CameraManager.Instance.OnPinch(gesture);
+
+			if(gesture.State == GestureRecognitionState.Ended)
+				isPinching = false;
 		}
 
 		void OnDrag( DragGesture gesture ) 
 		{
+			if(!isDrag)
+				isDrag = true;
+
 			if(!isStop && 
 			   TurnManager.Instance.turnState == TurnState.PlayerTurn &&
-			   Player.Instance.moveState == MoveState.None)
+			   Player.Instance.moveState == MoveState.None &&
+			   !isPinching)
 			{
 				Tile t = RetrieveTouchTilePosition();
 				if(t != null)
@@ -106,6 +147,9 @@
 					}
 				}
 			}
+
+			if(gesture.State == GestureRecognitionState.Ended)
+				isDrag = false;
 		}
 
 		private Tile RetrieveTouchTilePosition()
@@ -115,7 +159,7 @@
 			
 			if (Physics.Raycast(mouseRay, out hit, Mathf.Infinity))
 			{
-				return MapManager.Instance.GetTapTilePosition(hit.point, Player.Instance.tile_current, Player.Instance.step_Max);
+				return MapManager.Instance.GetTapTilePosition(hit.point, Player.Instance.tile_current, Player.Instance.stepsLeft);
 			}
 			return null;
 		}

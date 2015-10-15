@@ -217,7 +217,6 @@ namespace TheVandals
 		{	
 			foreach(Tile t in tile.GetTilesWithinCost(cost))
 			{
-//				print (t + "  " + position.x + "  " + (t.transform.position.x + 0.5f));
 				if(!Tile.ReferenceEquals(t,null) &&
 				   position.x >= t.transform.position.x - 0.5f && 
 				   position.x <= t.transform.position.x + 0.5f &&
@@ -228,8 +227,6 @@ namespace TheVandals
 //					if(t.index != tile.index)
 //					{
 						return t;
-//					}					
-//					break;
 				}
 			}
 			return null;
