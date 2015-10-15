@@ -7,7 +7,7 @@
 	{
 		private bool isStop = false;
 		[SerializeField]
-		private bool isFingerClear = false;
+		private bool isFingerClear = true;
 		
 		#region Events
 		void OnEnable()
@@ -61,7 +61,7 @@
 			if(!isStop && 
 			   TurnManager.Instance.turnState == TurnState.PlayerTurn &&
 			   Player.Instance.moveState == MoveState.None && 
-			   isFingerClear && Input.touchCount == 1)
+			   isFingerClear)
 			{
 				Tile t = RetrieveTouchTilePosition();
 
@@ -81,7 +81,7 @@
 			if(!isStop && 
 			   TurnManager.Instance.turnState == TurnState.PlayerTurn && 
 			   Player.Instance.moveState == MoveState.None && 
-			   isFingerClear && Input.touchCount == 1)
+			   isFingerClear)
 			{
 				print ("OnSwipe");
 				Player.Instance.TravelTo(
@@ -102,7 +102,7 @@
 			if(!isStop && 
 			   TurnManager.Instance.turnState == TurnState.PlayerTurn &&
 			   Player.Instance.moveState == MoveState.None &&
-			   isFingerClear && Input.touchCount == 1)
+			   isFingerClear)
 			{
 				Tile t = RetrieveTouchTilePosition();
 

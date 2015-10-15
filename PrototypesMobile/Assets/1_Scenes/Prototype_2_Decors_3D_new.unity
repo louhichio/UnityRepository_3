@@ -17463,11 +17463,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 456066, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.1500001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 456066, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.600000024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 456066, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -17556,6 +17556,30 @@ Prefab:
     - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: screen_Size_Center
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: boundaries.x
+      value: -15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: boundaries.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: boundaries.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: boundaries.height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: boundaries_width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: boundaries_height
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
@@ -45989,6 +46013,10 @@ Prefab:
     - target: {fileID: 11423970, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}
       propertyPath: MinDistance
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450830, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}
+      propertyPath: isFingerClear
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}

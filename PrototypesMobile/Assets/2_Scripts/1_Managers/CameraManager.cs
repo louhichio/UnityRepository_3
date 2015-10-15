@@ -7,26 +7,60 @@
 	public class CameraManager : Singleton<CameraManager>
 	{
 		#region Properties
-		public Vector2 ratio = new Vector2(10.0f, 10.0f);
-
-		public float screen_Size_Max = 7;	
-		public float screen_Size_Center = 5;	
-		public float screen_Size_Min = 3;
 		[SerializeField]
-		private float screen_Size;
-		public bool isScreenSizing = false;
-		private static float Screen_Diagonal;
+		private Vector2 ratio = new Vector2(10.0f, 10.0f);
+		[SerializeField]
+		private float screen_Size_Max = 7;	
+		[SerializeField]
+		private float screen_Size_Center = 5;
+		[SerializeField]
+		private float screen_Size_Min = 3;
 
-		public bool followPlayer = false;
+		private float screen_Size;
+		private float Screen_Diagonal;
+
+		[SerializeField]
+		private bool followPlayer = false;
 		private Vector3 initPos;
 
 		[SerializeField]
 		private float follow_Speed = 1;
-		
-//		CoroutineController LerpScreenSize_controller;
+		[SerializeField]
+		public float boundaries_width;
+		[SerializeField]
+		public float boundaries_height;
+
+		private Rect rect = new Rect();
 		#endregion
 
 		#region Unity
+//		void OnDrawGizmos()
+//		{
+////			boundaries.center = transform.position;	
+//			Gizmos.color = Color.blue;
+//			Vector3 point1 = transform.rotation * new Vector3(transform.position.x + boundaries_width / 2, transform.position.y + boundaries_height / 2, transform.position.z);
+//			rect.xMin = point1.x;
+//			rect.yMin = point1.y;
+//			Vector3 point2 = transform.rotation * new Vector3(transform.position.x - boundaries_width / 2, transform.position.y + boundaries_height / 2, transform.position.z);
+//			rect.xMax = point2.x;
+//			Gizmos.DrawLine(point1, point2);
+//
+//			point1 = transform.rotation * new Vector3(transform.position.x + boundaries_width / 2, transform.position.y - boundaries_height / 2, transform.position.z);
+//			point2 = transform.rotation * new Vector3(transform.position.x - boundaries_width / 2, transform.position.y - boundaries_height / 2, transform.position.z);
+//			Gizmos.DrawLine(point1, point2);
+//
+//			point1 = transform.rotation * new Vector3(transform.position.x + boundaries_width / 2, transform.position.y + boundaries_height / 2, transform.position.z);
+//			point2 = transform.rotation * new Vector3(transform.position.x + boundaries_width / 2, transform.position.y - boundaries_height / 2, transform.position.z);
+//			Gizmos.DrawLine(point1, point2);
+//
+//			point1 = transform.rotation * new Vector3(transform.position.x - boundaries_width / 2, transform.position.y + boundaries_height / 2, transform.position.z);
+//			point2 = transform.rotation * new Vector3(transform.position.x - boundaries_width / 2, transform.position.y - boundaries_height / 2, transform.position.z);
+//			rect.yMax = point2.y;
+//			Gizmos.DrawLine(point1, point2);
+//
+//			print (rect.Contains((Vector2)transform.position));
+//		}
+
 		void Update()
 		{
 //			SetCameraAspect();
@@ -34,6 +68,8 @@
 			if(followPlayer)
 			{
 				Vector3 destinationPos = Player.Instance.transform.position / 2;
+				destinationPos.x = Mathf.Clamp(destinationPos.x, initPos.x - boundaries_width, initPos.x + boundaries_width);
+				destinationPos.z = Mathf.Clamp(destinationPos.z, initPos.z - boundaries_height, initPos.z + boundaries_height);
 
 				if(Vector3.Distance(destinationPos, transform.position) > 0.1f)		
 					transform.position = Vector3.Lerp(transform.position, destinationPos, Time.deltaTime * follow_Speed);
@@ -75,18 +111,6 @@
 		#endregion
 
 		#region Private
-		private IEnumerator LerpScreenSize()
-		{
-			isScreenSizing = true;
-			float t = 0;
-			while(Camera.main.orthographicSize != screen_Size)
-			{
-				t += Time.deltaTime;
-				yield return null;
-			}
-			isScreenSizing = false;
-			print ("Finished");
-		}
 
 		private void SetCameraAspect()
 		{
@@ -141,11 +165,6 @@
 
 			float delta = gesture.Delta * 10/ Screen_Diagonal;
 			screen_Size = Mathf.Clamp(screen_Size - delta, screen_Size_Min, screen_Size_Max);
-
-//			if(!isScreenSizing && screen_Size != Camera.main.orthographicSize)
-//			{
-//				StartCoroutine("LerpScreenSize");
-//			}
 		}
 		#endregion
 	}
