@@ -90,8 +90,8 @@
 		{
 			panel_EnemyInfo.SetActive(false);
 			panel_PlayerInfo.SetActive(true);
-			text_StepsLeft.text = "StepsLeft: " + Player.Instance.turnSteps + "/" + Player.Instance.step_Max ;
-			text_Collectables.text = "Collectables: " + CollectManager.Instance.collected + "/" + CollectManager.Instance.collectables_Count;
+			text_StepsLeft.text = "STEPS: " + Player.Instance.turnSteps + "/" + Player.Instance.step_Max ;
+			text_Collectables.text = "BONUS: " + CollectManager.Instance.collected + "/" + CollectManager.Instance.collectables_Count;
 		}
 		#endregion
 

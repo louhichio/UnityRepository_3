@@ -163,15 +163,15 @@ Material:
       data:
         first:
           name: _ColorLow
-        second: {r: .352941155, g: 0, b: 0, a: 1}
+        second: {r: .661764741, g: .0243295692, b: .0243295692, a: 1}
       data:
         first:
           name: _ColorHigh
-        second: {r: .198529422, g: 0, b: 0, a: 1}
+        second: {r: .573529422, g: 0, b: 0, a: 1}
       data:
         first:
           name: _ColorX
-        second: {r: .433823526, g: 0, b: 0, a: 1}
+        second: {r: .897058845, g: 0, b: 0, a: 1}
       data:
         first:
           name: _ColorY
