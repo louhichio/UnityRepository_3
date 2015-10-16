@@ -71,7 +71,7 @@
 			//////////////////////////////// Neeeeds Coroutine ////////////////////////////////
 			if(followPlayer)
 			{
-				Vector3 destinationPos = Player.Instance.transform.position / 2;
+				Vector3 destinationPos = Player.Instance.transform.position ;
 				destinationPos.x = Mathf.Clamp(destinationPos.x, boundaries_xMin, boundaries_xMax);
 				destinationPos.z = Mathf.Clamp(destinationPos.z, boundaries_zMin, boundaries_zMax);
 
@@ -104,7 +104,7 @@
 			
 			if(followPlayer)
 			{
-				initPos = (Player.Instance.transform.position + transform.position) / 2;
+				initPos = (Player.Instance.transform.position + transform.position);
 				
 				initPos.x = Mathf.Clamp(initPos.x, boundaries_xMin, boundaries_xMax);
 				initPos.z = Mathf.Clamp(initPos.z, boundaries_zMin, boundaries_zMax);
