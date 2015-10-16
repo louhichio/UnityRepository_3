@@ -148,7 +148,7 @@ namespace TheVandals
 				foreach (Transform child in trs_Tiles)
 				{
 					map_tiles.Add(child.GetComponent<Tile>());
-//					map_tiles[map_tiles.Count - 1].SetTileState(TileState.Clear);
+					map_tiles[map_tiles.Count - 1].Reset();
 				}
 			}
 

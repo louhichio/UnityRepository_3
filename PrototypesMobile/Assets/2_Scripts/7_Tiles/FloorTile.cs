@@ -57,9 +57,8 @@
 			Z = arrayCoordinate[2];
 
 			sr = GetComponent<SpriteRenderer>();
-			
-			sr.color = Color.white;
-			sr.enabled = false;
+			sr.enabled = true;			
+			sr.color = new Color(0, 0, 0, 0);
 		}
 
 		public override void Reset ()
@@ -68,10 +67,14 @@
 			enemyLeft = true;			
 			if(!sr)
 				sr = GetComponent<SpriteRenderer>();
+
 			if(sr.color != Color.yellow)
 			{
-				sr.color = Color.white;
-				sr.enabled = false;
+				sr.color = new Color(0, 0, 0, 0);
+				if(!sr.enabled)
+				{
+					sr.enabled = true;
+				}
 			}
 
 			isEnemyOn = false;
@@ -108,8 +111,12 @@
 					if(TurnManager.Instance.turnState != TurnState.PlayerTurn)
 					{
 						sr.color = Color.white;
-						sr.enabled = playerLeft ? false : true;
+//						sr.enabled = !playerLeft;
+						StopAllCoroutines();
+						StartCoroutine("FadeRenderer", playerLeft);
+
 						enemyLeft = true;
+
 						if(enemyCount == 0)						
 							this.tile_state = playerLeft ? tile_state : TileState.PlayerOn;						
 					}
@@ -118,7 +125,9 @@
 						if(enemyLeft)
 						{	
 							sr.color = Color.white;
-							sr.enabled = false;
+//							sr.enabled = false;
+							StopAllCoroutines();
+							StartCoroutine("FadeRenderer", false);
 						}				
 						
 						this.tile_state = enemyLeft ? tile_state : TileState.EnemyOn;
@@ -129,14 +138,17 @@
 					if(enemyLeft)
 					{	
 						sr.color = Color.white;
-						sr.enabled = true;
+//						sr.enabled = true;
+						StopAllCoroutines();
+						StartCoroutine("FadeRenderer", true);
 						this.tile_state = tile_state;
 					}	
 					playerLeft = false;
 					break;
 				case TileState.EnemyOn:
 					sr.color = Color.red;
-					sr.enabled = true;
+//					sr.enabled = true;
+					
 					enemyLeft = false;
 					this.tile_state = tile_state;
 					break;
@@ -144,7 +156,40 @@
 			}
 			else
 			{
-				sr.enabled = true;
+				StopAllCoroutines();
+				StartCoroutine("FadeRenderer", true);
+			}
+		}
+
+		private IEnumerator FadeRenderer(bool isFadeIn)
+		{
+			Color c = sr.color;
+			float x = sr.color.a;
+			if(isFadeIn)
+			{
+				while(x < 1)
+				{ 				
+					c.a = x;
+					sr.color = c;
+					x += Time.deltaTime;
+					yield return null;
+				}
+				
+				c.a = 1;
+				sr.color = c;
+			}
+			else
+			{
+				while(x > 0)
+				{ 				
+					c.a = x;
+					sr.color = c;
+					x -= Time.deltaTime;
+					yield return null;
+				}
+				
+				c.a = 0;
+				sr.color = c;
 			}
 		}
 	}

@@ -33,38 +33,9 @@
 		public float boundaries_zMin;
 		[SerializeField]
 		public float boundaries_zMax;
-		
-		private Rect rect = new Rect();
 		#endregion
 
 		#region Unity
-//		void OnDrawGizmos()
-//		{
-////			boundaries.center = transform.position;	
-//			Gizmos.color = Color.blue;
-//			Vector3 point1 = transform.rotation * new Vector3(transform.position.x + boundaries_width / 2, transform.position.y + boundaries_height / 2, transform.position.z);
-//			rect.xMin = point1.x;
-//			rect.yMin = point1.y;
-//			Vector3 point2 = transform.rotation * new Vector3(transform.position.x - boundaries_width / 2, transform.position.y + boundaries_height / 2, transform.position.z);
-//			rect.xMax = point2.x;
-//			Gizmos.DrawLine(point1, point2);
-//
-//			point1 = transform.rotation * new Vector3(transform.position.x + boundaries_width / 2, transform.position.y - boundaries_height / 2, transform.position.z);
-//			point2 = transform.rotation * new Vector3(transform.position.x - boundaries_width / 2, transform.position.y - boundaries_height / 2, transform.position.z);
-//			Gizmos.DrawLine(point1, point2);
-//
-//			point1 = transform.rotation * new Vector3(transform.position.x + boundaries_width / 2, transform.position.y + boundaries_height / 2, transform.position.z);
-//			point2 = transform.rotation * new Vector3(transform.position.x + boundaries_width / 2, transform.position.y - boundaries_height / 2, transform.position.z);
-//			Gizmos.DrawLine(point1, point2);
-//
-//			point1 = transform.rotation * new Vector3(transform.position.x - boundaries_width / 2, transform.position.y + boundaries_height / 2, transform.position.z);
-//			point2 = transform.rotation * new Vector3(transform.position.x - boundaries_width / 2, transform.position.y - boundaries_height / 2, transform.position.z);
-//			rect.yMax = point2.y;
-//			Gizmos.DrawLine(point1, point2);
-//
-//			print (rect.Contains((Vector2)transform.position));
-//		}
-
 		void Update()
 		{
 //			SetCameraAspect();

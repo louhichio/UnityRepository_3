@@ -82,12 +82,15 @@ namespace TheVandals
 				return;
 
 			List<Tile> path = AStar.FindPath(tile_current, destination);
-	        if (path.Count == 0)
+
+	        if (path.Count <= 1)
 	        {
 	            this.path = null;
-//				print ("No Path Found For Unit: " + transform.parent);
+				turnSteps = step_Max;
+				TravelFinished();
 	            return;
 	        }
+
 			tile_current.RemoveUnit(this);
 
 			this.path = path;
@@ -182,6 +185,22 @@ namespace TheVandals
 				tile_current.SetTilesState(ts);
 			}
 		}
+		public void SetUnitNeighboursTilesState(TileState ts, List<Tile> tiles)
+		{
+			if(step_Max > 1)
+			{
+				foreach(var t in tiles)
+				{
+					t.SetTileState(ts);
+				}
+				return;
+			}
+			else
+			{
+				tile_current.SetTilesState(ts);
+			}
+		}
+
 
 		public void ResetUnitNeighboursTiles()
 		{

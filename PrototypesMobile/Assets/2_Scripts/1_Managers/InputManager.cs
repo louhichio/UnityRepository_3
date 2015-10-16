@@ -65,14 +65,8 @@
 			{
 				Tile t = RetrieveTouchTilePosition();
 
-				if(t != null && t != Player.Instance.tile_current)					
-					Player.Instance.TravelTo(t);					
-				else
-				{
-					Player.Instance.TravelFinished();
-					if(t == Player.Instance.tile_current)
-						TurnManager.Instance.StartCoroutine("PlayerMoved");
-				}
+				if(t != null)					
+					Player.Instance.TravelTo(t);		
 			}
 		}
 		
@@ -83,7 +77,6 @@
 			   Player.Instance.moveState == MoveState.None && 
 			   isFingerClear)
 			{
-				print ("OnSwipe");
 				Player.Instance.TravelTo(
 					MapManager.Instance.GetSwipeTilePosition(Player.Instance.tile_current, gesture.Direction));
 			}
@@ -115,17 +108,8 @@
 				{		
 					if(t != null)
 					{
-						if(t != Player.Instance.tile_current)
-						{
-							Player.Instance.TouchOnDestinationTile(t);
-							Player.Instance.TravelTo(t);
-						}
-						else
-						{	
-							/////// End Player Turn
-							Player.Instance.TravelFinished();
-							TurnManager.Instance.StartCoroutine("PlayerMoved");
-						}
+						Player.Instance.TouchOnDestinationTile(t);
+						Player.Instance.TravelTo(t);						
 					}
 					else					
 						Player.Instance.DisableDestinationTile();

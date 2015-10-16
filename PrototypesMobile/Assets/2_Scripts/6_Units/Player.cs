@@ -2,6 +2,7 @@
 {
 	using UnityEngine;
 	using System.Collections;
+	using System.Collections.Generic;
 
 	public class Player : Unit 
 	{
@@ -78,8 +79,9 @@
 		}
 
 		private void Reset()
-		{				
-			path.Clear();
+		{		
+			if(path != null)
+				path.Clear();
 			waypoints.Clear();
 
 			transform.position = position_Init;
@@ -103,9 +105,10 @@
 		public void StartTurn()
 		{						
 			canMove = true;	
-			turnSteps = 0;	
-			
-			path.Clear();
+			turnSteps = 0;
+
+			if(path != null)
+				path.Clear();
 			waypoints.Clear();		
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 			SetUnitNeighboursTilesState(TileState.PlayerOn);
@@ -114,6 +117,12 @@
 
 		public override void TravelFinished()
 		{
+//			List<Tile> tileTemp = tile_current.GetTilesWithinCost(stepsLeft);
+//			foreach(var t in tileTemp)
+//			{
+//				if(list_UnitNeighbours.Contains(t))
+//					tileTemp.Remove(t);
+//			}
 			SetUnitNeighboursTilesState(TileState.Clear);
 
 			moveState = MoveState.None;
