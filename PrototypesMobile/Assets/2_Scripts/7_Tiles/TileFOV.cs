@@ -22,6 +22,7 @@
 		{
 			index = tile.index;
 			SetTilePosition(tile.transform.position);
+			transform.rotation = tile.transform.rotation;
 			SetTileState(ts);
 		}
 

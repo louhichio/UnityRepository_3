@@ -58,8 +58,8 @@
 			
 			tiles_Neighbours = tile.GetTilesWithinCost(max_Step);
 
-			NeighboursRestriction(MapManager.Instance.GetFloorTile(pos2D_Detect, tile), ref tiles_Detect);
-//			NeighboursRestriction(MapManager.Instance.GetFloorTile(pos2D_View, tile), ref tiles_View);
+			NeighboursRestriction(MapManager.Instance.GetFloorTile(pos2D_Detect, tile), ref tiles_Detect, angle);
+//			NeighboursRestriction(MapManager.Instance.GetFloorTile(pos2D_View, tile), ref tiles_View, angle);
 
 			UpdateMapTiles(true);
 
@@ -75,7 +75,7 @@
 		
 		public abstract void SetFovDirection(int Angle);
 
-		public void NeighboursRestriction(List<Tile> From, ref List<Tile> to)
+		public void NeighboursRestriction(List<Tile> From, ref List<Tile> to, int angle)
 		{
 			to.Clear();
 
@@ -91,11 +91,66 @@
 					tiles_CantReach.Add(t);
 			}
 
-//			float column;
-//			foreach(var t in tiles_CantReach)
-//			{
-//				t.index
-//			}
+			List<Tile> list_Temp  = new List<Tile>();
+			float mapHeight = MapManager.Instance.mapHeight;
+
+			switch (angle)
+			{
+			case 0:
+				foreach(var t in tiles_CantReach)
+				{		
+					if((t.index % mapHeight) != 0)
+					{
+						list_Temp.Clear();
+						list_Temp = to.FindAll(temp => temp.X == t.X && temp.Z >= t.Z && Vector2.Distance(new Vector2(temp.X,temp.Z), new Vector2(t.X,t.Z)) <= max_Step);
+						
+						foreach(var temp in list_Temp)
+						{
+							to.Remove(temp);
+						}
+					}
+				}
+				break;
+			case 90:
+				foreach(var t in tiles_CantReach)
+				{		
+					list_Temp.Clear();
+					list_Temp = to.FindAll(temp => temp.Z == t.Z && temp.X >= t.X);
+					
+					foreach(var temp in list_Temp)
+					{
+						to.Remove(temp);
+					}
+				}
+				break;
+			case 180:
+				foreach(var t in tiles_CantReach)
+				{		
+					if((t.index + 1 % MapManager.Instance.mapHeight) != 0)
+					{
+						list_Temp.Clear();
+						list_Temp = to.FindAll(temp => temp.X == t.X && temp.Z <= t.Z && Vector2.Distance(new Vector2(temp.X,temp.Z), new Vector2(t.X,t.Z)) <= max_Step);
+						
+						foreach(var temp in list_Temp)
+						{
+							to.Remove(temp);
+						}
+					}
+				}
+				break;
+			case 270:
+				foreach(var t in tiles_CantReach)
+				{		
+					list_Temp.Clear();
+					list_Temp = to.FindAll(temp => temp.Z == t.Z && temp.X <= t.X);
+					
+					foreach(var temp in list_Temp)
+					{
+						to.Remove(temp);
+					}
+				}
+				break;
+			}
 		}
 
 		public virtual bool isPlayerDetected()

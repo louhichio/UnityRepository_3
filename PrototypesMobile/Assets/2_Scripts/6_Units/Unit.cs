@@ -161,7 +161,7 @@ namespace TheVandals
 				if(waypoints.Count > 0)
 				{
 					direction = waypoints[0] - transform.position;
-					direction.y =0;						
+					direction.y = 0;						
 					if(direction.normalized!= Vector3.zero)
 						transform.forward = direction.normalized * 90;
 				}
@@ -225,6 +225,36 @@ namespace TheVandals
 			waypoints.Clear();
 			canMove = false;
 			moveState = MoveState.None;
+		}
+
+		public void CorrectUnitRotation()
+		{
+			int angle = (int)transform.eulerAngles.y;
+			Vector3 pos = transform.eulerAngles;
+			if(angle != 0 && angle != 90.0f && angle != 180.0f && angle != 270.0f )
+			{
+				if(angle > 315 && angle <= 45)
+				{
+					pos.y = 0;
+					transform.eulerAngles = pos;
+				}
+				else if(angle > 45 && angle <= 135)
+				{
+					pos.y = 90;
+					transform.eulerAngles = pos;
+				}
+				else if(angle > 135 && angle <= 225)
+				{
+					pos.y = 180;
+					transform.eulerAngles = pos;
+				}
+				else if(angle > 225 && angle <= 315)
+				{
+					pos.y = 270;
+					transform.eulerAngles = pos;
+				}	
+				
+			}
 		}
 	}
 }

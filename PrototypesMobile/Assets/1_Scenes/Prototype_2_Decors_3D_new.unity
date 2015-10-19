@@ -15695,6 +15695,8 @@ MonoBehaviour:
   tile_EndGame: {fileID: 0}
   prefab_EndGame_particle: {fileID: 153058, guid: 0e9acb1af802644148f5c2e0485d95db,
     type: 2}
+  mapWidth: 0
+  mapHeight: 0
   enableEditorMapTilesGeneration: 0
   eraseTiles: 0
 --- !u!1 &634257597
@@ -36514,11 +36516,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422828, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
       propertyPath: m_LocalRotation.y
-      value: .70710659
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 422828, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106948
+      value: .707106709
       objectReference: {fileID: 0}
     - target: {fileID: 11485850, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
       propertyPath: tiles_index.Array.data[1]
@@ -36532,7 +36534,18 @@ Prefab:
       propertyPath: tiles_index.Array.data[0]
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11432424, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 187392, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6534968, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
+    - {fileID: 6552386, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
+    - {fileID: 6530344, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3975bc142af9d1e4988e42c817525583, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1462655365

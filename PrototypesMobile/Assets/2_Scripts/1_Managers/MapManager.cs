@@ -55,8 +55,8 @@ namespace TheVandals
 
 		private List<LinkObject> map_links = new List<LinkObject>();
 		
-		private float mapWidth;
-		private float mapHeight;
+		public float mapWidth;
+		public float mapHeight;
 		public bool enableEditorMapTilesGeneration = false;
 		public bool eraseTiles = false;
 		#endregion
