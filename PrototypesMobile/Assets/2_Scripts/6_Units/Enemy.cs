@@ -24,6 +24,8 @@
 		public Tile target;
 
 		public GameObject psDetect;
+
+		private GameObject prefab_ImageExclamation;
 		#endregion
 
 		#region Events
@@ -57,9 +59,10 @@
 
 			fov.Initialize(tile_current, (int)transform.eulerAngles.y);
 
-
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 //			SetUnitNeighboursTilesState(TileState.EnemyOn);
+
+			UIManager.Instance.GenerateUnitExclamationMark(ref prefab_ImageExclamation);
 		}
 
 		public void StartTurn()
@@ -110,6 +113,8 @@
 		{			
 			target = null;
 			psDetect.SetActive(false);
+			UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, false);
+			StopCoroutine("UpdateExclamationMark");
 
 			if(path != null)
 			{
@@ -141,11 +146,14 @@
 					Vector3 pos = target.transform.position;
 					pos.y += 0.003f;
 					psDetect.transform.position = pos;
-					psDetect.SetActive(true);
+					psDetect.SetActive(true);				
+					if(!prefab_ImageExclamation.activeSelf)
+						StartCoroutine("UpdateExclamationMark");
 				}
 			}
 		}
 		#endregion
+
 
 
 		public override void TravelFinished()
@@ -165,6 +173,8 @@
 			{
 				target = null;
 				psDetect.SetActive(false);
+				UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, false);
+				StopCoroutine("UpdateExclamationMark");
 			}
 
 			if(tile_current == Player.Instance.tile_current)
@@ -205,6 +215,7 @@
 						pos.y += 0.003f;
 						psDetect.transform.position = pos;
 						psDetect.SetActive(true);
+						StartCoroutine("UpdateExclamationMark");
 						
 						Vector3 direction = waypoints[0] - transform.position;
 						direction.y =0;						
@@ -226,6 +237,15 @@
 			else
 			{
 				fov.DisableFov();
+			}
+		}
+
+		IEnumerator UpdateExclamationMark()
+		{				
+			while(true)
+			{
+				UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, true);
+				yield return null;
 			}
 		}
 	}

@@ -27,6 +27,9 @@
 		private Text text_StepsLeft;
 		[SerializeField]
 		private Text text_Collectables;
+
+		[SerializeField]
+		private GameObject prefab_Image_Exclamation;
 		#endregion
 
 		#region Events
@@ -115,6 +118,23 @@
 		public void UpdatePlayerInfoCollectables(int collected, int collectables_Count)
 		{			
 			text_Collectables.text = "Collectables: " + collected + "/" + collectables_Count;
+		}
+
+		public void GenerateUnitExclamationMark(ref GameObject go)
+		{
+			go = Instantiate(prefab_Image_Exclamation) as GameObject;
+			go.transform.SetParent(panel_GameInfo.transform, false);
+		}
+
+		public void UpdateExclamationMark(GameObject go, Transform Unit, bool active)
+		{			
+			go.SetActive(active);
+
+			if(!active)
+				return;
+
+			Vector3 screenPos = Camera.main.WorldToScreenPoint(Unit.position + (Vector3.up * 1.5f));
+			go.transform.position = screenPos;
 		}
 		#endregion
 	}
