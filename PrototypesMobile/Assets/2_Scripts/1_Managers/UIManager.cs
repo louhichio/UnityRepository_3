@@ -15,15 +15,18 @@
 
 		[SerializeField]
 		private GameObject panel_PlayerInfo;
-		[SerializeField]
-		private Text text_StepsLeft;
-		[SerializeField]
-		private Text text_Collectables;
 
 		[SerializeField]
 		private GameObject panel_EnemyInfo;
 		[SerializeField]
 		private Text text_TurnStatus;
+
+		[SerializeField]
+		private GameObject panel_GameInfo;
+		[SerializeField]
+		private Text text_StepsLeft;
+		[SerializeField]
+		private Text text_Collectables;
 		#endregion
 
 		#region Events
@@ -47,8 +50,9 @@
 		public void Init()
 		{			
 			panel_Gameover.SetActive(false);
-			panel_PlayerInfo.SetActive(true);
+			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
+			panel_GameInfo.SetActive(true);
 		}
 
 		private void GameOver(string status)
@@ -56,6 +60,7 @@
 			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
 			panel_Gameover.SetActive(true);
+			panel_GameInfo.SetActive(true);
 			
 			if(text_Gameover)
 			{
@@ -76,8 +81,9 @@
 		private void GameReset()
 		{
 			panel_Gameover.SetActive(false);
-			panel_PlayerInfo.SetActive(true);
+			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
+			panel_GameInfo.SetActive(true);
 		}
 
 		private void StartTurn_Enemy()
@@ -90,6 +96,7 @@
 		{
 			panel_EnemyInfo.SetActive(false);
 			panel_PlayerInfo.SetActive(true);
+
 			text_StepsLeft.text = "STEPS: " + Player.Instance.turnSteps + "/" + Player.Instance.step_Max ;
 			text_Collectables.text = "BONUS: " + CollectManager.Instance.collected + "/" + CollectManager.Instance.collectables_Count;
 		}

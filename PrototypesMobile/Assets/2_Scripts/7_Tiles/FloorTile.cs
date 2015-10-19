@@ -110,7 +110,7 @@
 				case TileState.Clear:
 					if(TurnManager.Instance.turnState != TurnState.PlayerTurn)
 					{
-						sr.color = Color.white;
+						sr.color = new Color(1, 1, 1, sr.color.a);
 //						sr.enabled = !playerLeft;
 						StopAllCoroutines();
 						StartCoroutine("FadeRenderer", playerLeft);
@@ -124,7 +124,7 @@
 					{
 						if(enemyLeft)
 						{	
-							sr.color = Color.white;
+							sr.color = new Color(1, 1, 1, sr.color.a);
 //							sr.enabled = false;
 							StopAllCoroutines();
 							StartCoroutine("FadeRenderer", false);
@@ -137,7 +137,7 @@
 				case TileState.PlayerOn:
 					if(enemyLeft)
 					{	
-						sr.color = Color.white;
+						sr.color = new Color(1, 1, 1, sr.color.a);
 //						sr.enabled = true;
 						StopAllCoroutines();
 						StartCoroutine("FadeRenderer", true);
@@ -171,7 +171,7 @@
 				{ 				
 					c.a = x;
 					sr.color = c;
-					x += Time.deltaTime;
+					x += Time.deltaTime * 2;
 					yield return null;
 				}
 				
@@ -184,7 +184,7 @@
 				{ 				
 					c.a = x;
 					sr.color = c;
-					x -= Time.deltaTime;
+					x -= Time.deltaTime * 2;
 					yield return null;
 				}
 				

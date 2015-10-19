@@ -78,13 +78,24 @@
 		public void NeighboursRestriction(List<Tile> From, ref List<Tile> to)
 		{
 			to.Clear();
+
+			List<Tile> tiles_CantReach = new List<Tile>();
+
 			foreach(var t in From)
 			{
 				if(tiles_Neighbours.Contains(t))
 				{
 					to.Add(t);
 				}
+				else
+					tiles_CantReach.Add(t);
 			}
+
+//			float column;
+//			foreach(var t in tiles_CantReach)
+//			{
+//				t.index
+//			}
 		}
 
 		public virtual bool isPlayerDetected()

@@ -66,7 +66,7 @@
 			Tile tile_temp = MapManager.Instance.InitializeUnit(transform.position);
 
 			Initialize(tile_temp);
-			SetUnitNeighboursTilesState(TileState.PlayerOn);
+
 			tile_current.AddUnit(this);
 			
 			tile_Destination.SetActive(false);
@@ -74,8 +74,6 @@
 			isHidden = false;
 
 			MapManager.Instance.SetGameOverTile(tile_temp);
-
-			StartTurn();
 		}
 
 		private void Reset()
@@ -110,8 +108,11 @@
 			if(path != null)
 				path.Clear();
 			waypoints.Clear();		
+
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 			SetUnitNeighboursTilesState(TileState.PlayerOn);
+
+			UIManager.Instance.UpdatePlayerInfo(step_Max, turnSteps);
 		}
 		#endregion
 
