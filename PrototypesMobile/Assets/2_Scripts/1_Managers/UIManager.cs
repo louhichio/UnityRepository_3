@@ -32,7 +32,7 @@
 		private GameObject panel_GameInfoWorld;
 		[SerializeField]
 		private GameObject prefab_Image_Exclamation;
-
+		[SerializeField]
 		private float img_excla_heightOffset = 2.0f; 
 		#endregion
 
