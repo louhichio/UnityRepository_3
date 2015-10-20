@@ -39,6 +39,8 @@ namespace TheVandals
 
 		[HideInInspector]
 		public int turnSteps;
+		[HideInInspector]
+		public Animator anim;
 
 
 		void Update () 
@@ -74,6 +76,12 @@ namespace TheVandals
 			tile_current = tile;
 			
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
+            
+			if(GetComponent<Animator>())
+			{
+				anim = GetComponent<Animator>();
+				anim.SetInteger("MoveState",0);			
+			}
 		}
 
 		public virtual void TravelTo(Tile destination)
@@ -97,6 +105,8 @@ namespace TheVandals
 	        waypoints = GetWaypointsFromPath(path);
 			
 			moveState = MoveState.Moving;
+			if(anim)
+				anim.SetInteger("MoveState",1);
 	    }
 
 		public abstract void TravelFinished();

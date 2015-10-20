@@ -126,6 +126,9 @@
 //			SetUnitNeighboursTilesState(TileState.EnemyOn);
 
 			moveState = MoveState.None;
+
+			if(anim)
+				anim.SetInteger("MoveState",0);
 		}		
 
 		public void PlayerChangedTile(Tile tile)
@@ -152,6 +155,9 @@
 		public override void TravelFinished()
 		{
 //			SetUnitNeighboursTilesState(TileState.Clear);
+			if(anim)
+				anim.SetInteger("MoveState",0);
+
 			moveState = MoveState.None;
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);

@@ -98,6 +98,8 @@
 			moveState = MoveState.None;
 
 			StartTurn();
+			
+			anim.SetInteger("MoveState",0);
 		}
 
 		public void StartTurn()
@@ -123,7 +125,9 @@
 //			{
 //				if(list_UnitNeighbours.Contains(t))
 //					tileTemp.Remove(t);
-//			}
+			//			}
+			anim.SetInteger("MoveState",0);
+
 			SetUnitNeighboursTilesState(TileState.Clear);
 
 			moveState = MoveState.None;
