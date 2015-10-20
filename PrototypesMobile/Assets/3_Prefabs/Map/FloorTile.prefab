@@ -46,14 +46,18 @@ MonoBehaviour:
   Y: 0
   Z: 0
   Neighbours: []
-  UnitNeighbours: []
   AllowsTraversal: 1
   TraversalCost: 0
   IsTraversable: 0
   isEnemyOn: 0
   isPlayerOn: 0
   enemyCount: 0
+  isFoVDetect: 0
+  isFoVView: 0
+  isHide: 0
+  isCollectible: 0
   tile_state: 0
+  sr: {fileID: 0}
   playerLeft: 1
   enemyLeft: 1
   rect:

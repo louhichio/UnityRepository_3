@@ -87,13 +87,6 @@
 			else
 				TravelTo(tile_init);
 
-			if(path == null)
-			{
-				canMove = false;
-				TravelFinished();
-				return;
-			}
-
 			if(waypoints.Count > 1)
 			{
 				Vector3 directionOr = transform.eulerAngles;
