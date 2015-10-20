@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: bc2ea55b9814841edaea9d7f20257074
-timeCreated: 1445351522
-=======
-guid: 2046f112664bef448adcba98a0f7c0c0
-timeCreated: 1445351703
->>>>>>> origin/master
-licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
@@ -29,13 +22,10 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-<<<<<<< HEAD
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-=======
->>>>>>> origin/master
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -46,7 +36,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
