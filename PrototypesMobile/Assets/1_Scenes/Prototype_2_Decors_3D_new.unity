@@ -8864,6 +8864,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 11484368, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: img_excla_heightOffset
+      value: 2.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
   m_IsPrefabParent: 0
@@ -35567,7 +35571,7 @@ MonoBehaviour:
   index: 288
 --- !u!21 &1423634183
 Material:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -35576,6 +35580,7 @@ Material:
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -44603,7 +44608,7 @@ Transform:
   m_RootOrder: 186
 --- !u!21 &1833314105
 Material:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -44612,6 +44617,7 @@ Material:
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
