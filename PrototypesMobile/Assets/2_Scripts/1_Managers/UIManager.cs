@@ -29,7 +29,11 @@
 		private Text text_Collectables;
 
 		[SerializeField]
+		private GameObject panel_GameInfoWorld;
+		[SerializeField]
 		private GameObject prefab_Image_Exclamation;
+
+		private float img_excla_heightOffset = 2.0f; 
 		#endregion
 
 		#region Events
@@ -123,7 +127,7 @@
 		public void GenerateUnitExclamationMark(ref GameObject go)
 		{
 			go = Instantiate(prefab_Image_Exclamation) as GameObject;
-			go.transform.SetParent(panel_GameInfo.transform, false);
+			go.transform.SetParent(panel_GameInfoWorld.transform, false);
 		}
 
 		public void UpdateExclamationMark(GameObject go, Transform Unit, bool active)
@@ -133,8 +137,9 @@
 			if(!active)
 				return;
 
-			Vector3 screenPos = Camera.main.WorldToScreenPoint(Unit.position + (Vector3.up * 1.5f));
-			go.transform.position = screenPos;
+			Vector3 worldPos = Unit.position + (Vector3.up * img_excla_heightOffset);
+			go.transform.position = worldPos;
+			go.transform.LookAt(Camera.main.transform.position);
 		}
 		#endregion
 	}

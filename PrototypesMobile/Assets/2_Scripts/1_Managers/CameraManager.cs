@@ -33,19 +33,22 @@
 		public float boundaries_zMin;
 		[SerializeField]
 		public float boundaries_zMax;
+		[SerializeField]
+		private Vector3 directionInverse;
 		#endregion
 
 		#region Unity
 		void Update()
 		{
 //			SetCameraAspect();
-			//////////////////////////////// Neeeeds Coroutine ////////////////////////////////
-			if(followPlayer)
+			if(followPlayer && directionInverse != null)
 			{
-				Vector3 destinationPos = Player.Instance.transform.position ;
+				Vector3 destinationPos = Player.Instance.transform.position;
 				destinationPos.x = Mathf.Clamp(destinationPos.x, boundaries_xMin, boundaries_xMax);
 				destinationPos.z = Mathf.Clamp(destinationPos.z, boundaries_zMin, boundaries_zMax);
 
+				destinationPos += directionInverse;
+				
 				if(Vector3.Distance(destinationPos, transform.position) > 0.1f)		
 					transform.position = Vector3.Lerp(transform.position, destinationPos, Time.deltaTime * follow_Speed);
 			}
@@ -72,13 +75,17 @@
 			screen_Size = screen_Size_Center;
 			Screen_Diagonal = Mathf.Sqrt(Mathf.Pow(Screen.width,2) + Mathf.Pow(Screen.height,2));
 			Camera.main.orthographicSize = screen_Size;
+
+			directionInverse = transform.forward * -10;
 			
 			if(followPlayer)
 			{
-				initPos = (Player.Instance.transform.position + transform.position);
-				
+				initPos = Player.Instance.transform.position;
+
 				initPos.x = Mathf.Clamp(initPos.x, boundaries_xMin, boundaries_xMax);
 				initPos.z = Mathf.Clamp(initPos.z, boundaries_zMin, boundaries_zMax);
+
+				initPos += directionInverse;
 
 				transform.position = initPos;
 			}

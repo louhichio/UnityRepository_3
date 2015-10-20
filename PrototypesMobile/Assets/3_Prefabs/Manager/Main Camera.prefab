@@ -91,9 +91,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ratio: {x: 16, y: 9}
   screen_Size_Max: 8
+  screen_Size_Center: 5
   screen_Size_Min: 5
-  isScreenSizing: 0
   followPlayer: 1
+  follow_Speed: 1
+  boundaries_xMin: 0
+  boundaries_xMax: 0
+  boundaries_zMin: 0
+  boundaries_zMax: 0
 --- !u!124 &12434700
 Behaviour:
   m_ObjectHideFlags: 1

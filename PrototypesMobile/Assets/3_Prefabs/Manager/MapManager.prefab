@@ -39102,6 +39102,8 @@ MonoBehaviour:
   tile_EndGame: {fileID: 0}
   prefab_EndGame_particle: {fileID: 153058, guid: 0e9acb1af802644148f5c2e0485d95db,
     type: 2}
+  mapWidth: 0
+  mapHeight: 0
   enableEditorMapTilesGeneration: 0
   eraseTiles: 0
 --- !u!114 &11489518

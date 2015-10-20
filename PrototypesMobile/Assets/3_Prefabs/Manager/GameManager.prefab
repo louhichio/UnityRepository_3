@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnState: 0
+  enemyCount: 0
   enemyCount_Max: 0
   turnDelay: .100000001
 --- !u!1001 &100100000
