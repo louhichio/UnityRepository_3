@@ -496,8 +496,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Fall
       takeName: Run_JumpDownHigh_Roll_Run
-      firstFrame: 197.899994
-      lastFrame: 204.199997
+      firstFrame: 157
+      lastFrame: 268
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -8,32 +8,42 @@
 	public class UIManager: Singleton<UIManager>
 	{		
 		#region Properties
+		[Header("Configuration")]
+		[Header("Panel GameOver")]
 		[SerializeField]
 		private GameObject panel_Gameover;
 		[SerializeField]
 		private Text text_Gameover;
-
+		[Header("Panel PlayerInfo")]
 		[SerializeField]
 		private GameObject panel_PlayerInfo;
-
+		[Header("Panel EnemyInfo")]
 		[SerializeField]
 		private GameObject panel_EnemyInfo;
 		[SerializeField]
 		private Text text_TurnStatus;
-
+		[Header("Panel GameInfo")]
 		[SerializeField]
 		private GameObject panel_GameInfo;
 		[SerializeField]
 		private Text text_StepsLeft;
 		[SerializeField]
 		private Text text_Collectables;
-
+		[SerializeField]
+		private Text text_Paintings;
+		[Header("Panel GameInfoWorld")]
 		[SerializeField]
 		private GameObject panel_GameInfoWorld;
 		[SerializeField]
 		private GameObject prefab_Image_Exclamation;
 		[SerializeField]
 		private float img_excla_heightOffset = 2.0f; 
+
+		[Header("Panel Paintings")]
+		[SerializeField]
+		private GameObject panel_PaintingInfo;
+		[SerializeField]
+		private Image img_Painting;
 		#endregion
 
 		#region Events
@@ -59,6 +69,7 @@
 			panel_Gameover.SetActive(false);
 			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
+			panel_PaintingInfo.SetActive(false);
 			panel_GameInfo.SetActive(true);
 		}
 
@@ -67,8 +78,7 @@
 			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
 			panel_Gameover.SetActive(true);
-			panel_GameInfo.SetActive(true);
-			
+
 			if(text_Gameover)
 			{
 				switch(status)
@@ -90,7 +100,7 @@
 			panel_Gameover.SetActive(false);
 			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
-			panel_GameInfo.SetActive(true);
+			panel_PaintingInfo.SetActive(false);
 		}
 
 		private void StartTurn_Enemy()
@@ -140,6 +150,25 @@
 			Vector3 worldPos = Unit.position + (Vector3.up * img_excla_heightOffset);
 			go.transform.position = worldPos;
 			go.transform.LookAt(Camera.main.transform.position);
+		}
+
+		public void UpdatePaintingsInfo(int paintingsCaptured, int paintingsInScene)
+		{			
+			text_Paintings.text = paintingsCaptured + "/" + paintingsInScene;
+		}
+
+		public void StartCaptureOeuvre(Sprite painting)
+		{
+			panel_PaintingInfo.SetActive(true);
+			img_Painting.sprite = painting;
+			
+			Time.timeScale = 0;
+		}
+
+		public void EndCapture()
+		{
+			Time.timeScale = 1;
+			panel_PaintingInfo.SetActive(false);
 		}
 		#endregion
 	}

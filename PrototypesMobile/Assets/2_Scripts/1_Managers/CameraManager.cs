@@ -3,6 +3,7 @@
 	using UnityEngine;
 	using System;
 	using System.Collections;
+	using UnityStandardAssets.ImageEffects;
 	
 	public class CameraManager : Singleton<CameraManager>
 	{
@@ -35,13 +36,15 @@
 		public float boundaries_zMax;
 		[SerializeField]
 		private Vector3 directionInverse;
+
+		private Blur blur;
 		#endregion
 
 		#region Unity
 		void Update()
 		{
 //			SetCameraAspect();
-			if(followPlayer && directionInverse != null)
+			if(followPlayer && !Vector3.ReferenceEquals(directionInverse, null))
 			{
 				Vector3 destinationPos = Player.Instance.transform.position;
 				destinationPos.x = Mathf.Clamp(destinationPos.x, boundaries_xMin, boundaries_xMax);
@@ -89,6 +92,8 @@
 
 				transform.position = initPos;
 			}
+
+			blur = GetComponent<Blur>();
 		}
 		private void Reset()
 		{

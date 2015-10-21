@@ -178,6 +178,12 @@
 				tile_current.isCollectible = false;
 				CollectManager.Instance.PlayerCollectedObj(tile_current);
 			}
+
+			if(tile_current.isCaptureOeuvre)
+			{
+				tile_current.isCaptureOeuvre = false;
+				PaintingManager.Instance.PlayerCapturedPainting(tile_current);
+			}
 			return false;
 		}
 

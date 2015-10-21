@@ -28,7 +28,7 @@ namespace TheVandals
 		public Tile tile_init;		
 		public Tile tile_current;
 		
-//		[HideInInspector]
+		[HideInInspector]
 		public int rotation_init;
 
 		[HideInInspector]

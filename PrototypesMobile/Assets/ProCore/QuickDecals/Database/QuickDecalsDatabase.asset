@@ -47,7 +47,7 @@ MonoBehaviour:
       orgGroup: 0
       orgIndex: 1
       atlasGroup: 0
-      atlasIndex: 0
+      atlasIndex: 1
       rotationPlacement: 0
       scalePlacement: 0
       texture: {fileID: 2800000, guid: 6aa8819ae9c7540deb9e325b49b2405b, type: 3}
@@ -66,7 +66,7 @@ MonoBehaviour:
       orgGroup: 0
       orgIndex: 2
       atlasGroup: 0
-      atlasIndex: 0
+      atlasIndex: 2
       rotationPlacement: 0
       scalePlacement: 0
       texture: {fileID: 2800000, guid: 53c2c4eb80a4e492abfa03b1a4a6d2b7, type: 3}
@@ -122,7 +122,7 @@ MonoBehaviour:
 
     1
 
-    0
+    1
 
     0
 
@@ -149,7 +149,7 @@ MonoBehaviour:
 
     2
 
-    0
+    2
 
     0
 
@@ -158,9 +158,18 @@ MonoBehaviour:
     False
 
     }'
-  names: []
-  isPacked: 
-  materials: []
-  shaders: []
-  atlasSize: 
-  padding: 
+  names:
+  - spaceinvader
+  - spaceinvader
+  - spaceinvader
+  isPacked: 000000
+  materials:
+  - 
+  - 
+  - 
+  shaders:
+  - Legacy Shaders/Transparent/Diffuse
+  - Legacy Shaders/Transparent/Diffuse
+  - Legacy Shaders/Transparent/Diffuse
+  atlasSize: 000400000004000000040000
+  padding: 030000000300000003000000

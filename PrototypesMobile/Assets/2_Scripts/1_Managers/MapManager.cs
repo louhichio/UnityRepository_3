@@ -329,6 +329,12 @@ namespace TheVandals
 				l.Add(map_tiles[index]);
 			}
 		}
+
+		public void GetMapTileByIndex(int index, ref Tile tile)
+		{
+			if(index >= 0 && index < map_tiles.Count)
+				tile = map_tiles[index];
+		}
 		#endregion
 
 		#region Private
