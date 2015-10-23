@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127278}
   m_LocalRotation: {x: .482962966, y: .224143893, z: -.129409552, w: .836516261}
-  m_LocalPosition: {x: -11, y: 15.5, z: -10}
+  m_LocalPosition: {x: -2, y: 10, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -49,7 +49,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -9
+  near clip plane: 0
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -96,10 +96,10 @@ MonoBehaviour:
   screen_Size_Min: 5
   followPlayer: 1
   follow_Speed: 1
-  boundaries_xMin: 0
-  boundaries_xMax: 0
-  boundaries_zMin: 0
-  boundaries_zMax: 0
+  boundaries_xMin: -10
+  boundaries_xMax: 10
+  boundaries_zMin: -10
+  boundaries_zMax: 10
   directionInverse: {x: 0, y: 0, z: 0}
 --- !u!114 &11453988
 MonoBehaviour:

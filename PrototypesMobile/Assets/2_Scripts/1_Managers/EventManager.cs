@@ -11,12 +11,15 @@ namespace TheVandals
 		public static event emptyDel gameReset;
 		public static event emptyDel startTurn_Enemy;		
 		public static event emptyDel startTurn_Player;
+		public static event emptyDel pause;
+		public static event emptyDel resume;
 
-		public delegate void gameoverDel(string status);
-		public static event gameoverDel gameOver;
+		public delegate void stringPara(string status);
+		public static event stringPara gameOver;
 
-		public delegate void PlayerChangedTile(Tile tile);
-		public static event PlayerChangedTile playerChangedTile;
+		public delegate void tilePara(Tile tile);
+		public static event tilePara playerChangedTile;
+
 
 		public void Initialise()
 		{			
@@ -52,6 +55,17 @@ namespace TheVandals
 		{
 			if(startTurn_Player != null)
 				startTurn_Player();
+		}
+
+		public void Pause()
+		{
+			if(pause != null)
+				pause();
+		}
+		public void Resume()
+		{
+			if(resume != null)
+				resume();
 		}
 	}
 }

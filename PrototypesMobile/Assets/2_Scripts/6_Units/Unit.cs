@@ -40,18 +40,22 @@ namespace TheVandals
 		[HideInInspector]
 		public int turnSteps;
 		[HideInInspector]
-		public Animator anim;
-
+		public Animator anim;			
+		[HideInInspector]
+		public bool isPaused = false;
 
 		void Update () 
 		{
-			if (canMove && path != null && path.Count > 0 && waypoints != null && waypoints.Count > 0)
+			if(!isPaused)
 			{
-				MoveThroughWaypoints();
-			}
-			else if(moveState != MoveState.None)
-			{
-				TravelFinished();
+				if (canMove && path != null && path.Count > 0 && waypoints != null && waypoints.Count > 0)
+				{
+					MoveThroughWaypoints();
+				}
+				else if(moveState != MoveState.None)
+				{
+					TravelFinished();
+				}
 			}
 //			transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime);
 		}
@@ -211,7 +215,6 @@ namespace TheVandals
 			}
 		}
 
-
 		public void ResetUnitNeighboursTiles()
 		{
 
@@ -235,6 +238,8 @@ namespace TheVandals
 			waypoints.Clear();
 			canMove = false;
 			moveState = MoveState.None;
+			if(anim)
+				anim.SetInteger("MoveState",0);
 		}
 
 		public void CorrectUnitRotation()

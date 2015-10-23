@@ -46,12 +46,16 @@
 			get { return step_Max - turnSteps; }
 		}
 
+		public List<Enemy> list_UnitsDetect = new List<Enemy>();
+
 		#region Events
 			void OnEnable()
 		{
 			EventManager.initialise += Init;
 			EventManager.gameReset += Reset;
 			EventManager.startTurn_Player += StartTurn;
+			EventManager.pause += Pause;
+			EventManager.resume += Resume;
 		}		
 		
 		void OnDisable()
@@ -59,6 +63,8 @@
 			EventManager.initialise -= Init;
 			EventManager.gameReset -= Reset;
 			EventManager.startTurn_Player -= StartTurn;
+			EventManager.pause -= Pause;
+			EventManager.resume -= Resume;
 		}
 		
 		private void Init()
@@ -116,16 +122,49 @@
 
 			UIManager.Instance.UpdatePlayerInfo(step_Max, turnSteps);
 		}
+
+		public void Pause()
+		{
+			canMove = false;
+			anim.speed = 0;
+		}
+
+		public void Resume()
+		{
+			canMove = true;
+			anim.speed = 1;
+		}
 		#endregion
+		public override void TravelTo(Tile destination)
+		{
+			if(Tile.ReferenceEquals(destination, null))
+				return;
+			
+			List<Tile> path = AStar.FindPath(tile_current, destination);
+			
+			if (path.Count <= 1)
+			{
+				this.path = null;
+				turnSteps = step_Max;
+				TravelFinished();
+				return;
+			}
+			
+			tile_current.RemoveUnit(this);
+			
+			this.path = path;
+			waypoints = GetWaypointsFromPath(path);
+			
+			moveState = MoveState.Moving;
+			if(anim)
+				anim.SetInteger("MoveState",1);
+			
+			SetUnitNeighboursTilesState(TileState.Clear);
+			destination.SetTileState(TileState.PlayerOn);
+		}
 
 		public override void TravelFinished()
 		{
-//			List<Tile> tileTemp = tile_current.GetTilesWithinCost(stepsLeft);
-//			foreach(var t in tileTemp)
-//			{
-//				if(list_UnitNeighbours.Contains(t))
-//					tileTemp.Remove(t);
-			//			}
 			anim.SetInteger("MoveState",0);
 
 			SetUnitNeighboursTilesState(TileState.Clear);
@@ -154,15 +193,15 @@
 
 			if(tile_current.isEnemyOn)
 			{
-				GameManager.Instance.StartCoroutine("PlayerLost");
 				Stop();
+				GameManager.Instance.StartCoroutine("PlayerLost");
 				return true;
 			}			
 			
 			if(tile_current == MapManager.Instance.tile_EndGame)
 			{
-				GameManager.Instance.StartCoroutine("PlayerWon");	
 				Stop();			
+				GameManager.Instance.StartCoroutine("PlayerWon");	
 				return true;
 			}
 
@@ -176,13 +215,12 @@
 			if(tile_current.isCollectible)
 			{
 				tile_current.isCollectible = false;
-				CollectManager.Instance.PlayerCollectedObj(tile_current);
-			}
-
-			if(tile_current.isCaptureOeuvre)
-			{
 				tile_current.isCaptureOeuvre = false;
-				PaintingManager.Instance.PlayerCapturedPainting(tile_current);
+				Stop ();
+				turnSteps = step_Max;
+				TravelFinished();
+				CollectManager.Instance.PlayerCollectedObj(tile_current);
+				return true;
 			}
 			return false;
 		}
@@ -199,6 +237,36 @@
 		public void DisableDestinationTile()
 		{
 			tile_Destination.SetActive(false);
+		}
+
+		public void Detected(Enemy en)
+		{
+			if(!list_UnitsDetect.Contains(en))
+			{
+				if(list_UnitsDetect.Count == 0)
+					UIManager.Instance.StartCoroutine("SetPlayerStatus", 1);
+				list_UnitsDetect.Add(en);
+			}
+		}
+		public void NotDetected(Enemy en)
+		{
+			if(list_UnitsDetect.Contains(en))
+			{
+				list_UnitsDetect.Remove(en);
+				isDetected();
+			}
+		}
+		public bool isDetected()
+		{
+			if(list_UnitsDetect.Count == 0)
+			{
+				UIManager.Instance.DisablePlayerStatus();
+				return false;
+			}
+			else
+			{				
+				return true;
+			}
 		}
 	}
 }

@@ -38,25 +38,30 @@
 		private Vector3 directionInverse;
 
 		private Blur blur;
+
+		private bool isPaused = false;
 		#endregion
 
 		#region Unity
 		void Update()
 		{
 //			SetCameraAspect();
-			if(followPlayer && !Vector3.ReferenceEquals(directionInverse, null))
+			if(!isPaused)
 			{
-				Vector3 destinationPos = Player.Instance.transform.position;
-				destinationPos.x = Mathf.Clamp(destinationPos.x, boundaries_xMin, boundaries_xMax);
-				destinationPos.z = Mathf.Clamp(destinationPos.z, boundaries_zMin, boundaries_zMax);
+				if(followPlayer && !Vector3.ReferenceEquals(directionInverse, null))
+				{
+					Vector3 destinationPos = Player.Instance.transform.position;
+					destinationPos.x = Mathf.Clamp(destinationPos.x, boundaries_xMin, boundaries_xMax);
+					destinationPos.z = Mathf.Clamp(destinationPos.z, boundaries_zMin, boundaries_zMax);
 
-				destinationPos += directionInverse;
+					destinationPos += directionInverse;
+					
+					if(Vector3.Distance(destinationPos, transform.position) > 0.1f)		
+						transform.position = Vector3.Lerp(transform.position, destinationPos, Time.deltaTime * follow_Speed);
+				}
 				
-				if(Vector3.Distance(destinationPos, transform.position) > 0.1f)		
-					transform.position = Vector3.Lerp(transform.position, destinationPos, Time.deltaTime * follow_Speed);
+				Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, screen_Size, Time.deltaTime * 3);
 			}
-			
-			Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, screen_Size, Time.deltaTime * 3);
 		}		
 		#endregion
 		
@@ -65,12 +70,16 @@
 		{
 			EventManager.initialise += Init;
 			EventManager.gameReset += Reset;
+			EventManager.pause += Pause;
+			EventManager.resume += Resume;
 		}		
 		
 		void OnDisable()
 		{
 			EventManager.initialise -= Init;
 			EventManager.gameReset -= Reset;
+			EventManager.pause -= Pause;
+			EventManager.resume -= Resume;
 		}
 		
 		private void Init()
@@ -79,7 +88,7 @@
 			Screen_Diagonal = Mathf.Sqrt(Mathf.Pow(Screen.width,2) + Mathf.Pow(Screen.height,2));
 			Camera.main.orthographicSize = screen_Size;
 
-			directionInverse = transform.forward * -10;
+			directionInverse = transform.forward * -40;
 			
 			if(followPlayer)
 			{
@@ -98,6 +107,16 @@
 		private void Reset()
 		{
 			transform.position = initPos;
+		}
+
+		public void Pause()
+		{
+			isPaused = true;
+		}
+		
+		public void Resume()
+		{
+			isPaused = false;
 		}
 		#endregion
 

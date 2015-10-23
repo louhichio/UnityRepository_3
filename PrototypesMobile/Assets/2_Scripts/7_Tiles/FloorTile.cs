@@ -172,7 +172,7 @@
 				{ 				
 					c.a = x;
 					sr.color = c;
-					x += Time.deltaTime * 2;
+					x += Time.deltaTime * 4;
 					yield return null;
 				}
 				
@@ -185,7 +185,7 @@
 				{ 				
 					c.a = x;
 					sr.color = c;
-					x -= Time.deltaTime * 2;
+					x -= Time.deltaTime * 4;
 					yield return null;
 				}
 				

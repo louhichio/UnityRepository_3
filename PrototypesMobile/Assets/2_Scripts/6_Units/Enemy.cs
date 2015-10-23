@@ -35,13 +35,18 @@
 			EventManager.startTurn_Enemy += StartTurn;
 			EventManager.gameReset += Reset;
 			EventManager.playerChangedTile += PlayerChangedTile;
+			EventManager.pause += Pause;
+			EventManager.resume += Resume;
 		}		
+
 		void OnDisable()
 		{
 			EventManager.initialise -= Init;
 			EventManager.startTurn_Enemy -= StartTurn;
 			EventManager.gameReset -= Reset;
 			EventManager.playerChangedTile -= PlayerChangedTile;
+			EventManager.pause -= Pause;
+			EventManager.resume -= Resume;
 		}
 		
 		public virtual void Init()
@@ -102,6 +107,7 @@
 				Check();	
 			}
 		}
+
 		public void Reset()
 		{			
 			target = null;
@@ -133,20 +139,37 @@
 
 		public void PlayerChangedTile(Tile tile)
 		{
-			if(Tile.ReferenceEquals(target, null) || target != Player.Instance.tile_current)
+			if(fov.isPlayerDetected() && (Tile.ReferenceEquals(target, null) || target != Player.Instance.tile_current))
 			{
-				if(fov.isPlayerDetected())
-				{
-					target = Player.Instance.tile_current;
-
-					Vector3 pos = target.transform.position;
-					pos.y += 0.003f;
-					psDetect.transform.position = pos;
-					psDetect.SetActive(true);				
-					if(!prefab_ImageExclamation.activeSelf)
-						StartCoroutine("UpdateExclamationMark");
-				}
+				target = Player.Instance.tile_current;
+				
+				Vector3 pos = target.transform.position;
+				pos.y += 0.003f;
+				psDetect.transform.position = pos;
+				psDetect.SetActive(true);				
+				if(!prefab_ImageExclamation.activeSelf)
+					StartCoroutine("UpdateExclamationMark");
+				
+				Player.Instance.Detected(this);
 			}
+			else if(Tile.ReferenceEquals(target, null))
+				Player.Instance.NotDetected(this);
+
+		}
+
+		public void Pause()
+		{
+			isPaused = true;
+			if(anim)
+				anim.speed = 0;
+		}
+		
+		public void Resume()
+		{
+			isPaused = false;
+			
+			if(anim)
+				anim.speed = 1;
 		}
 		#endregion
 
@@ -164,10 +187,6 @@
 //			SetUnitNeighboursTilesState(TileState.EnemyOn);
 			SetFov(true, tile_current);	
 
-			Check();
-			
-			tile_current.AddUnit(this);
-
 			if(tile_current == target)
 			{
 				target = null;
@@ -175,6 +194,10 @@
 				UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, false);
 				StopCoroutine("UpdateExclamationMark");
 			}
+
+			Check();
+			
+			tile_current.AddUnit(this);
 
 			if(tile_current == Player.Instance.tile_current)
 			{
@@ -200,31 +223,35 @@
 					return true;
 				}
 
-				if(fov.isPlayerDetected())
+				if(fov.isPlayerDetected() && (Tile.ReferenceEquals(target, null) || target != Player.Instance.tile_current))
 				{
-					if(Tile.ReferenceEquals(target, null) || target != Player.Instance.tile_current)
-					{
-						target = Player.Instance.tile_current;
-						List<Tile> path = AStar.FindPath(tile_current, Player.Instance.tile_current);
-						this.path = path;
-						waypoints.Clear();
-						waypoints = GetWaypointsFromPath(path);
-						
-						Vector3 pos = target.transform.position;
-						pos.y += 0.003f;
-						psDetect.transform.position = pos;
-						psDetect.SetActive(true);
-						StartCoroutine("UpdateExclamationMark");
-						
-						Vector3 direction = waypoints[0] - transform.position;
-						direction.y =0;						
-						if(direction.normalized!= Vector3.zero)
-							transform.forward = direction.normalized * 90;	
-						SetFov(false, tile_current);					
-						SetFov(true, path[0]);		
-						return true;
-					}
+					target = Player.Instance.tile_current;
+
+					List<Tile> path = AStar.FindPath(tile_current, Player.Instance.tile_current);
+					this.path = path;
+					waypoints.Clear();
+					waypoints = GetWaypointsFromPath(path);
+					
+					Vector3 pos = target.transform.position;
+					pos.y += 0.003f;
+					psDetect.transform.position = pos;
+					psDetect.SetActive(true);
+					StartCoroutine("UpdateExclamationMark");
+					
+					Vector3 direction = waypoints[0] - transform.position;
+					direction.y =0;						
+					if(direction.normalized!= Vector3.zero)
+						transform.forward = direction.normalized * 90;	
+
+					SetFov(false, tile_current);					
+					SetFov(true, path[0]);		
+
+					Player.Instance.Detected(this);
+					return true;
 				}
+				else if(Tile.ReferenceEquals(target, null))
+					Player.Instance.NotDetected(this);
+
 			}
 			return false;
 		}

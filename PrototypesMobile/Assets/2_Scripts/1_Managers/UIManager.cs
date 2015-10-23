@@ -2,8 +2,10 @@
 {
 	using System;
 	using System.Collections;
+	using System.Collections.Generic;
 	using UnityEngine;
 	using UnityEngine.UI;
+	using UnityStandardAssets.ImageEffects;
 	
 	public class UIManager: Singleton<UIManager>
 	{		
@@ -29,8 +31,6 @@
 		private Text text_StepsLeft;
 		[SerializeField]
 		private Text text_Collectables;
-		[SerializeField]
-		private Text text_Paintings;
 		[Header("Panel GameInfoWorld")]
 		[SerializeField]
 		private GameObject panel_GameInfoWorld;
@@ -44,6 +44,16 @@
 		private GameObject panel_PaintingInfo;
 		[SerializeField]
 		private Image img_Painting;
+
+		[Header("Effects")]
+		[SerializeField]
+		private ScreenOverlay screenOverlay;
+		[SerializeField]
+		private Image image_PlayerStatus;
+		[SerializeField]
+		private Sprite[] vignetting;
+
+		private bool isCapturing = false;
 		#endregion
 
 		#region Events
@@ -71,6 +81,8 @@
 			panel_EnemyInfo.SetActive(false);
 			panel_PaintingInfo.SetActive(false);
 			panel_GameInfo.SetActive(true);
+			
+			image_PlayerStatus.enabled = false;
 		}
 
 		private void GameOver(string status)
@@ -93,6 +105,8 @@
 			}
 			text_Gameover.enabled = true;
 			StartTurn_Player();
+			
+			DisablePlayerStatus();
 		}
 
 		private void GameReset()
@@ -105,8 +119,11 @@
 
 		private void StartTurn_Enemy()
 		{
-			panel_PlayerInfo.SetActive(false);
-			panel_EnemyInfo.SetActive(true);
+			if(!isCapturing)
+			{
+				panel_PlayerInfo.SetActive(false);
+				panel_EnemyInfo.SetActive(true);
+			}
 		}
 
 		private void StartTurn_Player()
@@ -131,7 +148,44 @@
 
 		public void UpdatePlayerInfoCollectables(int collected, int collectables_Count)
 		{			
-			text_Collectables.text = "Collectables: " + collected + "/" + collectables_Count;
+			text_Collectables.text = "Bonus: " + collected + "/" + collectables_Count;
+		}
+
+		public IEnumerator StartCaptureOeuvre(Sprite painting)
+		{			
+			isCapturing = true;
+			float opacity = 0.1f;
+			while(opacity <= 1.0f)
+			{
+				screenOverlay.intensity = opacity;
+				opacity += Time.deltaTime * 10.0f;
+				yield return null;
+			}		
+
+			panel_GameInfo.SetActive(false);		
+			panel_EnemyInfo.SetActive(false);
+			panel_PaintingInfo.SetActive(true);	
+			img_Painting.sprite = painting;
+
+			opacity = 2.0f;
+			while(opacity >= 0.0f)
+			{
+				screenOverlay.intensity = opacity;
+				opacity -= Time.deltaTime * 3.0f;
+				yield return null;
+			}
+			screenOverlay.intensity = 0.0f;
+		}
+		
+		public void EndCapture()
+		{
+			isCapturing = false;
+//			Time.timeScale = 1;
+
+			panel_PaintingInfo.SetActive(false);
+			panel_EnemyInfo.SetActive(true);
+			panel_GameInfo.SetActive(true);	
+			EventManager.Instance.Resume();
 		}
 
 		public void GenerateUnitExclamationMark(ref GameObject go)
@@ -151,25 +205,44 @@
 			go.transform.position = worldPos;
 			go.transform.LookAt(Camera.main.transform.position);
 		}
-
-		public void UpdatePaintingsInfo(int paintingsCaptured, int paintingsInScene)
-		{			
-			text_Paintings.text = paintingsCaptured + "/" + paintingsInScene;
-		}
-
-		public void StartCaptureOeuvre(Sprite painting)
-		{
-			panel_PaintingInfo.SetActive(true);
-			img_Painting.sprite = painting;
-			
-			Time.timeScale = 0;
-		}
-
-		public void EndCapture()
-		{
-			Time.timeScale = 1;
-			panel_PaintingInfo.SetActive(false);
-		}
 		#endregion
+
+		public IEnumerator SetPlayerStatus(int index)
+		{
+			image_PlayerStatus.sprite = vignetting[index];
+			image_PlayerStatus.enabled = true;
+			
+			Color c = image_PlayerStatus.color;
+			float x = image_PlayerStatus.color.a;
+			
+			while(true)
+			{
+				while(x < 1)
+				{ 				
+					c.a = x;
+					image_PlayerStatus.color = c;
+					x += Time.deltaTime * 4;
+					yield return null;
+				}				
+				c.a = 1;
+				image_PlayerStatus.color = c;
+				
+				while(x > 0)
+				{ 				
+					c.a = x;
+					image_PlayerStatus.color = c;
+					x -= Time.deltaTime * 4;
+					yield return null;
+				}					
+				c.a = 0;
+				image_PlayerStatus.color = c;					
+			}
+		}
+
+		public void DisablePlayerStatus()
+		{
+			image_PlayerStatus.enabled = false;
+			StopCoroutine("SetPlayerStatus");
+		}
 	}
 }

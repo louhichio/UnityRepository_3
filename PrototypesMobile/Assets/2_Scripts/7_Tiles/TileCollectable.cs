@@ -7,6 +7,9 @@
 	{
 		[HideInInspector]
 		public Tile tile;
+		
+		public Sprite painting_Sprite;
+
 		private MeshRenderer mesh_renderer;
 
 		#region Events
@@ -30,7 +33,10 @@
 			
 			tile = MapManager.Instance.InitializeUnit(transform.position);			
 			tile.isCollectible = true;
-			
+
+			if(painting_Sprite)
+				tile.isCaptureOeuvre = true;
+
 			initPos = tile.transform.position;
 			initPos.y = transform.position.y;
 			
@@ -39,6 +45,10 @@
 		private void Reset()
 		{					
 			tile.isCollectible = true;
+
+			if(painting_Sprite)
+				tile.isCaptureOeuvre = true;
+
 			SetActive(true);
 		}
 		#endregion

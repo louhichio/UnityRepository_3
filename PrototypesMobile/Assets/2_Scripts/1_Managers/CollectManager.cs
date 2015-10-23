@@ -6,11 +6,23 @@
 	
 	public class CollectManager : Singleton<CollectManager> 
 	{
+		#region Properties
 		[HideInInspector]
 		public int collectables_Count;
 		[HideInInspector]
 		public int collected;
 		private List<TileCollectable> list_Collectables = new List<TileCollectable>();
+		
+		//		private List<PaintingEntity> listPaintingsInJson = new List<PaintingEntity>();
+		#endregion
+
+		#region Unity
+		void Awake() 
+		{
+//			ReadJSON rj = new ReadJSON();
+//			listPaintingsInJson = rj.ReadJson();
+		}
+		#endregion
 
 		#region Events
 		void OnEnable()
@@ -41,9 +53,12 @@
 
 		public void PlayerCollectedObj(Tile t)
 		{
+			EventManager.Instance.Pause();
 			collected++;
-			list_Collectables.Find(x=>x.tile == t).SetActive(false);
+			TileCollectable tc = list_Collectables.Find(x=>x.tile == t);
+			tc.SetActive(false);
 			UIManager.Instance.UpdatePlayerInfoCollectables(collected, collectables_Count);
+			UIManager.Instance.StartCoroutine("StartCaptureOeuvre", tc.painting_Sprite);
 		}
 	}
 }
