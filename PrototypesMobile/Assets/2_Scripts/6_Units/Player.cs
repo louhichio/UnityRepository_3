@@ -161,7 +161,6 @@
 			if(anim)
 			{
 				anim.SetInteger("MoveState",1);
-				anim.speed = Speed;
 			}
 			
 			SetUnitNeighboursTilesState(TileState.Clear);
