@@ -188,7 +188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &150688
 GameObject:
   m_ObjectHideFlags: 1
@@ -808,7 +808,7 @@ MonoBehaviour:
   panel_GameInfoWorld: {fileID: 148864}
   prefab_Image_Exclamation: {fileID: 198218, guid: 79f7379f64a4b044e80429df05b1f1de,
     type: 2}
-  img_excla_heightOffset: 2
+  img_excla_heightOffset: 4
   panel_PaintingInfo: {fileID: 127036}
   img_Painting: {fileID: 11436158}
   screenOverlay: {fileID: 11408890}

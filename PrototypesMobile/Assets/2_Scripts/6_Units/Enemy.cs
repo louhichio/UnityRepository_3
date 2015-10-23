@@ -185,9 +185,7 @@
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 //			SetUnitNeighboursTilesState(TileState.EnemyOn);
-			SetFov(true, tile_current);				
-			
-			Check();
+			SetFov(true, tile_current);		
 
 			if(tile_current == target)
 			{
@@ -196,6 +194,8 @@
 				UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, false);
 				StopCoroutine("UpdateExclamationMark");
 			}
+			
+			Check();
 			
 			tile_current.AddUnit(this);
 
