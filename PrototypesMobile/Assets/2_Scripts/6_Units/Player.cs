@@ -98,6 +98,8 @@
 			
 			SetIsHidden(false);
 
+			list_UnitsDetect.Clear();
+
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 			SetUnitNeighboursTilesState(TileState.PlayerOn);
 
@@ -157,7 +159,10 @@
 			
 			moveState = MoveState.Moving;
 			if(anim)
+			{
 				anim.SetInteger("MoveState",1);
+				anim.speed = Speed;
+			}
 			
 			SetUnitNeighboursTilesState(TileState.Clear);
 			destination.SetTileState(TileState.PlayerOn);
@@ -244,7 +249,10 @@
 			if(!list_UnitsDetect.Contains(en))
 			{
 				if(list_UnitsDetect.Count == 0)
-					UIManager.Instance.StartCoroutine("SetPlayerStatus", 1);
+				{
+					UIManager.Instance.StopCoroutine("FadeInPlayerStatus");
+					UIManager.Instance.StartCoroutine("FadeInPlayerStatus", 1);
+				}
 				list_UnitsDetect.Add(en);
 			}
 		}
@@ -260,7 +268,8 @@
 		{
 			if(list_UnitsDetect.Count == 0)
 			{
-				UIManager.Instance.DisablePlayerStatus();
+				UIManager.Instance.StopCoroutine("FadeOutPlayerStatus");
+				UIManager.Instance.StartCoroutine("FadeOutPlayerStatus");
 				return false;
 			}		
 			return true;
@@ -272,7 +281,10 @@
 			isHidden = value;
 
 			if(isHidden)
-				UIManager.Instance.StartCoroutine("SetPlayerStatus", 0);
+			{
+				UIManager.Instance.StopCoroutine("FadeInPlayerStatus");
+				UIManager.Instance.StartCoroutine("FadeInPlayerStatus", 0);
+			}
 			else
 				isDetected();
 		}

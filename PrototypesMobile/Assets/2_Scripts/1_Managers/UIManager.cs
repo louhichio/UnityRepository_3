@@ -88,6 +88,7 @@
 			panel_GameInfo.SetActive(true);
 			
 			image_PlayerStatus.enabled = false;
+			SetPlayerStatusAlpha(0);
 		}
 
 		private void GameOver(string status)
@@ -110,8 +111,6 @@
 			}
 			text_Gameover.enabled = true;
 			StartTurn_Player();
-			
-			DisablePlayerStatus();
 		}
 
 		private void GameReset()
@@ -120,6 +119,10 @@
 			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
 			panel_PaintingInfo.SetActive(false);
+
+			StopAllCoroutines();
+			image_PlayerStatus.enabled = false;
+			SetPlayerStatusAlpha(0);
 		}
 
 		private void StartTurn_Enemy()
@@ -222,45 +225,52 @@
 		}
 		#endregion
 
-		public IEnumerator SetPlayerStatus(int index)
-		{
+		public IEnumerator FadeInPlayerStatus(int index)
+		{			
 			image_PlayerStatus.sprite = vignetting[index];
 			image_PlayerStatus.enabled = true;
-			
-			Color c = image_PlayerStatus.color;
-			float x = image_PlayerStatus.color.a;
-			
-			while(true)
-			{
-				while(isPaused)
-					yield return null;
 
-				while(x < 1)
-				{ 				
-					c.a = x;
-					image_PlayerStatus.color = c;
-					x += Time.deltaTime * 4;
-					yield return null;
-				}				
-				c.a = 1;
+			Color c = image_PlayerStatus.color;
+			float x = image_PlayerStatus.color.a;		
+			
+			while(x < 1)
+			{ 			
+				print ("isfADEIN");
+				c.a = x;
 				image_PlayerStatus.color = c;
-				
+				x += Time.deltaTime * 4;
+				yield return null;
+			}				
+			c.a = 1;
+			image_PlayerStatus.color = c;			
+		}
+
+		public IEnumerator FadeOutPlayerStatus()
+		{			
+			if(image_PlayerStatus.enabled)
+			{
+				Color c = image_PlayerStatus.color;
+				float x = image_PlayerStatus.color.a;
+
 				while(x > 0)
 				{ 				
 					c.a = x;
 					image_PlayerStatus.color = c;
 					x -= Time.deltaTime * 4;
 					yield return null;
-				}					
+				}	
+
 				c.a = 0;
 				image_PlayerStatus.color = c;		
+				image_PlayerStatus.enabled = false;
 			}
 		}
 
-		public void DisablePlayerStatus()
+		public void SetPlayerStatusAlpha(float alpha)
 		{
-			image_PlayerStatus.enabled = false;
-			StopCoroutine("SetPlayerStatus");
+			Color c = image_PlayerStatus.color;
+			c.a = alpha;
+			image_PlayerStatus.color = c;
 		}
 	}
 }
