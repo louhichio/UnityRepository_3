@@ -34795,23 +34795,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 3ec0651fafad6384aa2f679777e1808f, type: 3}
-  lookupTexture: {fileID: 2800000, guid: f7a1319a0d3863c4788319a3210510a2, type: 3}
-  amount: .370000005
-  filter: 23
+  lookupTexture: {fileID: 2800000, guid: ed7300bee0a313f4f8b879723666d20e, type: 3}
+  amount: .639999986
+  filter: 25
 --- !u!114 &1314411773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1314411763}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02ab597bf1869f646ad5aa643e0fc057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 955ece9956963ec4795c0691ed727e39, type: 3}
-  brightness: 0
-  contrast: 0
+  brightness: -10
+  contrast: 27
   redCoeff: .5
   greenCoeff: .5
   blueCoeff: .5
@@ -36920,7 +36920,7 @@ Transform:
   m_RootOrder: 80
 --- !u!21 &1423634183
 Material:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -36929,6 +36929,7 @@ Material:
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -43309,7 +43310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1662924739
 Transform:
   m_ObjectHideFlags: 0
