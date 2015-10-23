@@ -2068,7 +2068,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 1}
+  m_LocalPosition: {x: -4, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 443568}
@@ -2439,7 +2439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a659a39aa7a6f5c4097f23bda288a5b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1.39999998
+  Speed: 1
   path: []
   waypoints: []
   targetRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -2453,8 +2453,10 @@ MonoBehaviour:
   canMove: 0
   turnSteps: 0
   anim: {fileID: 0}
+  isPaused: 0
   isHidden: 0
   tile_Destination: {fileID: 114462}
+  list_UnitsDetect: []
 --- !u!137 &13795060
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2465,11 +2467,11 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d542a873cc41f4f4ca3e33a1ff475862, type: 2}
-  - {fileID: 2100000, guid: d3146d035f93a4012ac36197e7e7ff4d, type: 2}
+  - {fileID: 2100000, guid: 58778132a2c3e4d40987186a9c3d4b7d, type: 2}
+  - {fileID: 2100000, guid: 58778132a2c3e4d40987186a9c3d4b7d, type: 2}
   - {fileID: 2100000, guid: 3f17c0e76f4654f54b861ef146ea928d, type: 2}
-  - {fileID: 2100000, guid: 1e01ec5353c9446d9868d30605d9360a, type: 2}
-  - {fileID: 2100000, guid: 0718cda13e06148bba183931efb7bfde, type: 2}
+  - {fileID: 2100000, guid: 58778132a2c3e4d40987186a9c3d4b7d, type: 2}
+  - {fileID: 2100000, guid: 58778132a2c3e4d40987186a9c3d4b7d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

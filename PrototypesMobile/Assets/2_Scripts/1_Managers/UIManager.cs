@@ -235,7 +235,6 @@
 			
 			while(x < 1)
 			{ 			
-				print ("isfADEIN");
 				c.a = x;
 				image_PlayerStatus.color = c;
 				x += Time.deltaTime * 4;
