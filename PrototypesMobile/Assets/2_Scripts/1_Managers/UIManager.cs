@@ -13,9 +13,13 @@
 		[Header("Configuration")]
 		[Header("Panel GameOver")]
 		[SerializeField]
+		private Sprite[] ui_Status;
+		[SerializeField]
 		private GameObject panel_Gameover;
 		[SerializeField]
 		private Text text_Gameover;
+		[SerializeField]
+		private Image image_GameOver;
 		[Header("Panel PlayerInfo")]
 		[SerializeField]
 		private GameObject panel_PlayerInfo;
@@ -102,9 +106,11 @@
 				switch(status)
 				{
 				case "WON":
+					image_GameOver.sprite = ui_Status[0];
 					text_Gameover.text = "VICTOIRE";
 					break;
 				case "LOST":
+					image_GameOver.sprite = ui_Status[1];
 					text_Gameover.text = "POLICE";
 					break;
 				}

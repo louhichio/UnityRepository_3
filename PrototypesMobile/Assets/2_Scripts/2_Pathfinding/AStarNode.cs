@@ -35,7 +35,20 @@
 			}
 			return successors;
 		}
-		
+
+		public List<AStarNode> GetSuccessorsInHeight(float height)
+		{
+			List<AStarNode> successors = new List<AStarNode>();
+			foreach (Tile neighbour in Tile.Neighbours)
+			{
+				if (neighbour.Equals(this) || !neighbour.IsTraversable || neighbour.transform.position.y > height)
+					continue;
+				
+				successors.Add(new AStarNode(neighbour, this, Goal, Cost + neighbour.TraversalCost));
+			}
+			return successors;
+		}
+
 		public int TotalCost()
 		{
 			int manhattanDistance = Math.Abs(Tile.X - Goal.Tile.X) + Math.Abs(Tile.Z - Goal.Tile.Z);

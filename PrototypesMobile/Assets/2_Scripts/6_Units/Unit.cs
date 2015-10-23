@@ -88,30 +88,7 @@ namespace TheVandals
 			}
 		}
 
-		public virtual void TravelTo(Tile destination)
-	    {
-			if(Tile.ReferenceEquals(destination, null))
-				return;
-
-			List<Tile> path = AStar.FindPath(tile_current, destination);
-
-	        if (path.Count <= 1)
-	        {
-	            this.path = null;
-				turnSteps = step_Max;
-				TravelFinished();
-	            return;
-	        }
-
-			tile_current.RemoveUnit(this);
-
-			this.path = path;
-	        waypoints = GetWaypointsFromPath(path);
-			
-			moveState = MoveState.Moving;
-			if(anim)
-				anim.SetInteger("MoveState",1);
-	    }
+		public abstract void TravelTo(Tile destination);
 
 		public abstract void TravelFinished();
 		

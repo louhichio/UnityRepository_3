@@ -90,6 +90,13 @@ namespace TheVandals
 			return tiles;
 		}
 
+		public List<Tile> GetTilesWithinCost(int cost, float height)
+		{
+			List<Tile> tiles = new List<Tile>();
+			WithinCost(this, cost, ref tiles, height);
+			return tiles;
+		}
+
 		private void WithinCost(Tile current, int cost, ref List<Tile> tiles)
 		{
 			if (cost < 0) { return; }
@@ -104,6 +111,22 @@ namespace TheVandals
 				WithinCost(neighbour, cost - current.TraversalCost, ref tiles);
 			}
 		}
+
+		private void WithinCost(Tile current, int cost, ref List<Tile> tiles, float height)
+		{
+			if (cost < 0) { return; }
+			
+			if (current.IsTraversable && current.transform.position.y == height && !tiles.Contains(current))
+			{
+				tiles.Add(current);
+			}
+			
+			foreach (var neighbour in current.Neighbours)
+			{
+				WithinCost(neighbour, cost - current.TraversalCost, ref tiles, height);
+			}
+		}
+
 
 		public void AddUnit(object obj)
 		{

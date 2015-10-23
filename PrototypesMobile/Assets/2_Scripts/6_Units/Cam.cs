@@ -5,6 +5,6 @@
 	
 	public class Cam : Enemy
 	{
-		public override EnemyType enemy_Type {get{return EnemyType.Cam;}}
+		public override EnemyType type {get{return EnemyType.Cam;}}
 	}
 }

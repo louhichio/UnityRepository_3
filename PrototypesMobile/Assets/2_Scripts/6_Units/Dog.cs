@@ -5,6 +5,6 @@
 	
 	public class Dog : Enemy
 	{
-		public override EnemyType enemy_Type {get{return EnemyType.Dog;}}
+		public override EnemyType type {get{return EnemyType.Dog;}}
 	}
 }

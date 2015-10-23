@@ -15,7 +15,7 @@
 	{
 		#region Properties
 		[HideInInspector]
-		public abstract EnemyType enemy_Type{get;}
+		public abstract EnemyType type{get;}
 
 		public FOV fov;
 
@@ -136,6 +136,33 @@
 			if(anim)
 				anim.SetInteger("MoveState",0);
 		}		
+
+		public override void TravelTo(Tile destination)
+		{
+			if(Tile.ReferenceEquals(destination, null))
+				return;
+			
+			List<Tile> path = (type != EnemyType.Dog) ? 
+					AStar.FindPath(tile_current, destination):
+					AStar.FindPathInHeight(tile_current, destination, tile_current.transform.position.y);
+			
+			if (path.Count <= 1)
+			{
+				this.path = null;
+				turnSteps = step_Max;
+				TravelFinished();
+				return;
+			}
+			
+			tile_current.RemoveUnit(this);
+			
+			this.path = path;
+			waypoints = GetWaypointsFromPath(path);
+			
+			moveState = MoveState.Moving;
+			if(anim)
+				anim.SetInteger("MoveState",1);
+		}
 
 		public void PlayerChangedTile(Tile tile)
 		{

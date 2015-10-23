@@ -5,6 +5,6 @@
 
 	public class Guard : Enemy
 	{		
-		public override EnemyType enemy_Type {get{return EnemyType.Guard;}}
+		public override EnemyType type {get{return EnemyType.Guard;}}
 	}
 }
