@@ -54,6 +54,7 @@
 		private Sprite[] vignetting;
 
 		private bool isCapturing = false;
+		public bool isPaused = false;
 		#endregion
 
 		#region Events
@@ -64,6 +65,8 @@
 			EventManager.gameReset += GameReset;
 			EventManager.startTurn_Enemy += StartTurn_Enemy;
 			EventManager.startTurn_Player += StartTurn_Player;
+			EventManager.pause += Pause;
+			EventManager.resume += Resume;
 		}		
 		void OnDisable()
 		{
@@ -72,6 +75,8 @@
 			EventManager.gameReset -= GameReset;
 			EventManager.startTurn_Enemy -= StartTurn_Enemy;
 			EventManager.startTurn_Player-= StartTurn_Player;
+			EventManager.pause -= Pause;
+			EventManager.resume -= Resume;
 		}
 
 		public void Init()
@@ -133,6 +138,16 @@
 
 			text_StepsLeft.text = "STEPS: " + Player.Instance.turnSteps + "/" + Player.Instance.step_Max ;
 			text_Collectables.text = "BONUS: " + CollectManager.Instance.collected + "/" + CollectManager.Instance.collectables_Count;
+		}
+
+		public void Pause()
+		{
+			isPaused = true;
+		}
+		
+		public void Resume()
+		{
+			isPaused = false;
 		}
 		#endregion
 
@@ -217,6 +232,9 @@
 			
 			while(true)
 			{
+				while(isPaused)
+					yield return null;
+
 				while(x < 1)
 				{ 				
 					c.a = x;
@@ -235,7 +253,7 @@
 					yield return null;
 				}					
 				c.a = 0;
-				image_PlayerStatus.color = c;					
+				image_PlayerStatus.color = c;		
 			}
 		}
 

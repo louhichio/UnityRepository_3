@@ -77,7 +77,7 @@
 			
 			tile_Destination.SetActive(false);
 
-			isHidden = false;
+			SetIsHidden(false);
 
 			MapManager.Instance.SetGameOverTile(tile_temp);
 		}
@@ -95,8 +95,8 @@
 			tile_current.AddUnit(this);
 			
 			tile_Destination.SetActive(false);
-
-			isHidden = false;
+			
+			SetIsHidden(false);
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 			SetUnitNeighboursTilesState(TileState.PlayerOn);
@@ -208,9 +208,9 @@
 			if(tile_current.isFoVDetect)
 				EventManager.Instance.PlChangedTile(tile_current);
 			else if(tile_current.isHide)
-				isHidden = true;
+				SetIsHidden(true);
 			else if(isHidden)
-				isHidden = false;
+				SetIsHidden(false);
 
 			if(tile_current.isCollectible)
 			{
@@ -262,11 +262,19 @@
 			{
 				UIManager.Instance.DisablePlayerStatus();
 				return false;
-			}
+			}		
+			return true;
+
+		}
+
+		public void SetIsHidden(bool value)
+		{
+			isHidden = value;
+
+			if(isHidden)
+				UIManager.Instance.StartCoroutine("SetPlayerStatus", 0);
 			else
-			{				
-				return true;
-			}
+				isDetected();
 		}
 	}
 }
