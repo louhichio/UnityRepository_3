@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: LV_0_2
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: mat_dog
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -19,8 +19,8 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 6ff37e2e92b42433f9823dce383c0bfb, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Texture: {fileID: 0}
+          m_Scale: {x: .5, y: .5}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -55,7 +55,7 @@ Material:
           name: _EmissionMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: .5, y: .5}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -80,14 +80,7 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _ShadowTex
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _FalloffTex
+          name: _SpecGlossMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -107,10 +100,6 @@ Material:
         second: .5
       data:
         first:
-          name: PixelSnap
-        second: 0
-      data:
-        first:
           name: _Parallax
         second: .0199999996
       data:
@@ -120,7 +109,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .5
+        second: 0
       data:
         first:
           name: _BumpScale
@@ -145,12 +134,56 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _EmissionScaleUI
+        second: 0
+      data:
+        first:
+          name: _yPosLow
+        second: 0
+      data:
+        first:
+          name: _yPosHigh
+        second: .959999979
+      data:
+        first:
+          name: _GradientStrength
+        second: 1.14999998
+      data:
+        first:
+          name: _EmissiveStrengh
+        second: 1
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 0}
       data:
         first:
           name: _Color
+        second: {r: .257352948, g: .257352948, b: .257352948, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: .200000003, g: .200000003, b: .200000003, a: 1}
+      data:
+        first:
+          name: _EmissionColorUI
         second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _ColorLow
+        second: {r: .154411793, g: .154411793, b: .154411793, a: 1}
+      data:
+        first:
+          name: _ColorHigh
+        second: {r: .198529422, g: .198529422, b: .198529422, a: 1}
+      data:
+        first:
+          name: _ColorX
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _ColorY
+        second: {r: .176470578, g: .176470578, b: .176470578, a: 1}

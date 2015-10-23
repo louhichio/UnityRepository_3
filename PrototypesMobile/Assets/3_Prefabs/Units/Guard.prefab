@@ -1147,7 +1147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &144612
 GameObject:
   m_ObjectHideFlags: 1
@@ -1650,6 +1650,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 436600}
   - 212: {fileID: 21298744}
+  - 114: {fileID: 11450144}
   m_Layer: 0
   m_Name: TileTarget
   m_TagString: Untagged
@@ -3341,7 +3342,7 @@ Transform:
   m_GameObject: {fileID: 187956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .600000024, y: .600000024, z: .600000024}
+  m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 449034}
   - {fileID: 494964}
@@ -4568,6 +4569,51 @@ MonoBehaviour:
   index: 0
   sr: {fileID: 0}
   tile_state: 0
+--- !u!114 &11450144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0401554a0e6f9466db3c1a798d358b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenName: 
+  playAutomatically: 1
+  delay: 0
+  type: 23
+  showIconInInspector: 1
+  keys:
+  - time
+  - looptype
+  - easetype
+  - z
+  indexes: 00000000000000000000000001000000
+  metadatas:
+  - 
+  - 
+  - 
+  - 
+  ints: 
+  floats:
+  - 5
+  - 1
+  bools: 
+  strings: []
+  vector3s: []
+  colors: []
+  spaces: 
+  easeTypes: 15000000
+  loopTypes: 01000000
+  gameObjects: []
+  transforms: []
+  audioClips: []
+  audioSources: []
+  vector3Arrays: []
+  transformArrays: []
+  paths: []
 --- !u!114 &11451338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8383,7 +8429,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5acfeb19af60f4ae0ba0cd812085c388, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
@@ -8399,15 +8445,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
-      value: .600000024
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
-      value: .600000024
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
-      value: .600000024
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
@@ -8444,6 +8490,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
