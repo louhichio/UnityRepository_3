@@ -145,8 +145,8 @@
 			panel_EnemyInfo.SetActive(false);
 			panel_PlayerInfo.SetActive(true);
 
-			text_StepsLeft.text = "STEPS: " + Player.Instance.turnSteps + "/" + Player.Instance.step_Max ;
-			text_Collectables.text = "BONUS: " + CollectManager.Instance.collected + "/" + CollectManager.Instance.collectables_Count;
+			text_StepsLeft.text = "" + Player.Instance.turnSteps + "/" + Player.Instance.step_Max ;
+			text_Collectables.text = "" + CollectManager.Instance.collected + "/" + CollectManager.Instance.collectables_Count;
 		}
 
 		public void Pause()
@@ -167,12 +167,12 @@
 		#region Public
 		public void UpdatePlayerInfo(int maxSteps, int currentSteps)
 		{			
-			text_StepsLeft.text = "StepsLeft: " + currentSteps + "/" + maxSteps ;
+			text_StepsLeft.text = "" + currentSteps + "/" + maxSteps ;
 		}
 
 		public void UpdatePlayerInfoCollectables(int collected, int collectables_Count)
 		{			
-			text_Collectables.text = "Bonus: " + collected + "/" + collectables_Count;
+			text_Collectables.text = "" + collected + "/" + collectables_Count;
 		}
 
 		public IEnumerator StartCaptureOeuvre(Sprite painting)
