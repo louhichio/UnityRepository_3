@@ -11003,6 +11003,34 @@ Prefab:
       propertyPath: img_excla_heightOffset
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 22404538, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 22493860, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 22447714, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 402616, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188558, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_Name
+      value: Canvas_MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 141730, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_Name
+      value: Canvas_WorldSpace
+      objectReference: {fileID: 0}
+    - target: {fileID: 169998, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_Name
+      value: Canvas_FXCamera
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
   m_IsPrefabParent: 0
@@ -18845,7 +18873,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425546, guid: 25fe5f42a5fc6bd4e994c9a2aef11641, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11485656, guid: 25fe5f42a5fc6bd4e994c9a2aef11641, type: 2}
       propertyPath: turnDelay
@@ -37247,7 +37275,7 @@ Transform:
   m_RootOrder: 80
 --- !u!21 &1423634183
 Material:
-  serializedVersion: 6
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -37256,7 +37284,6 @@ Material:
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
-  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -47483,7 +47510,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465582, guid: da4609f0437adb14b8d6e2099fedd70d, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 155260, guid: da4609f0437adb14b8d6e2099fedd70d, type: 2}
       propertyPath: m_IsActive
@@ -48000,7 +48027,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493046, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11423970, guid: c6c0fe2ef5879ce4b9633a2888d8bde4, type: 2}
       propertyPath: MinDistance
