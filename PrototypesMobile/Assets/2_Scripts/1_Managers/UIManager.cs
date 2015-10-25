@@ -45,8 +45,6 @@
 		private GameObject panel_GameInfoWorld;
 		[SerializeField]
 		private GameObject prefab_Image_Exclamation;
-		[SerializeField]
-		private float img_excla_heightOffset = 2.0f; 
 
 		[Header("Panel Paintings")]
 		[SerializeField]
@@ -207,6 +205,7 @@
 		
 		public void EndCapture()
 		{
+			print ("here");
 			isCapturing = false;
 //			Time.timeScale = 1;
 
@@ -222,14 +221,14 @@
 			go.transform.SetParent(panel_GameInfoWorld.transform, false);
 		}
 
-		public void UpdateExclamationMark(GameObject go, Transform Unit, bool active)
+		public void UpdateExclamationMark(GameObject go, Transform Unit, bool active, float markHeight)
 		{			
 			go.SetActive(active);
 
 			if(!active)
 				return;
 
-			Vector3 worldPos = Unit.position + (Vector3.up * img_excla_heightOffset);
+			Vector3 worldPos = Unit.position + (Vector3.up * markHeight);
 			go.transform.position = worldPos;
 			go.transform.LookAt(Camera.main.transform.position);
 		}

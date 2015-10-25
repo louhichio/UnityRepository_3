@@ -16,6 +16,8 @@
 		#region Properties
 		[HideInInspector]
 		public abstract EnemyType type{get;}
+		
+		public float markHeight;
 
 		public FOV fov;
 
@@ -112,7 +114,7 @@
 		{			
 			target = null;
 			psDetect.SetActive(false);
-			UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, false);
+			UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, false, markHeight);
 			StopCoroutine("UpdateExclamationMark");
 
 			if(path != null)
@@ -218,7 +220,7 @@
 			{
 				target = null;
 				psDetect.SetActive(false);
-				UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, false);
+				UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, false, markHeight);
 				StopCoroutine("UpdateExclamationMark");
 			}
 			
@@ -297,7 +299,7 @@
 		{				
 			while(true)
 			{
-				UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, true);
+				UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, true, markHeight);
 				yield return null;
 			}
 		}

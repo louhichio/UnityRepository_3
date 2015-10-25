@@ -2488,6 +2488,7 @@ MonoBehaviour:
   turnSteps: 0
   anim: {fileID: 0}
   isPaused: 0
+  markHeight: .800000012
   fov: {fileID: 11418206}
   waypoint: {fileID: 11485850}
   target: {fileID: 0}
