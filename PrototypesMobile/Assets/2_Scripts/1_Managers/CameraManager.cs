@@ -3,13 +3,19 @@
 	using UnityEngine;
 	using System;
 	using System.Collections;
+	using System.Collections.Generic;
 	using UnityStandardAssets.ImageEffects;
 	
 	public class CameraManager : Singleton<CameraManager>
 	{
 		#region Properties
+		
+		
+		[Header("SetCameraAspect")]	
 		[SerializeField]
 		private Vector2 ratio = new Vector2(10.0f, 10.0f);
+
+		[Header("Zoom")]	
 		[SerializeField]
 		private float screen_Size_Max = 7;	
 		[SerializeField]
@@ -20,29 +26,88 @@
 		private float screen_Size;
 		private float Screen_Diagonal;
 
+		[Header("Follow Player")]
 		[SerializeField]
 		private bool followPlayer = false;
+		[SerializeField]
+		private float follow_Speed = 1;	
+		
+		[Header("Boundaries")]
+		[SerializeField]
+		private bool CenterCamera = false;
+		[SerializeField]
+		private float boundaries_xMin;
+		[SerializeField]
+		private float boundaries_xMax;
+		[SerializeField]
+		private float boundaries_zMin;
+		[SerializeField]
+		private float boundaries_zMax;
+		[SerializeField]
+		private Vector3 CameraOffSet;
+
+
 		private Vector3 initPos;
+		private bool isPaused = false;	
 
-		[SerializeField]
-		private float follow_Speed = 1;
-		[SerializeField]
-		public float boundaries_xMin;
-		[SerializeField]
-		public float boundaries_xMax;
-		[SerializeField]
-		public float boundaries_zMin;
-		[SerializeField]
-		public float boundaries_zMax;
-		[SerializeField]
-		private Vector3 directionInverse;
+		private Vector3 point1;
+		private Vector3 point2;
+		private Vector3 point3;
+		private Vector3 point4;
 
-		private Blur blur;
+		private Vector3 restrictPoint_UpLeft;
+		private Vector3 restrictPoint_UpRight;
+		private Vector3 restrictPoint_BotLeft;	
+		private Vector3 restrictPoint_BotRight;
 
-		private bool isPaused = false;
+		private Vector2 min = Vector2.zero;
+		private Vector2 max = Vector2.zero;
+
+		private Vector3 cameraRelative;		
+		private Vector3 Difference;
+		private Vector3 directionInverse;	
+		private Vector2 viewPortDimensions;
 		#endregion
-
 		#region Unity
+		void OnDrawGizmos()
+		{			
+			SetRestrictions();
+			
+			Gizmos.color = Color.red;
+			
+			Gizmos.DrawCube(restrictPoint_UpLeft, Vector3.one * 0.5f);
+			Gizmos.DrawCube(restrictPoint_BotRight, Vector3.one * 0.5f);
+			Gizmos.DrawCube(restrictPoint_UpRight, Vector3.one * 0.5f);
+			Gizmos.DrawCube(restrictPoint_BotLeft, Vector3.one * 0.5f);
+			
+			Gizmos.color = Color.green;
+			
+			Gizmos.DrawCube(point1, Vector3.one * 0.5f);
+			Gizmos.DrawCube(point2, Vector3.one * 0.5f);
+			Gizmos.DrawCube(point3, Vector3.one * 0.5f);
+			Gizmos.DrawCube(point4, Vector3.one * 0.5f);			
+			
+			Gizmos.DrawLine(point1, point2);
+			Gizmos.DrawLine(point3, point4);
+			Gizmos.DrawLine(point2, point4);
+			Gizmos.DrawLine(point1, point3);
+			
+			if(!Application.isPlaying)	
+			{
+				if(CenterCamera)
+				{
+					transform.position = directionInverse;
+					CenterCamera = false;
+				}
+				
+//				cameraRelative = transform.InverseTransformPoint(Player.Instance.transform.position);
+//				Vector3 destinationPos = Difference + cameraRelative;
+//				destinationPos.x = Mathf.Clamp(destinationPos.x, min.x, max.x);
+//				destinationPos.y = Mathf.Clamp(destinationPos.y, min.y, max.y);
+//				transform.position = transform.TransformPoint(destinationPos - Difference)+ directionInverse;
+			}	
+		}
+
 		void Update()
 		{
 //			SetCameraAspect();
@@ -50,14 +115,7 @@
 			{
 				if(followPlayer && !Vector3.ReferenceEquals(directionInverse, null))
 				{
-					Vector3 destinationPos = Player.Instance.transform.position;
-					destinationPos.x = Mathf.Clamp(destinationPos.x, boundaries_xMin, boundaries_xMax);
-					destinationPos.z = Mathf.Clamp(destinationPos.z, boundaries_zMin, boundaries_zMax);
-
-					destinationPos += directionInverse;
-					
-					if(Vector3.Distance(destinationPos, transform.position) > 0.1f)		
-						transform.position = Vector3.Lerp(transform.position, destinationPos, Time.deltaTime * follow_Speed);
+					transform.position = Vector3.Lerp(transform.position, DestinationPos(), Time.deltaTime * follow_Speed);
 				}
 				
 				Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, screen_Size, Time.deltaTime * 3);
@@ -88,21 +146,9 @@
 			Screen_Diagonal = Mathf.Sqrt(Mathf.Pow(Screen.width,2) + Mathf.Pow(Screen.height,2));
 			Camera.main.orthographicSize = screen_Size;
 
-			directionInverse = transform.forward * -40;
+			SetRestrictions();
 			
-			if(followPlayer)
-			{
-				initPos = Player.Instance.transform.position;
-
-				initPos.x = Mathf.Clamp(initPos.x, boundaries_xMin, boundaries_xMax);
-				initPos.z = Mathf.Clamp(initPos.z, boundaries_zMin, boundaries_zMax);
-
-				initPos += directionInverse;
-
-				transform.position = initPos;
-			}
-
-			blur = GetComponent<Blur>();
+			initPos = transform.position;
 		}
 		private void Reset()
 		{
@@ -121,6 +167,19 @@
 		#endregion
 
 		#region Private
+
+		private Vector3 DestinationPos()
+		{
+			if(min.x < max.x && min.y < max.y)
+			{
+				cameraRelative = transform.InverseTransformPoint(Player.Instance.transform.position);
+				Vector3 destinationPos = Difference + cameraRelative;
+				destinationPos.x = Mathf.Clamp(destinationPos.x, min.x, max.x);
+				destinationPos.y = Mathf.Clamp(destinationPos.y, min.y, max.y);
+				return transform.TransformPoint(destinationPos - Difference + CameraOffSet) + directionInverse;
+			}
+			return transform.position;
+		}
 
 		private void SetCameraAspect()
 		{
@@ -162,6 +221,42 @@
 				Camera.main.rect = rect;
 			}
 		}		
+
+		private void SetScreenSizeInWorldCoords ()
+		{
+			var cam = Camera.main;
+			var p1 = cam.ViewportToWorldPoint(new Vector3(0,0,cam.nearClipPlane));  
+			var p2 = cam.ViewportToWorldPoint(new Vector3(1,0,cam.nearClipPlane));
+			var p3 = cam.ViewportToWorldPoint(new Vector3(1,1,cam.nearClipPlane));
+			
+			float width = (p2 - p1).magnitude;
+			float height = (p3 - p2).magnitude;
+			
+			viewPortDimensions = new Vector2(width,height);
+		}
+
+		private void SetRestrictions()
+		{
+			directionInverse = transform.forward * -40;			
+			Difference = -transform.InverseTransformPoint(directionInverse);	
+			
+			min.x = (boundaries_xMin + viewPortDimensions.x / 2);
+			max.x = (boundaries_xMax - viewPortDimensions.x / 2);			
+			min.y = (boundaries_zMin + viewPortDimensions.y / 2);
+			max.y = (boundaries_zMax - viewPortDimensions.y / 2);
+			
+			point1 = (transform.right * boundaries_xMin) + (transform.up * boundaries_zMax) + directionInverse;
+			point2 = (transform.right * boundaries_xMax) + (transform.up * boundaries_zMax) + directionInverse;
+			point3 = (transform.right * boundaries_xMin) + (transform.up * boundaries_zMin) + directionInverse;
+			point4 = (transform.right * boundaries_xMax) + (transform.up * boundaries_zMin) + directionInverse;
+			
+			SetScreenSizeInWorldCoords();
+			
+			restrictPoint_UpLeft = point1 + ((viewPortDimensions.x / 2 * transform.right) + (viewPortDimensions.y / 2 * -transform.up));			
+			restrictPoint_UpRight = point2 + ((viewPortDimensions.x / 2 * -transform.right) + (viewPortDimensions.y / 2 * -transform.up));
+			restrictPoint_BotLeft = point3 + ((viewPortDimensions.x / 2 * transform.right) + (viewPortDimensions.y / 2 * transform.up));
+			restrictPoint_BotRight = point4 + ((viewPortDimensions.x / 2 * -transform.right) + (viewPortDimensions.y / 2 * transform.up));
+		}
 		#endregion
 
 		#region Public		
