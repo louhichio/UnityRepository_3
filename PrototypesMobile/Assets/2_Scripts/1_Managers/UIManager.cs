@@ -52,7 +52,7 @@
 		[SerializeField]
 		private Image img_Painting;
 
-		[Header("Effects")]
+		[Header("Canvas Effects")]
 		[SerializeField]
 		private ScreenOverlay screenOverlay;
 		[SerializeField]
@@ -97,7 +97,7 @@
 			panel_PaintingInfo.SetActive(false);
 			panel_GameInfo.SetActive(true);
 			
-			image_PlayerStatus.enabled = false;
+			image_PlayerStatus.enabled = true;
 			SetPlayerStatusAlpha(0);
 		}
 
@@ -129,7 +129,7 @@
 			panel_PaintingInfo.SetActive(false);
 
 			StopAllCoroutines();
-			image_PlayerStatus.enabled = false;
+			image_PlayerStatus.enabled = true;
 			SetPlayerStatusAlpha(0);
 		}
 
@@ -179,6 +179,7 @@
 
 		public IEnumerator StartCaptureOeuvre(Sprite painting)
 		{			
+			image_PlayerStatus.enabled = false;
 			isCapturing = true;
 			float opacity = 0.1f;
 			while(opacity <= opacity_max)
@@ -205,7 +206,9 @@
 		
 		public void EndCapture()
 		{
-			print ("here");
+			if(image_PlayerStatus.color.a != 0)
+				image_PlayerStatus.enabled = true;
+
 			isCapturing = false;
 //			Time.timeScale = 1;
 
