@@ -6,6 +6,7 @@ namespace TheVandals
 	
 	public class GameManager: Singleton<GameManager>
 	{		
+		public bool reset = false;
 
 		void Start()
 		{ 
@@ -18,8 +19,11 @@ namespace TheVandals
 		{
 			EventManager.Instance.GameOver("WON");
 
-			yield return new WaitForSeconds(1.0f);
-			
+			while(!reset)
+				yield return null;
+
+			reset = false;
+
 			MapManager.Instance.ResetTiles();
 			EventManager.Instance.GameReset();
 			EventManager.Instance.StartTurn_Player();
@@ -30,6 +34,8 @@ namespace TheVandals
 			EventManager.Instance.GameOver("LOST");
 
 			yield return new WaitForSeconds(1.0f);
+			
+			reset = false;
 			
 			MapManager.Instance.ResetTiles();
 			EventManager.Instance.GameReset();

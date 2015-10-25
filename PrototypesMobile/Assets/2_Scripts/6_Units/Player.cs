@@ -36,16 +36,19 @@
 				return _instance;
 			}
 		}
-			
-		public bool isHidden;
-
+		
+		[HideInInspector]
+		public bool isHidden;		
+		[HideInInspector]
 		public GameObject tile_Destination;
-
+		[HideInInspector]
+		public int bustedCount = 0;
+		
+		
 		public int stepsLeft
 		{
 			get { return step_Max - turnSteps; }
-		}
-
+		}		
 		public List<Enemy> list_UnitsDetect = new List<Enemy>();
 
 		#region Events
@@ -108,6 +111,8 @@
 			StartTurn();
 			
 			anim.SetInteger("MoveState",0);
+			
+			bustedCount = 0;
 		}
 
 		public void StartTurn()

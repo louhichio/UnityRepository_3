@@ -13,21 +13,25 @@
 		[Header("Configuration")]
 		[Header("Panel GameOver")]
 		[SerializeField]
-		private Sprite[] ui_Status;
+		private GameObject panel_Busted;
 		[SerializeField]
-		private GameObject panel_Gameover;
+		private GameObject panel_EndScreen;
 		[SerializeField]
-		private Text text_Gameover;
+		private Text text_CaptureCount;
 		[SerializeField]
-		private Image image_GameOver;
+		private Text text_BustedCount;
+
+
 		[Header("Panel PlayerInfo")]
 		[SerializeField]
 		private GameObject panel_PlayerInfo;
+
 		[Header("Panel EnemyInfo")]
 		[SerializeField]
 		private GameObject panel_EnemyInfo;
 		[SerializeField]
 		private Text text_TurnStatus;
+
 		[Header("Panel GameInfo")]
 		[SerializeField]
 		private GameObject panel_GameInfo;
@@ -35,6 +39,7 @@
 		private Text text_StepsLeft;
 		[SerializeField]
 		private Text text_Collectables;
+
 		[Header("Panel GameInfoWorld")]
 		[SerializeField]
 		private GameObject panel_GameInfoWorld;
@@ -52,6 +57,8 @@
 		[Header("Effects")]
 		[SerializeField]
 		private ScreenOverlay screenOverlay;
+		[SerializeField]
+		private float opacity_max = 1;
 		[SerializeField]
 		private Image image_PlayerStatus;
 		[SerializeField]
@@ -85,7 +92,8 @@
 
 		public void Init()
 		{			
-			panel_Gameover.SetActive(false);
+			panel_Busted.SetActive(false);
+			panel_EndScreen.SetActive(false);
 			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
 			panel_PaintingInfo.SetActive(false);
@@ -99,29 +107,25 @@
 		{
 			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
-			panel_Gameover.SetActive(true);
-
-			if(text_Gameover)
+			switch(status)
 			{
-				switch(status)
-				{
-				case "WON":
-					image_GameOver.sprite = ui_Status[0];
-					text_Gameover.text = "VICTOIRE";
-					break;
-				case "LOST":
-					image_GameOver.sprite = ui_Status[1];
-					text_Gameover.text = "POLICE";
-					break;
-				}
+			case "WON":	
+				panel_EndScreen.SetActive(true);
+				text_CaptureCount.text = CollectManager.Instance.collected + "/" + CollectManager.Instance.collectables_Count;
+				text_BustedCount.text = Player.Instance.bustedCount.ToString();
+				break;
+			case "LOST":
+				Player.Instance.bustedCount++;
+				panel_Busted.SetActive(true);
+				break;
 			}
-			text_Gameover.enabled = true;
 			StartTurn_Player();
 		}
 
 		private void GameReset()
 		{
-			panel_Gameover.SetActive(false);
+			panel_Busted.SetActive(false);
+			panel_EndScreen.SetActive(false);
 			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
 			panel_PaintingInfo.SetActive(false);
@@ -146,7 +150,7 @@
 			panel_PlayerInfo.SetActive(true);
 
 			text_StepsLeft.text = "" + Player.Instance.turnSteps + "/" + Player.Instance.step_Max ;
-			text_Collectables.text = "" + CollectManager.Instance.collected + "/" + CollectManager.Instance.collectables_Count;
+			text_Collectables.text = CollectManager.Instance.collected + "/" + CollectManager.Instance.collectables_Count;
 		}
 
 		public void Pause()
@@ -179,7 +183,7 @@
 		{			
 			isCapturing = true;
 			float opacity = 0.1f;
-			while(opacity <= 1.0f)
+			while(opacity <= opacity_max)
 			{
 				screenOverlay.intensity = opacity;
 				opacity += Time.deltaTime * 10.0f;

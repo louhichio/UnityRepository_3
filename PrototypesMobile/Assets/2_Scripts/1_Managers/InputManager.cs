@@ -8,6 +8,8 @@
 		private bool isStop = false;
 		[SerializeField]
 		private bool isFingerClear = true;
+		[SerializeField]
+		private bool waitButtonUp = false;
 		
 		#region Events
 		void OnEnable()
@@ -36,7 +38,7 @@
 			if(Input.touchCount > 1 )
 				isFingerClear = false;
 			
-			if(!isFingerClear && Input.touchCount == 0)
+			if(!isFingerClear && Input.touchCount == 0 && !waitButtonUp)
 				isFingerClear = true;
 
 			if (!isStop && Input.GetKeyDown(KeyCode.Escape)) 
@@ -53,7 +55,17 @@
 					if(t != null)
 						Player.Instance.TouchOnDestinationTile(t);
 				}
-			}
+				else
+				{
+					if(isStop)
+					{
+					GameManager.Instance.reset = true;
+					isFingerClear = false;
+					waitButtonUp = true;
+					}
+				}
+			}else if(waitButtonUp && Input.GetButtonUp("Fire1"))
+				waitButtonUp = false;
 		}		
 		
 		void OnTap(TapGesture gesture) 
