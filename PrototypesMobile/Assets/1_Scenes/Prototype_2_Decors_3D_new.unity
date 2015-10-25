@@ -18515,7 +18515,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 456066, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2040270, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: orthographic size
@@ -18636,6 +18636,10 @@ Prefab:
     - target: {fileID: 2040270, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: m_Depth
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
+      propertyPath: CameraOffSet.y
+      value: 1.20000005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
@@ -34900,12 +34904,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1314411763}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 646b5bc27a658f447b1d929fd5ffbd70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 1
+  mode: 3
   showGeneratedNormals: 0
   offsetScale: .200000003
   blurRadius: 18
@@ -37243,7 +37247,7 @@ Transform:
   m_RootOrder: 80
 --- !u!21 &1423634183
 Material:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -37252,6 +37256,7 @@ Material:
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -38444,7 +38449,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 478108, guid: 49dd7387d72a54eed983464ba096571d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 478108, guid: 49dd7387d72a54eed983464ba096571d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -38473,14 +38478,6 @@ Prefab:
     - target: {fileID: 478108, guid: 49dd7387d72a54eed983464ba096571d, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 478108, guid: 49dd7387d72a54eed983464ba096571d, type: 2}
-      propertyPath: m_LocalScale.y
-      value: .774494529
-      objectReference: {fileID: 0}
-    - target: {fileID: 478108, guid: 49dd7387d72a54eed983464ba096571d, type: 2}
-      propertyPath: m_LocalScale.z
-      value: .774494469
       objectReference: {fileID: 0}
     - target: {fileID: 112752, guid: 49dd7387d72a54eed983464ba096571d, type: 2}
       propertyPath: m_Name
@@ -53239,7 +53236,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 478108, guid: 49dd7387d72a54eed983464ba096571d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 478108, guid: 49dd7387d72a54eed983464ba096571d, type: 2}
       propertyPath: m_LocalPosition.y
