@@ -43,7 +43,8 @@
 		public GameObject tile_Destination;
 		[HideInInspector]
 		public int bustedCount = 0;
-		
+
+		public Tile tileEndGame;
 		
 		public int stepsLeft
 		{
@@ -103,16 +104,15 @@
 
 			list_UnitsDetect.Clear();
 
-			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
-			SetUnitNeighboursTilesState(TileState.PlayerOn);
-
 			moveState = MoveState.None;
-
-			StartTurn();
 			
 			anim.SetInteger("MoveState",0);
 			
 			bustedCount = 0;
+
+			endedGame = false;
+
+			MapManager.Instance.DisableEndGamePath();
 		}
 
 		public void StartTurn()
@@ -148,7 +148,7 @@
 				return;
 			
 			List<Tile> path = AStar.FindPath(tile_current, destination);
-			
+
 			if (path.Count <= 1)
 			{
 				this.path = null;
@@ -169,23 +169,35 @@
 			}
 			
 			SetUnitNeighboursTilesState(TileState.Clear);
-			destination.SetTileState(TileState.PlayerOn);
+			
+			if(!endedGame)
+				destination.SetTileState(TileState.PlayerOn);
 		}
 
 		public override void TravelFinished()
-		{
+		{			
 			anim.SetInteger("MoveState",0);
-
+			
 			SetUnitNeighboursTilesState(TileState.Clear);
-
+			
 			moveState = MoveState.None;
+
+			tile_Destination.SetActive(false);
+			if(endedGame)
+			{
+				if(waypoints.Count == 0)
+				{
+					Stop();
+					GameManager.Instance.StartCoroutine("PlayerWon");
+				}
+				return;
+			}
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(stepsLeft);
 			SetUnitNeighboursTilesState(TileState.PlayerOn);
-			
-			tile_Destination.SetActive(false);
 
 			tile_current.AddUnit(this);
+			
 
 			if(turnSteps == step_Max)
 			{
@@ -198,21 +210,19 @@
 		}
 		public override bool Check()
 		{
-			UIManager.Instance.UpdatePlayerInfo(step_Max, turnSteps);
-
+			if(tile_current == MapManager.Instance.tile_EndGame && !endedGame)
+			{
+				tileEndGame = MapManager.Instance.EnableEndGamePath();
+				endedGame = true;
+				TravelTo(tileEndGame);
+				return true;
+			}
 			if(tile_current.isEnemyOn)
 			{
 				Stop();
 				GameManager.Instance.StartCoroutine("PlayerLost");
 				return true;
 			}			
-			
-			if(tile_current == MapManager.Instance.tile_EndGame)
-			{
-				Stop();			
-				GameManager.Instance.StartCoroutine("PlayerWon");	
-				return true;
-			}
 
 			if(tile_current.isFoVDetect)
 				EventManager.Instance.PlChangedTile(tile_current);

@@ -42,7 +42,9 @@ namespace TheVandals
 		[HideInInspector]
 		public Animator anim;			
 		[HideInInspector]
-		public bool isPaused = false;
+		public bool isPaused = false;		
+		[HideInInspector]
+		public bool endedGame = false;
 
 		void Update () 
 		{
@@ -130,16 +132,18 @@ namespace TheVandals
 				if (waypoints.Count % 2 == 1)
 				{
 					tile_current = path[0];
-					path.RemoveAt(0);
+					path.RemoveAt(0);					
 					
-					if(direction != Vector3.zero)
+					if(Check())
+						return;	
+
+					if(direction != Vector3.zero && !endedGame)
 					{
 						turnSteps++;
 						if(turnSteps >= step_Max)
 							canMove = false;
-					}					
-					if(Check())
-						return;
+						UIManager.Instance.UpdatePlayerInfo(step_Max, turnSteps);
+					}			
 				}
 				else
 				{						

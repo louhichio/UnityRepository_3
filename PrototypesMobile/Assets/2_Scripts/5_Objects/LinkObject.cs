@@ -55,5 +55,21 @@
 				tile_LinkEnd.Neighbours.Remove(tile_LinkStart);
 			}
 		}
+
+		public void SetActive(bool activate)
+		{
+			this.activate = activate;
+			isActive = activate;
+			if(isActive)
+			{
+				tile_LinkStart.Neighbours.Add(tile_LinkEnd);
+				tile_LinkEnd.Neighbours.Add(tile_LinkStart);
+			}
+			else
+			{
+				tile_LinkStart.Neighbours.Remove(tile_LinkEnd);
+				tile_LinkEnd.Neighbours.Remove(tile_LinkStart);
+			}
+		}
 	}
 }

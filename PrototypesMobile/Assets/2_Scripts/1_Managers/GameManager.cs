@@ -12,7 +12,7 @@ namespace TheVandals
 		{ 
 			MapManager.Instance.Initialise();
 			EventManager.Instance.Initialise();
-			EventManager.Instance.StartTurn_Player();
+			EventManager.Instance.StartTurn_Enemy();
 		}
 
 		public IEnumerator PlayerWon()
@@ -26,7 +26,7 @@ namespace TheVandals
 
 			MapManager.Instance.ResetTiles();
 			EventManager.Instance.GameReset();
-			EventManager.Instance.StartTurn_Player();
+			EventManager.Instance.StartTurn_Enemy();
 		}
 
 		public IEnumerator PlayerLost()
@@ -39,7 +39,7 @@ namespace TheVandals
 			
 			MapManager.Instance.ResetTiles();
 			EventManager.Instance.GameReset();
-			EventManager.Instance.StartTurn_Player();
+			EventManager.Instance.StartTurn_Enemy();
 		}
 	}
 }

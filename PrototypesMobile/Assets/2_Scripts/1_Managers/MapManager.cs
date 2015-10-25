@@ -335,6 +335,22 @@ namespace TheVandals
 			if(index >= 0 && index < map_tiles.Count)
 				tile = map_tiles[index];
 		}
+
+		public Tile EnableEndGamePath()
+		{
+			map_links[371].SetActive(true);
+			map_links[400].SetActive(true);
+
+			return map_tiles[221];
+		}
+		public Tile DisableEndGamePath()
+		{
+			map_links[371].SetActive(false);
+			map_links[400].SetActive(false);
+			
+			return map_tiles[221];
+		}
+
 		#endregion
 
 		#region Private
