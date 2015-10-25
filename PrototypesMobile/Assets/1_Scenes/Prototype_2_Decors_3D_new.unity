@@ -18404,7 +18404,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 456066, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 16.8400002
+      value: 9.10000038
       objectReference: {fileID: 0}
     - target: {fileID: 456066, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -18460,7 +18460,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: follow_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11417984, guid: 6cf904002ee6fc2429dcba3479fc245f, type: 2}
       propertyPath: followPlayer
