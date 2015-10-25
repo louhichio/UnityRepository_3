@@ -249,7 +249,7 @@
 			{ 			
 				c.a = x;
 				image_PlayerStatus.color = c;
-				x += Time.deltaTime * 4;
+				x += Time.deltaTime * 2;
 				yield return null;
 			}				
 			c.a = 1;
