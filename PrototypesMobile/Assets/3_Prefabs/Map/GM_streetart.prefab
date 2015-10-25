@@ -34,7 +34,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &156792
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,8 +60,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112752}
   m_LocalRotation: {x: .707106829, y: 2.98023224e-08, z: 4.47034836e-08, w: .707106709}
-  m_LocalPosition: {x: -7, y: 0, z: 7}
-  m_LocalScale: {x: .774494767, y: .774494708, z: .774494648}
+  m_LocalPosition: {x: -3, y: 0, z: 4}
+  m_LocalScale: {x: .774494767, y: .774494588, z: .774494529}
   m_Children:
   - {fileID: 494284}
   - {fileID: 491250}
@@ -121,7 +121,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127398}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
+  painting_Sprite: {fileID: 21300000, guid: 21439be4ab5184774acd2348cff6fef0, type: 3}
 --- !u!114 &11451438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,6 +260,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
       value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
