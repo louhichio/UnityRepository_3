@@ -87,90 +87,62 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &38332084
+--- !u!1 &21855854
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100010, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabParentObject: {fileID: 100060, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 38332085}
+  - 4: {fileID: 21855855}
   m_Layer: 0
-  m_Name: German ShepherdHub005
+  m_Name: German ShepherdSpine1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &38332085
+--- !u!4 &21855855
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400010, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabParentObject: {fileID: 400060, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 38332084}
-  m_LocalRotation: {x: .00404037861, y: .0194961559, z: .210775763, w: .977331698}
-  m_LocalPosition: {x: -.217688367, y: 3.81469718e-08, z: -2.38418574e-09}
-  m_LocalScale: {x: .999999762, y: .999999881, z: .99999994}
+  m_GameObject: {fileID: 21855854}
+  m_LocalRotation: {x: .00806646142, y: .00465553533, z: -.0666777119, w: .997731149}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.00000012, y: 1, z: 1}
   m_Children:
-  - {fileID: 1173009022}
-  - {fileID: 1273064292}
-  - {fileID: 161636371}
-  m_Father: {fileID: 1214505932}
-  m_RootOrder: 0
---- !u!1 &45576582
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100032, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 45576583}
-  m_Layer: 0
-  m_Name: German ShepherdLLegAnkle 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &45576583
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400032, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 45576582}
-  m_LocalRotation: {x: .0217152257, y: -.0281559955, z: -.307691962, w: .9508214}
-  m_LocalPosition: {x: -.0835595652, y: 2.78854368e-05, z: 1.09481807e-05}
-  m_LocalScale: {x: 1.00000131, y: .999999523, z: 1}
-  m_Children: []
-  m_Father: {fileID: 789831452}
-  m_RootOrder: 0
---- !u!1 &161636370
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100016, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 161636371}
-  m_Layer: 0
-  m_Name: German ShepherdHub005Bone003
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &161636371
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400016, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 161636370}
-  m_LocalRotation: {x: -8.79954276e-10, y: -1.00302155e-09, z: -.7300843, w: .683357179}
-  m_LocalPosition: {x: .109441981, y: .0968682468, z: -2.62260436e-08}
-  m_LocalScale: {x: .999999762, y: 1.00000072, z: 1}
-  m_Children: []
-  m_Father: {fileID: 38332085}
+  - {fileID: 1863812270}
+  m_Father: {fileID: 1592745326}
   m_RootOrder: 2
+--- !u!1 &94964552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100028, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 94964553}
+  m_Layer: 0
+  m_Name: German ShepherdLLeg3 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &94964553
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400028, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 94964552}
+  m_LocalRotation: {x: -.0146571668, y: .00207823841, z: -.149519265, w: .988647997}
+  m_LocalPosition: {x: -.317119241, y: -8.62121578e-06, z: -4.67300396e-07}
+  m_LocalScale: {x: 1.00000238, y: .999999523, z: 1.00000048}
+  m_Children:
+  - {fileID: 1298308311}
+  m_Father: {fileID: 1079167588}
+  m_RootOrder: 0
 --- !u!1 &171089142
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +351,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
-  m_StereoMirrorMode: 0
 --- !u!4 &202392130
 Transform:
   m_ObjectHideFlags: 0
@@ -461,97 +432,14 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -60
   maximumY: 60
---- !u!1 &210997736
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100058, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 210997737}
-  m_Layer: 0
-  m_Name: German ShepherdSpine1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &210997737
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400058, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 210997736}
-  m_LocalRotation: {x: -.000159561998, y: -.00123797555, z: .00517721521, w: .999985814}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .99999994, y: 1.00000012, z: 1.00000012}
-  m_Children:
-  - {fileID: 1763826665}
-  m_Father: {fileID: 383042336}
-  m_RootOrder: 2
---- !u!1 &264459358
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100040, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 264459359}
-  m_Layer: 0
-  m_Name: German ShepherdRLeg1 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &264459359
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400040, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 264459358}
-  m_LocalRotation: {x: -.0706033558, y: .996997297, z: .0279688202, w: .0151431253}
-  m_LocalPosition: {x: -.182033077, y: .149177745, z: -.1247795}
-  m_LocalScale: {x: 1.00000048, y: 1.00000024, z: 1}
-  m_Children:
-  - {fileID: 1535821556}
-  m_Father: {fileID: 1026045465}
-  m_RootOrder: 1
---- !u!1 &347858687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100076, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 347858688}
-  m_Layer: 0
-  m_Name: German ShepherdTail5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &347858688
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400076, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 347858687}
-  m_LocalRotation: {x: -.00263875886, y: .0868158638, z: -.0103502199, w: .996167123}
-  m_LocalPosition: {x: -.121487349, y: 0, z: -9.53674295e-09}
-  m_LocalScale: {x: 1.00000441, y: 1.00000644, z: .999999762}
-  m_Children: []
-  m_Father: {fileID: 1907336223}
-  m_RootOrder: 0
---- !u!1 &383042335
+--- !u!1 &235275652
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100006, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 383042336}
+  - 4: {fileID: 235275653}
   m_Layer: 0
   m_Name: German ShepherdHub003
   m_TagString: Untagged
@@ -559,22 +447,132 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &383042336
+--- !u!4 &235275653
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400006, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 383042335}
+  m_GameObject: {fileID: 235275652}
   m_LocalRotation: {x: .713244319, y: -.00294083776, z: -.700903594, w: .00284037692}
   m_LocalPosition: {x: 5.72198289e-10, y: 1.32734919, z: -.988285184}
   m_LocalScale: {x: 2.5400002, y: 2.53999996, z: 2.5400002}
   m_Children:
-  - {fileID: 1432494222}
-  - {fileID: 603958564}
-  - {fileID: 210997737}
-  - {fileID: 1173581161}
-  m_Father: {fileID: 685565000}
+  - {fileID: 338693934}
+  - {fileID: 1114825229}
+  - {fileID: 1114100945}
+  - {fileID: 270791735}
+  m_Father: {fileID: 1957057079}
   m_RootOrder: 2
+--- !u!1 &261100013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100012, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 261100014}
+  m_Layer: 0
+  m_Name: German ShepherdHub005Bone001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &261100014
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400012, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 261100013}
+  m_LocalRotation: {x: 3.26088556e-09, y: .163491249, z: -5.40397394e-10, w: .986544788}
+  m_LocalPosition: {x: -.0555555709, y: .00926202722, z: .0625261068}
+  m_LocalScale: {x: 1.00000024, y: 1.00000072, z: .99999994}
+  m_Children: []
+  m_Father: {fileID: 523479051}
+  m_RootOrder: 0
+--- !u!1 &270791734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100068, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 270791735}
+  m_Layer: 0
+  m_Name: German ShepherdTail1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &270791735
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400068, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 270791734}
+  m_LocalRotation: {x: .000539080007, y: .000341831212, z: .985046923, w: -.172285184}
+  m_LocalPosition: {x: .0804793909, y: -.0557793416, z: 1.66893006e-08}
+  m_LocalScale: {x: 1.00000024, y: 1.00000036, z: .99999994}
+  m_Children:
+  - {fileID: 1585042495}
+  m_Father: {fileID: 235275653}
+  m_RootOrder: 3
+--- !u!1 &300679160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100052, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 300679161}
+  m_Layer: 0
+  m_Name: German ShepherdRLegAnkle 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300679161
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400052, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 300679160}
+  m_LocalRotation: {x: .0162778944, y: .0144452434, z: -.672047079, w: .740188539}
+  m_LocalPosition: {x: -.0835591406, y: 9.53674295e-09, z: 1.90734859e-08}
+  m_LocalScale: {x: .999996603, y: 1.0000031, z: .999999642}
+  m_Children: []
+  m_Father: {fileID: 602995098}
+  m_RootOrder: 0
+--- !u!1 &338693933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100018, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 338693934}
+  m_Layer: 0
+  m_Name: German ShepherdLLeg1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &338693934
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400018, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 338693933}
+  m_LocalRotation: {x: -.553832531, y: .832467496, z: .00952792168, w: .0132918209}
+  m_LocalPosition: {x: .00511920918, y: -.0158322901, z: .105507962}
+  m_LocalScale: {x: .999999762, y: 1.00000024, z: 1.00000012}
+  m_Children:
+  - {fileID: 466558905}
+  m_Father: {fileID: 235275653}
+  m_RootOrder: 0
 --- !u!1 &397547489
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,70 +633,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!1 &445590867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100066, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 445590868}
-  m_Layer: 0
-  m_Name: German ShepherdSpine3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &445590868
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400066, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 445590867}
-  m_LocalRotation: {x: -.0017997527, y: -.00784493145, z: .10562785, w: .994373202}
-  m_LocalPosition: {x: -.161268294, y: 0, z: -7.45058043e-11}
-  m_LocalScale: {x: 1.00000048, y: 1.00000012, z: 1}
-  m_Children:
-  - {fileID: 1026045465}
-  m_Father: {fileID: 1763826665}
-  m_RootOrder: 0
---- !u!1 &455873629
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100048, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 455873630}
-  m_Layer: 0
-  m_Name: German ShepherdRLeg3 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &455873630
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400048, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 455873629}
-  m_LocalRotation: {x: .0162206795, y: -.0122333718, z: .0854851007, w: .996132314}
-  m_LocalPosition: {x: -.317118794, y: -8.31604029e-06, z: 1.04904174e-07}
-  m_LocalScale: {x: 1.00000024, y: 1.00000131, z: 1.00000024}
-  m_Children:
-  - {fileID: 1526177941}
-  m_Father: {fileID: 1535821556}
-  m_RootOrder: 0
---- !u!1 &504382356
+--- !u!1 &414930671
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100020, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 504382357}
+  - 4: {fileID: 414930672}
   m_Layer: 0
   m_Name: German ShepherdLLeg1 1
   m_TagString: Untagged
@@ -706,27 +648,390 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &504382357
+--- !u!4 &414930672
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400020, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 504382356}
+  m_GameObject: {fileID: 414930671}
   m_LocalRotation: {x: -.409269571, y: .911936164, z: -.0124679813, w: -.0267490614}
   m_LocalPosition: {x: -.182033077, y: .149177745, z: .124779478}
   m_LocalScale: {x: .99999994, y: 1.00000072, z: 1}
   m_Children:
-  - {fileID: 1755719757}
-  m_Father: {fileID: 1026045465}
+  - {fileID: 1079167588}
+  m_Father: {fileID: 1592745326}
   m_RootOrder: 0
---- !u!1 &603958563
+--- !u!1 &439908648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100004, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 439908649}
+  m_Layer: 0
+  m_Name: German Shepherd 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &439908649
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400004, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 439908648}
+  m_LocalRotation: {x: .501010895, y: -.498987138, z: -.501010835, w: .498987079}
+  m_LocalPosition: {x: 7.48203099e-09, y: .0254667904, z: -.00307694403}
+  m_LocalScale: {x: 2.5400002, y: 2.53999996, z: 2.53999996}
+  m_Children: []
+  m_Father: {fileID: 1957057079}
+  m_RootOrder: 1
+--- !u!1 &444600340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100046, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 444600341}
+  m_Layer: 0
+  m_Name: German ShepherdRLeg3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444600341
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400046, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 444600340}
+  m_LocalRotation: {x: -.00746954884, y: -.00288271275, z: -.432472706, w: .901611447}
+  m_LocalPosition: {x: -.273949355, y: -2.05993638e-06, z: 3.05175774e-07}
+  m_LocalScale: {x: 1.00000441, y: .999998987, z: .999999106}
+  m_Children:
+  - {fileID: 1093301517}
+  m_Father: {fileID: 1244812036}
+  m_RootOrder: 0
+--- !u!1 &466558904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100022, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 466558905}
+  m_Layer: 0
+  m_Name: German ShepherdLLeg2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466558905
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400022, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 466558904}
+  m_LocalRotation: {x: .0064593656, y: .00397260115, z: .282534719, w: .959227085}
+  m_LocalPosition: {x: -.159134492, y: 0, z: -1.90734859e-08}
+  m_LocalScale: {x: 1.00000012, y: 1.00000119, z: .999999583}
+  m_Children:
+  - {fileID: 1146306717}
+  m_Father: {fileID: 338693934}
+  m_RootOrder: 0
+--- !u!1 &470646753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100036, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 470646754}
+  m_Layer: 0
+  m_Name: German ShepherdLLegPlatform 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &470646754
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400036, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 470646753}
+  m_LocalRotation: {x: .492900401, y: -.507000208, z: -.492900491, w: .507000089}
+  m_LocalPosition: {x: -.243573278, y: .027359847, z: 1.28611434}
+  m_LocalScale: {x: 2.53999996, y: 2.53999996, z: 2.53999996}
+  m_Children: []
+  m_Father: {fileID: 1957057079}
+  m_RootOrder: 4
+--- !u!1 &523479050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100010, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 523479051}
+  m_Layer: 0
+  m_Name: German ShepherdHub005
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &523479051
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400010, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 523479050}
+  m_LocalRotation: {x: .00404037861, y: .0194961559, z: .210775763, w: .977331698}
+  m_LocalPosition: {x: -.217688367, y: 3.81469718e-08, z: -2.38418574e-09}
+  m_LocalScale: {x: .999999762, y: .999999881, z: .99999994}
+  m_Children:
+  - {fileID: 261100014}
+  - {fileID: 1412093294}
+  - {fileID: 1539257366}
+  m_Father: {fileID: 1863812270}
+  m_RootOrder: 0
+--- !u!1 &602995097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100048, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 602995098}
+  m_Layer: 0
+  m_Name: German ShepherdRLeg3 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &602995098
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400048, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 602995097}
+  m_LocalRotation: {x: .0162206795, y: -.0122333718, z: .0854851007, w: .996132314}
+  m_LocalPosition: {x: -.317118794, y: -8.31604029e-06, z: 1.04904174e-07}
+  m_LocalScale: {x: 1.00000024, y: 1.00000131, z: 1.00000024}
+  m_Children:
+  - {fileID: 300679161}
+  m_Father: {fileID: 1319611051}
+  m_RootOrder: 0
+--- !u!1 &654484849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100072, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 654484850}
+  m_Layer: 0
+  m_Name: German ShepherdTail3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &654484850
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400072, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 654484849}
+  m_LocalRotation: {x: -.00625619106, y: -.0875829235, z: -.0515025035, w: .994805336}
+  m_LocalPosition: {x: -.140654847, y: -7.62939436e-08, z: 2.38418574e-09}
+  m_LocalScale: {x: 1.00000131, y: 1.00000179, z: 1}
+  m_Children:
+  - {fileID: 1501640266}
+  m_Father: {fileID: 1585042495}
+  m_RootOrder: 0
+--- !u!1 &707142040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100066, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 707142041}
+  m_Layer: 0
+  m_Name: German ShepherdSpine3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &707142041
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400066, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 707142040}
+  m_LocalRotation: {x: -.0017997527, y: -.00784493145, z: .10562785, w: .994373202}
+  m_LocalPosition: {x: -.161268294, y: 0, z: -7.45058043e-11}
+  m_LocalScale: {x: 1.00000048, y: 1.00000012, z: 1}
+  m_Children:
+  - {fileID: 1592745326}
+  m_Father: {fileID: 884734875}
+  m_RootOrder: 0
+--- !u!1 &884734874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100062, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 884734875}
+  m_Layer: 0
+  m_Name: German ShepherdSpine2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &884734875
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400062, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 884734874}
+  m_LocalRotation: {x: -.00180451898, y: -.0076123043, z: .0859834105, w: .996265888}
+  m_LocalPosition: {x: -.161268264, y: 0, z: -5.96046434e-10}
+  m_LocalScale: {x: 1.00000012, y: 1, z: 1.00000012}
+  m_Children:
+  - {fileID: 707142041}
+  m_Father: {fileID: 1114100945}
+  m_RootOrder: 0
+--- !u!1 &901014793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100040, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 901014794}
+  m_Layer: 0
+  m_Name: German ShepherdRLeg1 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &901014794
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400040, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 901014793}
+  m_LocalRotation: {x: -.0706033558, y: .996997297, z: .0279688202, w: .0151431253}
+  m_LocalPosition: {x: -.182033077, y: .149177745, z: -.1247795}
+  m_LocalScale: {x: 1.00000048, y: 1.00000024, z: 1}
+  m_Children:
+  - {fileID: 1319611051}
+  m_Father: {fileID: 1592745326}
+  m_RootOrder: 1
+--- !u!1 &1079167587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100024, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1079167588}
+  m_Layer: 0
+  m_Name: German ShepherdLLeg2 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1079167588
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400024, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 1079167587}
+  m_LocalRotation: {x: .00486295996, y: -.00773722306, z: -.41123721, w: .911482573}
+  m_LocalPosition: {x: -.223634034, y: 2.47955313e-07, z: 0}
+  m_LocalScale: {x: 1.00000012, y: 1.00000107, z: 1.00000024}
+  m_Children:
+  - {fileID: 94964553}
+  m_Father: {fileID: 414930672}
+  m_RootOrder: 0
+--- !u!1 &1093301516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100050, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1093301517}
+  m_Layer: 0
+  m_Name: German ShepherdRLegAnkle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1093301517
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400050, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 1093301516}
+  m_LocalRotation: {x: .00416797912, y: .00201103301, z: -.464280605, w: .885676086}
+  m_LocalPosition: {x: -.165397108, y: -2.15530395e-06, z: 7.77816749e-05}
+  m_LocalScale: {x: 1.00000346, y: .999997318, z: .99999994}
+  m_Children: []
+  m_Father: {fileID: 444600341}
+  m_RootOrder: 0
+--- !u!1 &1114100944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100058, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1114100945}
+  m_Layer: 0
+  m_Name: German ShepherdSpine1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1114100945
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400058, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 1114100944}
+  m_LocalRotation: {x: -.000159561998, y: -.00123797555, z: .00517721521, w: .999985814}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .99999994, y: 1.00000012, z: 1.00000012}
+  m_Children:
+  - {fileID: 884734875}
+  m_Father: {fileID: 235275653}
+  m_RootOrder: 2
+--- !u!1 &1114825228
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100038, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 603958564}
+  - 4: {fileID: 1114825229}
   m_Layer: 0
   m_Name: German ShepherdRLeg1
   m_TagString: Untagged
@@ -734,212 +1039,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &603958564
+--- !u!4 &1114825229
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400038, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 603958563}
+  m_GameObject: {fileID: 1114825228}
   m_LocalRotation: {x: .916283667, y: -.399742931, z: .0250950735, w: -.000310974778}
   m_LocalPosition: {x: .00511924736, y: -.0158322901, z: -.105507985}
   m_LocalScale: {x: .999999881, y: 1.00000024, z: 1.00000012}
   m_Children:
-  - {fileID: 656359352}
-  m_Father: {fileID: 383042336}
+  - {fileID: 1244812036}
+  m_Father: {fileID: 235275653}
   m_RootOrder: 1
---- !u!1 &656359351
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100042, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 656359352}
-  m_Layer: 0
-  m_Name: German ShepherdRLeg2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &656359352
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400042, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 656359351}
-  m_LocalRotation: {x: -.0088959774, y: -.00734356046, z: .490582049, w: .871318638}
-  m_LocalPosition: {x: -.159134522, y: -3.81469718e-08, z: -4.7683713e-08}
-  m_LocalScale: {x: 1.00000107, y: .99999994, z: 1.00000024}
-  m_Children:
-  - {fileID: 1485495294}
-  m_Father: {fileID: 603958564}
-  m_RootOrder: 0
---- !u!1 &685564999
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 685565000}
-  - 95: {fileID: 685565001}
-  m_Layer: 0
-  m_Name: German_Shepherd_walk
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &685565000
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 685564999}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2005434304}
-  - {fileID: 1240510109}
-  - {fileID: 383042336}
-  - {fileID: 1759483147}
-  - {fileID: 1569936165}
-  - {fileID: 745898380}
-  - {fileID: 1403504927}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!95 &685565001
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9500000, guid: 1bb5c825280a6b7498ffb3b78870d3cf,
-    type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 685564999}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_Controller: {fileID: 9100000, guid: b9309ac9e2874794d8a8de2fb4905cd7, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &745898379
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100054, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 745898380}
-  m_Layer: 0
-  m_Name: German ShepherdRLegPlatform
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &745898380
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400054, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 745898379}
-  m_LocalRotation: {x: .492900401, y: -.507000208, z: -.492900491, w: .507000089}
-  m_LocalPosition: {x: .286543667, y: .0347732976, z: -.545501947}
-  m_LocalScale: {x: 2.53999996, y: 2.53999996, z: 2.53999996}
-  m_Children: []
-  m_Father: {fileID: 685565000}
-  m_RootOrder: 5
---- !u!1 &789831451
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100028, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 789831452}
-  m_Layer: 0
-  m_Name: German ShepherdLLeg3 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &789831452
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400028, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 789831451}
-  m_LocalRotation: {x: -.0146571668, y: .00207823841, z: -.149519265, w: .988647997}
-  m_LocalPosition: {x: -.317119241, y: -8.62121578e-06, z: -4.67300396e-07}
-  m_LocalScale: {x: 1.00000238, y: .999999523, z: 1.00000048}
-  m_Children:
-  - {fileID: 45576583}
-  m_Father: {fileID: 1755719757}
-  m_RootOrder: 0
---- !u!1 &1026045464
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100008, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1026045465}
-  m_Layer: 0
-  m_Name: German ShepherdHub004
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1026045465
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400008, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1026045464}
-  m_LocalRotation: {x: -.000163779172, y: -.00154530257, z: .0282355417, w: .999600112}
-  m_LocalPosition: {x: -.161268264, y: 3.81469718e-08, z: 2.23517413e-10}
-  m_LocalScale: {x: .999999821, y: 1, z: .999999821}
-  m_Children:
-  - {fileID: 504382357}
-  - {fileID: 264459359}
-  - {fileID: 1352903484}
-  m_Father: {fileID: 445590868}
-  m_RootOrder: 0
---- !u!1 &1109631002
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100030, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1109631003}
-  m_Layer: 0
-  m_Name: German ShepherdLLegAnkle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1109631003
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400030, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1109631002}
-  m_LocalRotation: {x: 1.66360896e-05, y: 1.70349103e-05, z: -.704181254, w: .710020304}
-  m_LocalPosition: {x: -.165397123, y: 7.62939436e-08, z: 9.53674295e-09}
-  m_LocalScale: {x: .999995351, y: 1.00000405, z: .999999821}
-  m_Children: []
-  m_Father: {fileID: 1257993972}
-  m_RootOrder: 0
 --- !u!1001 &1128563658
 Prefab:
   m_ObjectHideFlags: 0
@@ -1025,154 +1137,16 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_RootGameObject: {fileID: 685564999}
+  m_RootGameObject: {fileID: 1957057078}
   m_IsPrefabParent: 0
---- !u!1 &1173009021
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100012, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1173009022}
-  m_Layer: 0
-  m_Name: German ShepherdHub005Bone001
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1173009022
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400012, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1173009021}
-  m_LocalRotation: {x: 3.26088556e-09, y: .163491249, z: -5.40397394e-10, w: .986544788}
-  m_LocalPosition: {x: -.0555555709, y: .00926202722, z: .0625261068}
-  m_LocalScale: {x: 1.00000024, y: 1.00000072, z: .99999994}
-  m_Children: []
-  m_Father: {fileID: 38332085}
-  m_RootOrder: 0
---- !u!1 &1173581160
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100068, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1173581161}
-  m_Layer: 0
-  m_Name: German ShepherdTail1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1173581161
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400068, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1173581160}
-  m_LocalRotation: {x: .000539080007, y: .000341831212, z: .985046923, w: -.172285184}
-  m_LocalPosition: {x: .0804793909, y: -.0557793416, z: 1.66893006e-08}
-  m_LocalScale: {x: 1.00000024, y: 1.00000036, z: .99999994}
-  m_Children:
-  - {fileID: 1390131238}
-  m_Father: {fileID: 383042336}
-  m_RootOrder: 3
---- !u!1 &1188982500
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100072, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1188982501}
-  m_Layer: 0
-  m_Name: German ShepherdTail3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1188982501
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400072, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1188982500}
-  m_LocalRotation: {x: -.00625619106, y: -.0875829235, z: -.0515025035, w: .994805336}
-  m_LocalPosition: {x: -.140654847, y: -7.62939436e-08, z: 2.38418574e-09}
-  m_LocalScale: {x: 1.00000131, y: 1.00000179, z: 1}
-  m_Children:
-  - {fileID: 1907336223}
-  m_Father: {fileID: 1390131238}
-  m_RootOrder: 0
---- !u!1 &1214505931
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100064, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1214505932}
-  m_Layer: 0
-  m_Name: German ShepherdSpine2 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1214505932
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400064, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1214505931}
-  m_LocalRotation: {x: .0318002738, y: .0236344598, z: .316173196, w: .947873771}
-  m_LocalPosition: {x: -.217688352, y: 0, z: 0}
-  m_LocalScale: {x: 1.00000024, y: 1.0000006, z: 1}
-  m_Children:
-  - {fileID: 38332085}
-  m_Father: {fileID: 1352903484}
-  m_RootOrder: 0
---- !u!1 &1240510108
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100004, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1240510109}
-  m_Layer: 0
-  m_Name: German Shepherd 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1240510109
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400004, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1240510108}
-  m_LocalRotation: {x: .501010895, y: -.498987138, z: -.501010835, w: .498987079}
-  m_LocalPosition: {x: 7.48203099e-09, y: .0254667904, z: -.00307694403}
-  m_LocalScale: {x: 2.5400002, y: 2.53999996, z: 2.53999996}
-  m_Children: []
-  m_Father: {fileID: 685565000}
-  m_RootOrder: 1
---- !u!1 &1257993971
+--- !u!1 &1146306716
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100026, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1257993972}
+  - 4: {fileID: 1146306717}
   m_Layer: 0
   m_Name: German ShepherdLLeg3
   m_TagString: Untagged
@@ -1180,247 +1154,82 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1257993972
+--- !u!4 &1146306717
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400026, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1257993971}
+  m_GameObject: {fileID: 1146306716}
   m_LocalRotation: {x: .0068802326, y: .00187242997, z: -.110686347, w: .993829787}
   m_LocalPosition: {x: -.273949206, y: -1.67846679e-06, z: -3.05175774e-07}
   m_LocalScale: {x: .999999285, y: 1.00000215, z: 1.00000036}
   m_Children:
-  - {fileID: 1109631003}
-  m_Father: {fileID: 2016037823}
+  - {fileID: 1874779791}
+  m_Father: {fileID: 466558905}
   m_RootOrder: 0
---- !u!1 &1273064291
+--- !u!1 &1244812035
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100014, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabParentObject: {fileID: 100042, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1273064292}
+  - 4: {fileID: 1244812036}
   m_Layer: 0
-  m_Name: German ShepherdHub005Bone002
+  m_Name: German ShepherdRLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1273064292
+--- !u!4 &1244812036
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400014, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabParentObject: {fileID: 400042, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1273064291}
-  m_LocalRotation: {x: 3.26088556e-09, y: -.163491279, z: 5.40397505e-10, w: .986544788}
-  m_LocalPosition: {x: -.0555555709, y: .00926204678, z: -.0625260845}
-  m_LocalScale: {x: 1.00000024, y: 1.00000072, z: 1}
-  m_Children: []
-  m_Father: {fileID: 38332085}
-  m_RootOrder: 1
---- !u!1 &1352903483
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100060, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1352903484}
-  m_Layer: 0
-  m_Name: German ShepherdSpine1 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1352903484
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400060, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1352903483}
-  m_LocalRotation: {x: .00806646142, y: .00465553533, z: -.0666777119, w: .997731149}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00000012, y: 1, z: 1}
+  m_GameObject: {fileID: 1244812035}
+  m_LocalRotation: {x: -.0088959774, y: -.00734356046, z: .490582049, w: .871318638}
+  m_LocalPosition: {x: -.159134522, y: -3.81469718e-08, z: -4.7683713e-08}
+  m_LocalScale: {x: 1.00000107, y: .99999994, z: 1.00000024}
   m_Children:
-  - {fileID: 1214505932}
-  m_Father: {fileID: 1026045465}
-  m_RootOrder: 2
---- !u!1 &1390131237
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100070, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1390131238}
-  m_Layer: 0
-  m_Name: German ShepherdTail2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1390131238
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400070, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1390131237}
-  m_LocalRotation: {x: .00613588607, y: -.0323494524, z: .129899919, w: .990980268}
-  m_LocalPosition: {x: -.0481909923, y: -7.62939436e-08, z: 0}
-  m_LocalScale: {x: 1.0000006, y: 1.00000083, z: 1}
-  m_Children:
-  - {fileID: 1188982501}
-  m_Father: {fileID: 1173581161}
+  - {fileID: 444600341}
+  m_Father: {fileID: 1114825229}
   m_RootOrder: 0
---- !u!1 &1403504926
+--- !u!1 &1298308310
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100056, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabParentObject: {fileID: 100032, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1403504927}
+  - 4: {fileID: 1298308311}
   m_Layer: 0
-  m_Name: German ShepherdRLegPlatform 1
+  m_Name: German ShepherdLLegAnkle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1403504927
+--- !u!4 &1298308311
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400056, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabParentObject: {fileID: 400032, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1403504926}
-  m_LocalRotation: {x: -.565089166, y: .425057858, z: .565089285, w: -.425057858}
-  m_LocalPosition: {x: .243573114, y: .0863899589, z: -.156729221}
-  m_LocalScale: {x: 2.53999996, y: 2.5400002, z: 2.53999996}
+  m_GameObject: {fileID: 1298308310}
+  m_LocalRotation: {x: .0217152257, y: -.0281559955, z: -.307691962, w: .9508214}
+  m_LocalPosition: {x: -.0835595652, y: 2.78854368e-05, z: 1.09481807e-05}
+  m_LocalScale: {x: 1.00000131, y: .999999523, z: 1}
   m_Children: []
-  m_Father: {fileID: 685565000}
-  m_RootOrder: 6
---- !u!1 &1432494221
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100018, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1432494222}
-  m_Layer: 0
-  m_Name: German ShepherdLLeg1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1432494222
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400018, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1432494221}
-  m_LocalRotation: {x: -.553832531, y: .832467496, z: .00952792168, w: .0132918209}
-  m_LocalPosition: {x: .00511920918, y: -.0158322901, z: .105507962}
-  m_LocalScale: {x: .999999762, y: 1.00000024, z: 1.00000012}
-  m_Children:
-  - {fileID: 2016037823}
-  m_Father: {fileID: 383042336}
+  m_Father: {fileID: 94964553}
   m_RootOrder: 0
---- !u!1 &1485495293
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100046, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1485495294}
-  m_Layer: 0
-  m_Name: German ShepherdRLeg3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1485495294
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400046, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1485495293}
-  m_LocalRotation: {x: -.00746954884, y: -.00288271275, z: -.432472706, w: .901611447}
-  m_LocalPosition: {x: -.273949355, y: -2.05993638e-06, z: 3.05175774e-07}
-  m_LocalScale: {x: 1.00000441, y: .999998987, z: .999999106}
-  m_Children:
-  - {fileID: 1499279849}
-  m_Father: {fileID: 656359352}
-  m_RootOrder: 0
---- !u!1 &1499279848
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100050, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1499279849}
-  m_Layer: 0
-  m_Name: German ShepherdRLegAnkle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1499279849
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400050, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1499279848}
-  m_LocalRotation: {x: .00416797912, y: .00201103301, z: -.464280605, w: .885676086}
-  m_LocalPosition: {x: -.165397108, y: -2.15530395e-06, z: 7.77816749e-05}
-  m_LocalScale: {x: 1.00000346, y: .999997318, z: .99999994}
-  m_Children: []
-  m_Father: {fileID: 1485495294}
-  m_RootOrder: 0
---- !u!1 &1526177940
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100052, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1526177941}
-  m_Layer: 0
-  m_Name: German ShepherdRLegAnkle 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1526177941
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400052, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1526177940}
-  m_LocalRotation: {x: .0162778944, y: .0144452434, z: -.672047079, w: .740188539}
-  m_LocalPosition: {x: -.0835591406, y: 9.53674295e-09, z: 1.90734859e-08}
-  m_LocalScale: {x: .999996603, y: 1.0000031, z: .999999642}
-  m_Children: []
-  m_Father: {fileID: 455873630}
-  m_RootOrder: 0
---- !u!1 &1535821555
+--- !u!1 &1319611050
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100044, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1535821556}
+  - 4: {fileID: 1319611051}
   m_Layer: 0
   m_Name: German ShepherdRLeg2 1
   m_TagString: Untagged
@@ -1428,82 +1237,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1535821556
+--- !u!4 &1319611051
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400044, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1535821555}
+  m_GameObject: {fileID: 1319611050}
   m_LocalRotation: {x: -.0030285581, y: .00470607635, z: -.267102599, w: .963651836}
   m_LocalPosition: {x: -.22363399, y: -2.09808348e-07, z: -1.90734859e-08}
   m_LocalScale: {x: 1.00000012, y: 1.00000083, z: 1}
   m_Children:
-  - {fileID: 455873630}
-  m_Father: {fileID: 264459359}
+  - {fileID: 602995098}
+  m_Father: {fileID: 901014794}
   m_RootOrder: 0
---- !u!1 &1569936164
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100036, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1569936165}
-  m_Layer: 0
-  m_Name: German ShepherdLLegPlatform 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1569936165
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400036, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1569936164}
-  m_LocalRotation: {x: .492900401, y: -.507000208, z: -.492900491, w: .507000089}
-  m_LocalPosition: {x: -.243573278, y: .027359847, z: 1.28611434}
-  m_LocalScale: {x: 2.53999996, y: 2.53999996, z: 2.53999996}
-  m_Children: []
-  m_Father: {fileID: 685565000}
-  m_RootOrder: 4
---- !u!1 &1755719756
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100024, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1755719757}
-  m_Layer: 0
-  m_Name: German ShepherdLLeg2 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1755719757
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400024, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
-  m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1755719756}
-  m_LocalRotation: {x: .00486295996, y: -.00773722306, z: -.41123721, w: .911482573}
-  m_LocalPosition: {x: -.223634034, y: 2.47955313e-07, z: 0}
-  m_LocalScale: {x: 1.00000012, y: 1.00000107, z: 1.00000024}
-  m_Children:
-  - {fileID: 789831452}
-  m_Father: {fileID: 504382357}
-  m_RootOrder: 0
---- !u!1 &1759483146
+--- !u!1 &1331826984
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100034, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1759483147}
+  - 4: {fileID: 1331826985}
   m_Layer: 0
   m_Name: German ShepherdLLegPlatform
   m_TagString: Untagged
@@ -1511,54 +1265,53 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1759483147
+--- !u!4 &1331826985
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400034, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1759483146}
+  m_GameObject: {fileID: 1331826984}
   m_LocalRotation: {x: -.565089166, y: .425057858, z: .565089285, w: -.425057858}
   m_LocalPosition: {x: -.28654328, y: .0938034132, z: -1.98834562}
   m_LocalScale: {x: 2.53999996, y: 2.5400002, z: 2.53999996}
   m_Children: []
-  m_Father: {fileID: 685565000}
+  m_Father: {fileID: 1957057079}
   m_RootOrder: 3
---- !u!1 &1763826664
+--- !u!1 &1412093293
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100062, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabParentObject: {fileID: 100014, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1763826665}
+  - 4: {fileID: 1412093294}
   m_Layer: 0
-  m_Name: German ShepherdSpine2
+  m_Name: German ShepherdHub005Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1763826665
+--- !u!4 &1412093294
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400062, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabParentObject: {fileID: 400014, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1763826664}
-  m_LocalRotation: {x: -.00180451898, y: -.0076123043, z: .0859834105, w: .996265888}
-  m_LocalPosition: {x: -.161268264, y: 0, z: -5.96046434e-10}
-  m_LocalScale: {x: 1.00000012, y: 1, z: 1.00000012}
-  m_Children:
-  - {fileID: 445590868}
-  m_Father: {fileID: 210997737}
-  m_RootOrder: 0
---- !u!1 &1907336222
+  m_GameObject: {fileID: 1412093293}
+  m_LocalRotation: {x: 3.26088556e-09, y: -.163491279, z: 5.40397505e-10, w: .986544788}
+  m_LocalPosition: {x: -.0555555709, y: .00926204678, z: -.0625260845}
+  m_LocalScale: {x: 1.00000024, y: 1.00000072, z: 1}
+  m_Children: []
+  m_Father: {fileID: 523479051}
+  m_RootOrder: 1
+--- !u!1 &1501640265
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100074, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1907336223}
+  - 4: {fileID: 1501640266}
   m_Layer: 0
   m_Name: German ShepherdTail4
   m_TagString: Untagged
@@ -1566,19 +1319,239 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1907336223
+--- !u!4 &1501640266
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400074, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 1907336222}
+  m_GameObject: {fileID: 1501640265}
   m_LocalRotation: {x: -.0171016678, y: -.0225932878, z: -.0633243546, w: .997590661}
   m_LocalPosition: {x: -.129033774, y: 0, z: 4.76837148e-09}
   m_LocalScale: {x: 1.00000215, y: 1.00000322, z: 1}
   m_Children:
-  - {fileID: 347858688}
-  m_Father: {fileID: 1188982501}
+  - {fileID: 2097617941}
+  m_Father: {fileID: 654484850}
   m_RootOrder: 0
+--- !u!1 &1539257365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100016, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1539257366}
+  m_Layer: 0
+  m_Name: German ShepherdHub005Bone003
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1539257366
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400016, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 1539257365}
+  m_LocalRotation: {x: -8.79954276e-10, y: -1.00302155e-09, z: -.7300843, w: .683357179}
+  m_LocalPosition: {x: .109441981, y: .0968682468, z: -2.62260436e-08}
+  m_LocalScale: {x: .999999762, y: 1.00000072, z: 1}
+  m_Children: []
+  m_Father: {fileID: 523479051}
+  m_RootOrder: 2
+--- !u!1 &1559354974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100054, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1559354975}
+  m_Layer: 0
+  m_Name: German ShepherdRLegPlatform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1559354975
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400054, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 1559354974}
+  m_LocalRotation: {x: .492900401, y: -.507000208, z: -.492900491, w: .507000089}
+  m_LocalPosition: {x: .286543667, y: .0347732976, z: -.545501947}
+  m_LocalScale: {x: 2.53999996, y: 2.53999996, z: 2.53999996}
+  m_Children: []
+  m_Father: {fileID: 1957057079}
+  m_RootOrder: 5
+--- !u!1 &1585042494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100070, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1585042495}
+  m_Layer: 0
+  m_Name: German ShepherdTail2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1585042495
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400070, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 1585042494}
+  m_LocalRotation: {x: .00613588607, y: -.0323494524, z: .129899919, w: .990980268}
+  m_LocalPosition: {x: -.0481909923, y: -7.62939436e-08, z: 0}
+  m_LocalScale: {x: 1.0000006, y: 1.00000083, z: 1}
+  m_Children:
+  - {fileID: 654484850}
+  m_Father: {fileID: 270791735}
+  m_RootOrder: 0
+--- !u!1 &1592745325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100008, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1592745326}
+  m_Layer: 0
+  m_Name: German ShepherdHub004
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1592745326
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400008, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 1592745325}
+  m_LocalRotation: {x: -.000163779172, y: -.00154530257, z: .0282355417, w: .999600112}
+  m_LocalPosition: {x: -.161268264, y: 3.81469718e-08, z: 2.23517413e-10}
+  m_LocalScale: {x: .999999821, y: 1, z: .999999821}
+  m_Children:
+  - {fileID: 414930672}
+  - {fileID: 901014794}
+  - {fileID: 21855855}
+  m_Father: {fileID: 707142041}
+  m_RootOrder: 0
+--- !u!1 &1863812269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100064, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1863812270}
+  m_Layer: 0
+  m_Name: German ShepherdSpine2 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1863812270
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400064, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 1863812269}
+  m_LocalRotation: {x: .0318002738, y: .0236344598, z: .316173196, w: .947873771}
+  m_LocalPosition: {x: -.217688352, y: 0, z: 0}
+  m_LocalScale: {x: 1.00000024, y: 1.0000006, z: 1}
+  m_Children:
+  - {fileID: 523479051}
+  m_Father: {fileID: 21855855}
+  m_RootOrder: 0
+--- !u!1 &1874779790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100030, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1874779791}
+  m_Layer: 0
+  m_Name: German ShepherdLLegAnkle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1874779791
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400030, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 1874779790}
+  m_LocalRotation: {x: 1.66360896e-05, y: 1.70349103e-05, z: -.704181254, w: .710020304}
+  m_LocalPosition: {x: -.165397123, y: 7.62939436e-08, z: 9.53674295e-09}
+  m_LocalScale: {x: .999995351, y: 1.00000405, z: .999999821}
+  m_Children: []
+  m_Father: {fileID: 1146306717}
+  m_RootOrder: 0
+--- !u!1 &1957057078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1957057079}
+  - 95: {fileID: 1957057080}
+  m_Layer: 0
+  m_Name: German_Shepherd_walk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1957057079
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 1957057078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2005434304}
+  - {fileID: 439908649}
+  - {fileID: 235275653}
+  - {fileID: 1331826985}
+  - {fileID: 470646754}
+  - {fileID: 1559354975}
+  - {fileID: 2041868445}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!95 &1957057080
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500000, guid: 1bb5c825280a6b7498ffb3b78870d3cf,
+    type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 1957057078}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_Controller: {fileID: 9100000, guid: b9309ac9e2874794d8a8de2fb4905cd7, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2005434303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1579,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 8.44638919e-08}
   m_LocalScale: {x: 2.53999996, y: 2.53999996, z: 2.53999996}
   m_Children: []
-  m_Father: {fileID: 685565000}
+  m_Father: {fileID: 1957057079}
   m_RootOrder: 0
 --- !u!137 &2005434305
 SkinnedMeshRenderer:
@@ -1638,40 +1611,40 @@ SkinnedMeshRenderer:
   m_UpdateWhenOffscreen: 0
   m_Mesh: {fileID: 4300000, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_Bones:
-  - {fileID: 1214505932}
-  - {fileID: 38332085}
-  - {fileID: 445590868}
-  - {fileID: 1352903484}
-  - {fileID: 1026045465}
-  - {fileID: 1763826665}
-  - {fileID: 210997737}
-  - {fileID: 383042336}
-  - {fileID: 1432494222}
-  - {fileID: 1173581161}
-  - {fileID: 504382357}
-  - {fileID: 264459359}
-  - {fileID: 1755719757}
-  - {fileID: 1535821556}
-  - {fileID: 2016037823}
-  - {fileID: 603958564}
-  - {fileID: 1390131238}
-  - {fileID: 789831452}
-  - {fileID: 45576583}
-  - {fileID: 1257993972}
-  - {fileID: 347858688}
-  - {fileID: 1907336223}
-  - {fileID: 1188982501}
-  - {fileID: 1109631003}
-  - {fileID: 161636371}
-  - {fileID: 1173009022}
-  - {fileID: 1273064292}
-  - {fileID: 1485495294}
-  - {fileID: 656359352}
-  - {fileID: 455873630}
-  - {fileID: 1526177941}
-  - {fileID: 1499279849}
+  - {fileID: 1863812270}
+  - {fileID: 523479051}
+  - {fileID: 707142041}
+  - {fileID: 21855855}
+  - {fileID: 1592745326}
+  - {fileID: 884734875}
+  - {fileID: 1114100945}
+  - {fileID: 235275653}
+  - {fileID: 338693934}
+  - {fileID: 270791735}
+  - {fileID: 414930672}
+  - {fileID: 901014794}
+  - {fileID: 1079167588}
+  - {fileID: 1319611051}
+  - {fileID: 466558905}
+  - {fileID: 1114825229}
+  - {fileID: 1585042495}
+  - {fileID: 94964553}
+  - {fileID: 1298308311}
+  - {fileID: 1146306717}
+  - {fileID: 2097617941}
+  - {fileID: 1501640266}
+  - {fileID: 654484850}
+  - {fileID: 1874779791}
+  - {fileID: 1539257366}
+  - {fileID: 261100014}
+  - {fileID: 1412093294}
+  - {fileID: 444600341}
+  - {fileID: 1244812036}
+  - {fileID: 602995098}
+  - {fileID: 300679161}
+  - {fileID: 1093301517}
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 383042336}
+  m_RootBone: {fileID: 235275653}
   m_AABB:
     m_Center: {x: -.252343565, y: .0261764526, z: -.013700977}
     m_Extent: {x: .845111489, y: .577744007, z: .212722436}
@@ -1693,31 +1666,57 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &2016037822
+--- !u!1 &2041868444
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100022, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabParentObject: {fileID: 100056, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 2016037823}
+  - 4: {fileID: 2041868445}
   m_Layer: 0
-  m_Name: German ShepherdLLeg2
+  m_Name: German ShepherdRLegPlatform 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2016037823
+--- !u!4 &2041868445
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400022, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabParentObject: {fileID: 400056, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
   m_PrefabInternal: {fileID: 1128563658}
-  m_GameObject: {fileID: 2016037822}
-  m_LocalRotation: {x: .0064593656, y: .00397260115, z: .282534719, w: .959227085}
-  m_LocalPosition: {x: -.159134492, y: 0, z: -1.90734859e-08}
-  m_LocalScale: {x: 1.00000012, y: 1.00000119, z: .999999583}
-  m_Children:
-  - {fileID: 1257993972}
-  m_Father: {fileID: 1432494222}
+  m_GameObject: {fileID: 2041868444}
+  m_LocalRotation: {x: -.565089166, y: .425057858, z: .565089285, w: -.425057858}
+  m_LocalPosition: {x: .243573114, y: .0863899589, z: -.156729221}
+  m_LocalScale: {x: 2.53999996, y: 2.5400002, z: 2.53999996}
+  m_Children: []
+  m_Father: {fileID: 1957057079}
+  m_RootOrder: 6
+--- !u!1 &2097617940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100076, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2097617941}
+  m_Layer: 0
+  m_Name: German ShepherdTail5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2097617941
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400076, guid: 1bb5c825280a6b7498ffb3b78870d3cf, type: 3}
+  m_PrefabInternal: {fileID: 1128563658}
+  m_GameObject: {fileID: 2097617940}
+  m_LocalRotation: {x: -.00263875886, y: .0868158638, z: -.0103502199, w: .996167123}
+  m_LocalPosition: {x: -.121487349, y: 0, z: -9.53674295e-09}
+  m_LocalScale: {x: 1.00000441, y: 1.00000644, z: .999999762}
+  m_Children: []
+  m_Father: {fileID: 1501640266}
   m_RootOrder: 0
