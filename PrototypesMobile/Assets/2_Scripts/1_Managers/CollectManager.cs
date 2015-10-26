@@ -59,6 +59,7 @@
 			tc.SetActive(false);
 			UIManager.Instance.UpdatePlayerInfoCollectables(collected, collectables_Count);
 			UIManager.Instance.StartCoroutine("StartCaptureOeuvre", tc.painting_Sprite);
+			InputManager.Instance.isCapturing = true;
 		}
 	}
 }

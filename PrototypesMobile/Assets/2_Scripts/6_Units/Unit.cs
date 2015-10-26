@@ -37,7 +37,7 @@ namespace TheVandals
 		public MoveState moveState = MoveState.None;
 		public bool canMove = false;
 
-		[HideInInspector]
+//		[HideInInspector]
 		public int turnSteps;
 		[HideInInspector]
 		public Animator anim;			
@@ -94,7 +94,7 @@ namespace TheVandals
 
 		public abstract void TravelFinished();
 		
-		public abstract bool Check();
+		public abstract bool Check(bool addStep);
 
 	    public List<Vector3> GetWaypointsFromPath(List<Tile> path)
 	    {
@@ -134,7 +134,7 @@ namespace TheVandals
 					tile_current = path[0];
 					path.RemoveAt(0);					
 					
-					if(Check())
+					if(Check(true))
 						return;	
 
 					if(direction != Vector3.zero && !endedGame)
@@ -142,7 +142,6 @@ namespace TheVandals
 						turnSteps++;
 						if(turnSteps >= step_Max)
 							canMove = false;
-						UIManager.Instance.UpdatePlayerInfo(step_Max, turnSteps);
 					}			
 				}
 				else
@@ -164,6 +163,7 @@ namespace TheVandals
 		}
 		
 		public virtual void SetFov(bool enable , Tile tile){}
+		public virtual void UpdateUI(){}
 
 		public void SetUnitNeighboursTilesState(TileState ts)
 		{

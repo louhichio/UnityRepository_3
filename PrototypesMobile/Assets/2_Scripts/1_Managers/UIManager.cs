@@ -64,6 +64,7 @@
 
 		private bool isCapturing = false;
 		public bool isPaused = false;
+		
 		#endregion
 
 		#region Events

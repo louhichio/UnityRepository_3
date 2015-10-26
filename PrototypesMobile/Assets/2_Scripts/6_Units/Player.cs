@@ -208,7 +208,7 @@
 					TurnManager.Instance.StartCoroutine("PlayerMoved");
 			}
 		}
-		public override bool Check()
+		public override bool Check(bool addStep)
 		{
 			if(tile_current == MapManager.Instance.tile_EndGame && !endedGame)
 			{
@@ -243,7 +243,10 @@
 			}
 			return false;
 		}
-
+		public override void UpdateUI()
+		{			
+			UIManager.Instance.UpdatePlayerInfo(step_Max, turnSteps);
+		}
 		public void TouchOnDestinationTile(Tile destination)
 		{
 			tile_Destination.transform.position = destination.transform.position;

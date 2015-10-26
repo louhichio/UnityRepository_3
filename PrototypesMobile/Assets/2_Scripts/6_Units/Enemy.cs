@@ -28,6 +28,9 @@
 		public GameObject psDetect;
 
 		private GameObject prefab_ImageExclamation;
+
+		private bool waited = false;
+		private bool iswaiting = false;
 		#endregion
 
 		#region Events
@@ -106,7 +109,7 @@
 					SetFov(false, tile_current);					
 					SetFov(true, path[0]);	
 				}
-				Check();	
+				Check(false);	
 			}
 		}
 
@@ -137,6 +140,9 @@
 
 			if(anim)
 				anim.SetInteger("MoveState",0);
+			
+			iswaiting = false;
+			waited = false;
 		}		
 
 		public override void TravelTo(Tile destination)
@@ -214,7 +220,9 @@
 
 			list_UnitNeighbours = tile_current.GetTilesWithinCost(step_Max);
 //			SetUnitNeighboursTilesState(TileState.EnemyOn);
-			SetFov(true, tile_current);		
+			SetFov(true, tile_current);				
+			
+			Check(false);
 
 			if(tile_current == target)
 			{
@@ -223,8 +231,6 @@
 				UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, false, markHeight);
 				StopCoroutine("UpdateExclamationMark");
 			}
-			
-			Check();
 			
 			tile_current.AddUnit(this);
 
@@ -241,7 +247,7 @@
 			}
 		}
 
-		public override bool Check()
+		public override bool Check(bool addStep)
 		{				
 			if(!Player.Instance.isHidden)
 			{
@@ -254,28 +260,12 @@
 
 				if(fov.isPlayerDetected() && (Tile.ReferenceEquals(target, null) || target != Player.Instance.tile_current))
 				{
-					target = Player.Instance.tile_current;
-
-					List<Tile> path = AStar.FindPath(tile_current, Player.Instance.tile_current);
-					this.path = path;
-					waypoints.Clear();
-					waypoints = GetWaypointsFromPath(path);
-					
-					Vector3 pos = target.transform.position;
-					pos.y += 0.003f;
-					psDetect.transform.position = pos;
-					psDetect.SetActive(true);
-					StartCoroutine("UpdateExclamationMark");
-					
-					Vector3 direction = waypoints[0] - transform.position;
-					direction.y =0;						
-					if(direction.normalized!= Vector3.zero)
-						transform.forward = direction.normalized * 90;	
-
-					SetFov(false, tile_current);					
-					SetFov(true, path[0]);		
-
-					Player.Instance.Detected(this);
+					if(!Tile.ReferenceEquals(target, null) && target != Player.Instance.tile_current)
+						PlayerDetected(addStep);
+					else if(!iswaiting)
+					{
+						StartCoroutine("waitForSeconds", addStep);
+					}
 					return true;
 				}
 				else if(Tile.ReferenceEquals(target, null))
@@ -302,6 +292,97 @@
 				UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, true, markHeight);
 				yield return null;
 			}
+		}
+
+		IEnumerator waitForSeconds(bool addStep)
+		{
+			iswaiting = true;
+
+			Stop ();
+
+			if(addStep)
+				turnSteps++;
+
+			
+			target = Player.Instance.tile_current;
+			
+			List<Tile> path = AStar.FindPath(tile_current, Player.Instance.tile_current);
+			this.path = path;
+			waypoints.Clear();
+			waypoints = GetWaypointsFromPath(path);
+			
+			Vector3 direction = waypoints[0] - transform.position;
+			direction.y =0;						
+			if(direction.normalized!= Vector3.zero)
+				transform.forward = direction.normalized * 90;	
+			
+			Vector3 pos = target.transform.position;
+			pos.y += 0.003f;
+			psDetect.transform.position = pos;
+			psDetect.SetActive(true);
+			
+			StartCoroutine("UpdateExclamationMark");
+			
+			SetFov(false, tile_current);					
+			SetFov(true, path[0]);		
+
+			yield return new WaitForSeconds(1.0f);
+
+			iswaiting = false;
+			
+			Player.Instance.Detected(this);
+			if(turnSteps < step_Max)
+			{
+				moveState = MoveState.Moving;
+				canMove = true;
+				if(anim)
+					anim.SetInteger("MoveState",1);	
+			}
+			else
+				TravelFinished();
+		}
+		public void PlayerDetected(bool addStep)
+		{
+			if(addStep)
+			{
+				turnSteps++;
+				if(turnSteps >= step_Max)
+					canMove = false;
+			}
+
+			target = Player.Instance.tile_current;
+			
+			List<Tile> path = AStar.FindPath(tile_current, Player.Instance.tile_current);
+			this.path = path;
+			waypoints.Clear();
+			waypoints = GetWaypointsFromPath(path);
+			
+			Vector3 direction = waypoints[0] - transform.position;
+			direction.y =0;						
+			if(direction.normalized!= Vector3.zero)
+				transform.forward = direction.normalized * 90;	
+			
+			Vector3 pos = target.transform.position;
+			pos.y += 0.003f;
+			psDetect.transform.position = pos;
+			psDetect.SetActive(true);
+			
+			StartCoroutine("UpdateExclamationMark");
+			
+			SetFov(false, tile_current);					
+			SetFov(true, path[0]);	
+			
+			Player.Instance.Detected(this);
+
+			if(turnSteps < step_Max)
+			{
+				moveState = MoveState.Moving;
+				canMove = true;
+				if(anim)
+					anim.SetInteger("MoveState",1);	
+			}
+			else
+				TravelFinished();
 		}
 	}
 }

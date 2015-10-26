@@ -10,6 +10,8 @@
 		private bool isFingerClear = true;
 		[SerializeField]
 		private bool waitButtonUp = false;
+
+		public bool isCapturing = false;
 		
 		#region Events
 		void OnEnable()
@@ -30,6 +32,7 @@
 		private void GameReset()
 		{
 			isStop = false;
+			isCapturing = false;
 		}
 		#endregion
 
@@ -63,6 +66,11 @@
 					isFingerClear = false;
 					waitButtonUp = true;
 					}
+				}
+				if(isCapturing)
+				{
+					UIManager.Instance.EndCapture();
+					isCapturing = false;
 				}
 			}else if(waitButtonUp && Input.GetButtonUp("Fire1"))
 				waitButtonUp = false;
