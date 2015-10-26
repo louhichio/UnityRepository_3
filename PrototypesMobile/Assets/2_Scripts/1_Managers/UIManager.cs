@@ -20,6 +20,9 @@
 		private Text text_CaptureCount;
 		[SerializeField]
 		private Text text_BustedCount;
+		[SerializeField]
+		private Text text_DetectedCount;
+
 
 
 		[Header("Panel PlayerInfo")]
@@ -112,6 +115,8 @@
 				panel_EndScreen.SetActive(true);
 				text_CaptureCount.text = CollectManager.Instance.collected + "/" + CollectManager.Instance.collectables_Count;
 				text_BustedCount.text = Player.Instance.bustedCount.ToString();
+				text_DetectedCount.text = Player.Instance.detectedCount.ToString();
+
 				break;
 			case "LOST":
 				Player.Instance.bustedCount++;
@@ -217,6 +222,7 @@
 			panel_EnemyInfo.SetActive(true);
 			panel_GameInfo.SetActive(true);	
 			EventManager.Instance.Resume();
+			Player.Instance.PlayerCapturedOeuvre();
 		}
 
 		public void GenerateUnitExclamationMark(ref GameObject go)

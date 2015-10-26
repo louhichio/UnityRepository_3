@@ -142,6 +142,7 @@ namespace TheVandals
 						turnSteps++;
 						if(turnSteps >= step_Max)
 							canMove = false;
+						UpdateUI();
 					}			
 				}
 				else

@@ -7,12 +7,13 @@ namespace TheVandals
 	public class GameManager: Singleton<GameManager>
 	{		
 		public bool reset = false;
+		public float enemyTurnDelay = 2.0f;
 
 		void Start()
 		{ 
 			MapManager.Instance.Initialise();
 			EventManager.Instance.Initialise();
-			EventManager.Instance.StartTurn_Enemy();
+			StartCoroutine("Init");
 		}
 
 		public IEnumerator PlayerWon()
@@ -26,6 +27,8 @@ namespace TheVandals
 
 			MapManager.Instance.ResetTiles();
 			EventManager.Instance.GameReset();
+			
+			yield return new WaitForSeconds(enemyTurnDelay);
 			EventManager.Instance.StartTurn_Enemy();
 		}
 
@@ -39,6 +42,13 @@ namespace TheVandals
 			
 			MapManager.Instance.ResetTiles();
 			EventManager.Instance.GameReset();
+			
+			yield return new WaitForSeconds(enemyTurnDelay);
+			EventManager.Instance.StartTurn_Enemy();
+		}
+		public IEnumerator Init()
+		{
+			yield return new WaitForSeconds(enemyTurnDelay);
 			EventManager.Instance.StartTurn_Enemy();
 		}
 	}

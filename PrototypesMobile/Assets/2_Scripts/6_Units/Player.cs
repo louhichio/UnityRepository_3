@@ -43,7 +43,8 @@
 		public GameObject tile_Destination;
 		[HideInInspector]
 		public int bustedCount = 0;
-
+		[HideInInspector]
+		public int detectedCount = 0;
 		public Tile tileEndGame;
 		
 		public int stepsLeft
@@ -107,8 +108,6 @@
 			moveState = MoveState.None;
 			
 			anim.SetInteger("MoveState",0);
-			
-			bustedCount = 0;
 
 			endedGame = false;
 
@@ -236,8 +235,6 @@
 				tile_current.isCollectible = false;
 				tile_current.isCaptureOeuvre = false;
 				Stop ();
-				turnSteps = step_Max;
-				TravelFinished();
 				CollectManager.Instance.PlayerCollectedObj(tile_current);
 				return true;
 			}
@@ -271,6 +268,7 @@
 					UIManager.Instance.StartCoroutine("FadeInPlayerStatus", 1);
 				}
 				list_UnitsDetect.Add(en);
+				detectedCount ++;
 			}
 		}
 		public void NotDetected(Enemy en)
@@ -304,6 +302,11 @@
 			}
 			else
 				isDetected();
+		}
+		public void PlayerCapturedOeuvre()
+		{			
+			turnSteps = step_Max;
+			TravelFinished();
 		}
 	}
 }

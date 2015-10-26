@@ -62,9 +62,11 @@
 				{
 					if(isStop)
 					{
-					GameManager.Instance.reset = true;
-					isFingerClear = false;
-					waitButtonUp = true;
+						GameManager.Instance.reset = true;
+						Player.Instance.bustedCount = 0;
+						Player.Instance.detectedCount = 0;
+						isFingerClear = false;
+						waitButtonUp = true;
 					}
 				}
 				if(isCapturing)
