@@ -128,8 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1211370047}
   tile_LinkEnd: {fileID: 1078854862}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 103
 --- !u!1 &2212368
 GameObject:
@@ -11000,141 +11000,79 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 22362954, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1314411769}
     - target: {fileID: 22467220, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8
+      value: -14.6000004
       objectReference: {fileID: 0}
-    - target: {fileID: 22467220, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -57.7999992
+    - target: {fileID: 22461150, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -14.6000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 22427434, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -14.6000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447846, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 5f3921091ca9145dd99f424dadeec357,
+        type: 3}
+    - target: {fileID: 11438914, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 5f3921091ca9145dd99f424dadeec357,
+        type: 3}
+    - target: {fileID: 11411734, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 5f3921091ca9145dd99f424dadeec357,
+        type: 3}
+    - target: {fileID: 11447846, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 11438914, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411734, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 22467220, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 22435556, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+    - target: {fileID: 22461150, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22427434, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 22427434, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 25.2000008
-      objectReference: {fileID: 0}
-    - target: {fileID: 22427434, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22427434, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 22427434, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 22467220, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 22467220, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11438914, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447846, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 108000, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 141060, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 127036, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11483804, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_Interactable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11408890, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: intensity
+    - target: {fileID: 9594536, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2098534, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_Depth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22362954, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1314411769}
-    - target: {fileID: 11484368, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: img_excla_heightOffset
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22404538, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 22493860, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 22447714, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 402616, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 188558, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_Name
-      value: Canvas_MainCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 141730, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_Name
-      value: Canvas_WorldSpace
-      objectReference: {fileID: 0}
-    - target: {fileID: 169998, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_Name
-      value: Canvas_FXCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424216, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9c15edbeeeb09432096b6c6e97b61f0a,
-        type: 3}
-    - target: {fileID: 11422004, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11422004, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_ScreenMatchMode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 188558, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+    - target: {fileID: 108000, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22427434, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 22461150, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -4.69999981
-      objectReference: {fileID: 0}
-    - target: {fileID: 22461150, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
-      propertyPath: m_LocalPosition.z
+    - target: {fileID: 190512, guid: 855ddbb8b54de6542a860585fe373032, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -22642,8 +22580,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile_LinkStart: {fileID: 1078854862}
   tile_LinkEnd: {fileID: 1318572706}
-  activate: 1
-  isActive: 1
+  activate: 0
+  isActive: 0
   index: 105
 --- !u!1 &848769696
 GameObject:
@@ -28822,9 +28760,7 @@ MonoBehaviour:
   X: -4
   Y: 0
   Z: 2
-  Neighbours:
-  - {fileID: 1211370047}
-  - {fileID: 1318572706}
+  Neighbours: []
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -32231,7 +32167,6 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 1634967331}
   - {fileID: 1048471327}
-  - {fileID: 1078854862}
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -32505,7 +32440,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1220953306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.65400004, y: .25, z: 4.55000019}
+  m_LocalPosition: {x: -3.65400004, y: .248999998, z: 4.55000019}
   m_LocalScale: {x: .280797035, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 751725981}
@@ -35248,7 +35183,6 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 833459890}
   - {fileID: 531092252}
-  - {fileID: 1078854862}
   AllowsTraversal: 1
   TraversalCost: 1
   IsTraversable: 1
@@ -37363,7 +37297,7 @@ Transform:
   m_RootOrder: 80
 --- !u!21 &1423634183
 Material:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -37372,6 +37306,7 @@ Material:
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
