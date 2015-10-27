@@ -56,12 +56,22 @@
 			EventManager.Instance.Pause();
 			collected++;
 			TileCollectable tc = list_Collectables.Find(x=>x.tile == t);
-			if(tc.type == TileCollectableType.CreateOeuvre)
-				tc.DrawSprite();
 			tc.SetActive(false);
 			UIManager.Instance.UpdatePlayerInfoCollectables(collected, collectables_Count);
-			UIManager.Instance.StartCoroutine("StartCaptureOeuvre", tc.painting_Sprite);
+			
+			if(tc.type == TileCollectableType.CreateOeuvre)
+				UIManager.Instance.StartCoroutine("StartCreateOeuvre", tc.painting_Sprite);
+			else
+				UIManager.Instance.StartCoroutine("StartCaptureOeuvre", tc.painting_Sprite);
+
 			InputManager.Instance.isCapturing = true;
+		}
+
+		public void DrawOeuvre(Tile t)
+		{
+			TileCollectable tc = list_Collectables.Find(x=>x.tile == t);
+			if(tc.type == TileCollectableType.CreateOeuvre)
+				tc.DrawSprite();
 		}
 	}
 }

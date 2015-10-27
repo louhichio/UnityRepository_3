@@ -54,6 +54,10 @@
 		private GameObject panel_PaintingInfo;
 		[SerializeField]
 		private Image img_Painting;
+		[SerializeField]
+		private GameObject panel_PaintingCreate;
+		[SerializeField]
+		private Image img_PaintingCreate;
 
 		[Header("Canvas Effects")]
 		[SerializeField]
@@ -99,6 +103,7 @@
 			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
 			panel_PaintingInfo.SetActive(false);
+			panel_PaintingCreate.SetActive(false);
 			panel_GameInfo.SetActive(true);
 			
 			image_PlayerStatus.enabled = true;
@@ -133,6 +138,7 @@
 			panel_PlayerInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(false);
 			panel_PaintingInfo.SetActive(false);
+			panel_PaintingCreate.SetActive(false);
 
 			StopAllCoroutines();
 			image_PlayerStatus.enabled = true;
@@ -197,9 +203,38 @@
 
 			panel_GameInfo.SetActive(false);		
 			panel_EnemyInfo.SetActive(false);
-			panel_PaintingInfo.SetActive(true);	
-			img_Painting.sprite = painting;
+				panel_PaintingInfo.SetActive(true);	
+				img_Painting.sprite = painting;
 
+
+			opacity = 2.0f;
+			while(opacity >= 0.0f)
+			{
+				screenOverlay.intensity = opacity;
+				opacity -= Time.deltaTime * 3.0f;
+				yield return null;
+			}
+			screenOverlay.intensity = 0.0f;
+		}
+
+		public IEnumerator StartCreateOeuvre(Sprite painting)
+		{
+			image_PlayerStatus.enabled = false;
+			isCapturing = true;
+			float opacity = 0.1f;
+			while(opacity <= opacity_max)
+			{
+				screenOverlay.intensity = opacity;
+				opacity += Time.deltaTime * 10.0f;
+				yield return null;
+			}		
+			
+			panel_GameInfo.SetActive(false);		
+			panel_EnemyInfo.SetActive(false);
+			panel_PaintingCreate.SetActive(true);
+			img_PaintingCreate.sprite = painting;
+			
+			
 			opacity = 2.0f;
 			while(opacity >= 0.0f)
 			{
@@ -217,12 +252,16 @@
 
 			isCapturing = false;
 //			Time.timeScale = 1;
+			if(panel_PaintingInfo.activeSelf)
+				panel_PaintingInfo.SetActive(false);
+			else
+				panel_PaintingCreate.SetActive(false);
 
-			panel_PaintingInfo.SetActive(false);
 			panel_EnemyInfo.SetActive(true);
 			panel_GameInfo.SetActive(true);	
 			EventManager.Instance.Resume();
 			Player.Instance.PlayerCapturedOeuvre();
+			SoundManager.Instance.StopClip();
 		}
 
 		public void GenerateUnitExclamationMark(ref GameObject go)
