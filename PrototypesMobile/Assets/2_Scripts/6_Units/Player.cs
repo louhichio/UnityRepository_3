@@ -115,7 +115,7 @@
 		}
 
 		public void StartTurn()
-		{						
+		{				
 			canMove = true;	
 			turnSteps = 0;
 

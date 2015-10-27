@@ -328,12 +328,12 @@
 			SetFov(true, path[0]);		
 
 			SoundManager.Instance.PlayClip(1);
+			
+			Player.Instance.Detected(this);
 
 			yield return new WaitForSeconds(1.0f);
 
 			iswaiting = false;
-			
-			Player.Instance.Detected(this);
 			if(turnSteps < step_Max)
 			{
 				moveState = MoveState.Moving;

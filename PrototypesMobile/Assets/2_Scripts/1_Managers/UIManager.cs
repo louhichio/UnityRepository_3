@@ -234,6 +234,7 @@
 			panel_PaintingCreate.SetActive(true);
 			img_PaintingCreate.sprite = painting;
 			
+			CollectManager.Instance.DrawOeuvre(Player.Instance.tile_current);
 			
 			opacity = 2.0f;
 			while(opacity >= 0.0f)
