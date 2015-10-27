@@ -35,7 +35,13 @@
 
 		public void PlayClip(int index)
 		{
-			audioSource[index].Play();
+			audioSource[1].clip = audioClip[index];
+			audioSource[1].Play();
+		}
+
+		public void StopClip()
+		{
+			audioSource[1].Stop();
 		}
 
 		#endregion

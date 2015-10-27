@@ -234,6 +234,8 @@
 			{
 				tile_current.isCollectible = false;
 				tile_current.isCaptureOeuvre = false;
+				
+				SoundManager.Instance.PlayClip(3);
 				Stop ();
 				CollectManager.Instance.PlayerCollectedObj(tile_current);
 				return true;
