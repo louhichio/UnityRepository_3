@@ -101,6 +101,7 @@
 			{
 				Player.Instance.TravelTo(
 					MapManager.Instance.GetSwipeTilePosition(Player.Instance.tile_current, gesture.Direction));
+				Player.Instance.DisableDestinationTile();
 			}
 		}
 
