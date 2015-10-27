@@ -230,6 +230,7 @@
 				target = null;
 				psDetect.SetActive(false);
 				UIManager.Instance.UpdateExclamationMark(prefab_ImageExclamation, transform, false, markHeight);
+				Player.Instance.NotDetected(this);
 				StopCoroutine("UpdateExclamationMark");
 			}
 			
