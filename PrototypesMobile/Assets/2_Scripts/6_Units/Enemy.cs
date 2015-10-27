@@ -29,7 +29,6 @@
 
 		private GameObject prefab_ImageExclamation;
 
-		private bool waited = false;
 		private bool iswaiting = false;
 		#endregion
 
@@ -142,7 +141,6 @@
 				anim.SetInteger("MoveState",0);
 			
 			iswaiting = false;
-			waited = false;
 		}		
 
 		public override void TravelTo(Tile destination)
@@ -176,6 +174,9 @@
 		{
 			if(fov.isPlayerDetected() && (Tile.ReferenceEquals(target, null) || target != Player.Instance.tile_current))
 			{
+				if(Tile.ReferenceEquals(target, null))				
+					SoundManager.Instance.PlayClip(1);
+
 				target = Player.Instance.tile_current;
 				
 				Vector3 pos = target.transform.position;
@@ -325,6 +326,8 @@
 			
 			SetFov(false, tile_current);					
 			SetFov(true, path[0]);		
+
+			SoundManager.Instance.PlayClip(1);
 
 			yield return new WaitForSeconds(1.0f);
 

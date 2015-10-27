@@ -22,6 +22,8 @@
 		private float screen_Size_Center = 5;
 		[SerializeField]
 		private float screen_Size_Min = 3;
+		[SerializeField]
+		private float zoomSpeed = 2.5f;
 
 		private float screen_Size;
 		private float Screen_Diagonal;
@@ -99,7 +101,7 @@
 					transform.position = directionInverse;
 					CenterCamera = false;
 				}
-				
+
 //				cameraRelative = transform.InverseTransformPoint(Player.Instance.transform.position);
 //				Vector3 destinationPos = Difference + cameraRelative;
 //				destinationPos.x = Mathf.Clamp(destinationPos.x, min.x, max.x);
@@ -118,7 +120,7 @@
 					transform.position = Vector3.Lerp(transform.position, DestinationPos(), Time.deltaTime * follow_Speed);
 				}
 				
-				Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, screen_Size, Time.deltaTime * 3);
+				Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, screen_Size, Time.deltaTime * zoomSpeed);
 			}
 		}		
 		#endregion
