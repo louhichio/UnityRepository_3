@@ -50,6 +50,7 @@
 			isHide = false;
 			isCollectible = false;
 			isCaptureOeuvre = false;
+			isCreateOeuvre = false;
 
 			int[] arrayCoordinate = ArrayCoordinateFromPosition(transform.position);
 			

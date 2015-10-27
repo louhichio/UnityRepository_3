@@ -33,6 +33,7 @@ namespace TheVandals
 		public bool isHide;
 		public bool isCollectible;
 		public bool isCaptureOeuvre;
+		public bool isCreateOeuvre;
 
 	    // Public methods
 	    // ========================================================================

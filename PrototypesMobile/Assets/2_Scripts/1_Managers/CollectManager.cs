@@ -56,6 +56,8 @@
 			EventManager.Instance.Pause();
 			collected++;
 			TileCollectable tc = list_Collectables.Find(x=>x.tile == t);
+			if(tc.type == TileCollectableType.CreateOeuvre)
+				tc.DrawSprite();
 			tc.SetActive(false);
 			UIManager.Instance.UpdatePlayerInfoCollectables(collected, collectables_Count);
 			UIManager.Instance.StartCoroutine("StartCaptureOeuvre", tc.painting_Sprite);

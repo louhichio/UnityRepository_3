@@ -233,9 +233,19 @@
 			if(tile_current.isCollectible)
 			{
 				tile_current.isCollectible = false;
-				tile_current.isCaptureOeuvre = false;
-				
-				SoundManager.Instance.PlayClip(3);
+
+				if(tile_current.isCaptureOeuvre)
+				{
+					tile_current.isCaptureOeuvre = false;
+					SoundManager.Instance.PlayClip(3);
+				}
+
+				if(tile_current.isCreateOeuvre)
+				{
+					tile_current.isCreateOeuvre = false;
+					SoundManager.Instance.PlayClip(2);
+				}
+
 				Stop ();
 				CollectManager.Instance.PlayerCollectedObj(tile_current);
 				return true;
